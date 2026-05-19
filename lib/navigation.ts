@@ -35,7 +35,7 @@ export const NAVIGATION: NavItem[] = [
       eyebrow: "Core capabilities",
       title: "Software factory + operational AI",
       description:
-        "Four service lines that combine engineering, SAP integration, cloud, data, and applied AI.",
+        "Four service lines with dedicated specialized pages — engineering, SAP integration, cloud and data, and applied AI.",
       href: "/services",
       cta: "View all services",
     },
@@ -46,28 +46,28 @@ export const NAVIGATION: NavItem[] = [
         links: [
           {
             label: "Custom development",
-            href: "/services/software-factory#custom",
+            href: "/services/software-factory/custom-development",
             description: "Internal platforms and tailored applications.",
           },
           {
             label: "Enterprise portals",
-            href: "/services/software-factory#portals",
+            href: "/services/software-factory/enterprise-portals",
             description: "Corporate front-ends and internal portals.",
           },
           {
             label: "Internal applications",
-            href: "/services/software-factory#apps",
-            description: "Tools for operations, finance, and HR teams.",
+            href: "/services/software-factory/internal-apps",
+            description: "Apps for finance, HR, and operations.",
           },
           {
             label: "APIs & microservices",
-            href: "/services/software-factory#apis",
+            href: "/services/software-factory/apis-microservices",
             description: "Reusable services with clear contracts.",
           },
           {
             label: "Evolutionary support",
-            href: "/services/software-factory#support",
-            description: "Continuity and continuous improvement.",
+            href: "/services/software-factory/evolutionary-support",
+            description: "L2/L3 support and quarterly roadmap.",
           },
         ],
       },
@@ -77,33 +77,43 @@ export const NAVIGATION: NavItem[] = [
         links: [
           {
             label: "SAP On-Premise",
-            href: "/services/sap-integrations#onprem",
+            href: "/services/sap-integrations/on-premise",
             description: "ECC, S/4HANA, and the core modules.",
           },
           {
             label: "SAP Cloud",
-            href: "/services/sap-integrations#cloud",
-            description: "SuccessFactors, Ariba, IBP, and more.",
+            href: "/services/sap-integrations/sap-cloud",
+            description: "Hybrid cloud-to-on-prem integration.",
           },
           {
             label: "SAP BTP",
-            href: "/services/sap-integrations#btp",
-            description: "Extensions, CAP, Workflow, Build.",
+            href: "/services/sap-integrations/sap-btp",
+            description: "Extensions, CAP, workflow, build.",
           },
           {
             label: "ABAP / RFC / IDocs",
-            href: "/services/sap-integrations#abap",
-            description: "SAP development and technical extensions.",
+            href: "/services/sap-integrations/abap-rfc-idocs",
+            description: "SAP development and technical integration.",
           },
           {
-            label: "Boomi / HCI / PI",
-            href: "/services/sap-integrations#middleware",
-            description: "Enterprise integration middleware.",
+            label: "Enterprise middleware",
+            href: "/services/sap-integrations/middleware",
+            description: "Boomi, HCI/CPI, PI/PO, IBM WebSphere.",
           },
           {
             label: "Third-party systems",
-            href: "/services/sap-integrations#third-party",
-            description: "Connectivity with external platforms.",
+            href: "/services/sap-integrations/third-party",
+            description: "CRMs, banks, e-commerce, legacy.",
+          },
+          {
+            label: "SAP SuccessFactors",
+            href: "/services/sap-integrations/successfactors",
+            description: "Employee Central and HR data.",
+          },
+          {
+            label: "SAP HCM",
+            href: "/services/sap-integrations/sap-hcm",
+            description: "HCM On-Premise and HR processes.",
           },
         ],
       },
@@ -113,33 +123,33 @@ export const NAVIGATION: NavItem[] = [
         links: [
           {
             label: "AWS",
-            href: "/services/cloud-data#aws",
-            description: "Architecture, migration, and operation.",
+            href: "/services/cloud-data/aws",
+            description: "S3, CloudFront, Lambda, API Gateway, SES.",
           },
           {
             label: "Azure",
-            href: "/services/cloud-data#azure",
-            description: "Corporate platforms on Azure.",
+            href: "/services/cloud-data/azure",
+            description: "App Service, Functions, SQL, Synapse.",
           },
           {
-            label: "GCP",
-            href: "/services/cloud-data#gcp",
-            description: "Data, analytics, and managed services.",
+            label: "Google Cloud (GCP)",
+            href: "/services/cloud-data/gcp",
+            description: "BigQuery, Cloud Run, Pub/Sub.",
           },
           {
             label: "Enterprise databases",
-            href: "/services/cloud-data#databases",
+            href: "/services/cloud-data/databases",
             description: "Oracle, SQL Server, PostgreSQL, HANA.",
           },
           {
             label: "Data pipelines",
-            href: "/services/cloud-data#pipelines",
+            href: "/services/cloud-data/data-pipelines",
             description: "Ingestion, transformation, quality.",
           },
           {
             label: "Trusted reporting",
-            href: "/services/cloud-data#reporting",
-            description: "BI and executive reports you can audit.",
+            href: "/services/cloud-data/reporting",
+            description: "Semantic layer and auditable BI.",
           },
         ],
       },
@@ -149,28 +159,28 @@ export const NAVIGATION: NavItem[] = [
         links: [
           {
             label: "Generative AI",
-            href: "/services/enterprise-ai#genai",
-            description: "LLMs grounded on your own data.",
+            href: "/services/enterprise-ai/generative-ai",
+            description: "LLMs with corporate RAG and citations.",
           },
           {
             label: "Machine learning",
-            href: "/services/enterprise-ai#ml",
+            href: "/services/enterprise-ai/machine-learning",
             description: "Productive ML with MLOps.",
           },
           {
             label: "Intelligent automation",
-            href: "/services/enterprise-ai#automation",
-            description: "AI-assisted operational flows.",
+            href: "/services/enterprise-ai/intelligent-automation",
+            description: "Assisted flows with human approval.",
           },
           {
             label: "Internal assistants",
-            href: "/services/enterprise-ai#assistants",
-            description: "Conversational tools over private data.",
+            href: "/services/enterprise-ai/internal-assistants",
+            description: "Search and support over private data.",
           },
           {
             label: "Operational copilots",
-            href: "/copilot",
-            description: "AI connected to real systems.",
+            href: "/services/enterprise-ai/operational-copilots",
+            description: "Where Enterprise Copilot lives.",
           },
         ],
       },
@@ -183,7 +193,7 @@ export const NAVIGATION: NavItem[] = [
       eyebrow: "Flagship product",
       title: "Enterprise Copilot",
       description:
-        "The operational AI layer that connects SAP, data, and processes to ask, validate, explain, and act with traceability.",
+        "Operational AI capability that connects SAP, data, APIs, and reports — with permissions, validations, and traceability.",
       href: "/copilot",
       cta: "Explore the Copilot",
     },
@@ -192,25 +202,30 @@ export const NAVIGATION: NavItem[] = [
         title: "Product",
         links: [
           {
-            label: "What it is",
-            href: "/copilot#what",
-            description: "An intelligent operational layer, not a generic chatbot.",
+            label: "Overview",
+            href: "/copilot",
+            description: "From manual work to traceable answers in minutes.",
           },
           {
-            label: "What it does",
-            href: "/copilot#does",
-            description: "Queries, validates, reports, and assists actions.",
+            label: "Operational impact",
+            href: "/copilot/impact",
+            description: "Before vs with Enterprise Copilot.",
           },
           {
-            label: "How it connects",
+            label: "How it works",
             href: "/copilot/how-it-works",
-            description: "SAP, databases, APIs, and reports.",
+            description: "Architecture and operational flow.",
           },
         ],
       },
       {
         title: "Application",
         links: [
+          {
+            label: "Conceptual demo",
+            href: "/copilot/demo",
+            description: "A walk-through interaction with sources and audit.",
+          },
           {
             label: "Use cases",
             href: "/copilot/use-cases",
@@ -227,14 +242,14 @@ export const NAVIGATION: NavItem[] = [
         title: "Get started",
         links: [
           {
-            label: "Operational impact",
-            href: "/copilot#impact",
-            description: "Before vs. with Enterprise Copilot.",
+            label: "Request a pilot",
+            href: "/copilot/pilot",
+            description: "What we connect, what we measure.",
           },
           {
-            label: "Request a pilot",
+            label: "Talk to the team",
             href: "/contact?topic=copilot",
-            description: "Scoped pilot with your team.",
+            description: "Scoped conversation with your team.",
           },
         ],
       },
@@ -245,9 +260,9 @@ export const NAVIGATION: NavItem[] = [
     href: "/industries",
     featured: {
       eyebrow: "Use cases",
-      title: "Where we deliver measurable value",
+      title: "Eight specialized areas",
       description:
-        "Finance, sales, operations, procurement, executive management, HR — functional areas with specific quick-win scopes.",
+        "Each functional and cross-cutting area has its own dedicated page with problem, capabilities, deliverables, and Copilot connection.",
       href: "/industries",
       cta: "View use cases",
     },
@@ -257,23 +272,23 @@ export const NAVIGATION: NavItem[] = [
         links: [
           {
             label: "Finance",
-            href: "/industries#finance",
+            href: "/industries/finance",
             description: "Closings, reconciliations, variance analysis.",
           },
           {
             label: "Operations",
-            href: "/industries#operations",
-            description: "Cycle-time, process monitoring, alerts.",
+            href: "/industries/operations",
+            description: "Status, alerts, cross-system validation.",
           },
           {
             label: "HR / Payroll",
-            href: "/industries#hr",
+            href: "/industries/hr-payroll",
             description: "Headcount, absences, master data.",
           },
           {
             label: "Executive reporting",
-            href: "/industries#reporting",
-            description: "Boardroom-ready dashboards and KPIs.",
+            href: "/industries/executive-reporting",
+            description: "Dashboards, KPIs, traceability.",
           },
         ],
       },
@@ -282,23 +297,23 @@ export const NAVIGATION: NavItem[] = [
         links: [
           {
             label: "SAP integrations",
-            href: "/industries#sap",
+            href: "/industries/sap-integrations",
             description: "ABAP, RFC, IDocs, BTP, middleware.",
           },
           {
             label: "Process automation",
-            href: "/industries#automation",
-            description: "Less manual work, fewer errors.",
+            href: "/industries/process-automation",
+            description: "Assisted flows, less manual work.",
           },
           {
             label: "Internal support",
-            href: "/industries#support",
+            href: "/industries/internal-support",
             description: "Helpdesk and ITSM continuity.",
           },
           {
             label: "Data governance",
-            href: "/industries#governance",
-            description: "Consistency and traceability.",
+            href: "/industries/data-governance",
+            description: "Catalog, rules, traceability.",
           },
         ],
       },
@@ -327,10 +342,12 @@ export const FOOTER_LINKS: { title: string; links: NavLink[] }[] = [
   {
     title: "Enterprise Copilot",
     links: [
-      { label: "Product", href: "/copilot" },
+      { label: "Overview", href: "/copilot" },
+      { label: "Operational impact", href: "/copilot/impact" },
       { label: "How it works", href: "/copilot/how-it-works" },
       { label: "Use cases", href: "/copilot/use-cases" },
       { label: "Security", href: "/copilot/security" },
+      { label: "Request a pilot", href: "/copilot/pilot" },
     ],
   },
   {

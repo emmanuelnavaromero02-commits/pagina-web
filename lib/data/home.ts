@@ -425,16 +425,16 @@ export const HOME_USE_CASES: {
   icon: LucideIcon;
   href: string;
 }[] = [
-  { title: "HR", icon: Building2, href: "/industries#hr" },
-  { title: "Finance", icon: BarChart3, href: "/industries#finance" },
-  { title: "Operations", icon: Workflow, href: "/industries#operations" },
+  { title: "HR", icon: Building2, href: "/industries/hr-payroll" },
+  { title: "Finance", icon: BarChart3, href: "/industries/finance" },
+  { title: "Operations", icon: Workflow, href: "/industries/operations" },
   {
     title: "Executive reporting",
     icon: LineChart,
-    href: "/industries#reporting",
+    href: "/industries/executive-reporting",
   },
-  { title: "Integrations", icon: Plug, href: "/industries#sap" },
-  { title: "Automation", icon: Wand2, href: "/industries#automation" },
+  { title: "Integrations", icon: Plug, href: "/industries/sap-integrations" },
+  { title: "Automation", icon: Wand2, href: "/industries/process-automation" },
 ];
 
 /* CONTACT — what happens next (4 tight steps per spec) */
