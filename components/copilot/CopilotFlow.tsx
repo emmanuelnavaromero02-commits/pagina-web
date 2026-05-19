@@ -5,9 +5,9 @@ export function CopilotFlow() {
   return (
     <Section id="flow" className="bg-white">
       <SectionHeader
-        eyebrow="Flujo operativo"
-        title="Seis pasos, una sola conversación"
-        description="De la pregunta del usuario hasta la acción final, con validaciones y trazabilidad en cada paso. Sin atajos que rompan la operación."
+        eyebrow="Operational flow"
+        title="Six steps, one conversation"
+        description="From the user's question to the final action, with validations and traceability at every step. No shortcuts that break the operation."
       />
       <ol className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {COPILOT_FLOW_STEPS.map((step) => {

@@ -6,32 +6,32 @@ import { Section, SectionHeader } from "@/components/ui/Section";
 import { ServiceHero } from "@/components/services/ServiceHero";
 
 export const metadata: Metadata = {
-  title: "Seguridad y permisos · Copiloto Empresarial",
+  title: "Security & permissions · Enterprise Copilot",
   description:
-    "Modelo de seguridad del Copiloto Empresarial: permisos por rol, trazabilidad, validaciones antes de ejecutar y despliegue controlado.",
+    "Enterprise Copilot security model: per-role permissions, traceability, validations before execution, and controlled deployment.",
   alternates: { canonical: "/copilot/security" },
 };
 
 const principles = [
   {
-    title: "Mínimo privilegio",
+    title: "Least privilege",
     description:
-      "El copiloto nunca tiene más permisos que el usuario que lo invoca. Hereda y respeta las políticas existentes.",
+      "The copilot never has more permissions than the user invoking it. It inherits and respects the existing policies.",
   },
   {
-    title: "Trazabilidad por defecto",
+    title: "Traceability by default",
     description:
-      "Cada consulta, fuente, validación y acción queda registrada para auditoría sin configuración adicional.",
+      "Every query, source, validation, and action is logged for audit without extra configuration.",
   },
   {
     title: "Human-in-the-loop",
     description:
-      "Las acciones críticas se confirman explícitamente antes de aplicarse contra sistemas reales.",
+      "Critical actions are explicitly confirmed before they are applied against real systems.",
   },
   {
-    title: "Datos donde el cliente decide",
+    title: "Data where the client decides",
     description:
-      "On-premise, cloud privado o VPC dedicada. El modelo de despliegue se adapta a la política del cliente.",
+      "On-premise, private cloud, or dedicated VPC — the deployment model follows the client's policy.",
   },
 ];
 
@@ -39,15 +39,15 @@ export default function CopilotSecurityPage() {
   return (
     <>
       <ServiceHero
-        eyebrow="Seguridad"
-        title="Seguridad y permisos pensados para corporativo"
-        description="Un copiloto operativo solo es útil si no rompe la seguridad existente. Estos son los principios que aplicamos por defecto."
+        eyebrow="Security"
+        title="Security and permissions built for the enterprise"
+        description="An operational copilot is only useful if it does not break existing security. These are the principles we apply by default."
       />
 
       <Section className="bg-white">
         <SectionHeader
-          eyebrow="Principios"
-          title="Cuatro principios que guían el diseño"
+          eyebrow="Principles"
+          title="Four principles that guide the design"
         />
         <ul className="mt-12 grid gap-6 sm:grid-cols-2">
           {principles.map((p) => (

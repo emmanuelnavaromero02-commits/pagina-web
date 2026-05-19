@@ -9,7 +9,7 @@ import { SERVICE_DETAILS } from "@/lib/site-data";
 const detail = SERVICE_DETAILS["enterprise-ai"];
 
 export const metadata: Metadata = {
-  title: `${detail.title} · GenAI · ML · RAG corporativo`,
+  title: `${detail.title} · GenAI · ML · Corporate RAG`,
   description: detail.intro,
   alternates: { canonical: "/services/enterprise-ai" },
 };
@@ -28,7 +28,7 @@ export default function EnterpriseAIPage() {
       <Deliverables
         slug="enterprise-ai"
         related={{
-          label: "Ver Copiloto Empresarial",
+          label: "Explore Enterprise Copilot",
           href: "/copilot",
         }}
       />

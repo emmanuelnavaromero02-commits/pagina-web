@@ -7,47 +7,47 @@ import { Section, SectionHeader } from "@/components/ui/Section";
 import { ServiceHero } from "@/components/services/ServiceHero";
 
 export const metadata: Metadata = {
-  title: "Cómo funciona · Copiloto Empresarial",
+  title: "How it works · Enterprise Copilot",
   description:
-    "Arquitectura del Copiloto Empresarial: capas de IA, conectores, permisos, validaciones y trazabilidad sobre SAP, bases de datos, APIs y reportes.",
+    "Enterprise Copilot architecture: AI layers, connectors, permissions, validations, and traceability over SAP, databases, APIs, and reports.",
   alternates: { canonical: "/copilot/how-it-works" },
 };
 
 const layers = [
   {
-    title: "Interfaz conversacional",
+    title: "Conversational interface",
     description:
-      "Punto único donde el usuario consulta, valida, reporta o pide acciones. UI sobria, sin distracciones.",
+      "A single entry point where users ask, validate, report, or request actions. Plain UI, no distractions.",
     icon: Bot,
   },
   {
-    title: "Orquestador de IA",
+    title: "AI orchestrator",
     description:
-      "Decide qué fuente consultar, qué regla aplicar y cuándo escalar al humano antes de ejecutar.",
+      "Decides which source to query, which rule to apply, and when to escalate to a human before executing.",
     icon: Workflow,
   },
   {
-    title: "Capa de conectores",
+    title: "Connector layer",
     description:
-      "Conectores a SAP, bases de datos, APIs internas, cloud y reportes corporativos.",
+      "Connectors to SAP, databases, internal APIs, cloud, and corporate reports.",
     icon: Network,
   },
   {
-    title: "Permisos y políticas",
+    title: "Permissions and policies",
     description:
-      "Respeta los permisos del sistema fuente y aplica políticas adicionales por rol y por área.",
+      "Respects the source system's permissions and applies additional policies per role and per area.",
     icon: Lock,
   },
   {
-    title: "Validaciones de negocio",
+    title: "Business validations",
     description:
-      "Reglas que detectan inconsistencias y validan antes de aplicar cualquier acción crítica.",
+      "Rules that detect inconsistencies and validate before applying any critical action.",
     icon: ShieldCheck,
   },
   {
-    title: "Trazabilidad",
+    title: "Traceability",
     description:
-      "Registro auditable de cada consulta, fuente consultada, validación y resultado.",
+      "Auditable record of every query, source consulted, validation, and result.",
     icon: Layers,
   },
 ];
@@ -56,16 +56,16 @@ export default function HowItWorksPage() {
   return (
     <>
       <ServiceHero
-        eyebrow="Cómo funciona"
-        title="Una arquitectura pensada para entornos corporativos"
-        description="El Copiloto Empresarial no es un modelo suelto: es una arquitectura completa con orquestación, conectores, permisos, validaciones y trazabilidad."
+        eyebrow="How it works"
+        title="An architecture designed for enterprise environments"
+        description="Enterprise Copilot is not a loose model — it is a complete architecture with orchestration, connectors, permissions, validations, and traceability."
       />
 
       <Section className="bg-white">
         <SectionHeader
-          eyebrow="Capas"
-          title="Seis capas que trabajan juntas"
-          description="Cada capa tiene una responsabilidad clara y puede evolucionar de forma independiente."
+          eyebrow="Layers"
+          title="Six layers working together"
+          description="Each layer has a clear responsibility and can evolve independently."
         />
         <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {layers.map((l) => {

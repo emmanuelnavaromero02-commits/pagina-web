@@ -8,9 +8,9 @@ export function CopilotArchitecture() {
     <>
       <Section id="connects" className="bg-white">
         <SectionHeader
-          eyebrow="Cómo se conecta"
-          title="Conectado a los sistemas que ya usas"
-          description="Se integra con SAP, bases de datos, APIs internas, plataformas cloud y reportes. Respeta los permisos del sistema fuente."
+          eyebrow="How it connects"
+          title="Wired into the systems you already use"
+          description="It integrates with SAP, databases, internal APIs, cloud platforms, and reports — and respects the permissions of the source system."
         />
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -35,9 +35,9 @@ export function CopilotArchitecture() {
 
       <Section id="flow" className="bg-ink-50">
         <SectionHeader
-          eyebrow="Flujo operativo"
-          title="Seis pasos, una sola conversación"
-          description="De la pregunta del usuario hasta la acción final, con validaciones y trazabilidad en cada paso. Sin atajos que rompan la operación."
+          eyebrow="Operational flow"
+          title="Six steps, one conversation"
+          description="From the user's question to the final action — with validations and traceability at every step. No shortcuts that break the operation."
         />
         <ol className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {COPILOT_FLOW_STEPS.map((step) => {
@@ -68,7 +68,7 @@ export function CopilotArchitecture() {
             href="/copilot/how-it-works"
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 hover:text-brand-800"
           >
-            Ver detalle de la arquitectura
+            See architecture detail
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

@@ -6,9 +6,9 @@ export function CopilotUseCases() {
   return (
     <Section id="use-cases" className="bg-ink-50">
       <SectionHeader
-        eyebrow="Casos de uso"
-        title="Donde está aportando valor real"
-        description="Áreas funcionales donde la combinación de IA, integración SAP y reglas de negocio reduce trabajo manual y acelera la respuesta."
+        eyebrow="Use cases"
+        title="Where it delivers real value"
+        description="Functional areas where the combination of AI, SAP integration, and business rules reduces manual work and accelerates response."
       />
       <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {COPILOT_USE_CASES.map((uc) => {

@@ -9,9 +9,9 @@ export function ExperienceEducation() {
   return (
     <Section className="bg-ink-50">
       <SectionHeader
-        eyebrow="Base técnica y formación especializada"
-        title="Formación y certificaciones que respaldan al equipo"
-        description="No es CV: es la base técnica sobre la que armamos diagnósticos, arquitecturas y propuestas comerciales."
+        eyebrow="Technical foundation"
+        title="Education and certifications behind the team"
+        description="Not a résumé — the technical foundation we use to scope diagnostics, architectures, and commercial proposals."
       />
 
       <div className="mt-12 grid gap-6 lg:grid-cols-[1fr_1.6fr]">
@@ -21,7 +21,7 @@ export function ExperienceEducation() {
               <GraduationCap className="h-5 w-5" />
             </span>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-700">
-              Formación
+              Education
             </p>
           </div>
           <ul className="mt-5 space-y-4">
@@ -46,7 +46,7 @@ export function ExperienceEducation() {
               <Award className="h-5 w-5" />
             </span>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-700">
-              Certificaciones SAP
+              SAP certifications
             </p>
           </div>
           <ul className="mt-5 grid gap-3 sm:grid-cols-2">

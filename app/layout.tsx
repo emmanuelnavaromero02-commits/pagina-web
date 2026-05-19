@@ -11,7 +11,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const titleDefault = `${SITE.name} · Fábrica de software empresarial e IA operativa`;
+const titleDefault = `${SITE.name} · Intelligent business solutions`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -25,16 +25,18 @@ export const metadata: Metadata = {
   creator: SITE.name,
   publisher: SITE.name,
   keywords: [
-    "consultora SAP",
-    "fábrica de software",
-    "SAP BTP",
-    "SAP Cloud",
-    "integraciones SAP",
-    "IA empresarial",
-    "Copiloto Empresarial",
-    "cloud AWS Azure GCP",
-    "ABAP",
-    "Boomi",
+    "7 Business Solutions",
+    "Intelligent business solutions",
+    "Enterprise Copilot",
+    "Enterprise integration",
+    "Operational AI",
+    "Software factory",
+    "Governed data",
+    "Business automation",
+    "SAP integration",
+    "Cloud and data",
+    "Mexico",
+    "Spain",
   ],
   alternates: {
     canonical: "/",
@@ -51,7 +53,7 @@ export const metadata: Metadata = {
         url: "/og-image.svg",
         width: 1200,
         height: 630,
-        alt: `${SITE.name} · Copiloto Empresarial`,
+        alt: `${SITE.name} · Enterprise Copilot`,
       },
     ],
   },
@@ -72,9 +74,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-    ],
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
     apple: [{ url: "/favicon.svg" }],
   },
   category: "technology",
@@ -95,13 +95,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className={inter.variable}>
+    <html lang="en" className={inter.variable}>
       <body className="min-h-screen bg-white font-sans text-ink-900 antialiased">
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-brand-700 focus:px-3 focus:py-2 focus:text-sm focus:font-medium focus:text-white"
         >
-          Saltar al contenido
+          Skip to content
         </a>
         <Navbar />
         <main id="main">{children}</main>

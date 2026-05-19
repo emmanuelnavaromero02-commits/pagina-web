@@ -28,7 +28,7 @@ export default function SapIntegrationsPage() {
       <Deliverables
         slug="sap-integrations"
         related={{
-          label: "Revisar integración SAP",
+          label: "Review SAP integration",
           href: "/contact?topic=sap",
         }}
       />

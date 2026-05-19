@@ -5,9 +5,9 @@ export function ExperienceProof() {
   return (
     <Section className="bg-ink-50">
       <SectionHeader
-        eyebrow="Experiencia que respalda"
-        title="Tecnologías sobre las que ya hemos entregado"
-        description="Equipo con experiencia real en plataformas empresariales: SAP, cloud, datos e IA. Sin teoría, sin demos. Trabajos productivos en clientes grandes."
+        eyebrow="Technology that runs in enterprises"
+        title="The stack we have already shipped on"
+        description="Real experience on enterprise platforms — SAP, cloud, data, and AI. No theory, no demos. Productive work for large clients."
       />
 
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

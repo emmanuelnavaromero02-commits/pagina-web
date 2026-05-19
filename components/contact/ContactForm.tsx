@@ -22,33 +22,33 @@ const initialValues: FormValues = {
   company: "",
   email: "",
   phone: "",
-  service: "Fábrica de Software",
+  service: "Software Factory",
   message: "",
 };
 
-const services = [
-  "Fábrica de Software",
-  "SAP & Integraciones",
-  "Cloud & Data",
-  "IA Empresarial",
-  "Copiloto Empresarial",
-  "Diagnóstico inicial",
+const SERVICES = [
+  "Software Factory",
+  "Enterprise Integration",
+  "Cloud & Governed Data",
+  "Operational AI",
+  "Enterprise Copilot",
+  "Initial diagnosis",
 ];
 
 function validate(values: FormValues) {
   const errors: Partial<Record<keyof FormValues, string>> = {};
-  if (!values.name.trim()) errors.name = "El nombre es obligatorio.";
-  if (!values.company.trim()) errors.company = "La empresa es obligatoria.";
+  if (!values.name.trim()) errors.name = "Name is required.";
+  if (!values.company.trim()) errors.company = "Company is required.";
   if (!values.email.trim()) {
-    errors.email = "El correo es obligatorio.";
+    errors.email = "Corporate email is required.";
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
-    errors.email = "Formato de correo inválido.";
+    errors.email = "Invalid email format.";
   }
   if (values.phone && !/^[+\d\s()-]{6,}$/.test(values.phone)) {
-    errors.phone = "Teléfono inválido.";
+    errors.phone = "Invalid phone number.";
   }
   if (!values.message.trim() || values.message.trim().length < 10) {
-    errors.message = "Cuéntanos un poco más (mínimo 10 caracteres).";
+    errors.message = "Tell us a bit more (minimum 10 characters).";
   }
   return errors;
 }
@@ -75,14 +75,13 @@ export function ContactForm() {
     setStatus("sending");
     setServerMessage(null);
 
-    // Si no hay endpoint configurado, no llamamos a un backend inventado.
-    // En su lugar mostramos un estado controlado para que el cliente sepa
-    // que aún falta conectar API Gateway + Lambda + SES.
+    // No endpoint configured — show a controlled placeholder state
+    // instead of POSTing to an invented backend.
     if (!CONTACT_ENDPOINT) {
       await new Promise((r) => setTimeout(r, 600));
       setStatus("success");
       setServerMessage(
-        "Mensaje listo para enviar. Conecta NEXT_PUBLIC_CONTACT_ENDPOINT (API Gateway + Lambda + SES) para entregarlo al buzón corporativo.",
+        "Message ready to send. Set NEXT_PUBLIC_CONTACT_ENDPOINT (API Gateway + Lambda + SES) to deliver it to the corporate inbox.",
       );
       setValues(initialValues);
       return;
@@ -94,14 +93,16 @@ export function ContactForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
       });
-      if (!res.ok) throw new Error("Respuesta no OK");
+      if (!res.ok) throw new Error("Non-OK response");
       setStatus("success");
-      setServerMessage("Recibimos tu mensaje. Te contactaremos en breve.");
+      setServerMessage(
+        "We received your message. We will get back to you shortly.",
+      );
       setValues(initialValues);
     } catch {
       setStatus("error");
       setServerMessage(
-        "No pudimos enviar tu mensaje. Inténtalo de nuevo en unos minutos o escríbenos por correo.",
+        "We could not send your message. Please try again in a few minutes or reach us by email.",
       );
     }
   }
@@ -109,12 +110,7 @@ export function ContactForm() {
   return (
     <form onSubmit={onSubmit} noValidate className="space-y-5">
       <div className="grid gap-5 sm:grid-cols-2">
-        <Field
-          label="Nombre"
-          htmlFor="name"
-          error={errors.name}
-          required
-        >
+        <Field label="Name" htmlFor="name" error={errors.name} required>
           <input
             id="name"
             name="name"
@@ -123,12 +119,12 @@ export function ContactForm() {
             value={values.name}
             onChange={(e) => update("name", e.target.value)}
             className={inputClass(!!errors.name)}
-            placeholder="Nombre y apellido"
+            placeholder="First and last name"
             required
           />
         </Field>
         <Field
-          label="Empresa"
+          label="Company"
           htmlFor="company"
           error={errors.company}
           required
@@ -141,7 +137,7 @@ export function ContactForm() {
             value={values.company}
             onChange={(e) => update("company", e.target.value)}
             className={inputClass(!!errors.company)}
-            placeholder="Nombre de la empresa"
+            placeholder="Company name"
             required
           />
         </Field>
@@ -149,7 +145,7 @@ export function ContactForm() {
 
       <div className="grid gap-5 sm:grid-cols-2">
         <Field
-          label="Correo corporativo"
+          label="Corporate email"
           htmlFor="email"
           error={errors.email}
           required
@@ -162,16 +158,11 @@ export function ContactForm() {
             value={values.email}
             onChange={(e) => update("email", e.target.value)}
             className={inputClass(!!errors.email)}
-            placeholder="nombre@empresa.com"
+            placeholder="name@company.com"
             required
           />
         </Field>
-        <Field
-          label="Teléfono"
-          htmlFor="phone"
-          error={errors.phone}
-          optional
-        >
+        <Field label="Phone" htmlFor="phone" error={errors.phone} optional>
           <input
             id="phone"
             name="phone"
@@ -185,7 +176,7 @@ export function ContactForm() {
         </Field>
       </div>
 
-      <Field label="Servicio de interés" htmlFor="service">
+      <Field label="Area of interest" htmlFor="service">
         <select
           id="service"
           name="service"
@@ -193,7 +184,7 @@ export function ContactForm() {
           onChange={(e) => update("service", e.target.value)}
           className={inputClass(false)}
         >
-          {services.map((s) => (
+          {SERVICES.map((s) => (
             <option key={s} value={s}>
               {s}
             </option>
@@ -202,7 +193,7 @@ export function ContactForm() {
       </Field>
 
       <Field
-        label="Mensaje"
+        label="Message"
         htmlFor="message"
         error={errors.message}
         required
@@ -214,15 +205,15 @@ export function ContactForm() {
           value={values.message}
           onChange={(e) => update("message", e.target.value)}
           className={cn(inputClass(!!errors.message), "h-auto resize-y py-3")}
-          placeholder="Cuéntanos brevemente el contexto y qué te gustaría resolver."
+          placeholder="Briefly describe the context and what you would like to solve."
           required
         />
       </Field>
 
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-xs text-ink-500">
-          Al enviar aceptas que tratemos tus datos para responderte. Sin spam,
-          sin compartir con terceros.
+          By submitting you agree that we may process your data to respond. No
+          spam, no sharing with third parties.
         </p>
         <Button
           type="submit"
@@ -233,12 +224,12 @@ export function ContactForm() {
           {status === "sending" ? (
             <>
               <Loader2 className="h-4 w-4 animate-spin" />
-              Enviando...
+              Sending...
             </>
           ) : (
             <>
               <Mail className="h-4 w-4" />
-              Enviar mensaje
+              Request a diagnosis
             </>
           )}
         </Button>
@@ -290,7 +281,7 @@ function Field({
           {required ? <span className="ml-0.5 text-brand-700">*</span> : null}
         </span>
         {optional ? (
-          <span className="text-xs font-normal text-ink-400">Opcional</span>
+          <span className="text-xs font-normal text-ink-400">Optional</span>
         ) : null}
       </label>
       {children}

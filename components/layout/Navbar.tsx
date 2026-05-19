@@ -62,7 +62,7 @@ export function Navbar() {
         <Logo />
 
         <nav
-          aria-label="Principal"
+          aria-label="Primary"
           className="hidden lg:flex lg:items-center lg:gap-1"
         >
           {NAVIGATION.map((item, index) => {
@@ -135,14 +135,14 @@ export function Navbar() {
             size="sm"
             className="whitespace-nowrap"
           >
-            Solicitar diagnóstico
+            Request a diagnosis
           </LinkButton>
         </div>
 
         <button
           type="button"
           className="inline-flex h-10 w-10 items-center justify-center rounded-md text-ink-800 hover:bg-ink-100 lg:hidden"
-          aria-label="Abrir menú"
+          aria-label="Open menu"
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen(true)}
         >

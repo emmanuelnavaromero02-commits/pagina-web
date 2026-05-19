@@ -13,13 +13,13 @@ import {
 export type IndustryArea = {
   id: string;
   title: string;
-  /** Problema típico (1-2 frases). */
+  /** Typical problem (1-2 sentences). */
   problem: string;
-  /** Qué hacemos en ese caso. */
+  /** What we do in that case. */
   whatWeDo: string[];
-  /** Sistemas y capacidades relacionadas (badges). */
+  /** Related systems and capabilities (badges). */
   systems: string[];
-  /** Texto del CTA — el link se construye con /contact?topic=<id>. */
+  /** CTA copy — link is /contact?topic=<id>. */
   cta: string;
   icon: LucideIcon;
 };
@@ -27,119 +27,119 @@ export type IndustryArea = {
 export const INDUSTRY_AREAS: IndustryArea[] = [
   {
     id: "hr",
-    title: "Recursos Humanos",
+    title: "Human Resources",
     problem:
-      "Datos de plantilla repartidos entre SAP HCM, SuccessFactors, Excel y reportes manuales. Consultas que tardan días y validaciones que se hacen a mano.",
+      "Workforce data scattered across SAP HCM, SuccessFactors, Excel, and manual reports. Queries that take days and validations done by hand.",
     whatWeDo: [
-      "Reportes de headcount por unidad, centro y posición.",
-      "Consultas asistidas sobre SAP HCM y SuccessFactors.",
-      "Seguimiento de ausencias, vacaciones y organigrama.",
-      "Validación de datos maestros y workflows de aprobación.",
+      "Headcount reports by unit, site, and position.",
+      "Assisted queries on SAP HCM and SuccessFactors.",
+      "Absence, vacation, and organizational-chart tracking.",
+      "Master-data validation and approval workflows.",
     ],
     systems: [
       "SAP HCM",
       "SuccessFactors",
-      "Datos maestros",
+      "Master data",
       "Workflows",
-      "Reportes",
+      "Reports",
     ],
-    cta: "Hablar sobre este caso",
+    cta: "Talk about this case",
     icon: Building2,
   },
   {
     id: "finance",
-    title: "Finanzas",
+    title: "Finance",
     problem:
-      "Cierres y conciliaciones que dependen de Excel, partidas que aparecen tarde y reportes ejecutivos que cada equipo arma a su manera.",
+      "Closings and reconciliations that depend on Excel, items that show up late, and executive reports that every team builds their own way.",
     whatWeDo: [
-      "Apoyo a cierres mensuales con validaciones automáticas.",
-      "Conciliaciones SAP FI ↔ bancos y sistemas terceros.",
-      "Explicación de variaciones con trazabilidad al dato.",
-      "Validación de partidas y reportes antes de publicar.",
+      "Monthly closings with automated validations.",
+      "SAP FI ↔ bank and third-party reconciliations.",
+      "Variance explanation with traceability to the source.",
+      "Item and report validation before publishing.",
     ],
     systems: [
       "SAP FI",
       "SAP CO",
       "Reporting",
-      "Conciliaciones",
-      "Integraciones bancarias",
+      "Reconciliations",
+      "Bank integrations",
     ],
-    cta: "Hablar sobre este caso",
+    cta: "Talk about this case",
     icon: BarChart3,
   },
   {
     id: "operations",
-    title: "Operaciones",
+    title: "Operations",
     problem:
-      "Estados operativos repartidos en distintos sistemas, alertas que llegan tarde y soporte funcional que se resuelve por correo.",
+      "Operational status spread across systems, alerts that arrive too late, and functional support resolved through email threads.",
     whatWeDo: [
-      "Seguimiento de procesos y estados en tiempo real.",
-      "Alertas por reglas de negocio antes de que escale.",
-      "Integración con sistemas operativos y de soporte.",
-      "Automatización de tareas repetitivas con validación humana.",
+      "Real-time process and status monitoring.",
+      "Business-rule alerts before the issue escalates.",
+      "Integration with operational and support systems.",
+      "Automation of repetitive tasks with human validation.",
     ],
     systems: [
-      "Sistemas operativos",
+      "Operational systems",
       "ERP",
-      "APIs internas",
-      "Alertas",
-      "Automatización",
+      "Internal APIs",
+      "Alerts",
+      "Automation",
     ],
-    cta: "Hablar sobre este caso",
+    cta: "Talk about this case",
     icon: Workflow,
   },
   {
     id: "reporting",
-    title: "Reporting ejecutivo",
+    title: "Executive reporting",
     problem:
-      "Dashboards bonitos sin sustento, cifras distintas entre áreas y reportes que no soportan una auditoría.",
+      "Pretty dashboards without substance, different numbers across areas, and reports that would not survive an audit.",
     whatWeDo: [
-      "Dashboards y reportes ejecutivos auditables.",
-      "Trazabilidad al dato original desde el reporte final.",
-      "Capa semántica común entre áreas.",
-      "Validación de fuentes y reglas de calidad.",
+      "Auditable dashboards and executive reports.",
+      "Traceability to the source data from the final report.",
+      "Common semantic layer across business areas.",
+      "Source validation and data-quality rules.",
     ],
     systems: [
       "Power BI",
       "Tableau",
       "Looker Studio",
-      "Capa semántica",
-      "Trazabilidad",
+      "Semantic layer",
+      "Traceability",
     ],
-    cta: "Hablar sobre este caso",
+    cta: "Talk about this case",
     icon: LineChart,
   },
   {
     id: "support",
-    title: "Soporte interno",
+    title: "Internal support",
     problem:
-      "Tickets que se repiten, documentación dispersa y dependencia de pocas personas para resolver soporte funcional o técnico.",
+      "Repeating tickets, scattered documentation, and dependence on a few people to resolve functional or technical support.",
     whatWeDo: [
-      "Helpdesk asistido sobre documentación y procesos internos.",
-      "ITSM y Change Management con Solution Manager.",
-      "Búsqueda inteligente sobre documentación corporativa.",
-      "Escalamiento estructurado L1 / L2 / L3.",
+      "Assisted helpdesk over internal documentation and processes.",
+      "ITSM and Change Management on Solution Manager.",
+      "Intelligent search across corporate documentation.",
+      "Structured L1 / L2 / L3 escalation.",
     ],
     systems: [
       "ITSM",
       "SAP Solution Manager",
       "Change Management",
       "Test Management",
-      "Documentación",
+      "Documentation",
     ],
-    cta: "Hablar sobre este caso",
+    cta: "Talk about this case",
     icon: Headphones,
   },
   {
     id: "sap",
-    title: "Integraciones SAP",
+    title: "SAP integrations",
     problem:
-      "Interfaces frágiles, IDocs que fallan sin monitoreo y cambios en SAP que rompen integraciones aguas abajo.",
+      "Fragile interfaces, IDocs failing without monitoring, and SAP changes that break downstream integrations.",
     whatWeDo: [
-      "Conectividad SAP ↔ terceros con contratos versionados.",
-      "Monitoreo de interfaces, IDocs y jobs críticos.",
-      "Soporte evolutivo con pruebas de regresión.",
-      "Re-arquitectura sin romper procesos productivos.",
+      "SAP ↔ third-party connectivity with versioned contracts.",
+      "Monitoring of interfaces, IDocs, and critical jobs.",
+      "Evolutionary support with regression testing.",
+      "Re-architecture without breaking productive processes.",
     ],
     systems: [
       "RFC",
@@ -150,49 +150,49 @@ export const INDUSTRY_AREAS: IndustryArea[] = [
       "PI / PO",
       "IBM MQ",
     ],
-    cta: "Revisar integración SAP",
+    cta: "Review SAP integration",
     icon: Plug,
   },
   {
     id: "automation",
-    title: "Automatización de procesos",
+    title: "Process automation",
     problem:
-      "Cierres, conciliaciones y reportes recurrentes que se hacen a mano con alta carga manual y errores que se detectan tarde.",
+      "Recurring closings, reconciliations, and reports done by hand — high manual workload and errors detected too late.",
     whatWeDo: [
-      "Automatización asistida con validación humana previa.",
-      "Reducción de errores manuales con reglas explícitas.",
-      "Procesos auditables y reprocesables.",
-      "Human-in-the-loop antes de cualquier acción crítica.",
+      "Assisted automation with prior human validation.",
+      "Manual error reduction with explicit rules.",
+      "Auditable, reprocessable processes.",
+      "Human-in-the-loop before any critical action.",
     ],
     systems: [
       "Workflows",
-      "Reglas de negocio",
-      "Reportes",
-      "Validaciones",
-      "Auditoría",
+      "Business rules",
+      "Reports",
+      "Validations",
+      "Audit",
     ],
-    cta: "Hablar sobre este caso",
+    cta: "Talk about this case",
     icon: Wand2,
   },
   {
     id: "governance",
-    title: "Gobierno de datos",
+    title: "Data governance",
     problem:
-      "Catálogos sin dueño, reglas de calidad sin aplicar y cifras distintas entre fuentes que terminan en reportes ejecutivos.",
+      "Catalogs without owners, quality rules not applied, and different numbers across sources ending up in executive reports.",
     whatWeDo: [
-      "Diccionario común y reglas de calidad versionadas.",
-      "Validación de catálogos y reconciliación entre fuentes.",
-      "Trazabilidad punta a punta hasta el reporte final.",
-      "Capa semántica compartida entre áreas.",
+      "Common dictionary and versioned quality rules.",
+      "Catalog validation and reconciliation between sources.",
+      "End-to-end traceability all the way to the final report.",
+      "Shared semantic layer across business areas.",
     ],
     systems: [
-      "Diccionario común",
-      "Reglas de calidad",
-      "Capa semántica",
-      "Linaje",
-      "Reportes",
+      "Common dictionary",
+      "Quality rules",
+      "Semantic layer",
+      "Lineage",
+      "Reports",
     ],
-    cta: "Hablar sobre este caso",
+    cta: "Talk about this case",
     icon: Layers,
   },
 ];

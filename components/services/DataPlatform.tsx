@@ -6,9 +6,9 @@ export function DataPlatform() {
   return (
     <Section className="bg-ink-50">
       <SectionHeader
-        eyebrow="Datos y reporting"
-        title="De bases de datos a reportes ejecutivos auditables"
-        description="Tres bloques que cubren el camino completo: bases de datos empresariales, pipelines auditables y reporting con trazabilidad."
+        eyebrow="Data and reporting"
+        title="From enterprise databases to auditable executive reports"
+        description="Three blocks that cover the full path: enterprise databases, auditable pipelines, and reporting with traceability."
       />
       <div className="mt-12 space-y-12">
         {DATA_PLATFORM_BLOCKS.map((block) => (

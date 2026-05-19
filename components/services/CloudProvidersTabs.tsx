@@ -13,11 +13,11 @@ export function CloudProvidersTabs() {
   return (
     <Section className="bg-white">
       <SectionHeader
-        eyebrow="Cloud por proveedor"
-        title="Qué hacemos en AWS, Azure y GCP"
-        description="No usamos la palabra cloud como adorno. Cada proveedor entra cuando aporta algo concreto al caso del cliente."
+        eyebrow="Cloud by provider"
+        title="What we do on AWS, Azure, and GCP"
+        description="We do not use the word cloud as decoration. Each provider enters the picture when it adds something concrete to the case."
       />
-      <Tabs ariaLabel="Cloud por proveedor" tabs={tabs} className="mt-10" />
+      <Tabs ariaLabel="Cloud by provider" tabs={tabs} className="mt-10" />
     </Section>
   );
 }

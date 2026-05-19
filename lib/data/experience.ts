@@ -22,112 +22,112 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-/* Headline highlights — los cuatro frentes principales */
+/* Headline highlights — four core fronts */
 export const EXPERIENCE_HIGHLIGHTS: {
   title: string;
   description: string;
   icon: LucideIcon;
 }[] = [
   {
-    title: "Clientes empresariales grandes",
+    title: "Large enterprise clients",
     description:
-      "Programas entregados para corporativos en retail, manufactura, energía, telecomunicaciones, banca, bebidas, construcción, sector público, logística, servicios profesionales, inmobiliario y petróleo y gas.",
+      "Programs delivered for corporations in retail, manufacturing, energy, telecommunications, banking, consumer goods, construction, public sector, logistics, professional services, real estate, and oil and gas.",
     icon: Building2,
   },
   {
-    title: "Equipos SAP de extremo a extremo",
+    title: "End-to-end SAP teams",
     description:
-      "Implementaciones, evolutivos y soporte sobre SAP On-Premise, SAP Cloud y SAP BTP. Core funcional, desarrollo, integraciones, gobierno y operación.",
+      "Implementations, evolutions, and support across SAP On-Premise, SAP Cloud, and SAP BTP — core functional work, development, integration, governance, and operations.",
     icon: Boxes,
   },
   {
-    title: "Fábricas de software internas y externas",
+    title: "Internal and external software factories",
     description:
-      "Modelos de fábrica para clientes con backlog continuo, equipos dedicados, QA, despliegue y soporte evolutivo medible por sprint.",
+      "Factory models for clients with continuous backlog, dedicated teams, QA, deployment, and per-sprint evolutionary support.",
     icon: Factory,
   },
   {
-    title: "IA aplicada a operación",
+    title: "AI applied to operations",
     description:
-      "Casos reales de IA generativa, ML y automatización aplicados a procesos de RRHH, finanzas, reporting y soporte interno.",
+      "Real cases of generative AI, ML, and automation applied to HR, finance, reporting, and internal-support processes.",
     icon: Sparkles,
   },
 ];
 
-/* Capacidades acumuladas (versión sintética usada en home y experience) */
+/* Accumulated capabilities (used in home and experience) */
 export const EXPERIENCE_ROLES: {
   title: string;
   description: string;
   icon: LucideIcon;
 }[] = [
   {
-    title: "Dirección técnica",
+    title: "Technical leadership",
     description:
-      "Liderazgo de arquitectura, integraciones y operación en programas SAP y cloud de gran escala.",
+      "Architecture, integration, and operations leadership across large SAP and cloud programs.",
     icon: Compass,
   },
   {
-    title: "Preventa enterprise",
+    title: "Enterprise pre-sales",
     description:
-      "Definición de alcance, arquitectura y modelo de entrega para propuestas a clientes corporativos.",
+      "Scoping, architecture, and delivery-model definition for proposals to corporate clients.",
     icon: Target,
   },
   {
-    title: "Gestión de equipos",
+    title: "Team management",
     description:
-      "Conducción de fábricas de software y squads especializados en SAP, cloud, datos e IA.",
+      "Running software factories and specialized squads in SAP, cloud, data, and AI.",
     icon: Users,
   },
   {
-    title: "Implementaciones SAP",
+    title: "SAP implementations",
     description:
-      "Proyectos sobre ECC, S/4HANA, BTP, SuccessFactors, Ariba e IBP con foco en integración y operación.",
+      "Projects across ECC, S/4HANA, BTP, SuccessFactors, Ariba, and IBP focused on integration and operations.",
     icon: Boxes,
   },
   {
-    title: "Integraciones empresariales",
+    title: "Enterprise integrations",
     description:
-      "Boomi, HCI/CPI, PI/PO, IBM WebSphere y MQ para conectar SAP con bancos, CRM, e-commerce y legacy.",
+      "Boomi, HCI/CPI, PI/PO, IBM WebSphere, and MQ — connecting SAP to banks, CRM, e-commerce, and legacy.",
     icon: Plug,
   },
   {
-    title: "Desarrollo a la medida",
+    title: "Custom development",
     description:
-      "Portales internos, aplicaciones críticas y APIs reutilizables sobre Java, .NET, Node y TypeScript.",
+      "Internal portals, mission-critical applications, and reusable APIs on Java, .NET, Node, and TypeScript.",
     icon: Code2,
   },
   {
-    title: "IA aplicada",
+    title: "Applied AI",
     description:
-      "Asistentes internos, RAG sobre datos propios y copilotos operativos con foco en trazabilidad.",
+      "Internal assistants, RAG over private data, and operational copilots focused on traceability.",
     icon: Brain,
   },
   {
-    title: "Operación y soporte",
+    title: "Operations and support",
     description:
-      "Continuidad de plataformas críticas con SLA, monitoreo y planes de evolución trimestrales.",
+      "Continuity of mission-critical platforms with SLAs, monitoring, and quarterly evolution plans.",
     icon: Headphones,
   },
 ];
 
-/* Sectores atendidos (sin nombres de clientes) */
+/* Industries served (sector buckets, not client names) */
 export const EXPERIENCE_CLIENTS: string[] = [
   "Retail",
-  "Manufactura",
-  "Energía",
-  "Minería",
-  "Construcción",
-  "Telecomunicaciones",
-  "Banca",
-  "Bebidas y consumo",
-  "Sector público",
-  "Logística",
-  "Servicios profesionales",
-  "Inmobiliario",
-  "Petróleo y gas",
+  "Manufacturing",
+  "Energy",
+  "Mining",
+  "Construction",
+  "Telecommunications",
+  "Banking",
+  "Consumer goods",
+  "Public sector",
+  "Logistics",
+  "Professional services",
+  "Real estate",
+  "Oil and gas",
 ];
 
-/* Bloques de "Liderazgo y forma de trabajo" (página experience) */
+/* Tabs of leadership and ways of working on /experience */
 export type ExperienceTrack = {
   id: string;
   eyebrow: string;
@@ -140,88 +140,89 @@ export type ExperienceTrack = {
 export const EXPERIENCE_TRACKS: ExperienceTrack[] = [
   {
     id: "leadership",
-    eyebrow: "Liderazgo técnico",
-    title: "De la preventa al go-live, sin perder el hilo",
+    eyebrow: "Technical leadership",
+    title: "From pre-sales to go-live — without losing the thread",
     description:
-      "Experiencia dirigiendo programas de integración y desarrollo desde preventa y diseño de solución hasta implementación, soporte y evolución.",
+      "Experience leading integration and development programs from pre-sales and solution design through implementation, support, and evolution.",
     bullets: [
-      "Dirección técnica y diseño de soluciones empresariales.",
-      "Preventa con responsables técnicos al frente.",
-      "Gestión de equipos multidisciplinarios.",
-      "Gestión de presupuestos y compromisos contractuales.",
-      "Acompañamiento en implementación, soporte y evolución.",
+      "Technical direction and enterprise solution design.",
+      "Pre-sales with technical owners on the front line.",
+      "Multidisciplinary team management.",
+      "Budget management and contractual commitments.",
+      "Hands-on support during implementation, support, and evolution.",
     ],
     icon: Compass,
   },
   {
     id: "factory",
-    eyebrow: "Fábricas de software",
-    title: "Operación continua, no proyectos aislados",
+    eyebrow: "Software factories",
+    title: "Continuous operation, not isolated projects",
     description:
-      "Hemos diseñado y operado fábricas internas y externas con backlog continuo, equipos dedicados, QA, roadmap y soporte evolutivo.",
+      "We have designed and run internal and external factories with continuous backlog, dedicated teams, QA, roadmap, and evolutionary support.",
     bullets: [
-      "Fábricas internas y externas para clientes corporativos.",
-      "Equipos dedicados con responsable de cuenta.",
-      "Backlog priorizado y entregables por sprint.",
-      "QA, documentación y despliegue controlados.",
-      "Soporte L2/L3 y roadmap evolutivo trimestral.",
+      "Internal and external factories for corporate clients.",
+      "Dedicated teams with an account owner.",
+      "Prioritized backlog and per-sprint deliverables.",
+      "Controlled QA, documentation, and deployment.",
+      "L2/L3 support and a quarterly evolutionary roadmap.",
     ],
     icon: Factory,
   },
   {
     id: "sap",
-    eyebrow: "SAP e integración",
-    title: "Core, desarrollo, integración técnica y gobierno",
+    eyebrow: "SAP and integration",
+    title: "Core, development, technical integration, and governance",
     description:
-      "Trabajo profundo sobre el ecosistema SAP, desde módulos funcionales y desarrollo ABAP hasta middleware empresarial y gobierno con Solution Manager.",
+      "Deep work across the SAP ecosystem — from functional modules and ABAP development through enterprise middleware and governance with Solution Manager.",
     bullets: [
-      "Core SAP en FI, CO, SD, MM, HCM, PS y PM.",
-      "Desarrollo ABAP, reportes, formularios, ampliaciones y workflows.",
-      "Integración técnica con RFC, IDocs, BAPIs, SAP JCo y Gateway.",
-      "Middleware Boomi, HCI/CPI, PI/PO, IBM WebSphere y MQ.",
-      "Gobierno con Solution Manager, ITSM, Change y Test Management.",
+      "Core SAP in FI, CO, SD, MM, HCM, PS, and PM.",
+      "ABAP development, reports, forms, enhancements, and workflows.",
+      "Technical integration with RFC, IDocs, BAPIs, SAP JCo, and Gateway.",
+      "Boomi, HCI/CPI, PI/PO, IBM WebSphere, and MQ middleware.",
+      "Governance with Solution Manager, ITSM, Change, and Test Management.",
     ],
     icon: Boxes,
   },
   {
     id: "ai-cloud",
-    eyebrow: "IA, cloud y datos",
-    title: "Plataformas modernas conectadas a la operación",
+    eyebrow: "AI, cloud, and data",
+    title: "Modern platforms wired into the operation",
     description:
-      "IA generativa, machine learning y arquitecturas cloud sobre AWS, Azure, GCP y SAP BTP, conectadas a bases de datos y reportes corporativos.",
+      "Generative AI, machine learning, and cloud architectures on AWS, Azure, GCP, and SAP BTP — connected to enterprise databases and corporate reports.",
     bullets: [
-      "IA generativa con RAG corporativo y permisos por rol.",
-      "Machine learning productivo con MLOps.",
-      "Arquitecturas en AWS, Azure, GCP y SAP BTP.",
-      "Bases de datos empresariales: SQL Server, Oracle, PostgreSQL, MySQL, DB2, Sybase, SAP HANA.",
-      "Reporting auditable y trazable hasta el dato original.",
+      "Generative AI with corporate RAG and per-role permissions.",
+      "Productive machine learning with MLOps.",
+      "Architectures on AWS, Azure, GCP, and SAP BTP.",
+      "Enterprise databases: SQL Server, Oracle, PostgreSQL, MySQL, DB2, Sybase, SAP HANA.",
+      "Auditable reporting traceable to the source data.",
     ],
     icon: Cloud,
   },
 ];
 
-/* Formación técnica y certificaciones */
+/* Technical formation and certifications */
 export const EXPERIENCE_EDUCATION: { title: string; subtitle?: string }[] = [
   {
-    title: "Licenciatura en Ciencias de la Informática",
-    subtitle: "Formación base en ingeniería de software y sistemas.",
+    title: "Bachelor's in Computer Science (Informatics)",
+    subtitle: "Foundational training in software engineering and systems.",
   },
   {
-    title: "Maestría en Ciencias Computacionales",
-    subtitle: "Especialización en arquitectura, datos y sistemas distribuidos.",
+    title: "Master's in Computer Science",
+    subtitle:
+      "Specialization in architecture, data, and distributed systems.",
   },
 ];
 
 export const EXPERIENCE_CERTIFICATIONS: { title: string; track: string }[] = [
-  { title: "SAP Enterprise Architecture Framework", track: "Arquitectura SAP" },
-  { title: "SAP HANA Cloud Integration", track: "Integraciones SAP" },
-  { title: "SAP Enterprise SOA", track: "Arquitectura SAP" },
-  { title: "SAP ABAP", track: "Desarrollo SAP" },
-  { title: "SAP Workflows", track: "Procesos SAP" },
-  { title: "SAP Solution Manager", track: "Gobierno SAP" },
+  { title: "SAP Enterprise Architecture Framework", track: "SAP architecture" },
+  { title: "SAP HANA Cloud Integration", track: "SAP integration" },
+  { title: "SAP Enterprise SOA", track: "SAP architecture" },
+  { title: "SAP ABAP", track: "SAP development" },
+  { title: "SAP Workflows", track: "SAP processes" },
+  { title: "SAP Solution Manager", track: "SAP governance" },
 ];
 
-/* Iconos auxiliares re-exportados (no críticos) */
+/* Aux icon exports (legacy) */
 export const EXPERIENCE_ICONS = {
   Award,
   BookOpen,

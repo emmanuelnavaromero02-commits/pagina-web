@@ -6,42 +6,42 @@ import { Card, CardDescription, CardTitle } from "@/components/ui/Card";
 import { Section, SectionHeader } from "@/components/ui/Section";
 
 export const metadata: Metadata = {
-  title: "Casos de uso · Copiloto Empresarial",
+  title: "Use cases · Enterprise Copilot",
   description:
-    "Casos de uso reales del Copiloto Empresarial en RRHH, finanzas, operaciones, reporting, auditoría y soporte interno corporativo.",
+    "Real Enterprise Copilot use cases across HR, finance, operations, executive reporting, audit, and internal support.",
   alternates: { canonical: "/copilot/use-cases" },
 };
 
 const scenarios = [
   {
-    title: "Cierre financiero mensual",
+    title: "Monthly financial closing",
     description:
-      "El equipo de finanzas pregunta el estado del cierre, ve partidas sin conciliar y valida ajustes antes de aplicarlos contra SAP FI.",
+      "The finance team asks for the closing status, reviews unreconciled entries, and validates adjustments before they hit SAP FI.",
   },
   {
-    title: "Consultas de RRHH",
+    title: "HR queries",
     description:
-      "Headcount por unidad, vacaciones disponibles, organigrama y validación de datos maestros con permisos por rol.",
+      "Headcount by business unit, vacation balances, organizational structure, and master-data validations — with per-role permissions.",
   },
   {
-    title: "Reporte ejecutivo en vivo",
+    title: "Live executive reporting",
     description:
-      "La dirección pregunta y obtiene una respuesta confiable con trazabilidad al dato original.",
+      "Leadership asks a question and gets a trusted answer, traceable to the source data.",
   },
   {
-    title: "Soporte funcional asistido",
+    title: "Assisted functional support",
     description:
-      "Primera línea para help-desk técnico y funcional sobre plataformas internas y SAP.",
+      "First-line response for technical and functional helpdesk over internal platforms and SAP.",
   },
   {
-    title: "Auditoría operativa",
+    title: "Operational audit",
     description:
-      "Trazabilidad completa de consultas, acciones y reglas aplicadas, exportable para cumplimiento.",
+      "Full traceability of queries, actions, and rules applied — exportable for compliance.",
   },
   {
-    title: "Automatización asistida",
+    title: "Assisted automation",
     description:
-      "Conciliaciones recurrentes que el copiloto prepara y el humano valida antes de ejecutar.",
+      "Recurring reconciliations the copilot prepares and a human approves before execution.",
   },
 ];
 
@@ -49,16 +49,16 @@ export default function CopilotUseCasesPage() {
   return (
     <>
       <ServiceHero
-        eyebrow="Casos de uso"
-        title="Donde el Copiloto Empresarial aporta valor real"
-        description="Escenarios reales en áreas funcionales que combinan consulta, validación, reporte y, cuando aplica, acción autorizada."
+        eyebrow="Use cases"
+        title="Where Enterprise Copilot delivers real value"
+        description="Realistic scenarios across functional areas that combine query, validation, reporting, and — where applicable — authorized action."
       />
 
       <Section className="bg-white">
         <SectionHeader
-          eyebrow="Escenarios"
-          title="Seis escenarios concretos"
-          description="Cada escenario se puede arrancar como piloto guiado en pocas semanas."
+          eyebrow="Scenarios"
+          title="Six concrete scenarios"
+          description="Each scenario can be scoped as a guided pilot in a few weeks."
         />
         <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {scenarios.map((s) => (

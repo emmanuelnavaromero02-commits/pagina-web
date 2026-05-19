@@ -3,10 +3,10 @@ import { Section, SectionHeader } from "@/components/ui/Section";
 
 const RESPONSE_BADGES = [
   { label: "SAP FI", tone: "brand" as const },
-  { label: "Banco", tone: "brand" as const },
-  { label: "Validación", tone: "brand" as const },
+  { label: "Bank", tone: "brand" as const },
+  { label: "Validation", tone: "brand" as const },
   { label: "Draft", tone: "brand" as const },
-  { label: "Aprobación requerida", tone: "accent" as const },
+  { label: "Approval required", tone: "accent" as const },
   { label: "Audit log", tone: "neutral" as const },
 ];
 
@@ -20,9 +20,9 @@ export function CopilotDemo() {
   return (
     <Section className="bg-ink-50">
       <SectionHeader
-        eyebrow="Ejemplo de uso"
-        title="Una pregunta que antes abría cinco sistemas"
-        description="Esto es lo que pasa cuando una pregunta de finanzas atraviesa SAP, el banco y reglas de validación sin que el usuario salga del copiloto."
+        eyebrow="Example interaction"
+        title="A question that used to open five systems"
+        description="What happens when a finance question touches SAP, the bank, and validation rules without the user ever leaving the copilot."
       />
 
       <div className="mx-auto mt-12 max-w-3xl space-y-4">
@@ -30,12 +30,12 @@ export function CopilotDemo() {
           <div className="flex items-center gap-2">
             <UserCircle2 className="h-4 w-4 text-ink-500" />
             <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-500">
-              Usuario · finanzas
+              User · finance
             </p>
           </div>
           <p className="mt-3 text-sm leading-relaxed text-ink-800">
-            “Muéstrame las partidas sin conciliar del cierre de marzo, cruza
-            SAP FI con banco y prepara resumen para finanzas.”
+            “Show me the unreconciled entries from the March closing, cross
+            SAP FI with the bank, and prepare a summary for finance.”
           </p>
         </article>
 
@@ -49,18 +49,19 @@ export function CopilotDemo() {
               <Sparkles className="h-3 w-3" />
             </span>
             <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-700">
-              Copiloto Empresarial
+              Enterprise Copilot
             </p>
           </div>
           <p className="relative mt-3 text-sm leading-relaxed text-ink-800">
-            Encontré{" "}
-            <strong className="text-ink-950">3 partidas sin conciliar</strong>{" "}
-            entre SAP FI y el extracto bancario del cierre de marzo. Preparé un{" "}
-            <strong className="text-ink-950">resumen ejecutivo</strong> y una
-            propuesta de revisión.
+            I found{" "}
+            <strong className="text-ink-950">3 unreconciled entries</strong>{" "}
+            between SAP FI and the bank statement for the March closing. I
+            prepared an{" "}
+            <strong className="text-ink-950">executive summary</strong> and a
+            proposed review.
           </p>
           <p className="relative mt-2 text-sm leading-relaxed text-ink-700">
-            No ejecutaré ningún ajuste sin aprobación.
+            I will not apply any adjustment without approval.
           </p>
           <ul className="relative mt-4 flex flex-wrap gap-1.5">
             {RESPONSE_BADGES.map((b) => (
@@ -76,9 +77,8 @@ export function CopilotDemo() {
       </div>
 
       <p className="mx-auto mt-6 max-w-3xl text-xs leading-relaxed text-ink-500">
-        Ejemplo orientativo. El comportamiento exacto depende de la
-        configuración, fuentes conectadas y reglas de negocio aplicadas en cada
-        implementación.
+        Illustrative example. Actual behavior depends on configuration,
+        connected sources, and business rules in each implementation.
       </p>
     </Section>
   );

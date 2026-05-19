@@ -17,21 +17,21 @@ export function ContactCTA() {
         <div className="relative grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-center">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-400">
-              Próximo paso
+              Next step
             </p>
             <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-              ¿Quieres construir software, integrar SAP o probar un copiloto
-              IA?
+              Want to build software, integrate SAP, or pilot an Enterprise
+              Copilot?
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-200">
-              Te ayudamos a diagnosticar el caso, definir el alcance y arrancar
-              con un equipo dedicado. Hablamos claro: sin venta de humo, sin
-              promesas vagas.
+              We help diagnose the case, define a focused scope, and ramp up a
+              dedicated team. We speak plainly — no slideware, no vague
+              promises.
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
             <LinkButton href="/contact" size="lg">
-              Solicitar diagnóstico
+              Request a diagnosis
               <ArrowRight className="h-4 w-4" />
             </LinkButton>
             <LinkButton
@@ -40,7 +40,7 @@ export function ContactCTA() {
               variant="outline"
               className="border-white/20 bg-white/5 text-white hover:bg-white/10"
             >
-              Ver Copiloto
+              Explore the Copilot
             </LinkButton>
           </div>
         </div>

@@ -1,17 +1,17 @@
 import { Section, SectionHeader } from "@/components/ui/Section";
-import { OPERATING_MODEL } from "@/lib/site-data";
+import { IMPLEMENTATION_STEPS } from "@/lib/data/home";
 
-export function OperatingModel() {
+export function ImplementationModel() {
   return (
     <Section className="bg-ink-50">
       <SectionHeader
-        eyebrow="Cómo trabajamos"
-        title="Equipos dedicados, sprints visibles, entregables medibles."
-        description="No vendemos horas en una hoja de cálculo. Trabajamos como un equipo extendido del cliente, con responsabilidad sobre el resultado."
+        eyebrow="Implementation model"
+        title="No endless consulting projects. Focused impact in 2–4 weeks."
+        description="We target quick wins with measurable business value: one problem, one solution, one result. We work without stopping your operation."
       />
 
       <ol className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {OPERATING_MODEL.map((m) => {
+        {IMPLEMENTATION_STEPS.map((m) => {
           const Icon = m.icon;
           return (
             <li
@@ -34,6 +34,12 @@ export function OperatingModel() {
           );
         })}
       </ol>
+
+      <p className="mt-8 max-w-3xl text-xs leading-relaxed text-ink-500">
+        Typical quick-win pilots can be scoped for 2–4 weeks, depending on
+        systems, data access, and complexity. The window is a planning
+        reference for the diagnosis, not a guarantee.
+      </p>
     </Section>
   );
 }

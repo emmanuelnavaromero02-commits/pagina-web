@@ -5,9 +5,9 @@ export function WhatWeDo() {
   return (
     <Section className="bg-white">
       <SectionHeader
-        eyebrow="Qué hacemos"
-        title="Construimos software, conectamos sistemas y automatizamos operación."
-        description="Tres frentes que combinamos en el mismo equipo para que el resultado se opere, no solo se entregue."
+        eyebrow="What we do"
+        title="We build software, connect systems, and automate operations."
+        description="Three fronts we combine in the same team so the result is operated — not just delivered."
       />
 
       <ul className="mt-12 grid gap-6 lg:grid-cols-3">

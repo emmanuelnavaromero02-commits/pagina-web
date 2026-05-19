@@ -5,9 +5,9 @@ export function CopilotRoles() {
   return (
     <Section className="bg-white">
       <SectionHeader
-        eyebrow="Lo que ve cada rol"
-        title="El mismo copiloto, distinto valor según el rol"
-        description="Cada usuario ve lo que su responsabilidad necesita: decisiones, cierres, evidencia o capacidad de entrega."
+        eyebrow="What each role sees"
+        title="Same copilot, different value per role"
+        description="Each user sees what their responsibility requires — decisions, closings, evidence, or delivery capacity."
       />
 
       <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

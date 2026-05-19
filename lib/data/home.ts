@@ -1,72 +1,132 @@
 import {
+  Activity,
   ArrowRight,
   BarChart3,
   Brain,
   Building2,
-  CalendarClock,
   CheckCircle2,
   Cloud,
   Code2,
   Compass,
-  Headphones,
+  Database,
+  FileBarChart,
   LineChart,
+  Network,
   Plug,
+  ShoppingCart,
   Sparkles,
   Target,
+  TrendingUp,
   Users,
   Wand2,
   Workflow,
   type LucideIcon,
 } from "lucide-react";
 
-/* HOME — bloque "Qué hacemos" */
-export const WHAT_WE_DO: {
-  verb: string;
+/* HOME — High-impact quick wins block */
+export const QUICK_WINS: {
   title: string;
   description: string;
   icon: LucideIcon;
-  bullets: string[];
 }[] = [
   {
-    verb: "Construimos",
-    title: "Software empresarial",
+    title: "Automation",
     description:
-      "Plataformas internas, portales y aplicaciones a medida con equipos dedicados que responden por el resultado.",
-    icon: Code2,
-    bullets: [
-      "Aplicaciones críticas a medida",
-      "Portales internos y de proveedores",
-      "APIs y microservicios versionados",
-    ],
+      "Replace repetitive manual tasks with focused workflows that scale.",
+    icon: Wand2,
   },
   {
-    verb: "Conectamos",
-    title: "Sistemas que no se hablan",
+    title: "Reporting & Control",
     description:
-      "Integraciones reales sobre SAP, cloud, APIs y bases de datos. Sin parches frágiles ni Excel como capa de integración.",
+      "Trusted reports with traceability from KPI to source system.",
+    icon: BarChart3,
+  },
+  {
+    title: "Finance & Payroll",
+    description:
+      "Closings, reconciliations, and payroll flows with fewer errors.",
+    icon: LineChart,
+  },
+  {
+    title: "Excel-based Processes",
+    description:
+      "Move critical operations out of spreadsheets and into living software.",
+    icon: FileBarChart,
+  },
+  {
+    title: "Faster Decisions",
+    description:
+      "Real-time visibility for leadership without waiting days for an analyst.",
+    icon: Activity,
+  },
+  {
+    title: "SAP & System Integration",
+    description:
+      "ECC, S/4HANA, BTP, APIs, and middleware connected without breaking what already works.",
     icon: Plug,
-    bullets: [
-      "SAP On-Premise, Cloud y BTP",
-      "Middleware Boomi / HCI / PI",
-      "APIs internas y de terceros",
-    ],
-  },
-  {
-    verb: "Automatizamos",
-    title: "Operación con IA aplicada",
-    description:
-      "Copilotos, asistentes y modelos productivos sobre datos propios y reglas de negocio. IA conectada, no demos vacías.",
-    icon: Sparkles,
-    bullets: [
-      "Copiloto Empresarial",
-      "Asistentes internos sobre datos propios",
-      "ML productivo con MLOps",
-    ],
   },
 ];
 
-/* HOME — Operating model "Cómo trabajamos" */
-export const OPERATING_MODEL: {
+/* HOME — The 7-Pillar Architecture */
+export const SEVEN_PILLARS: {
+  number: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}[] = [
+  {
+    number: "01",
+    title: "Strategic Vision",
+    description:
+      "We analyze business structure, processes, operations, costs, cycle times, productivity, and decision-making to identify where the company is losing speed, efficiency, and money.",
+    icon: Compass,
+  },
+  {
+    number: "02",
+    title: "Enterprise Integration",
+    description:
+      "We connect ERP, CRM, operations, APIs, cloud, databases, automations, legacy systems, teams, and workflows so the business works as one operating ecosystem.",
+    icon: Network,
+  },
+  {
+    number: "03",
+    title: "Governed Data",
+    description:
+      "We build governed data foundations with Bronze, Silver, and Gold layers, security, traceability, auditability, compliance, and operational control. Without trusted data, there is no real intelligence.",
+    icon: Database,
+  },
+  {
+    number: "04",
+    title: "Intelligent Automation",
+    description:
+      "We reduce manual tasks, idle time, rework, operational dependency, and friction so teams operate faster with less drag.",
+    icon: Wand2,
+  },
+  {
+    number: "05",
+    title: "Operational Intelligence",
+    description:
+      "We turn information into decisions, predictions, alerts, automations, optimizations, and strategic actions. This is not visualization — it is activation.",
+    icon: Brain,
+  },
+  {
+    number: "06",
+    title: "Continuous Evolution",
+    description:
+      "We do not deliver static software. We deliver living infrastructure: new AI agents, knowledge modules, models, flows, and business capabilities over time.",
+    icon: Activity,
+  },
+  {
+    number: "07",
+    title: "Business Transformation",
+    description:
+      "The goal is not to implement technology. The goal is to change how the company operates: more speed, intelligence, control, automation, efficiency, productivity, growth, and profitability.",
+    icon: Sparkles,
+  },
+];
+
+/* HOME — Implementation model "Quick wins in 2–4 weeks" */
+export const IMPLEMENTATION_STEPS: {
   step: string;
   title: string;
   description: string;
@@ -74,55 +134,153 @@ export const OPERATING_MODEL: {
 }[] = [
   {
     step: "01",
-    title: "Diagnóstico breve",
+    title: "Diagnose the bottleneck",
     description:
-      "Una conversación corta y un walkthrough técnico para entender el contexto real, no solo la pregunta inicial.",
+      "A short walkthrough to identify the operational pain that is costing time, money, or control.",
     icon: Compass,
   },
   {
     step: "02",
-    title: "Equipo dedicado",
+    title: "Connect sources",
     description:
-      "Roles senior asignados al proyecto con responsabilidad sobre el resultado, no solo sobre las tareas.",
-    icon: Users,
+      "We hook into the data and process sources required for the focused use case.",
+    icon: Network,
   },
   {
     step: "03",
-    title: "Sprints visibles",
+    title: "Automate or build",
     description:
-      "Avance por iteraciones cortas con demos reales, no slides. Cada sprint deja algo medible.",
-    icon: CalendarClock,
+      "We deliver a focused solution — automation, integration, report, or copilot — without stopping the operation.",
+    icon: Wand2,
   },
   {
     step: "04",
-    title: "Soporte continuo",
+    title: "Measure & decide next",
     description:
-      "El software no se entrega y se olvida. Lo mantenemos, lo evolucionamos y respondemos por su operación.",
-    icon: Headphones,
+      "We measure the impact, agree on what worked, and define the next quick win or scale plan.",
+    icon: CheckCircle2,
   },
 ];
 
-/* HOME — preview de casos de uso */
-export const HOME_USE_CASES: {
+/* HOME — Areas of Impact (business functions) */
+export const AREAS_OF_IMPACT: {
   title: string;
+  description: string;
   icon: LucideIcon;
-  href: string;
 }[] = [
-  { title: "RRHH", icon: Building2, href: "/industries#hr" },
-  { title: "Finanzas", icon: BarChart3, href: "/industries#finance" },
-  { title: "Operaciones", icon: Workflow, href: "/industries#operations" },
   {
-    title: "Reporting ejecutivo",
-    icon: LineChart,
-    href: "/industries#reporting",
+    title: "Finance",
+    description:
+      "EBITDA visibility, cash flow, margins, financial control, reconciliations, reporting, and intelligent variance analysis.",
+    icon: BarChart3,
   },
-  { title: "Integraciones", icon: Plug, href: "/industries#sap" },
-  { title: "Automatización", icon: Wand2, href: "/industries#automation" },
+  {
+    title: "Sales",
+    description:
+      "Revenue intelligence, forecasting, customer analysis, commercial automation, and pipeline visibility.",
+    icon: TrendingUp,
+  },
+  {
+    title: "Operations",
+    description:
+      "Operational efficiency, logistics optimization, inventory control, process monitoring, and cycle-time reduction.",
+    icon: Workflow,
+  },
+  {
+    title: "Procurement",
+    description:
+      "Spend management, supplier visibility, sourcing control, purchasing workflows, and operational savings.",
+    icon: ShoppingCart,
+  },
+  {
+    title: "Executive Management",
+    description:
+      "Executive intelligence, real-time monitoring, strategic visibility, KPI intelligence, and decision support.",
+    icon: LineChart,
+  },
+  {
+    title: "HR / Payroll",
+    description:
+      "Headcount, payroll processes, absences, organizational structure, master data, and cross-system validation.",
+    icon: Users,
+  },
 ];
 
-/* HOME — Experiencia que respalda el Copiloto Empresarial.
-   Narrativa "De la integración al software operativo": cada frente
-   alimenta al siguiente y todo converge en el producto estrella. */
+/* HOME — Methodologies / Capabilities (tabs) */
+export const METHODOLOGIES: {
+  id: string;
+  label: string;
+  description: string;
+  items: string[];
+}[] = [
+  {
+    id: "ops",
+    label: "Operational Optimization",
+    description:
+      "Reduce friction across the operation and free up capacity for higher-value work.",
+    items: [
+      "Lean Operations",
+      "Continuous Improvement",
+      "Process Optimization",
+      "Business Intelligence",
+    ],
+  },
+  {
+    id: "automation",
+    label: "Automation & Efficiency",
+    description:
+      "Replace repetitive work with intelligent flows that integrate with the rest of the ecosystem.",
+    items: [
+      "Intelligent Automation",
+      "Workflow Orchestration",
+      "Process Mining",
+      "AI Operational Flows",
+    ],
+  },
+  {
+    id: "strategy",
+    label: "Business Strategy",
+    description:
+      "Give leadership the visibility and predictive insight they need to decide faster.",
+    items: [
+      "KPI Intelligence",
+      "Executive Analytics",
+      "Forecasting",
+      "Strategic Visibility",
+      "Performance Management",
+    ],
+  },
+  {
+    id: "governance",
+    label: "Governance & Control",
+    description:
+      "Operate at scale without losing traceability, compliance, or security.",
+    items: [
+      "Data Governance",
+      "Compliance",
+      "Auditability",
+      "Security Frameworks",
+      "Traceability",
+    ],
+  },
+];
+
+/* HOME — Ecosystem orchestration pills */
+export const ECOSYSTEM_PILLS: string[] = [
+  "ERP",
+  "CRM",
+  "Cloud",
+  "APIs",
+  "Data Lakes",
+  "Excel",
+  "Legacy Systems",
+  "Automations",
+  "AI",
+  "Advanced Analytics",
+];
+
+/* HOME — Experience bridge from integration to product (kept for
+   compatibility with the existing ExperienceForCopilot section). */
 export const EXPERIENCE_BRIDGE: {
   step: string;
   title: string;
@@ -132,39 +290,57 @@ export const EXPERIENCE_BRIDGE: {
 }[] = [
   {
     step: "01",
-    title: "Integración empresarial",
+    title: "Enterprise integration",
     description:
-      "Core SAP, desarrollo ABAP, RFC, IDocs y middleware sosteniendo operación crítica.",
+      "Core SAP, ABAP, RFC, IDocs, and middleware running mission-critical operations.",
     badges: ["SAP", "ABAP", "Boomi", "HCI/CPI", "PI/PO"],
     icon: Plug,
   },
   {
     step: "02",
-    title: "Fábrica de software",
+    title: "Software factory",
     description:
-      "Equipos dedicados construyendo portales, apps y APIs con stack pragmático.",
-    badges: ["Java", ".NET", "TypeScript", "Microservicios"],
+      "Dedicated senior teams building portals, apps, and APIs with a pragmatic stack.",
+    badges: ["Java", ".NET", "TypeScript", "Microservices"],
     icon: Code2,
   },
   {
     step: "03",
-    title: "Cloud y datos",
+    title: "Cloud & data",
     description:
-      "AWS, Azure, GCP y bases de datos empresariales con reporting auditable.",
+      "AWS, Azure, GCP, and enterprise databases supporting auditable reporting.",
     badges: ["AWS", "Azure", "GCP", "SAP HANA"],
     icon: Cloud,
   },
   {
     step: "04",
-    title: "IA aplicada",
+    title: "Applied AI",
     description:
-      "RAG corporativo, ML productivo y asistentes conectados a procesos reales.",
-    badges: ["IA generativa", "ML", "MLOps", "RAG"],
+      "Corporate RAG, productive ML, and assistants wired into real processes.",
+    badges: ["GenAI", "ML", "MLOps", "RAG"],
     icon: Brain,
   },
 ];
 
-/* CONTACT — qué pasa después */
+/* HOME — preview of use cases (kept lightweight) */
+export const HOME_USE_CASES: {
+  title: string;
+  icon: LucideIcon;
+  href: string;
+}[] = [
+  { title: "HR", icon: Building2, href: "/industries#hr" },
+  { title: "Finance", icon: BarChart3, href: "/industries#finance" },
+  { title: "Operations", icon: Workflow, href: "/industries#operations" },
+  {
+    title: "Executive reporting",
+    icon: LineChart,
+    href: "/industries#reporting",
+  },
+  { title: "Integrations", icon: Plug, href: "/industries#sap" },
+  { title: "Automation", icon: Wand2, href: "/industries#automation" },
+];
+
+/* CONTACT — what happens next */
 export const CONTACT_AFTER_STEPS: {
   step: string;
   title: string;
@@ -173,30 +349,80 @@ export const CONTACT_AFTER_STEPS: {
 }[] = [
   {
     step: "01",
-    title: "Revisamos tu contexto",
+    title: "We review your context",
     description:
-      "Leemos tu mensaje y agendamos una primera conversación corta para entender el caso real.",
+      "We read your message and set up a short conversation to understand the real case.",
     icon: Compass,
   },
   {
     step: "02",
-    title: "Identificamos qué necesitas",
+    title: "We identify what you need",
     description:
-      "Definimos si lo tuyo es fábrica de software, integración SAP, plataforma de datos, IA o una combinación.",
+      "We decide whether your case is software factory, integration, data, AI, or a combination.",
     icon: Target,
   },
   {
     step: "03",
-    title: "Proponemos diagnóstico",
+    title: "We propose a diagnosis",
     description:
-      "Te enviamos un diagnóstico inicial con riesgos, alcance estimado y siguientes pasos concretos.",
+      "We send back an initial diagnosis with risks, estimated scope, and clear next steps.",
     icon: CheckCircle2,
   },
   {
     step: "04",
-    title: "Definimos piloto o roadmap",
+    title: "We scope a pilot or roadmap",
     description:
-      "Si hay encaje, arrancamos con un piloto guiado o un roadmap por fases con entregables medibles.",
+      "If there is a fit, we start a guided pilot or define a phased roadmap with measurable deliverables.",
     icon: ArrowRight,
   },
 ];
+
+/* Re-export used as legacy helper for components that imported the
+   old WHAT_WE_DO / OPERATING_MODEL constants. */
+export const WHAT_WE_DO: {
+  verb: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  bullets: string[];
+}[] = [
+  {
+    verb: "We build",
+    title: "Enterprise software",
+    description:
+      "Internal platforms, portals, and tailored applications delivered by dedicated senior teams that own the outcome.",
+    icon: Code2,
+    bullets: [
+      "Mission-critical applications",
+      "Internal and supplier portals",
+      "APIs and versioned microservices",
+    ],
+  },
+  {
+    verb: "We connect",
+    title: "Systems that do not talk",
+    description:
+      "Real integrations across SAP, cloud, APIs, and databases. No fragile patches. No Excel as middleware.",
+    icon: Plug,
+    bullets: [
+      "SAP On-Premise, Cloud, and BTP",
+      "Boomi / HCI / PI middleware",
+      "Internal and third-party APIs",
+    ],
+  },
+  {
+    verb: "We automate",
+    title: "Operations with applied AI",
+    description:
+      "Copilots, assistants, and productive ML models grounded on your own data and business rules. AI that connects, not demos.",
+    icon: Sparkles,
+    bullets: [
+      "Enterprise Copilot",
+      "Internal assistants over private data",
+      "Productive ML with MLOps",
+    ],
+  },
+];
+
+/* Legacy export name preserved for backward compatibility. */
+export const OPERATING_MODEL = IMPLEMENTATION_STEPS;

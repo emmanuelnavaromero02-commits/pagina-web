@@ -4,9 +4,9 @@ import { ServiceHero } from "@/components/services/ServiceHero";
 import { SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Aviso de privacidad",
+  title: "Privacy Policy",
   description:
-    "Aviso de privacidad y tratamiento de datos personales para visitantes y prospectos del sitio corporativo.",
+    "Privacy policy and personal data handling for visitors and prospects of the corporate site.",
   alternates: { canonical: "/privacy" },
   robots: { index: true, follow: true },
 };
@@ -15,75 +15,78 @@ export default function PrivacyPage() {
   return (
     <>
       <ServiceHero
-        eyebrow="Aviso de privacidad"
-        title="Cómo tratamos tus datos personales"
-        description="Este aviso describe, en términos generales, el tratamiento de los datos personales que recopilamos a través del sitio. El texto definitivo debe ser revisado por el área legal del cliente antes de publicación."
+        eyebrow="Privacy Policy"
+        title="How we handle your personal data"
+        description="This notice describes, in general terms, the handling of personal data collected through the site. The final text must be reviewed by the client's legal team before publication."
       />
 
       <Section className="bg-white">
         <article className="prose mx-auto max-w-3xl text-ink-700">
           <h2 className="font-display text-xl font-semibold text-ink-950">
-            1. Responsable del tratamiento
+            1. Data controller
           </h2>
           <p className="mt-3 text-sm leading-relaxed">
-            {SITE.name} es responsable del tratamiento de los datos personales
-            que recibimos a través del formulario de contacto y de los canales
-            corporativos publicados en el sitio. Los datos del responsable, su
-            domicilio fiscal y su designación legal deben completarse antes de
-            publicar este aviso en producción.
+            {SITE.name} is responsible for the handling of personal data
+            received through the contact form and the corporate channels
+            published on the site. The controller&rsquo;s full details (legal name,
+            registered address, and legal representative) must be filled in
+            before publishing this notice in production.
           </p>
 
           <h2 className="mt-8 font-display text-xl font-semibold text-ink-950">
-            2. Datos recabados
+            2. Data we collect
           </h2>
           <p className="mt-3 text-sm leading-relaxed">
-            A través del formulario de contacto recabamos nombre, empresa,
-            correo corporativo, teléfono (opcional), servicio de interés y
-            mensaje. No recabamos datos sensibles desde esta web.
+            Through the contact form we collect name, company, corporate
+            email, phone (optional), area of interest, and message. We do not
+            collect sensitive data from this website.
           </p>
 
           <h2 className="mt-8 font-display text-xl font-semibold text-ink-950">
-            3. Finalidades del tratamiento
+            3. Purposes of processing
           </h2>
           <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-relaxed">
-            <li>Responder solicitudes de información y propuestas comerciales.</li>
-            <li>Agendar reuniones de diagnóstico o pilotos del Copiloto Empresarial.</li>
-            <li>Gestionar contratos, facturación y soporte cuando aplique.</li>
+            <li>Respond to information requests and commercial proposals.</li>
+            <li>Schedule diagnostic meetings or Enterprise Copilot pilots.</li>
+            <li>
+              Manage contracts, billing, and support where applicable.
+            </li>
           </ul>
 
           <h2 className="mt-8 font-display text-xl font-semibold text-ink-950">
-            4. Transferencias
+            4. Transfers
           </h2>
           <p className="mt-3 text-sm leading-relaxed">
-            No transferimos datos personales a terceros sin tu consentimiento,
-            salvo por obligación legal o por proveedores de infraestructura
-            cloud (por ejemplo, AWS para correo transaccional) bajo contratos de
-            confidencialidad.
+            We do not share personal data with third parties without your
+            consent, except for legal obligation or cloud infrastructure
+            providers (for example, AWS for transactional email) under
+            confidentiality agreements.
           </p>
 
           <h2 className="mt-8 font-display text-xl font-semibold text-ink-950">
-            5. Derechos ARCO
+            5. Rights of access, rectification, cancellation, and opposition
           </h2>
           <p className="mt-3 text-sm leading-relaxed">
-            Puedes ejercer tus derechos de acceso, rectificación, cancelación u
-            oposición escribiéndonos desde la página de contacto. Atenderemos
-            tu solicitud en los plazos establecidos por la legislación
-            aplicable.
+            You can exercise your rights of access, rectification,
+            cancellation, or opposition by writing to us through the contact
+            page. We will respond within the timeframes set by applicable
+            legislation.
           </p>
 
           <h2 className="mt-8 font-display text-xl font-semibold text-ink-950">
-            6. Cambios al aviso
+            6. Changes to this notice
           </h2>
           <p className="mt-3 text-sm leading-relaxed">
-            Podemos actualizar este aviso cuando cambie la operación, la
-            tecnología o la legislación aplicable. La versión vigente siempre
-            estará disponible en esta URL.
+            We may update this notice when operations, technology, or
+            applicable legislation change. The current version will always be
+            available at this URL.
           </p>
 
           <p className="mt-10 rounded-lg border border-ink-200 bg-ink-50 p-4 text-xs text-ink-600">
-            <strong className="text-ink-800">Nota:</strong> este es un texto
-            base editable. El cliente debe validarlo con su área legal antes de
-            considerarlo definitivo.
+            <strong className="text-ink-800">Note (TODO_CLIENTE):</strong> this
+            is editable base text. The client must validate it with legal
+            counsel before considering it final, including jurisdiction-specific
+            requirements (Mexico LFPDPPP and Spain LOPDGDD / GDPR).
           </p>
         </article>
       </Section>

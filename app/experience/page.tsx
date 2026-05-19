@@ -11,9 +11,9 @@ import { ServiceHero } from "@/components/services/ServiceHero";
 import { EXPERIENCE_HIGHLIGHTS } from "@/lib/site-data";
 
 export const metadata: Metadata = {
-  title: "Experiencia · Clientes enterprise · SAP · Cloud · IA",
+  title: "Experience · Enterprise clients · SAP · Cloud · AI",
   description:
-    "Experiencia entregando proyectos para corporativos grandes sobre SAP, cloud, datos e IA. Liderazgo, fábricas de software, integración y formación especializada.",
+    "Real delivery experience across SAP, cloud, data, and AI for large clients. Leadership, software factories, integration, and specialized training.",
   alternates: { canonical: "/experience" },
 };
 
@@ -21,15 +21,15 @@ export default function ExperiencePage() {
   return (
     <>
       <ServiceHero
-        eyebrow="Experiencia"
-        title="Trabajo real en clientes empresariales grandes"
-        description="Programas entregados sobre SAP, cloud, datos e IA empresarial. Equipos senior con responsabilidad sobre la operación, no solo sobre el alcance."
+        eyebrow="Experience"
+        title="Real work for large enterprise clients"
+        description="Programs delivered across SAP, cloud, data, and operational AI. Senior teams accountable for the operation — not just the scope."
       />
 
       <Section className="bg-white">
         <SectionHeader
-          eyebrow="Lo que respalda al equipo"
-          title="Cuatro frentes donde tenemos historia entregada"
+          eyebrow="What backs the team"
+          title="Four fronts where we have delivered history"
         />
         <ul className="mt-12 grid gap-6 sm:grid-cols-2">
           {EXPERIENCE_HIGHLIGHTS.map((h) => {

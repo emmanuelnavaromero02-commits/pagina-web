@@ -8,14 +8,14 @@ export function ProofStrip() {
         <div className="grid gap-8 lg:grid-cols-[1fr_2fr] lg:items-center">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-700">
-              Sectores que hemos atendido
+              Industries served
             </p>
             <h3 className="mt-3 font-display text-2xl font-semibold text-ink-950 sm:text-3xl">
-              Experiencia entregada en sectores enterprise.
+              Enterprise experience across sectors.
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-ink-600">
-              El detalle por cliente se comparte bajo NDA durante el
-              diagnóstico inicial.
+              Specific clients are shared under NDA during the initial
+              diagnosis.
             </p>
           </div>
           <ul className="flex flex-wrap gap-2">

@@ -5,9 +5,9 @@ export function CopilotExactly() {
   return (
     <Section className="bg-white">
       <SectionHeader
-        eyebrow="Qué hace exactamente"
-        title="Acciones operativas concretas, no respuestas vagas"
-        description="No es un asistente abierto que da opiniones. Es un copiloto que sabe consultar, cruzar, validar, preparar y registrar sobre los sistemas reales del cliente."
+        eyebrow="What it does exactly"
+        title="Concrete operational actions — not vague answers"
+        description="Not an open-ended assistant that offers opinions. A copilot that queries, cross-checks, validates, prepares, and logs over the client's real systems."
       />
 
       <ul className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">

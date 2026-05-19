@@ -16,14 +16,14 @@ export function Deliverables({ slug, related }: DeliverablesProps) {
       <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-start">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-700">
-            Qué entregamos
+            What we deliver
           </p>
           <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-ink-950 sm:text-4xl">
             {content.title}
           </h2>
           <p className="mt-4 text-base leading-relaxed text-ink-600">
-            No vendemos diapositivas. Cada compromiso es algo tangible que
-            puedes revisar, auditar y operar.
+            We do not sell slideware. Every commitment is something tangible
+            you can review, audit, and operate.
           </p>
           {related ? (
             <div className="mt-6">

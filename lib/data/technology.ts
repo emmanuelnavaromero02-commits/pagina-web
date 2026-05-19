@@ -1,6 +1,6 @@
 /**
  * Tech catalog reusable across pages. Single source of truth for the
- * stack pills shown on home (ExperienceProof), service pages and tabs.
+ * stack pills shown on home, service pages, and tabs.
  */
 
 export const TECH_STACK: { group: string; items: string[] }[] = [
@@ -19,7 +19,7 @@ export const TECH_STACK: { group: string; items: string[] }[] = [
     ],
   },
   {
-    group: "Integraciones",
+    group: "Integration",
     items: [
       "Boomi",
       "HCI / CPI",
@@ -46,7 +46,7 @@ export const TECH_STACK: { group: string; items: string[] }[] = [
     ],
   },
   {
-    group: "Lenguajes",
+    group: "Languages",
     items: [
       "Java",
       "J2EE / JSE",
@@ -59,7 +59,7 @@ export const TECH_STACK: { group: string; items: string[] }[] = [
     ],
   },
   {
-    group: "Datos",
+    group: "Data",
     items: [
       "SQL Server",
       "Oracle",
@@ -73,14 +73,14 @@ export const TECH_STACK: { group: string; items: string[] }[] = [
     ],
   },
   {
-    group: "IA",
+    group: "AI",
     items: [
-      "LLMs corporativos",
-      "RAG sobre datos propios",
+      "Corporate LLMs",
+      "RAG on private data",
       "Machine learning",
       "MLOps",
-      "Asistentes internos",
-      "Copilotos operativos",
+      "Internal assistants",
+      "Operational copilots",
     ],
   },
 ];

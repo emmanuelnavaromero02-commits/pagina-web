@@ -1,119 +1,115 @@
-# Sitio corporativo · Consultora Tech
+# 7 Business Solutions · Corporate site
 
-Sitio corporativo de la consultora tecnológica construido como aplicación
-**estática** con **Next.js 15 (App Router) + TypeScript + Tailwind CSS**.
-Diseñado para desplegarse en **AWS S3 + CloudFront**.
+Corporate site for **7 Business Solutions** — an intelligent business
+solutions firm helping companies in Mexico and Spain. Built as a static
+**Next.js 15 (App Router) + TypeScript + Tailwind CSS** application,
+designed to be deployed to **AWS S3 + CloudFront**.
 
-Producto estrella destacado en todo el sitio: **Copiloto Empresarial**.
-
-> Nota: el nombre comercial mostrado en el sitio es un placeholder
-> ("Consultora"). Está centralizado en `lib/constants.ts` con la marca
-> `TODO_CLIENTE` para sustituirlo cuando el cliente lo confirme.
+Flagship product: **Enterprise Copilot**.
 
 ---
 
 ## Stack
 
 - Next.js 15 (App Router)
-- TypeScript estricto
+- TypeScript (strict)
 - Tailwind CSS 3
-- `lucide-react` para iconografía
-- `clsx` + `tailwind-merge` para composición de clases
+- `lucide-react` for icons
+- `clsx` + `tailwind-merge`
 - ESLint 9 (flat config) + `eslint-config-next`
-- Export estático (`output: "export"`) sin SSR dinámico ni API routes
+- Static export (`output: "export"`) — no SSR, no API routes
 
 ---
 
-## Estructura
+## Structure
 
 ```
 app/
-├── layout.tsx              # Layout raíz (Navbar + Footer + metadata global)
+├── layout.tsx              # Root layout (Navbar + Footer + global metadata)
 ├── page.tsx                # Home
-├── globals.css             # Tailwind + estilos base
-├── sitemap.ts              # sitemap.xml (estático)
-├── robots.ts               # robots.txt (estático)
-├── services/               # Overview + 4 detalles
-├── copilot/                # Copiloto Empresarial (3 subpáginas)
-├── industries/             # Industrias / casos de uso
-├── experience/             # Experiencia
-├── contact/                # Contacto
-├── privacy/                # Aviso de privacidad
-└── legal/                  # Aviso legal
+├── globals.css             # Tailwind + base styles
+├── sitemap.ts              # sitemap.xml
+├── robots.ts               # robots.txt
+├── services/               # Overview + 4 service detail pages
+├── copilot/                # Enterprise Copilot (3 subpages)
+├── industries/             # Industries / use cases
+├── experience/             # Experience and capabilities
+├── contact/                # Contact form and process
+├── privacy/                # Privacy Policy
+└── legal/                  # Legal Notice
 
 components/
 ├── layout/                 # Navbar, MegaMenu, MobileNav, Footer, Logo
-├── home/                   # Secciones de la home
-├── copilot/                # Secciones del Copiloto Empresarial
-├── services/               # Hero, grid y detalle de servicios
-├── contact/                # ContactForm
-└── ui/                     # Button, Card, Section, Badge
+├── home/                   # Home sections (Hero, Quick Wins, 7 Pillars, etc.)
+├── copilot/                # Enterprise Copilot sections
+├── services/               # Service hero, grid, deep-dives
+├── experience/             # Experience tracks + education
+├── contact/                # ContactForm + AfterSteps
+├── sections/               # Reusable DeepDiveBlock
+└── ui/                     # Button, Card, Section, Badge, Tabs
 
 lib/
-├── navigation.ts           # NAVIGATION (mega-menús) y FOOTER_LINKS
-├── site-data.ts            # Datos de servicios, copiloto, industrias
-├── constants.ts            # SITE, contacto, social, URL — placeholders TODO_CLIENTE
-└── utils.ts                # cn()
+├── constants.ts            # SITE brand + TODO_CLIENTE list
+├── navigation.ts           # NAVIGATION + FOOTER_LINKS
+├── site-data.ts            # Barrel re-export of lib/data/*
+├── utils.ts                # cn()
+└── data/
+    ├── home.ts             # Quick Wins, 7 Pillars, Areas of Impact, etc.
+    ├── copilot.ts          # All Enterprise Copilot content
+    ├── services.ts         # SERVICES + per-service deep dive
+    ├── experience.ts       # Tracks, certifications, sectors
+    ├── industries.ts       # Functional-area cards
+    └── technology.ts       # Tech catalog
 
 public/
 ├── favicon.svg
 ├── logo.svg
-└── og-image.svg            # Imagen OG / Twitter card
-
-.github/
-└── workflows/ci.yml        # Pipeline: ci, typecheck, lint, build
+└── og-image.svg            # OG / Twitter card
 ```
 
 ---
 
-## Desarrollo local
-
-Requisitos: Node.js 18.18+ (recomendado 20+) y npm.
+## Local development
 
 ```bash
 npm install
 npm run dev
 ```
 
-Abre `http://localhost:3000`.
-
 ### Scripts
 
-| Script              | Descripción                                       |
-| ------------------- | ------------------------------------------------- |
-| `npm run dev`       | Servidor de desarrollo                            |
-| `npm run build`     | Build estático (`out/` listo para S3)             |
-| `npm run start`     | Sirve el build de producción                      |
-| `npm run lint`      | Lint con ESLint (flat config + next)              |
-| `npm run typecheck` | Verifica tipos sin emitir (`tsc --noEmit`)        |
+| Script              | Description                                      |
+| ------------------- | ------------------------------------------------ |
+| `npm run dev`       | Development server                                |
+| `npm run build`     | Static build (creates `out/`)                     |
+| `npm run start`     | Serves the production build                       |
+| `npm run lint`      | ESLint (flat config + next)                       |
+| `npm run typecheck` | `tsc --noEmit`                                    |
 
 ---
 
-## Variables de entorno
+## Environment variables
 
-Copia `.env.example` a `.env.local` antes de correr `npm run dev`
-o `npm run build`. Todas las variables están prefijadas con
-`NEXT_PUBLIC_` porque se inyectan en build time y se exponen al
-cliente (sitio estático, no hay runtime de servidor).
+Copy `.env.example` to `.env.local`. All variables are prefixed
+`NEXT_PUBLIC_` because they are injected at build time and exposed to
+the client (this is a static site — there is no server runtime).
 
-| Variable                       | Para qué se usa                                      |
-| ------------------------------ | ---------------------------------------------------- |
-| `NEXT_PUBLIC_SITE_URL`         | Dominio canónico. Alimenta OG, sitemap y robots.     |
-| `NEXT_PUBLIC_CONTACT_ENDPOINT` | URL del API Gateway al que postea el formulario.     |
+| Variable                       | Purpose                                                |
+| ------------------------------ | ------------------------------------------------------ |
+| `NEXT_PUBLIC_SITE_URL`         | Canonical domain. Feeds OG, sitemap, and robots.       |
+| `NEXT_PUBLIC_CONTACT_ENDPOINT` | API Gateway URL that the contact form POSTs to.        |
 
-Si `NEXT_PUBLIC_CONTACT_ENDPOINT` queda vacía, el formulario muestra un
-estado controlado avisando que aún falta conectar el endpoint
-corporativo (sin enviar a un backend inventado).
+If `NEXT_PUBLIC_CONTACT_ENDPOINT` is empty, the form shows a controlled
+placeholder state instead of POSTing to an invented backend.
 
-> `out/` se genera con `npm run build` y **no se commitea** (está en
-> `.gitignore`). Se sube directamente a S3 desde la máquina de despliegue
-> o desde el pipeline de CI.
+> The `out/` folder is produced by `npm run build` and is **gitignored**.
+> Upload it to S3 from your deploy machine or CI pipeline.
 
 ---
 
-## Build estático
+## Static build & AWS deployment
 
-`next.config.ts` ya incluye:
+`next.config.ts` is already configured with:
 
 ```ts
 const nextConfig = {
@@ -124,130 +120,62 @@ const nextConfig = {
 };
 ```
 
-Para generar el sitio:
+Build:
 
 ```bash
 npm run build
 ```
 
-Se genera la carpeta `out/` con HTML/CSS/JS estático. `trailingSlash: true`
-hace que cada ruta se sirva como carpeta con `index.html` (`/copilot/`,
-`/services/cloud-data/`), lo que CloudFront sirve sin reglas adicionales.
-
----
-
-## Despliegue en AWS S3 + CloudFront
-
-### 1. Bucket S3
-
-- Recomendado: bucket privado + **Origin Access Control (OAC)** de
-  CloudFront. No exponer el bucket directamente.
-- Alternativa rápida: bucket con "Static website hosting" activo (más
-  acoplado, sin HTTPS nativo).
-
-### 2. Subir el contenido del build
+Deploy to S3 (private bucket behind CloudFront OAC is recommended):
 
 ```bash
-aws s3 sync out/ s3://<tu-bucket> --delete \
+aws s3 sync out/ s3://<your-bucket> --delete \
   --cache-control "public, max-age=31536000, immutable" \
   --exclude "*.html" --exclude "sitemap.xml" --exclude "robots.txt"
 
-aws s3 sync out/ s3://<tu-bucket> \
+aws s3 sync out/ s3://<your-bucket> \
   --cache-control "public, max-age=60, must-revalidate" \
   --exclude "*" \
   --include "*.html" --include "sitemap.xml" --include "robots.txt"
-```
 
-- Los assets de `_next/` llevan hash y pueden cachearse por largo tiempo.
-- Los HTML, sitemap y robots se cachean corto para que un redeploy se
-  refleje rápido.
-
-### 3. CloudFront
-
-- Origin: bucket S3 (vía OAC).
-- Default root object: `index.html`.
-- Política de cache: usa la cache de CloudFront por defecto o
-  `CachingOptimized`.
-- Certificado ACM en `us-east-1` para HTTPS.
-- Comportamiento de error: si quieres páginas 404 personalizadas, mapea
-  `403/404` → `/404/index.html` con HTTP 200.
-
-### 4. Invalidación tras cada deploy
-
-```bash
-aws cloudfront create-invalidation \
-  --distribution-id <ID> \
-  --paths "/*"
+aws cloudfront create-invalidation --distribution-id <ID> --paths "/*"
 ```
 
 ---
 
-## Formulario de contacto
+## Contact form
 
-El formulario (`components/contact/ContactForm.tsx`) valida del lado
-cliente y postea JSON al endpoint configurado en
-`NEXT_PUBLIC_CONTACT_ENDPOINT`. Está pensado para una arquitectura
-**API Gateway → Lambda → SES** en AWS:
-
-1. **API Gateway (HTTP API)** publica un endpoint público `POST /contact`.
-2. **Lambda** (Node.js o Python) valida el payload y construye el correo.
-3. **SES** envía al buzón corporativo del cliente.
-
-Si la variable está vacía en build time, el formulario muestra un
-mensaje controlado para evitar enviar a un backend inventado.
-
-> Nota: el sitio NO usa API routes de Next.js (`app/api/*`) porque
-> rompería el export estático.
+`components/contact/ContactForm.tsx` validates client-side and POSTs JSON
+to `NEXT_PUBLIC_CONTACT_ENDPOINT`. Intended for an architecture of
+**API Gateway → Lambda → SES** on AWS. No Next API routes — that would
+break the static export.
 
 ---
 
-## CI
+## TODO_CLIENTE (before going live)
 
-El workflow `.github/workflows/ci.yml` corre en `push`/`pull_request`
-contra `main` y ejecuta:
+Centralized in `lib/constants.ts`:
 
-1. `npm ci`
-2. `npm run typecheck`
-3. `npm run lint`
-4. `npm run build`
-5. Sube `out/` como artefacto.
-
-No incluye `aws s3 sync` ni invalidación de CloudFront porque
-**aún no hay credenciales AWS configuradas**. Cuando estén, basta con
-añadir un job adicional con OIDC contra un rol de IAM dedicado.
-
----
-
-## Pendientes del cliente (`TODO_CLIENTE`)
-
-Centralizados en `lib/constants.ts`:
-
-- [ ] Nombre comercial final (sustituir el placeholder "Consultora").
-- [ ] Dominio definitivo en `NEXT_PUBLIC_SITE_URL`.
-- [ ] Email corporativo en `SITE.contact.email`.
-- [ ] Teléfono comercial en `SITE.contact.phone`.
-- [ ] Dirección visible en `SITE.contact.address`.
-- [ ] URLs reales en `SITE.social.linkedin` / `SITE.social.github`
-      (si quedan `null`, no se renderizan).
-- [ ] Endpoint real en `NEXT_PUBLIC_CONTACT_ENDPOINT`.
-- [ ] Revisión legal de `/privacy` y `/legal` antes de publicar.
+- [ ] Final commercial brand confirmed (currently `7 Business Solutions`).
+- [ ] Domain in `NEXT_PUBLIC_SITE_URL`.
+- [ ] Corporate email in `SITE.contact.email`.
+- [ ] Commercial phone in `SITE.contact.phone`.
+- [ ] Visible address in `SITE.contact.address`.
+- [ ] Real URLs in `SITE.social.linkedin` / `SITE.social.github`.
+- [ ] Real endpoint in `NEXT_PUBLIC_CONTACT_ENDPOINT`.
+- [ ] Legal review of `/privacy` and `/legal` for Mexico (LFPDPPP) and
+      Spain (LOPDGDD / GDPR).
+- [ ] Final OG image (replace `public/og-image.svg`).
+- [ ] Final favicon (replace `public/favicon.svg`).
+- [ ] Replace sector names with real client names in
+      `EXPERIENCE_CLIENTS` only with explicit authorization.
 
 ---
 
-## Convenciones
+## Project rules
 
-- **Naming:** componentes en PascalCase, archivos `.tsx` por componente.
-- **Imports:** alias absoluto `@/*` (configurado en `tsconfig.json`).
-- **Estilos:** Tailwind utility-first con tokens en `tailwind.config.ts`
-  (`brand`, `ink`, `accent`). Sin CSS modules.
-- **Datos:** contenido editorial en `lib/site-data.ts` y
-  `lib/navigation.ts` para facilitar mantenimiento.
-
-## Reglas del proyecto
-
-- El producto estrella se llama **Copiloto Empresarial**. No usar
-  "NEXUS" ni "consola" como nombre comercial.
-- El sitio no es una landing larga: tiene rutas internas reales y
-  navegación jerárquica.
-- No incorporar dependencias o features que rompan la exportación
-  estática (API routes dinámicas, SSR, etc.).
+- Flagship product is **Enterprise Copilot** — do not use "NEXUS",
+  "OMEGA", "console", or "consola" as the commercial product name.
+- Static export must continue to work (no SSR, no API routes).
+- No fabricated metrics or fake testimonials. Indicative scenarios
+  must carry the orientative-impact disclaimer.

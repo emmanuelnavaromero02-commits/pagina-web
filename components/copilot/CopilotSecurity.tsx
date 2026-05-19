@@ -6,9 +6,9 @@ export function CopilotSecurity() {
   return (
     <Section id="security" className="bg-white">
       <SectionHeader
-        eyebrow="Seguridad y permisos"
-        title="Potencia operativa con control"
-        description="Permite actuar sobre sistemas reales sin perder gobierno. Permisos heredados, evidencia registrada y aprobación humana antes de cualquier acción sensible."
+        eyebrow="Security & permissions"
+        title="Operational power with control"
+        description="It can act over real systems without losing governance. Inherited permissions, logged evidence, and human approval before any sensitive action."
       />
       <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {COPILOT_SECURITY.map((s) => {

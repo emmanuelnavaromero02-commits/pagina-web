@@ -1,13 +1,13 @@
 import { Section, SectionHeader } from "@/components/ui/Section";
-import { EXPERIENCE_ROLES } from "@/lib/site-data";
+import { EXPERIENCE_ROLES } from "@/lib/data/experience";
 
 export function ExperienceRoles() {
   return (
     <Section className="bg-white">
       <SectionHeader
-        eyebrow="Experiencia acumulada"
-        title="Capacidades sobre las que ya hemos respondido"
-        description="Roles y disciplinas que el equipo ha ejecutado en programas reales con clientes corporativos."
+        eyebrow="Accumulated capabilities"
+        title="Capabilities the team has already delivered on"
+        description="Roles and disciplines we have executed in real programs for corporate clients."
       />
 
       <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">

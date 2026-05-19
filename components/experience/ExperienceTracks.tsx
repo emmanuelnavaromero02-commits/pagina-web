@@ -45,15 +45,11 @@ export function ExperienceTracks() {
   return (
     <Section className="bg-white">
       <SectionHeader
-        eyebrow="Frentes de experiencia"
-        title="Cuatro frentes donde el equipo ya entregó valor"
-        description="Selecciona el frente que te interesa para ver dónde tenemos historia operativa real."
+        eyebrow="Experience fronts"
+        title="Four fronts where the team has already delivered value"
+        description="Pick the front that matters to you to see where we have real operational history."
       />
-      <Tabs
-        ariaLabel="Frentes de experiencia"
-        tabs={tabs}
-        className="mt-10"
-      />
+      <Tabs ariaLabel="Experience fronts" tabs={tabs} className="mt-10" />
     </Section>
   );
 }

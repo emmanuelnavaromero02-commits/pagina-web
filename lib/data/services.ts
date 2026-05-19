@@ -38,72 +38,72 @@ export type ServiceCard = {
 export const SERVICES: ServiceCard[] = [
   {
     slug: "software-factory",
-    title: "Fábrica de Software",
-    short: "Ingeniería empresarial dedicada.",
+    title: "Software Factory",
+    short: "Dedicated engineering teams.",
     description:
-      "Equipos senior dedicados que construyen plataformas internas, portales y aplicaciones a medida con responsabilidad sobre el resultado, no solo sobre las tareas.",
+      "Senior dedicated teams that build internal platforms, portals, and tailored applications — with accountability for the outcome, not just the tasks.",
     icon: Code2,
     bullets: [
-      "Desarrollo a la medida",
-      "Portales empresariales",
-      "Aplicaciones internas",
-      "APIs y microservicios",
-      "Soporte evolutivo",
+      "Custom development",
+      "Enterprise portals",
+      "Internal applications",
+      "APIs and microservices",
+      "Evolutionary support",
     ],
     href: "/services/software-factory",
   },
   {
     slug: "sap-integrations",
-    title: "SAP & Integraciones",
-    short: "Experiencia profunda en SAP.",
+    title: "Enterprise Integration",
+    short: "Deep SAP experience.",
     description:
-      "Integramos SAP On-Premise, SAP Cloud y SAP BTP con el resto del ecosistema corporativo usando ABAP, RFC, IDocs, Boomi, HCI y PI. Sin romper lo que ya funciona.",
+      "We connect SAP On-Premise, SAP Cloud, and SAP BTP to the rest of the ecosystem using ABAP, RFC, IDocs, Boomi, HCI, and PI. Without breaking what already works.",
     icon: Plug,
     bullets: [
       "SAP On-Premise",
-      "SAP Cloud y BTP",
+      "SAP Cloud and BTP",
       "ABAP / RFC / IDocs",
       "Boomi / HCI / PI",
-      "Integraciones con terceros",
+      "Third-party integrations",
     ],
     href: "/services/sap-integrations",
   },
   {
     slug: "cloud-data",
-    title: "Cloud & Data",
-    short: "Plataformas de datos confiables.",
+    title: "Cloud & Governed Data",
+    short: "Trusted data platforms.",
     description:
-      "Diseñamos plataformas cloud sobre AWS, Azure y GCP con bases de datos empresariales, pipelines auditables y reporting que aguanta auditoría.",
+      "Cloud architectures on AWS, Azure, and GCP with enterprise databases, auditable pipelines, and reporting that holds up under audit.",
     icon: Cloud,
     bullets: [
       "AWS, Azure, GCP",
-      "Bases de datos empresariales",
+      "Enterprise databases",
       "Data pipelines",
-      "Reporting ejecutivo",
-      "Arquitectura segura",
+      "Executive reporting",
+      "Secure architecture",
     ],
     href: "/services/cloud-data",
   },
   {
     slug: "enterprise-ai",
-    title: "IA Empresarial",
-    short: "IA conectada a procesos reales.",
+    title: "Operational AI",
+    short: "AI wired into real processes.",
     description:
-      "Implantamos IA generativa, machine learning y automatización inteligente con foco en casos de uso operativos, conectada a datos propios y reglas de negocio.",
+      "Generative AI, machine learning, and intelligent automation grounded on your own data and business rules — for operational use cases, not empty demos.",
     icon: Brain,
     bullets: [
-      "IA generativa con contexto propio",
-      "Modelos de ML productivos",
-      "Automatización inteligente",
-      "Asistentes internos",
-      "Copilotos operativos",
+      "Generative AI on private data",
+      "Productive ML models",
+      "Intelligent automation",
+      "Internal assistants",
+      "Operational copilots",
     ],
     href: "/services/enterprise-ai",
   },
 ];
 
 /* ---------------------------------------------------------------- */
-/* SERVICE_DETAILS – grid de áreas dentro de cada servicio          */
+/* SERVICE_DETAILS — section grid for each service                  */
 /* ---------------------------------------------------------------- */
 
 export const SERVICE_DETAILS: Record<
@@ -122,227 +122,227 @@ export const SERVICE_DETAILS: Record<
   }
 > = {
   "software-factory": {
-    eyebrow: "Servicio",
-    title: "Fábrica de Software",
+    eyebrow: "Service",
+    title: "Software Factory",
     intro:
-      "Construimos software empresarial que conecta operación, datos y decisiones. Equipos dedicados con responsabilidad sobre el resultado, no solo sobre las tareas.",
+      "We build enterprise software that connects operations, data, and decisions. Dedicated teams that take accountability for the outcome — not just the backlog.",
     icon: Code2,
     sections: [
       {
         id: "custom",
-        title: "Desarrollo a la medida",
+        title: "Custom development",
         description:
-          "Plataformas internas, herramientas funcionales y aplicaciones a medida con foco en mantenibilidad y costo total de propiedad.",
+          "Internal platforms, functional tools, and tailored applications focused on maintainability and total cost of ownership.",
         bullets: [
-          "Arquitectura clara y documentada",
-          "Equipos full-stack y especializados",
-          "Entregables medibles por sprint",
+          "Clear, documented architecture",
+          "Full-stack and specialist teams",
+          "Measurable deliverables per sprint",
         ],
       },
       {
         id: "portals",
-        title: "Portales empresariales",
+        title: "Enterprise portals",
         description:
-          "Front-ends corporativos modernos para empleados, proveedores y clientes internos con SSO y permisos.",
+          "Modern corporate front-ends for employees, suppliers, and internal customers with SSO and permissions.",
         bullets: [
-          "Diseño y UX consistentes",
-          "Integración con identidad corporativa",
-          "Despliegues seguros y escalables",
+          "Consistent design and UX",
+          "Integration with corporate identity",
+          "Secure, scalable deployments",
         ],
       },
       {
         id: "apps",
-        title: "Aplicaciones internas",
+        title: "Internal applications",
         description:
-          "Herramientas para equipos de operación, finanzas y RRHH que reducen el uso de Excel como base de datos.",
+          "Tools for operations, finance, and HR teams that move processes out of spreadsheets.",
         bullets: [
-          "Flujos asistidos",
-          "Validaciones automáticas",
-          "Reportes operativos integrados",
+          "Assisted workflows",
+          "Automated validations",
+          "Built-in operational reports",
         ],
       },
       {
         id: "apis",
-        title: "APIs y microservicios",
+        title: "APIs and microservices",
         description:
-          "Servicios reutilizables con contratos claros, versionado, observabilidad y seguridad por defecto.",
+          "Reusable services with explicit contracts, versioning, observability, and security by default.",
         bullets: [
-          "Diseño API-first",
-          "Documentación viva",
-          "Observabilidad de extremo a extremo",
+          "API-first design",
+          "Living documentation",
+          "End-to-end observability",
         ],
       },
       {
         id: "support",
-        title: "Soporte evolutivo",
+        title: "Evolutionary support",
         description:
-          "Continuidad y mejora continua de plataformas críticas con SLA, métricas y planes de evolución.",
-        bullets: ["Soporte L2/L3", "Backlog evolutivo", "Roadmap trimestral"],
+          "Continuity and continuous improvement of critical platforms with SLAs, metrics, and evolution plans.",
+        bullets: ["L2/L3 support", "Evolutionary backlog", "Quarterly roadmap"],
       },
     ],
   },
   "sap-integrations": {
-    eyebrow: "Servicio",
-    title: "SAP & Integraciones",
+    eyebrow: "Service",
+    title: "Enterprise Integration",
     intro:
-      "Integramos SAP con el resto del ecosistema corporativo. Conocemos los matices de SAP On-Premise, SAP Cloud y SAP BTP, y sabemos dónde no romper.",
+      "We integrate SAP with the rest of the corporate ecosystem. We know the nuances of SAP On-Premise, SAP Cloud, and SAP BTP — and where not to break things.",
     icon: Plug,
     sections: [
       {
         id: "onprem",
         title: "SAP On-Premise",
         description:
-          "Trabajo sobre ECC, S/4HANA y módulos clave. Desarrollo, evolutivos y soporte funcional/técnico.",
-        bullets: ["ECC y S/4HANA", "Módulos FI / MM / SD / HR", "Soporte ABAP"],
+          "Work on ECC, S/4HANA, and the core modules. Development, evolutions, and functional/technical support.",
+        bullets: ["ECC and S/4HANA", "FI / MM / SD / HR modules", "ABAP support"],
       },
       {
         id: "cloud",
         title: "SAP Cloud",
         description:
-          "Integración con soluciones cloud de SAP como SuccessFactors, Ariba e IBP, conectándolas al resto de la operación.",
-        bullets: ["SuccessFactors", "Ariba", "IBP y otras soluciones cloud"],
+          "Integration with SAP cloud solutions like SuccessFactors, Ariba, and IBP, connected to the rest of the operation.",
+        bullets: ["SuccessFactors", "Ariba", "IBP and other cloud suites"],
       },
       {
         id: "btp",
         title: "SAP BTP",
         description:
-          "Extensiones, CAP, Workflow y Build sobre la plataforma BTP para llevar SAP más allá del core.",
+          "Extensions, CAP, Workflow, and Build on the BTP platform to take SAP beyond the core.",
         bullets: ["CAP (Node / Java)", "Workflow", "Build / Apps"],
       },
       {
         id: "abap",
         title: "ABAP / RFC / IDocs",
         description:
-          "Desarrollo en ABAP, integraciones por RFC e IDocs, mejoras de performance y monitoreo.",
-        bullets: ["Reports y módulos", "BAPIs y RFCs", "IDocs y monitor"],
+          "ABAP development, RFC and IDoc integrations, performance improvements, and monitoring.",
+        bullets: ["Reports and modules", "BAPIs and RFCs", "IDoc monitoring"],
       },
       {
         id: "middleware",
         title: "Boomi / HCI / PI",
         description:
-          "Middleware empresarial para conectar SAP con terceros sin generar deuda técnica.",
+          "Enterprise middleware to connect SAP with third parties without piling up technical debt.",
         bullets: ["Boomi", "SAP HCI / CPI", "SAP PI / PO"],
       },
       {
         id: "third-party",
-        title: "Integraciones con terceros",
+        title: "Third-party integrations",
         description:
-          "Conectividad con CRMs, e-commerce, bancos, plataformas de RRHH y aplicaciones legadas.",
-        bullets: ["REST / SOAP", "Eventos", "ETL controlado"],
+          "Connectivity with CRMs, e-commerce, banks, HR platforms, and legacy applications.",
+        bullets: ["REST / SOAP", "Events", "Controlled ETL"],
       },
     ],
   },
   "cloud-data": {
-    eyebrow: "Servicio",
-    title: "Cloud & Data",
+    eyebrow: "Service",
+    title: "Cloud & Governed Data",
     intro:
-      "Plataformas cloud y de datos que aguantan auditoría: arquitectura clara, seguridad por defecto y reporting confiable.",
+      "Cloud and data platforms that hold up under audit: clear architecture, security by default, and trustworthy reporting.",
     icon: Cloud,
     sections: [
       {
         id: "aws",
         title: "AWS",
         description:
-          "Arquitectura, migración y operación sobre AWS con foco en costo, seguridad y observabilidad.",
+          "Architecture, migration, and operation on AWS focused on cost, security, and observability.",
         bullets: ["Lambda + API Gateway", "S3 + CloudFront", "RDS / DynamoDB"],
       },
       {
         id: "azure",
         title: "Azure",
         description:
-          "Plataformas corporativas sobre Azure con integración a Entra ID y servicios de datos.",
+          "Corporate platforms on Azure integrated with Entra ID and data services.",
         bullets: ["App Service / Functions", "Azure SQL", "Synapse / Data Lake"],
       },
       {
         id: "gcp",
         title: "GCP",
         description:
-          "Soluciones de datos, analítica e infraestructura en Google Cloud con BigQuery como núcleo.",
+          "Data, analytics, and infrastructure solutions on Google Cloud with BigQuery at the core.",
         bullets: ["BigQuery", "Cloud Run", "Pub/Sub"],
       },
       {
         id: "databases",
-        title: "Bases de datos",
+        title: "Databases",
         description:
-          "Trabajo con bases de datos empresariales con foco en performance, modelo y consistencia.",
+          "Work on enterprise databases with focus on performance, model, and consistency.",
         bullets: ["Oracle / SQL Server", "PostgreSQL", "SAP HANA"],
       },
       {
         id: "pipelines",
         title: "Data pipelines",
         description:
-          "Ingesta, transformación y calidad de datos auditable y reproducible.",
+          "Auditable, reproducible data ingestion, transformation, and quality.",
         bullets: [
-          "Ingesta confiable",
-          "Transformaciones versionadas",
-          "Calidad y alertas",
+          "Reliable ingestion",
+          "Versioned transformations",
+          "Quality checks and alerts",
         ],
       },
       {
         id: "reporting",
-        title: "Reporting empresarial",
+        title: "Enterprise reporting",
         description:
-          "BI y reportes ejecutivos con trazabilidad al dato original, no dashboards bonitos sin sustento.",
+          "BI and executive reports with traceability to source data — not pretty dashboards without substance.",
         bullets: [
-          "Tableros vivos",
-          "Reportes auditables",
-          "Capa semántica común",
+          "Live dashboards",
+          "Auditable reports",
+          "Common semantic layer",
         ],
       },
     ],
   },
   "enterprise-ai": {
-    eyebrow: "Servicio",
-    title: "IA Empresarial",
+    eyebrow: "Service",
+    title: "Operational AI",
     intro:
-      "IA aplicada a procesos reales: copilotos, asistentes internos y automatización inteligente que se conectan a tus sistemas, no demos vacías.",
+      "AI applied to real processes: copilots, internal assistants, and intelligent automation wired into your systems — not empty demos.",
     icon: Brain,
     sections: [
       {
         id: "genai",
-        title: "IA generativa",
+        title: "Generative AI",
         description:
-          "Soluciones con LLMs sobre datos propios, con RAG, controles de acceso y trazabilidad.",
-        bullets: ["RAG corporativo", "LLMs en VPC", "Evaluación continua"],
+          "LLM solutions over private data with RAG, access controls, and traceability.",
+        bullets: ["Corporate RAG", "LLMs in VPC", "Continuous evaluation"],
       },
       {
         id: "ml",
         title: "Machine learning",
         description:
-          "Modelos productivos para predicción, clasificación y detección de anomalías con foco en operación.",
-        bullets: ["Modelos productivos", "MLOps", "Monitoreo de modelo"],
+          "Productive models for prediction, classification, and anomaly detection — focused on operation.",
+        bullets: ["Productive models", "MLOps", "Model monitoring"],
       },
       {
         id: "automation",
-        title: "Automatización inteligente",
+        title: "Intelligent automation",
         description:
-          "Procesos asistidos por IA donde el humano valida, no donde la IA decide a ciegas.",
+          "AI-assisted processes where humans validate the call — not AI deciding blind.",
         bullets: [
-          "Validaciones asistidas",
-          "Flujos human-in-the-loop",
-          "Auditoría de decisiones",
+          "Assisted validations",
+          "Human-in-the-loop flows",
+          "Decision audit",
         ],
       },
       {
         id: "assistants",
-        title: "Asistentes internos",
+        title: "Internal assistants",
         description:
-          "Asistentes para equipos internos sobre documentación, normativas y datos propios.",
+          "Assistants for internal teams over documentation, policies, and private data.",
         bullets: [
-          "Soporte interno",
-          "Onboarding asistido",
-          "Búsqueda inteligente",
+          "Internal support",
+          "Assisted onboarding",
+          "Intelligent search",
         ],
       },
       {
         id: "copilots",
-        title: "Copilotos operativos",
+        title: "Operational copilots",
         description:
-          "La capa IA conectada a SAP, datos y procesos. Nuestro producto estrella: Copiloto Empresarial.",
+          "The AI layer wired into SAP, data, and processes. Our flagship product: Enterprise Copilot.",
         bullets: [
-          "Producto Copiloto Empresarial",
-          "Conectividad SAP",
-          "Operación trazable",
+          "Enterprise Copilot product",
+          "SAP connectivity",
+          "Traceable operation",
         ],
       },
     ],
@@ -350,7 +350,7 @@ export const SERVICE_DETAILS: Record<
 };
 
 /* ---------------------------------------------------------------- */
-/* SERVICE_WHEN_TO_USE — cuándo te conviene cada servicio           */
+/* SERVICE_WHEN_TO_USE — when each service applies                  */
 /* ---------------------------------------------------------------- */
 
 export const SERVICE_WHEN_TO_USE: Record<
@@ -358,61 +358,61 @@ export const SERVICE_WHEN_TO_USE: Record<
   { title: string; subtitle: string; items: string[] }
 > = {
   "software-factory": {
-    title: "Cuándo te conviene una fábrica de software",
+    title: "When a software factory makes sense",
     subtitle:
-      "Si te identificas con alguno de estos puntos, una fábrica dedicada suele ser la respuesta correcta.",
+      "If you recognize any of these patterns, a dedicated factory is usually the right answer.",
     items: [
-      "Tienes backlog acumulado y el equipo interno no da abasto.",
-      "Procesos críticos dependen de archivos Excel mantenidos por una sola persona.",
-      "Necesitas integrar sistemas que hoy no se hablan entre sí.",
-      "Quieres velocidad sin perder control de la arquitectura.",
-      "Un proyecto urgente necesita un equipo senior listo en dos semanas.",
-      "Buscas continuidad: no solo entregar, también mantener y evolucionar.",
+      "Backlog is piling up and the internal team cannot catch up.",
+      "Critical processes depend on Excel files maintained by one person.",
+      "You need to integrate systems that do not talk to each other.",
+      "You want speed without losing control of the architecture.",
+      "An urgent project needs a senior team ready in two weeks.",
+      "You want continuity — delivery plus ongoing evolution and support.",
     ],
   },
   "sap-integrations": {
-    title: "Problemas típicos que resolvemos",
+    title: "Typical problems we solve",
     subtitle:
-      "Patrones recurrentes en organizaciones con SAP en producción y muchos sistemas alrededor.",
+      "Recurring patterns in organizations running SAP in production with many systems around it.",
     items: [
-      "Interfaces frágiles que se caen con cualquier cambio.",
-      "Datos duplicados entre SAP y sistemas terceros.",
-      "Reportes manuales sobre datos que ya están en SAP.",
-      "Sistemas críticos que no se hablan entre sí.",
-      "Cambios en SAP que rompen integraciones aguas abajo.",
-      "Falta de monitoreo de IDocs, jobs e interfaces.",
+      "Fragile interfaces that break with every change.",
+      "Duplicated data between SAP and third-party systems.",
+      "Manual reports built on data that already lives in SAP.",
+      "Critical systems that do not talk to each other.",
+      "SAP changes that break downstream integrations.",
+      "No monitoring of IDocs, jobs, and interfaces.",
     ],
   },
   "cloud-data": {
-    title: "De datos dispersos a reportes confiables",
+    title: "From scattered data to trusted reports",
     subtitle:
-      "Patrones que nos toca atender cuando los datos están en muchos lados y nadie confía en el reporte final.",
+      "Patterns we see when data lives in many places and no one trusts the final report.",
     items: [
-      "Información crítica repartida entre ERP, CRM, Excel y bases internas.",
-      "Reportes que cada equipo arma a su manera, con cifras distintas.",
-      "Pipelines manuales que se rompen y nadie se entera a tiempo.",
-      "Costos cloud que crecen sin control ni gobierno.",
-      "Falta de capa semántica común entre áreas.",
-      "Reportes ejecutivos que no soportan una auditoría.",
+      "Critical information spread across ERP, CRM, Excel, and internal databases.",
+      "Reports that each team rebuilds differently, with different numbers.",
+      "Manual pipelines that break and no one notices in time.",
+      "Cloud costs growing without control or governance.",
+      "No common semantic layer across business areas.",
+      "Executive reports that would not survive an audit.",
     ],
   },
   "enterprise-ai": {
-    title: "IA útil, no demos vacías",
+    title: "Useful AI, not empty demos",
     subtitle:
-      "La IA solo aporta valor cuando se conecta a procesos reales, datos propios y reglas de negocio.",
+      "AI only delivers value when it connects to real processes, private data, and explicit business rules.",
     items: [
-      "Asistentes conectados a datos corporativos, no a internet abierto.",
-      "Casos de uso medibles, no laboratorios eternos sin entregable.",
-      "Human-in-the-loop antes de cualquier acción sensible.",
-      "Permisos del usuario respetados por la capa de IA.",
-      "Trazabilidad de cada respuesta hasta el dato original.",
-      "MLOps real: modelos en producción con monitoreo, no notebooks.",
+      "Assistants connected to corporate data, not the open internet.",
+      "Measurable use cases — not infinite labs without a deliverable.",
+      "Human-in-the-loop before any sensitive action.",
+      "User permissions respected by the AI layer.",
+      "Traceability of every answer back to the source data.",
+      "Real MLOps — models in production with monitoring, not notebooks.",
     ],
   },
 };
 
 /* ---------------------------------------------------------------- */
-/* SERVICE_DELIVERABLES — qué entregamos                            */
+/* SERVICE_DELIVERABLES — what we ship                              */
 /* ---------------------------------------------------------------- */
 
 export const SERVICE_DELIVERABLES: Record<
@@ -420,54 +420,54 @@ export const SERVICE_DELIVERABLES: Record<
   { title: string; items: string[] }
 > = {
   "software-factory": {
-    title: "Qué entregamos",
+    title: "What we deliver",
     items: [
-      "Equipos senior dedicados con responsable de cuenta.",
-      "Arquitectura documentada y versionada.",
-      "Sprints quincenales con demo y entregable.",
-      "Pipeline CI/CD configurado desde el día uno.",
-      "Plan de soporte y evolución posterior al go-live.",
+      "Senior dedicated teams with an account owner.",
+      "Documented, versioned architecture.",
+      "Two-week sprints with demo and deliverable.",
+      "CI/CD pipeline configured from day one.",
+      "Support and evolution plan after go-live.",
     ],
   },
   "sap-integrations": {
-    title: "Qué entregamos",
+    title: "What we deliver",
     items: [
-      "Diagnóstico de integraciones críticas con riesgos.",
-      "Re-arquitectura sin romper procesos productivos.",
-      "Conectores y monitores reusables.",
-      "Pruebas de regresión sobre interfaces clave.",
-      "Tableros de salud técnica para operación.",
+      "Diagnosis of critical integrations with risks called out.",
+      "Re-architecture without breaking productive processes.",
+      "Reusable connectors and monitors.",
+      "Regression testing on key interfaces.",
+      "Technical-health dashboards for operations.",
     ],
   },
   "cloud-data": {
-    title: "Qué entregamos",
+    title: "What we deliver",
     items: [
-      "Arquitectura cloud documentada (AWS / Azure / GCP).",
-      "Pipelines de datos versionados con calidad medida.",
-      "Capa semántica común para reporting.",
-      "Tableros y reportes ejecutivos auditables.",
-      "Modelo de costos y gobierno cloud explícito.",
+      "Documented cloud architecture (AWS / Azure / GCP).",
+      "Versioned data pipelines with measured quality.",
+      "Common semantic layer for reporting.",
+      "Auditable executive dashboards and reports.",
+      "Explicit cost model and cloud governance.",
     ],
   },
   "enterprise-ai": {
-    title: "Qué entregamos",
+    title: "What we deliver",
     items: [
-      "Casos de uso priorizados con impacto operativo.",
-      "Asistentes y copilotos sobre datos propios.",
-      "RAG corporativo con controles de acceso.",
-      "Modelos ML productivos con monitoreo.",
-      "Plan de evolución y nuevos casos de uso.",
+      "Use cases prioritized by operational impact.",
+      "Assistants and copilots over private data.",
+      "Corporate RAG with access controls.",
+      "Productive ML models with monitoring.",
+      "Evolution plan and new use cases roadmap.",
     ],
   },
 };
 
 /* ---------------------------------------------------------------- */
-/* DeepDive — bloques con tabs para SAP / Cloud / Factory / IA      */
+/* DeepDive blocks — tab content for SAP / Cloud / Factory / AI     */
 /* ---------------------------------------------------------------- */
 
 export type DeepDiveBlock = {
   id: string;
-  label: string; // tab/short label
+  label: string;
   eyebrow: string;
   title: string;
   description: string;
@@ -481,56 +481,56 @@ export const SAP_DEEP_DIVE: DeepDiveBlock[] = [
     id: "core",
     label: "Core SAP",
     eyebrow: "Core SAP",
-    title: "Procesos de FI, CO, SD, MM, HCM, PS y PM",
+    title: "Processes across FI, CO, SD, MM, HCM, PS, and PM",
     description:
-      "Trabajamos sobre procesos SAP de finanzas, controlling, ventas, materiales, mantenimiento, proyectos y recursos humanos, cuidando que las integraciones no rompan la operación del core.",
+      "We work on SAP processes for finance, controlling, sales, materials, maintenance, projects, and HR — making sure integrations do not break the core operation.",
     bullets: [
-      "Finanzas (FI) y Controlling (CO) en cierres y reportes.",
-      "Ventas (SD), Materiales (MM) y Mantenimiento (PM) operativos.",
-      "Proyectos (PS) y Recursos Humanos (HCM) con foco en datos maestros.",
-      "Migración y soporte de ECC y S/4HANA con criterio funcional.",
+      "Finance (FI) and Controlling (CO) for closings and reporting.",
+      "Sales (SD), Materials (MM), and Maintenance (PM) operations.",
+      "Projects (PS) and HR (HCM) with focus on master data.",
+      "Migrations and support on ECC and S/4HANA with functional judgment.",
     ],
     badges: ["ECC", "S/4HANA", "FI", "CO", "SD", "MM", "HCM", "PS", "PM"],
     icon: Boxes,
   },
   {
     id: "dev",
-    label: "Desarrollo SAP",
-    eyebrow: "Desarrollo SAP",
-    title: "ABAP, reportes, formularios, ampliaciones y workflows",
+    label: "SAP development",
+    eyebrow: "SAP development",
+    title: "ABAP, reports, forms, enhancements, and workflows",
     description:
-      "Desarrollamos y evolucionamos objetos SAP como reportes, formularios, ampliaciones, conversiones, interfaces y workflows, con foco en mantenibilidad y continuidad operativa.",
+      "We develop and evolve SAP objects such as reports, forms, enhancements, conversions, interfaces, and workflows — focused on maintainability and operational continuity.",
     bullets: [
-      "Reportes ABAP custom con criterios de performance.",
-      "Formularios y outputs (SmartForms, Adobe).",
-      "Ampliaciones (BAdIs, User Exits) sin tocar el core.",
-      "Conversiones e interfaces controladas.",
-      "Workflows SAP para procesos asistidos.",
+      "Custom ABAP reports with performance criteria.",
+      "Forms and outputs (SmartForms, Adobe).",
+      "Enhancements (BAdIs, User Exits) without touching the core.",
+      "Controlled conversions and interfaces.",
+      "SAP workflows for assisted processes.",
     ],
     badges: [
       "ABAP",
       "ABAP/4",
-      "Reportes",
-      "Formularios",
-      "Ampliaciones",
-      "Conversiones",
+      "Reports",
+      "Forms",
+      "Enhancements",
+      "Conversions",
       "SAP Workflows",
     ],
     icon: Code2,
   },
   {
     id: "tech",
-    label: "Integración técnica",
-    eyebrow: "Integración técnica SAP",
-    title: "RFC, IDocs, BAPIs, SAP JCo, NetWeaver Gateway y APIs",
+    label: "Technical integration",
+    eyebrow: "Technical integration",
+    title: "RFC, IDocs, BAPIs, SAP JCo, NetWeaver Gateway, and APIs",
     description:
-      "Conectamos SAP con aplicaciones internas y plataformas externas mediante RFC, IDocs, BAPIs, SAP JCo, Gateway, APIs REST/SOAP y contratos de integración claros.",
+      "We connect SAP with internal applications and external platforms through RFC, IDocs, BAPIs, SAP JCo, Gateway, REST/SOAP APIs, and explicit integration contracts.",
     bullets: [
-      "Llamadas síncronas y asíncronas vía RFC y BAPIs.",
-      "Mensajería IDoc con monitoreo y reproceso.",
-      "Exposición de servicios SAP por NetWeaver Gateway.",
-      "Conectores Java con SAP JCo 2 y 3 para aplicaciones internas.",
-      "APIs REST/SOAP sobre SAP con contratos versionados.",
+      "Synchronous and asynchronous calls via RFC and BAPIs.",
+      "IDoc messaging with monitoring and reprocessing.",
+      "SAP services exposed through NetWeaver Gateway.",
+      "Java connectors with SAP JCo 2 and 3 for internal applications.",
+      "REST/SOAP APIs on top of SAP with versioned contracts.",
     ],
     badges: [
       "RFC",
@@ -547,16 +547,16 @@ export const SAP_DEEP_DIVE: DeepDiveBlock[] = [
   },
   {
     id: "cloud-btp",
-    label: "SAP Cloud y BTP",
-    eyebrow: "SAP Cloud y BTP",
-    title: "Extensiones SAP en la nube con gobierno y trazabilidad",
+    label: "SAP Cloud & BTP",
+    eyebrow: "SAP Cloud & BTP",
+    title: "Extending SAP into the cloud with governance and traceability",
     description:
-      "Extendemos SAP hacia la nube con SAP BTP, SAP Cloud, HCI/CPI y servicios de integración, manteniendo gobierno, seguridad y trazabilidad.",
+      "We extend SAP into the cloud with SAP BTP, SAP Cloud, HCI/CPI, and integration services — keeping governance, security, and traceability intact.",
     bullets: [
-      "Extensiones SAP fuera del core sobre SAP BTP.",
-      "Integraciones SAP cloud con HCI/CPI.",
-      "Workflows BTP y desarrollos CAP en Node/Java.",
-      "Aplicaciones Build / Apps integradas con identidad SAP.",
+      "SAP extensions outside the core via SAP BTP.",
+      "SAP cloud integrations with HCI/CPI.",
+      "BTP workflows and CAP development in Node/Java.",
+      "Build / Apps applications integrated with SAP identity.",
     ],
     badges: [
       "SAP BTP",
@@ -570,17 +570,17 @@ export const SAP_DEEP_DIVE: DeepDiveBlock[] = [
   },
   {
     id: "ops",
-    label: "Gobierno y operación",
-    eyebrow: "Gobierno y operación SAP",
-    title: "Solution Manager, ITSM, Change y Test Management",
+    label: "Governance & operations",
+    eyebrow: "SAP governance & operations",
+    title: "Solution Manager, ITSM, Change, and Test Management",
     description:
-      "También cubrimos la parte operativa: documentación de solución, gestión de cambios, pruebas, gestión de código custom, ITSM y continuidad del servicio.",
+      "We also cover the operational side: solution documentation, change management, testing, custom-code management, ITSM, and service continuity.",
     bullets: [
-      "Solution Documentation centralizada y mantenida.",
-      "ITSM y Change Management sobre Solution Manager.",
-      "Custom Code Management para limpiar deuda técnica.",
-      "Test Management para regresiones controladas.",
-      "Document Management y gobierno de outputs.",
+      "Centralized, maintained Solution Documentation.",
+      "ITSM and Change Management on Solution Manager.",
+      "Custom Code Management to reduce technical debt.",
+      "Test Management for controlled regression.",
+      "Document Management and output governance.",
     ],
     badges: [
       "SAP Solution Manager",
@@ -596,16 +596,16 @@ export const SAP_DEEP_DIVE: DeepDiveBlock[] = [
   {
     id: "middleware",
     label: "Middleware",
-    eyebrow: "Middleware SAP y terceros",
-    title: "Boomi, HCI/CPI, PI/PO, IBM WebSphere, MQ y APIs",
+    eyebrow: "SAP & third-party middleware",
+    title: "Boomi, HCI/CPI, PI/PO, IBM WebSphere, MQ, and APIs",
     description:
-      "Diseñamos integraciones entre SAP y terceros con middleware empresarial como Boomi, HCI/CPI, PI/PO, IBM WebSphere, MQ y APIs, cuidando monitoreo, errores, reprocesos y trazabilidad.",
+      "We design integrations between SAP and third parties through enterprise middleware such as Boomi, HCI/CPI, PI/PO, IBM WebSphere, and MQ — with monitoring, error handling, reprocessing, and traceability.",
     bullets: [
-      "Boomi para flujos de integración entre nube y on-prem.",
-      "SAP HCI/CPI y SAP PI/PO para integraciones SAP-céntricas.",
-      "IBM WebSphere Application Server, Message Broker y MQ.",
-      "APIs REST/SOAP con contratos, versionado y monitoreo.",
-      "Manejo de errores, reprocesos y bitácora por interfaz.",
+      "Boomi for integration flows between cloud and on-prem.",
+      "SAP HCI/CPI and SAP PI/PO for SAP-centric integrations.",
+      "IBM WebSphere Application Server, Message Broker, and MQ.",
+      "REST/SOAP APIs with contracts, versioning, and monitoring.",
+      "Error handling, reprocessing, and per-interface audit log.",
     ],
     badges: [
       "Boomi",
@@ -626,16 +626,16 @@ export const CLOUD_PROVIDERS: DeepDiveBlock[] = [
     id: "aws",
     label: "AWS",
     eyebrow: "AWS",
-    title: "Arquitecturas ligeras, mantenibles y observables",
+    title: "Lightweight, maintainable, observable architectures",
     description:
-      "En AWS diseñamos arquitecturas ligeras y mantenibles: sitios estáticos con S3 + CloudFront, APIs serverless con API Gateway + Lambda, envío de correos con SES y almacenamiento de leads, eventos o datos operativos según el caso.",
+      "On AWS we design lightweight, maintainable architectures: static sites on S3 + CloudFront, serverless APIs with API Gateway + Lambda, email delivery with SES, and storage for leads, events, or operational data.",
     bullets: [
-      "S3 + CloudFront para sitios corporativos, assets y distribución segura.",
-      "API Gateway + Lambda para endpoints ligeros e integraciones serverless.",
-      "SES para correo transaccional y formularios de contacto.",
-      "RDS / DynamoDB para persistencia según caso de uso.",
-      "Separación por entornos con cuentas, IAM y políticas explícitas.",
-      "Observabilidad y operación básica para continuidad.",
+      "S3 + CloudFront for corporate sites, assets, and secure distribution.",
+      "API Gateway + Lambda for lightweight endpoints and serverless integration.",
+      "SES for transactional email and contact forms.",
+      "RDS / DynamoDB for persistence depending on the use case.",
+      "Per-environment separation with accounts, IAM, and explicit policies.",
+      "Baseline observability and operations for continuity.",
     ],
     badges: [
       "S3 + CloudFront",
@@ -652,16 +652,16 @@ export const CLOUD_PROVIDERS: DeepDiveBlock[] = [
     id: "azure",
     label: "Azure",
     eyebrow: "Azure",
-    title: "Plataformas corporativas con identidad, datos y aplicaciones",
+    title: "Corporate platforms across identity, data, and applications",
     description:
-      "En Azure ayudamos a construir plataformas corporativas integradas con identidad, datos y aplicaciones internas, cuidando gobierno, seguridad y continuidad.",
+      "On Azure we help build corporate platforms integrated with identity, data, and internal applications — keeping governance, security, and continuity in scope.",
     bullets: [
-      "Aplicaciones corporativas sobre App Service y Functions.",
-      "Integración con identidad empresarial (Entra ID).",
-      "Azure SQL y servicios de datos gestionados.",
-      "Data Lake y Synapse para analítica corporativa.",
-      "Integración con APIs internas y sistemas legacy.",
-      "Gobierno, seguridad y operación continua.",
+      "Corporate applications on App Service and Functions.",
+      "Integration with corporate identity (Entra ID).",
+      "Azure SQL and managed data services.",
+      "Data Lake and Synapse for corporate analytics.",
+      "Integration with internal APIs and legacy systems.",
+      "Governance, security, and continuous operation.",
     ],
     badges: [
       "App Service",
@@ -677,15 +677,15 @@ export const CLOUD_PROVIDERS: DeepDiveBlock[] = [
     id: "gcp",
     label: "GCP",
     eyebrow: "Google Cloud",
-    title: "Datos, analítica y servicios gestionados",
+    title: "Data, analytics, and managed services",
     description:
-      "En GCP orientamos la arquitectura hacia datos, analítica y servicios gestionados, conectando fuentes operativas con modelos de reporting y consumo empresarial.",
+      "On GCP we shape the architecture toward data, analytics, and managed services, wiring operational sources into reporting and enterprise consumption.",
     bullets: [
-      "BigQuery para analítica y modelos de reporting empresarial.",
-      "Cloud Run o servicios gestionados para despliegues ligeros.",
-      "Pub/Sub y pipelines de datos para ingesta y transformación.",
-      "Conexión de fuentes operativas con reportes y dashboards.",
-      "Arquitectura orientada a datos y consumo empresarial.",
+      "BigQuery for analytics and enterprise reporting models.",
+      "Cloud Run or managed services for lightweight deployments.",
+      "Pub/Sub and data pipelines for ingestion and transformation.",
+      "Connecting operational sources to reports and dashboards.",
+      "Architecture oriented to data and enterprise consumption.",
     ],
     badges: ["BigQuery", "Cloud Run", "Pub/Sub", "Dataflow", "Looker Studio"],
     icon: Cloud,
@@ -695,17 +695,17 @@ export const CLOUD_PROVIDERS: DeepDiveBlock[] = [
 export const DATA_PLATFORM_BLOCKS: DeepDiveBlock[] = [
   {
     id: "databases",
-    label: "Bases de datos",
-    eyebrow: "Bases de datos empresariales",
-    title: "SQL Server, Oracle, PostgreSQL, MySQL, DB2, Sybase y SAP HANA",
+    label: "Databases",
+    eyebrow: "Enterprise databases",
+    title: "SQL Server, Oracle, PostgreSQL, MySQL, DB2, Sybase, and SAP HANA",
     description:
-      "Trabajamos con bases de datos empresariales conectándolas a pipelines, reportes y procesos operativos con trazabilidad. Modelado, migración, integración y reporting con criterio.",
+      "We work with enterprise databases — wiring them into pipelines, reports, and operational processes with traceability. Modeling, migration, integration, and reporting done with judgment.",
     bullets: [
-      "Modelado y diseño para performance y consistencia.",
-      "Migraciones controladas entre motores empresariales.",
-      "Integración con sistemas SAP y no SAP.",
-      "Reporting con trazabilidad al dato original.",
-      "Validaciones de calidad y reconciliación entre fuentes.",
+      "Modeling and design for performance and consistency.",
+      "Controlled migrations across enterprise engines.",
+      "Integration with SAP and non-SAP systems.",
+      "Reporting with traceability to the source data.",
+      "Quality validations and reconciliation between sources.",
     ],
     badges: [
       "MS SQL Server",
@@ -722,39 +722,39 @@ export const DATA_PLATFORM_BLOCKS: DeepDiveBlock[] = [
     id: "pipelines",
     label: "Pipelines",
     eyebrow: "Data pipelines",
-    title: "Ingesta, transformación y calidad versionadas",
+    title: "Auditable, versioned ingestion, transformation, and quality",
     description:
-      "Pipelines de datos auditables y reproducibles. Sin scripts huérfanos, sin procesos que solo conoce una persona del equipo.",
+      "Data pipelines that are auditable and reproducible. No orphan scripts, no processes only one person on the team understands.",
     bullets: [
-      "Ingesta confiable desde sistemas fuente.",
-      "Transformaciones versionadas en repositorio.",
-      "Validaciones de calidad con alertas.",
-      "Catálogo de fuentes y dependencias.",
-      "Reprocesos controlados ante errores.",
+      "Reliable ingestion from source systems.",
+      "Versioned transformations checked into source control.",
+      "Quality validations with alerts.",
+      "Catalog of sources and dependencies.",
+      "Controlled reprocessing in case of errors.",
     ],
-    badges: ["ETL/ELT", "Streaming", "Batch", "Calidad de datos"],
+    badges: ["ETL/ELT", "Streaming", "Batch", "Data quality"],
     icon: Workflow,
   },
   {
     id: "reporting",
-    label: "Reporting y gobierno",
-    eyebrow: "Reporting y gobierno",
-    title: "Capa semántica común y reportes auditables",
+    label: "Reporting & governance",
+    eyebrow: "Reporting & governance",
+    title: "Common semantic layer and auditable reports",
     description:
-      "Llevamos los datos hasta el reporte ejecutivo con trazabilidad al dato original. Reportes que aguantan auditoría, no dashboards bonitos sin sustento.",
+      "We carry the data all the way to the executive report with traceability back to the source. Reports that hold up under audit — not pretty dashboards without substance.",
     bullets: [
-      "Capa semántica común entre áreas.",
-      "Reportes ejecutivos y operativos auditables.",
-      "Trazabilidad al dato original.",
-      "Validación de fuentes y reglas de calidad.",
-      "Gobierno de datos por dominio.",
+      "Common semantic layer across areas.",
+      "Auditable executive and operational reports.",
+      "Traceability to the source data.",
+      "Source validation and quality rules.",
+      "Data governance per domain.",
     ],
     badges: [
       "Power BI",
       "Tableau",
       "Looker Studio",
-      "Capa semántica",
-      "Gobierno",
+      "Semantic layer",
+      "Governance",
     ],
     icon: LineChart,
   },
@@ -763,68 +763,68 @@ export const DATA_PLATFORM_BLOCKS: DeepDiveBlock[] = [
 export const SOFTWARE_FACTORY_BLOCKS: DeepDiveBlock[] = [
   {
     id: "build",
-    label: "Qué construimos",
-    eyebrow: "Qué construimos",
-    title: "Portales, aplicaciones, APIs, reportes, interfaces y workflows",
+    label: "What we build",
+    eyebrow: "What we build",
+    title: "Portals, applications, APIs, reports, interfaces, and workflows",
     description:
-      "No solo desarrollamos pantallas. Diseñamos portales, aplicaciones internas, APIs, reportes, interfaces y flujos de trabajo conectados a sistemas reales, con soporte evolutivo y entregables por sprint.",
+      "We do not just build screens. We design portals, internal applications, APIs, reports, interfaces, and workflows connected to real systems — with evolutionary support and per-sprint deliverables.",
     bullets: [
-      "Portales empresariales y aplicaciones internas.",
-      "APIs y microservicios reutilizables.",
-      "Reportes, interfaces y formularios.",
-      "Workflows y herramientas operativas.",
-      "Integraciones con SAP y terceros.",
-      "Automatizaciones y evolutivos sobre plataformas existentes.",
+      "Enterprise portals and internal applications.",
+      "Reusable APIs and microservices.",
+      "Reports, interfaces, and forms.",
+      "Workflows and operational tools.",
+      "Integrations with SAP and third parties.",
+      "Automations and evolutions on existing platforms.",
     ],
     badges: [
-      "Portales",
-      "Apps internas",
+      "Portals",
+      "Internal apps",
       "APIs",
-      "Microservicios",
-      "Reportes",
+      "Microservices",
+      "Reports",
       "Workflows",
     ],
     icon: Code2,
   },
   {
     id: "operate",
-    label: "Cómo operamos",
-    eyebrow: "Cómo operamos una fábrica",
-    title: "De levantamiento a soporte L2/L3 y roadmap",
+    label: "How we operate",
+    eyebrow: "How we run a factory",
+    title: "From discovery to L2/L3 support and roadmap",
     description:
-      "Modelo de fábrica con responsabilidad de extremo a extremo: levantamiento, priorización, arquitectura, desarrollo, QA, documentación, despliegue, soporte y evolución.",
+      "Factory model with end-to-end accountability: discovery, prioritization, architecture, development, QA, documentation, deployment, support, and evolution.",
     bullets: [
-      "Levantamiento técnico y funcional.",
-      "Priorización de backlog continuo.",
-      "Diseño de arquitectura documentada.",
-      "Desarrollo iterativo con sprints quincenales.",
-      "QA, documentación y despliegue controlados.",
-      "Soporte L2/L3 y roadmap evolutivo.",
+      "Technical and functional discovery.",
+      "Continuous backlog prioritization.",
+      "Documented architecture design.",
+      "Iterative development with two-week sprints.",
+      "Controlled QA, documentation, and deployment.",
+      "L2/L3 support and evolutionary roadmap.",
     ],
     badges: [
-      "Backlog continuo",
+      "Continuous backlog",
       "Sprints",
       "QA",
       "Docs",
       "CI/CD",
-      "Soporte L2/L3",
+      "L2/L3 support",
     ],
     icon: Workflow,
   },
   {
     id: "tech",
-    label: "Tecnologías",
-    eyebrow: "Tecnologías de desarrollo",
-    title: "Java, .NET, TypeScript, Python, ABAP y SQL",
+    label: "Technologies",
+    eyebrow: "Development technologies",
+    title: "Java, .NET, TypeScript, Python, ABAP, and SQL",
     description:
-      "Stack pragmático según el caso. Elegimos la tecnología que mejor sostiene la operación, no la que está de moda.",
+      "Pragmatic stack chosen per case. We pick the technology that best sustains the operation — not the one that is trending.",
     bullets: [
-      "Java, J2EE / JSE y Jruby para sistemas empresariales.",
-      ".NET, C# y ASP.NET para plataformas Microsoft.",
-      "TypeScript / React / Node para front-ends modernos y BFFs.",
-      "Python para automatización, datos e IA.",
-      "ABAP para desarrollo dentro de SAP.",
-      "SQL avanzado en motores empresariales.",
+      "Java, J2EE / JSE, and Jruby for enterprise systems.",
+      ".NET, C#, and ASP.NET for Microsoft platforms.",
+      "TypeScript / React / Node for modern front-ends and BFFs.",
+      "Python for automation, data, and AI.",
+      "ABAP for development inside SAP.",
+      "Advanced SQL across enterprise engines.",
     ],
     badges: [
       "Java",
@@ -842,18 +842,18 @@ export const SOFTWARE_FACTORY_BLOCKS: DeepDiveBlock[] = [
   },
   {
     id: "integrations",
-    label: "Integraciones",
-    eyebrow: "Integraciones que sostenemos",
-    title: "Conectamos SAP y no SAP, no solo construimos pantallas",
+    label: "Integrations",
+    eyebrow: "Integrations we sustain",
+    title: "We connect SAP and non-SAP — not just build screens",
     description:
-      "Diseñamos integraciones entre sistemas SAP y no SAP mediante middleware empresarial, APIs y servicios controlados. El foco no es solo conectar, sino monitorear, documentar, reprocesar errores y sostener la operación.",
+      "We design integrations between SAP and non-SAP systems through enterprise middleware, APIs, and controlled services. The focus is not only connecting, but monitoring, documenting, reprocessing errors, and sustaining the operation.",
     bullets: [
-      "Contratos de integración versionados con esquemas claros.",
-      "APIs y servicios reutilizables sobre Java, .NET y TypeScript.",
-      "Middleware empresarial Boomi, HCI/CPI, PI/PO, IBM WebSphere y MQ.",
-      "Monitoreo de interfaces críticas con alertas y bitácora.",
-      "Manejo de errores, reprocesos y trazabilidad por transacción.",
-      "Soporte evolutivo a integraciones existentes sin romperlas.",
+      "Versioned integration contracts with clear schemas.",
+      "Reusable APIs and services on Java, .NET, and TypeScript.",
+      "Enterprise middleware: Boomi, HCI/CPI, PI/PO, IBM WebSphere, and MQ.",
+      "Critical-interface monitoring with alerts and audit log.",
+      "Error handling, reprocessing, and per-transaction traceability.",
+      "Evolutionary support for existing integrations without breaking them.",
     ],
     badges: [
       "Boomi",
@@ -870,19 +870,19 @@ export const SOFTWARE_FACTORY_BLOCKS: DeepDiveBlock[] = [
   },
   {
     id: "when",
-    label: "Cuándo conviene",
-    eyebrow: "Cuándo conviene este modelo",
-    title: "Cuando hace falta velocidad sin perder control",
+    label: "When it fits",
+    eyebrow: "When this model fits",
+    title: "When you need speed without losing control",
     description:
-      "Una fábrica dedicada brilla en escenarios donde la complejidad técnica y la presión del negocio se cruzan.",
+      "A dedicated factory shines when technical complexity and business pressure intersect.",
     bullets: [
-      "Backlog acumulado que el equipo interno no puede atender.",
-      "Procesos críticos atados a archivos Excel.",
-      "Sistemas que no se hablan y obligan a duplicar trabajo manual.",
-      "Necesidad de un equipo senior listo en pocas semanas.",
-      "Soporte y evolución continua, no solo entrega inicial.",
+      "Backlog the internal team cannot catch up with.",
+      "Critical processes tied to Excel files.",
+      "Systems that do not talk and force manual double-entry.",
+      "Need for a senior team ready in a few weeks.",
+      "Ongoing support and evolution — not only initial delivery.",
     ],
-    badges: ["Velocidad", "Control", "Evolución", "Continuidad"],
+    badges: ["Speed", "Control", "Evolution", "Continuity"],
     icon: Sparkles,
   },
 ];
@@ -890,93 +890,89 @@ export const SOFTWARE_FACTORY_BLOCKS: DeepDiveBlock[] = [
 export const ENTERPRISE_AI_BLOCKS: DeepDiveBlock[] = [
   {
     id: "genai",
-    label: "IA generativa",
-    eyebrow: "IA generativa con contexto empresarial",
-    title: "LLMs, RAG corporativo, permisos y trazabilidad",
+    label: "Generative AI",
+    eyebrow: "Generative AI with enterprise context",
+    title: "LLMs, corporate RAG, permissions, and traceability",
     description:
-      "Soluciones de IA generativa conectadas a datos propios con RAG, controles de acceso y trazabilidad. Sin chatbots aislados del contexto del cliente.",
+      "Generative AI solutions wired into private data with RAG, access controls, and traceability. No chatbots floating outside the client's context.",
     bullets: [
-      "LLMs sobre datos propios con RAG corporativo.",
-      "Respuestas con citas y trazabilidad al dato original.",
-      "Controles de acceso por rol y por dominio.",
-      "Despliegue en cloud privado o VPC dedicada.",
-      "Evaluación continua de respuestas.",
+      "LLMs grounded on private data with corporate RAG.",
+      "Answers with citations and traceability to the source.",
+      "Access controls per role and per domain.",
+      "Deployment in private cloud or dedicated VPC.",
+      "Continuous evaluation of responses.",
     ],
     badges: [
       "LLMs",
-      "RAG corporativo",
-      "Citas",
-      "Permisos",
-      "Eval continua",
+      "Corporate RAG",
+      "Citations",
+      "Permissions",
+      "Continuous eval",
     ],
     icon: Sparkles,
   },
   {
     id: "ml",
     label: "Machine learning",
-    eyebrow: "Machine learning aplicado",
-    title: "Predicción, clasificación y detección con MLOps",
+    eyebrow: "Applied machine learning",
+    title: "Prediction, classification, and detection with MLOps",
     description:
-      "Modelos productivos con foco en operación: predicción, clasificación, detección de anomalías, monitoreo y evaluación continua.",
+      "Productive models focused on operation: prediction, classification, anomaly detection, monitoring, and continuous evaluation.",
     bullets: [
-      "Predicción y clasificación sobre datos empresariales.",
-      "Detección de anomalías en procesos críticos.",
-      "Monitoreo de modelos en producción.",
-      "Evaluación continua y reentrenamiento.",
-      "MLOps real, no notebooks sin operación.",
+      "Prediction and classification over enterprise data.",
+      "Anomaly detection in critical processes.",
+      "Monitoring of models in production.",
+      "Continuous evaluation and retraining.",
+      "Real MLOps — not notebooks without operation.",
     ],
-    badges: ["ML", "MLOps", "Anomalías", "Monitoreo", "Reentrenamiento"],
+    badges: ["ML", "MLOps", "Anomalies", "Monitoring", "Retraining"],
     icon: Brain,
   },
   {
     id: "assistants",
-    label: "Asistentes internos",
-    eyebrow: "Asistentes para consultores y equipos internos",
-    title: "Búsqueda, soporte y automatización con contexto propio",
+    label: "Internal assistants",
+    eyebrow: "Assistants for consultants and internal teams",
+    title: "Search, support, and automation grounded on private context",
     description:
-      "Asistentes que apoyan a consultores y equipos internos sobre documentación, normativas y datos propios. IA pegada al trabajo real, no a internet abierto.",
+      "Assistants that support consultants and internal teams over documentation, policies, and private data. AI tied to the real work — not the open internet.",
     bullets: [
-      "Búsqueda sobre documentación interna.",
-      "Apoyo a soporte funcional y técnico.",
-      "Consulta de procesos y normativas.",
-      "Resumen de información y reportes.",
-      "Automatización de tareas repetitivas.",
+      "Search across internal documentation.",
+      "Support for functional and technical helpdesk.",
+      "Process and policy inquiries.",
+      "Summarization of information and reports.",
+      "Automation of repetitive tasks.",
     ],
-    badges: ["Búsqueda", "Soporte interno", "Resúmenes", "Automatización"],
+    badges: ["Search", "Internal support", "Summaries", "Automation"],
     icon: Wand2,
   },
   {
     id: "copilots",
-    label: "Copilotos operativos",
-    eyebrow: "Copilotos operativos",
-    title: "Conectados a SAP, datos, APIs y reglas de negocio",
+    label: "Operational copilots",
+    eyebrow: "Operational copilots",
+    title: "Wired into SAP, data, APIs, and business rules",
     description:
-      "Capa de IA conectada a SAP, bases de datos, APIs internas y reportes con permisos por rol y validación previa a cualquier acción sensible. Aquí vive nuestro producto estrella: Copiloto Empresarial.",
+      "An AI layer wired into SAP, databases, internal APIs, and reports with per-role permissions and validation before any sensitive action. This is where our flagship product lives: Enterprise Copilot.",
     bullets: [
-      "Consulta operativa sobre SAP, BD y APIs.",
-      "Validación de inconsistencias con reglas de negocio.",
-      "Reportes asistidos con trazabilidad.",
-      "Seguridad por rol heredada del sistema fuente.",
-      "Confirmación humana antes de acciones críticas.",
+      "Operational queries across SAP, databases, and APIs.",
+      "Inconsistency validation with business rules.",
+      "Assisted reports with traceability.",
+      "Security per role inherited from the source system.",
+      "Human approval before critical actions.",
     ],
     badges: [
       "SAP",
-      "Bases de datos",
+      "Databases",
       "APIs",
-      "Reportes",
-      "Permisos",
-      "Trazabilidad",
+      "Reports",
+      "Permissions",
+      "Traceability",
     ],
     icon: GitBranch,
   },
 ];
 
-/* ---------------------------------------------------------------- */
-/* Re-export some icons consumed by other modules that historically  */
-/* read them from site-data (legacy). Safe to remove once callers   */
-/* migrate to lucide-react directly.                                 */
-/* ---------------------------------------------------------------- */
-
+/* Auxiliary icon re-exports (legacy support — safe to remove if no
+   consumer reads from this object). */
 export const SERVICE_LEGACY_ICONS = {
   Boxes,
   Cloud,

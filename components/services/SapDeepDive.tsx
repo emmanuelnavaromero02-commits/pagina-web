@@ -13,11 +13,11 @@ export function SapDeepDive() {
   return (
     <Section className="bg-white">
       <SectionHeader
-        eyebrow="SAP en profundidad"
-        title="Qué sabemos hacer dentro de SAP"
-        description="Seis frentes de trabajo sobre el ecosistema SAP, desde módulos funcionales y desarrollo ABAP hasta middleware empresarial y gobierno. Selecciona el frente que te interesa."
+        eyebrow="SAP in depth"
+        title="What we do inside SAP"
+        description="Six fronts across the SAP ecosystem — from functional modules and ABAP development through enterprise middleware and governance. Pick the front that matters to you."
       />
-      <Tabs ariaLabel="SAP en profundidad" tabs={tabs} className="mt-10" />
+      <Tabs ariaLabel="SAP in depth" tabs={tabs} className="mt-10" />
     </Section>
   );
 }

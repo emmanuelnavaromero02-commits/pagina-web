@@ -17,7 +17,7 @@ export function Logo({ className, variant = "light" }: LogoProps) {
         isDark ? "text-white" : "text-ink-950",
         className,
       )}
-      aria-label={`${SITE.name} - Inicio`}
+      aria-label={`${SITE.name} — Home`}
     >
       <span
         aria-hidden
@@ -28,21 +28,15 @@ export function Logo({ className, variant = "light" }: LogoProps) {
             : "bg-gradient-to-br from-brand-600 to-brand-800",
         )}
       >
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          aria-hidden
-        >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
           <path
-            d="M4 4 L12 20 L20 4"
-            stroke={isDark ? "#fff" : "#fff"}
-            strokeWidth="2.4"
+            d="M5 6 L19 6 L11 20"
+            stroke="#ffffff"
+            strokeWidth="2.6"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
-          <circle cx="12" cy="12" r="2" fill={isDark ? "#5be1c4" : "#5be1c4"} />
+          <circle cx="11" cy="13" r="1.7" fill="#5be1c4" />
         </svg>
       </span>
       <span className="font-display text-base font-semibold tracking-tight">

@@ -12,9 +12,9 @@ import { CopilotRoles } from "@/components/copilot/CopilotRoles";
 import { CopilotSecurity } from "@/components/copilot/CopilotSecurity";
 
 export const metadata: Metadata = {
-  title: "Copiloto Empresarial · De horas a respuestas trazables en minutos",
+  title: "Enterprise Copilot · From manual work to traceable answers in minutes",
   description:
-    "Capa de IA operativa que conecta SAP, datos, APIs y reportes para consultar, validar y preparar acciones con evidencia, permisos y trazabilidad.",
+    "Operational AI layer that connects SAP, data, APIs, and reports so teams can ask, validate, explain, and act with evidence, permissions, and auditability.",
   alternates: { canonical: "/copilot" },
 };
 

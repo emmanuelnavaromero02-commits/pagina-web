@@ -11,24 +11,23 @@ export function CopilotSpotlight() {
         <div>
           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-accent-400">
             <Sparkles className="h-3.5 w-3.5" />
-            Producto estrella
+            Flagship product
           </div>
           <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-            Copiloto Empresarial
+            Enterprise Copilot
           </h2>
           <p className="mt-4 text-base leading-relaxed text-ink-300 sm:text-lg">
-            La nueva capa inteligente para consultar, validar, reportar y
-            automatizar procesos sobre tus sistemas actuales.
+            The intelligent layer that asks, validates, reports, and acts over
+            the systems you already operate.
           </p>
           <p className="mt-4 text-sm leading-relaxed text-ink-300/90">
-            No es un chatbot genérico. Es un copiloto operativo conectado a
-            datos, reglas, reportes, APIs y sistemas empresariales para ayudar
-            a equipos internos a trabajar con más velocidad, control y
-            trazabilidad.
+            Not a generic chatbot. An operational copilot wired into data,
+            rules, reports, APIs, and enterprise systems — helping internal
+            teams work faster with more control and traceability.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <LinkButton href="/copilot" size="lg" variant="primary">
-              Ver Copiloto Empresarial
+              Explore Enterprise Copilot
               <ArrowRight className="h-4 w-4" />
             </LinkButton>
             <LinkButton
@@ -37,11 +36,11 @@ export function CopilotSpotlight() {
               variant="outline"
               className="border-white/20 bg-white/5 text-white hover:bg-white/10"
             >
-              Ver cómo funciona
+              See how it works
             </LinkButton>
           </div>
           <p className="mt-8 text-xs uppercase tracking-[0.18em] text-ink-500">
-            Conectado a · SAP · BD · APIs · BI · Sistemas legacy
+            Connected to · SAP · Databases · APIs · BI · Legacy systems
           </p>
         </div>
 

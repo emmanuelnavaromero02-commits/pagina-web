@@ -7,9 +7,9 @@ import { ServiceHero } from "@/components/services/ServiceHero";
 import { INDUSTRY_AREAS } from "@/lib/site-data";
 
 export const metadata: Metadata = {
-  title: "Industrias y casos de uso · RRHH · Finanzas · Operaciones",
+  title: "Industries & use cases · HR · Finance · Operations",
   description:
-    "Casos de uso por área funcional: RRHH, finanzas, operaciones, reporting, soporte interno, integraciones SAP, automatización y gobierno de datos.",
+    "Use cases by functional area: HR, finance, operations, executive reporting, internal support, SAP integration, automation, and data governance.",
   alternates: { canonical: "/industries" },
 };
 
@@ -17,16 +17,16 @@ export default function IndustriesPage() {
   return (
     <>
       <ServiceHero
-        eyebrow="Industrias / casos de uso"
-        title="Áreas donde aportamos valor"
-        description="Combinamos software a medida, integraciones SAP y IA empresarial sobre áreas funcionales y capacidades transversales reales."
+        eyebrow="Industries / use cases"
+        title="Where we deliver value"
+        description="We combine custom software, SAP integration, and operational AI across functional areas and cross-cutting capabilities."
       />
 
       <Section className="bg-white">
         <SectionHeader
-          eyebrow="Áreas"
-          title="Problema, qué hacemos y sobre qué sistemas"
-          description="Cada tarjeta describe el patrón típico, lo que hacemos en ese caso y las capacidades involucradas."
+          eyebrow="Areas"
+          title="Problem, what we do, and on which systems"
+          description="Each card describes the typical pattern, what we do in that case, and the systems and capabilities involved."
         />
         <ul className="mt-12 grid gap-6 sm:grid-cols-2">
           {INDUSTRY_AREAS.map((area) => {
@@ -49,7 +49,7 @@ export default function IndustriesPage() {
 
                 <div className="mt-5">
                   <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-500">
-                    Problema típico
+                    Typical problem
                   </p>
                   <p className="mt-1.5 text-sm leading-relaxed text-ink-700">
                     {area.problem}
@@ -58,7 +58,7 @@ export default function IndustriesPage() {
 
                 <div className="mt-5">
                   <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-brand-700">
-                    Qué hacemos
+                    What we do
                   </p>
                   <ul className="mt-2 space-y-1.5">
                     {area.whatWeDo.map((b) => (
@@ -75,7 +75,7 @@ export default function IndustriesPage() {
 
                 <div className="mt-5">
                   <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-500">
-                    Sistemas y capacidades
+                    Systems and capabilities
                   </p>
                   <ul className="mt-2 flex flex-wrap gap-1.5">
                     {area.systems.map((s) => (

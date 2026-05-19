@@ -38,7 +38,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
       className="fixed inset-0 z-50 lg:hidden"
       role="dialog"
       aria-modal="true"
-      aria-label="Menú principal"
+      aria-label="Primary menu"
     >
       <div
         className="absolute inset-0 bg-ink-950/40 backdrop-blur-sm"
@@ -50,7 +50,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
           <button
             type="button"
             onClick={onClose}
-            aria-label="Cerrar menú"
+            aria-label="Close menu"
             className="inline-flex h-10 w-10 items-center justify-center rounded-md text-ink-800 hover:bg-ink-100"
           >
             <X className="h-5 w-5" />
@@ -58,7 +58,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
         </div>
 
         <nav
-          aria-label="Principal"
+          aria-label="Primary"
           className="flex-1 overflow-y-auto px-2 py-4"
         >
           <ul className="space-y-1">
@@ -142,7 +142,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
             size="md"
             className="w-full"
           >
-            Solicitar diagnóstico
+            Request a diagnosis
           </LinkButton>
         </div>
       </div>

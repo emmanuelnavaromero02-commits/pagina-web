@@ -6,9 +6,9 @@ export function CopilotProblems() {
   return (
     <Section id="problem" className="bg-white">
       <SectionHeader
-        eyebrow="Qué problema resuelve"
-        title="Operación cotidiana atascada en tareas manuales"
-        description="El Copiloto Empresarial reduce el tiempo que el equipo dedica a buscar, validar y consolidar información dispersa."
+        eyebrow="The problem we solve"
+        title="Operations stuck in manual work"
+        description="Enterprise Copilot reduces the time the team spends searching, validating, and consolidating scattered information."
       />
       <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {COPILOT_PROBLEMS.map((p) => (
@@ -26,9 +26,9 @@ export function CopilotCapabilities() {
   return (
     <Section id="does" className="bg-ink-50">
       <SectionHeader
-        eyebrow="Qué hace"
-        title="Capacidades operativas, no genéricas"
-        description="Cada capacidad está pensada para apoyar trabajo real: consultar, explicar, validar, reportar, conectar y reducir tareas manuales."
+        eyebrow="What it does"
+        title="Operational capabilities, not generic talk"
+        description="Each capability is designed to support real work: query, explain, validate, report, connect, and reduce manual tasks."
       />
       <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {COPILOT_CAPABILITIES.map((cap) => {

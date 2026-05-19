@@ -7,9 +7,9 @@ export function UseCasesPreview() {
   return (
     <Section className="bg-white">
       <SectionHeader
-        eyebrow="Casos de uso"
-        title="Áreas donde ya está aportando valor"
-        description="Procesos donde el software a medida, las integraciones SAP y la IA empresarial reducen trabajo manual y aceleran decisiones."
+        eyebrow="Use cases"
+        title="Where it is already delivering value"
+        description="Processes where custom software, SAP integration, and operational AI reduce manual work and accelerate decisions."
       />
 
       <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -29,7 +29,7 @@ export function UseCasesPreview() {
                     {uc.title}
                   </p>
                   <p className="text-sm text-ink-500">
-                    Casos operativos asistidos
+                    Operational scenarios with assisted execution
                   </p>
                 </div>
                 <ArrowRight className="h-4 w-4 text-ink-300 transition-transform group-hover:translate-x-0.5 group-hover:text-brand-700" />
@@ -44,7 +44,7 @@ export function UseCasesPreview() {
           href="/industries"
           className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 hover:text-brand-800"
         >
-          Ver todos los casos de uso
+          View all use cases
           <ArrowRight className="h-4 w-4" />
         </Link>
       </div>

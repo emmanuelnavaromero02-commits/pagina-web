@@ -1,13 +1,13 @@
 import { Section, SectionHeader } from "@/components/ui/Section";
-import { CONTACT_AFTER_STEPS } from "@/lib/site-data";
+import { CONTACT_AFTER_STEPS } from "@/lib/data/home";
 
 export function AfterSteps() {
   return (
     <Section className="bg-ink-50">
       <SectionHeader
-        eyebrow="Después de contactarnos"
-        title="Cómo es el proceso cuando recibimos tu mensaje"
-        description="Sin venta de humo ni reuniones eternas. Cuatro pasos cortos para definir si tiene sentido trabajar juntos."
+        eyebrow="What happens next"
+        title="The process once we receive your message"
+        description="No smoke and no marathon meetings. Four short steps to decide whether it makes sense to work together."
       />
 
       <ol className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

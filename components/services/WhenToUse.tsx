@@ -22,7 +22,7 @@ export function WhenToUse({ slug, variant = "light" }: WhenToUseProps) {
                 : "text-xs font-semibold uppercase tracking-[0.18em] text-brand-700"
             }
           >
-            Cuándo aplica
+            When it applies
           </p>
           <h2
             className={`mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl ${

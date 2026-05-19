@@ -9,7 +9,7 @@ import { SERVICE_DETAILS } from "@/lib/site-data";
 const detail = SERVICE_DETAILS["software-factory"];
 
 export const metadata: Metadata = {
-  title: `${detail.title} · Equipos senior dedicados`,
+  title: `${detail.title} · Senior dedicated teams`,
   description: detail.intro,
   alternates: { canonical: "/services/software-factory" },
 };
@@ -28,7 +28,7 @@ export default function SoftwareFactoryPage() {
       <Deliverables
         slug="software-factory"
         related={{
-          label: "Ver Copiloto Empresarial",
+          label: "Explore Enterprise Copilot",
           href: "/copilot",
         }}
       />

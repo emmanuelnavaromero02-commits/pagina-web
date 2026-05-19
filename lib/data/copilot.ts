@@ -33,90 +33,90 @@ export const COPILOT_CAPABILITIES: {
   icon: LucideIcon;
 }[] = [
   {
-    title: "Consultar información empresarial",
+    title: "Query enterprise data",
     description:
-      "Responde preguntas operativas usando datos reales de SAP, bases de datos y reportes internos.",
+      "Answers operational questions using real data from SAP, databases, and internal reports.",
     icon: Database,
   },
   {
-    title: "Explicar datos y reportes",
+    title: "Explain numbers and reports",
     description:
-      "Traduce métricas y cierres a explicaciones claras para el equipo y para la dirección.",
+      "Turns metrics and closings into clear explanations for the team and the leadership.",
     icon: FileBarChart,
   },
   {
-    title: "Validar inconsistencias",
+    title: "Validate inconsistencies",
     description:
-      "Detecta diferencias entre fuentes y propone correcciones antes de que lleguen al reporte final.",
+      "Detects gaps between sources and proposes corrections before they reach the final report.",
     icon: AlertTriangle,
   },
   {
-    title: "Generar reportes ejecutivos",
+    title: "Generate executive reports",
     description:
-      "Construye vistas listas para dirección a partir de la información operativa del día.",
+      "Builds leadership-ready views from the operational information of the day.",
     icon: BarChart3,
   },
   {
-    title: "Conectar SAP, BD y APIs",
+    title: "Connect SAP, databases & APIs",
     description:
-      "Se integra con SAP, bases de datos corporativas y APIs internas sin romper procesos existentes.",
+      "Integrates with SAP, corporate databases, and internal APIs without breaking what already works.",
     icon: Cable,
   },
   {
-    title: "Reducir tareas repetitivas",
+    title: "Reduce repetitive tasks",
     description:
-      "Automatiza consultas, validaciones y reportes que hoy se hacen a mano en Excel.",
+      "Automates queries, validations, and reports that are currently done manually in Excel.",
     icon: Wand2,
   },
 ];
 
 export const COPILOT_PROBLEMS: { title: string; description: string }[] = [
   {
-    title: "Datos dispersos",
+    title: "Scattered data",
     description:
-      "Información crítica repartida entre SAP, Excel, bases de datos y reportes manuales.",
+      "Critical information spread across SAP, Excel, databases, and manual reports.",
   },
   {
-    title: "Reportes manuales",
+    title: "Manual reporting",
     description:
-      "Equipos que dedican días a consolidar reportes que se podrían generar automáticamente.",
+      "Teams spending days consolidating reports that could be generated automatically.",
   },
   {
-    title: "Errores operativos",
+    title: "Operational errors",
     description:
-      "Inconsistencias que se detectan demasiado tarde, ya cuando llegaron al reporte final.",
+      "Inconsistencies caught too late — usually only after they hit the final report.",
   },
   {
-    title: "Dependencia de Excel",
+    title: "Excel dependency",
     description:
-      "Procesos críticos atados a un archivo que solo conoce una persona del equipo.",
+      "Critical processes tied to a single spreadsheet maintained by one person on the team.",
   },
   {
-    title: "Sistemas desconectados",
+    title: "Disconnected systems",
     description:
-      "Plataformas que no se hablan entre sí y obligan a duplicar trabajo manual.",
+      "Platforms that do not talk to each other and force manual double-entry.",
   },
   {
-    title: "Consultas internas lentas",
+    title: "Slow internal answers",
     description:
-      "Preguntas operativas que tardan días en responderse y bloquean decisiones.",
+      "Operational questions that take days to answer and block decisions.",
   },
 ];
 
 export const COPILOT_IS: string[] = [
-  "Una capa de IA operativa sobre tus sistemas actuales.",
-  "Un punto único de consulta inteligente para equipos internos.",
-  "Un validador de información con reglas de negocio explícitas.",
-  "Un generador de reportes con trazabilidad al dato original.",
-  "Un asistente conectado a SAP, bases de datos, APIs y reportes.",
+  "An operational AI layer wired into your current systems.",
+  "A single point of intelligent inquiry for internal teams.",
+  "A validator that applies explicit business rules.",
+  "A report generator with traceability back to the source.",
+  "An assistant connected to SAP, databases, APIs, and reports.",
 ];
 
 export const COPILOT_ISNT: string[] = [
-  "No es un chatbot genérico sin contexto empresarial.",
-  "No reemplaza SAP, ERP, CRM ni la responsabilidad del equipo.",
-  "No ejecuta acciones sensibles sin autorización explícita.",
-  "No inventa datos ni alucina sobre resultados operativos.",
-  "No rompe flujos existentes ni los duplica en paralelo.",
+  "Not a generic chatbot without enterprise context.",
+  "Not a replacement for SAP, ERP, CRM, or for the team's accountability.",
+  "Not an agent that executes sensitive actions without explicit approval.",
+  "Not a tool that invents data or hallucinates results.",
+  "Not a system that breaks existing flows or duplicates them in parallel.",
 ];
 
 export const COPILOT_BENEFITS: {
@@ -125,54 +125,53 @@ export const COPILOT_BENEFITS: {
   icon: LucideIcon;
 }[] = [
   {
-    title: "Menos trabajo manual",
+    title: "Less manual work",
     description:
-      "Consultas, validaciones y reportes que hoy se hacen a mano pasan a un flujo asistido.",
+      "Queries, validations, and reports that used to be done by hand move into an assisted flow.",
     icon: Wand2,
   },
   {
-    title: "Menos dependencia de Excel",
+    title: "Less Excel dependency",
     description:
-      "Procesos críticos dejan de depender de un archivo mantenido por una sola persona.",
+      "Critical processes stop depending on a file maintained by a single person.",
     icon: FileBarChart,
   },
   {
-    title: "Menos errores de consolidación",
+    title: "Fewer consolidation errors",
     description:
-      "El copiloto detecta inconsistencias entre fuentes antes de que lleguen al reporte final.",
+      "The copilot catches mismatches between sources before they reach the final report.",
     icon: AlertTriangle,
   },
   {
-    title: "Más velocidad en consultas",
+    title: "Faster internal answers",
     description:
-      "Preguntas operativas internas obtienen respuesta con trazabilidad al dato original.",
+      "Operational questions get an answer with traceability back to the source data.",
     icon: Activity,
   },
   {
-    title: "Más trazabilidad",
+    title: "More traceability",
     description:
-      "Cada consulta, validación y acción queda registrada para auditoría sin esfuerzo adicional.",
+      "Every query, validation, and action is logged for audit without extra effort.",
     icon: GitBranch,
   },
   {
-    title: "Mejor gobierno de datos",
+    title: "Better data governance",
     description:
-      "Las reglas se aplican en un único lugar y se reflejan en cada respuesta y reporte.",
+      "Rules apply in one place and propagate into every answer and report.",
     icon: Layers,
   },
 ];
 
 export const COPILOT_CONNECTIONS: { title: string; icon: LucideIcon }[] = [
   { title: "SAP On-Premise / Cloud / BTP", icon: Boxes },
-  { title: "Bases de datos empresariales", icon: Database },
-  { title: "APIs internas", icon: Network },
-  { title: "Plataformas cloud", icon: Cloud },
-  { title: "Reportes y BI", icon: LineChart },
-  { title: "Sistemas legacy", icon: ServerCog },
+  { title: "Enterprise databases", icon: Database },
+  { title: "Internal APIs", icon: Network },
+  { title: "Cloud platforms", icon: Cloud },
+  { title: "Reports and BI", icon: LineChart },
+  { title: "Legacy systems", icon: ServerCog },
 ];
 
-/* Capacidades por conexión — versión más detallada que se muestra
-   en /copilot como bloque dedicado con badges por categoría. */
+/* Capabilities by connection — richer version shown on /copilot. */
 
 export const COPILOT_CONNECTION_GROUPS: {
   id: string;
@@ -185,7 +184,7 @@ export const COPILOT_CONNECTION_GROUPS: {
     id: "sap",
     title: "SAP",
     description:
-      "Consulta y cruza información del core operativo: finanzas, controlling, HCM, ventas, materiales y procesos conectados.",
+      "Reads and cross-checks the operational core: finance, controlling, HR, sales, materials, and the processes around them.",
     icon: Boxes,
     badges: [
       "ECC",
@@ -200,9 +199,9 @@ export const COPILOT_CONNECTION_GROUPS: {
   },
   {
     id: "data",
-    title: "Datos",
+    title: "Data",
     description:
-      "Accede a las bases empresariales para responder con cifras consistentes y trazables al origen.",
+      "Reaches enterprise databases to answer with consistent figures traceable back to the source.",
     icon: Database,
     badges: [
       "SQL Server",
@@ -218,15 +217,15 @@ export const COPILOT_CONNECTION_GROUPS: {
     id: "cloud",
     title: "Cloud",
     description:
-      "Funciona sobre las plataformas cloud que el cliente ya opera, sin replicar infraestructura.",
+      "Runs on the cloud platforms the client already operates — no infrastructure duplication.",
     icon: Cloud,
     badges: ["AWS", "Azure", "GCP", "SAP BTP"],
   },
   {
     id: "integrations",
-    title: "Integraciones",
+    title: "Integrations",
     description:
-      "Habla con sistemas no SAP a través de middleware empresarial y APIs sin romper lo que ya funciona.",
+      "Speaks with non-SAP systems through enterprise middleware and APIs without breaking what already works.",
     icon: Plug,
     badges: ["APIs", "Boomi", "HCI / CPI", "PI / PO", "REST", "SOAP"],
   },
@@ -234,28 +233,22 @@ export const COPILOT_CONNECTION_GROUPS: {
     id: "reporting",
     title: "Reporting",
     description:
-      "Apoya dashboards, reportes ejecutivos y validaciones con trazabilidad al dato fuente.",
+      "Supports dashboards, executive reports, and validations with traceability to the source data.",
     icon: LineChart,
     badges: [
       "Dashboards",
-      "Reportes ejecutivos",
-      "Validaciones",
-      "Trazabilidad",
+      "Executive reports",
+      "Validations",
+      "Traceability",
     ],
   },
   {
     id: "security",
-    title: "Seguridad",
+    title: "Security",
     description:
-      "Permisos por rol heredados del sistema fuente, bitácora de acciones y validación antes de ejecutar.",
+      "Inherits role-based permissions from the source system, logs every action, and validates before any sensitive execution.",
     icon: ShieldCheck,
-    badges: [
-      "Roles",
-      "Permisos",
-      "Bitácora",
-      "Aprobaciones",
-      "Validaciones",
-    ],
+    badges: ["Roles", "Permissions", "Audit log", "Approvals", "Validations"],
   },
 ];
 
@@ -265,39 +258,39 @@ export const COPILOT_USE_CASES: {
   icon: LucideIcon;
 }[] = [
   {
-    area: "Recursos Humanos",
+    area: "Human Resources",
     description:
-      "Consultas sobre headcount, vacaciones, organigrama y validaciones de datos personales.",
+      "Headcount, vacation, organizational structure, and master-data validations.",
     icon: Building2,
   },
   {
-    area: "Finanzas",
+    area: "Finance",
     description:
-      "Apoyo en cierres, conciliaciones, validación de partidas y explicación de variaciones.",
+      "Closings, reconciliations, variance explanation, and partida-level validation.",
     icon: BarChart3,
   },
   {
-    area: "Operaciones",
+    area: "Operations",
     description:
-      "Soporte a equipos operativos con consultas en tiempo real sobre estados y procesos.",
+      "Live operational support — status, process inquiries, and assisted decisions.",
     icon: Workflow,
   },
   {
-    area: "Reporting ejecutivo",
+    area: "Executive reporting",
     description:
-      "Tableros y respuestas confiables para dirección con trazabilidad al dato original.",
+      "Boardroom-ready answers with traceability back to the source data.",
     icon: LineChart,
   },
   {
-    area: "Auditoría",
+    area: "Audit",
     description:
-      "Trazabilidad de consultas, acciones y reglas aplicadas sobre los datos operativos.",
+      "Traceability of queries, actions, and applied rules over operational data.",
     icon: ShieldCheck,
   },
   {
-    area: "Soporte interno",
+    area: "Internal support",
     description:
-      "Primera línea asistida para help-desk técnico y funcional de plataformas internas.",
+      "Assisted first-line response for technical and functional helpdesk teams.",
     icon: Activity,
   },
 ];
@@ -308,39 +301,39 @@ export const COPILOT_SECURITY: {
   icon: LucideIcon;
 }[] = [
   {
-    title: "Permisos por rol",
+    title: "Role-based permissions",
     description:
-      "Cada usuario ve solo lo que su rol permite. La capa IA respeta los permisos del sistema fuente.",
+      "Each user sees only what their role allows. The AI layer respects the permissions defined in the source system.",
     icon: Lock,
   },
   {
-    title: "Trazabilidad",
+    title: "Traceability",
     description:
-      "Toda consulta y acción queda registrada con usuario, contexto y resultado para auditoría.",
+      "Every query and action is logged with user, context, and result for audit.",
     icon: GitBranch,
   },
   {
-    title: "Validación antes de ejecutar",
+    title: "Validate before executing",
     description:
-      "Las acciones sensibles se confirman antes de ejecutarse contra los sistemas reales.",
+      "Sensitive actions are confirmed before they run against the real systems.",
     icon: ShieldCheck,
   },
   {
-    title: "Registro de acciones",
+    title: "Audit log",
     description:
-      "Bitácora completa de cambios, accesos y resultados, exportable para cumplimiento.",
+      "A full log of changes, access, and results — exportable for compliance.",
     icon: FileBarChart,
   },
   {
-    title: "No modifica sin autorización",
+    title: "No writes without approval",
     description:
-      "El copiloto no escribe en sistemas críticos sin una autorización explícita del usuario o flujo.",
+      "The copilot does not write to critical systems without explicit human or workflow approval.",
     icon: AlertTriangle,
   },
   {
-    title: "Despliegue controlado",
+    title: "Controlled deployment",
     description:
-      "Funciona on-premise, en cloud privado o en VPC dedicada, según la política del cliente.",
+      "Runs on-premise, on private cloud, or in a dedicated VPC depending on the client's policy.",
     icon: ServerCog,
   },
 ];
@@ -353,101 +346,101 @@ export const COPILOT_FLOW_STEPS: {
 }[] = [
   {
     step: "01",
-    title: "El usuario pregunta",
+    title: "User asks",
     description:
-      "Un usuario autorizado plantea una pregunta o solicita un reporte desde la interfaz del copiloto.",
+      "An authorized user asks a question or requests a report from the copilot interface.",
     icon: Bot,
   },
   {
     step: "02",
-    title: "Identifica intención y permisos",
+    title: "Intent & permission check",
     description:
-      "Analiza qué se está pidiendo y verifica que el usuario tiene permisos para esa información o acción.",
+      "It parses what is being asked and verifies the user is allowed to see that information or trigger that action.",
     icon: ShieldCheck,
   },
   {
     step: "03",
-    title: "Consulta sistemas autorizados",
+    title: "Query authorized systems",
     description:
-      "Accede a SAP, bases de datos, APIs y reportes según los permisos del usuario y el contexto.",
+      "It reads SAP, databases, APIs, and reports based on the user's permissions and the request's context.",
     icon: Network,
   },
   {
     step: "04",
-    title: "Valida reglas e inconsistencias",
+    title: "Validate rules and gaps",
     description:
-      "Aplica reglas de negocio y revisa diferencias entre fuentes antes de responder.",
+      "It applies business rules and checks for inconsistencies across sources before answering.",
     icon: AlertTriangle,
   },
   {
     step: "05",
-    title: "Responde con trazabilidad",
+    title: "Answer with traceability",
     description:
-      "Entrega la respuesta con el dato original referenciado, no como una opinión sin fuente.",
+      "Returns the answer with the source referenced — not as an opinion without evidence.",
     icon: FileBarChart,
   },
   {
     step: "06",
-    title: "Propone acción a confirmar",
+    title: "Propose action for approval",
     description:
-      "Si la operación lo requiere, sugiere una acción (reporte, exportación, flujo) para que el humano la confirme.",
+      "If the workflow requires it, the copilot proposes an action (a report, an export, a flow) for a human to approve.",
     icon: CheckCircle2,
   },
 ];
 
-/* Origen del producto — sección "Nace de experiencia en operación real" */
+/* Origin context — kept available even if not currently used on
+   /copilot, in case it returns to /experience or a future page. */
 export const COPILOT_ORIGIN_BLOCKS: {
   title: string;
   description: string;
   icon: LucideIcon;
 }[] = [
   {
-    title: "Experiencia SAP en operación",
+    title: "Real SAP operations",
     description:
-      "Años conectando FI, CO, MM, SD, HCM y procesos relacionados con sistemas externos. El copiloto sabe dónde tocar y dónde no.",
+      "Years of connecting FI, CO, MM, SD, HCM, and related processes to external systems. The copilot knows where to touch and where not to.",
     icon: Boxes,
   },
   {
-    title: "Fábricas de software internas",
+    title: "Software factories",
     description:
-      "Hemos operado fábricas dedicadas con backlog, QA, despliegue y soporte. Trasladamos esa disciplina al producto.",
+      "We have run dedicated factories with backlog, QA, deployment, and support. That discipline carries over into the product.",
     icon: Workflow,
   },
   {
-    title: "Integraciones empresariales",
+    title: "Enterprise integrations",
     description:
-      "Boomi, HCI/CPI, PI/PO, IBM WebSphere y MQ. El copiloto consume y respeta esos canales, no los reemplaza.",
+      "Boomi, HCI/CPI, PI/PO, IBM WebSphere, and MQ. The copilot consumes and respects those channels — it does not replace them.",
     icon: Plug,
   },
   {
-    title: "Bases de datos y reporting",
+    title: "Databases & reporting",
     description:
-      "SQL Server, Oracle, PostgreSQL, MySQL, DB2, Sybase y SAP HANA conectadas a reportes ejecutivos auditables.",
+      "SQL Server, Oracle, PostgreSQL, MySQL, DB2, Sybase, and SAP HANA connected to auditable executive reports.",
     icon: Database,
   },
   {
-    title: "Soporte y gobierno",
+    title: "Support & governance",
     description:
-      "Solution Manager, ITSM, Change y Test Management nos dieron criterio para diseñar un copiloto operable y auditable.",
+      "Solution Manager, ITSM, Change, and Test Management gave us the discipline to design a copilot that is operable and auditable.",
     icon: ShieldCheck,
   },
   {
-    title: "IA aplicada a operación",
+    title: "Applied AI",
     description:
-      "RAG corporativo, ML productivo y asistentes internos sobre datos propios. Sin atajos, sin demos vacías.",
+      "Corporate RAG, productive ML, and internal assistants grounded on private data — no shortcuts, no empty demos.",
     icon: GitBranch,
   },
 ];
 
-/* Impacto operativo estimado — escenarios orientativos, NO promesas
-   garantizadas. El copy de la página debe acompañarse del disclaimer
-   "Estimación para discusión comercial, editable tras diagnóstico". */
+/* Indicative impact scenarios used by /copilot — explicitly framed
+   as orientative, never as guaranteed results. */
 
 export const COPILOT_IMPACT_STATS: { label: string; value: string }[] = [
-  { label: "Velocidad", value: "De horas a minutos" },
-  { label: "Excel", value: "Menos trabajo manual" },
-  { label: "Auditoría", value: "Más trazabilidad" },
-  { label: "Acciones", value: "Aprobación antes de ejecutar" },
+  { label: "Speed", value: "From hours to minutes" },
+  { label: "Spreadsheets", value: "Less manual Excel" },
+  { label: "Audit", value: "More traceability" },
+  { label: "Actions", value: "Approval before executing" },
 ];
 
 export const COPILOT_IMPACT_ROWS: {
@@ -457,67 +450,70 @@ export const COPILOT_IMPACT_ROWS: {
   impact: string;
 }[] = [
   {
-    task: "Reporte mensual entre sistemas",
-    before: "6–8 horas",
-    withCopilot: "Minutos",
-    impact: "Reducción fuerte de trabajo manual",
+    task: "Monthly report across systems",
+    before: "6–8 hours",
+    withCopilot: "Minutes",
+    impact: "Strong reduction in manual consolidation",
   },
   {
-    task: "Conciliación financiera multi-sistema",
-    before: "2–3 días",
-    withCopilot: "Minutos a horas según fuentes",
-    impact: "Menos reprocesos y menos errores",
+    task: "Multi-system financial reconciliation",
+    before: "2–3 days",
+    withCopilot: "Minutes to hours depending on sources",
+    impact: "Fewer rework cycles and errors",
   },
   {
-    task: "Respuesta a auditor externo",
-    before: "1–2 días",
-    withCopilot: "Segundos a minutos, con fuente trazada",
-    impact: "Trazabilidad inmediata",
+    task: "Answer to an external auditor",
+    before: "1–2 days",
+    withCopilot: "Seconds to minutes, source referenced",
+    impact: "Immediate traceability",
   },
   {
-    task: "Generación de dashboards ejecutivos",
-    before: "Horas",
-    withCopilot: "Actualización asistida o casi en tiempo real",
-    impact: "Menos dependencia de reportes manuales",
+    task: "Executive dashboard generation",
+    before: "Hours",
+    withCopilot: "Assisted refresh, near real-time",
+    impact: "Less dependency on manual reports",
   },
   {
-    task: "Onboarding de analista o consultor",
-    before: "Meses entendiendo tablas y sistemas",
-    withCopilot: "Guía contextual sobre fuentes, reglas y reportes",
-    impact: "Curva de aprendizaje menor",
+    task: "Analyst / consultant onboarding",
+    before: "Months learning tables and processes",
+    withCopilot: "Contextual guidance over sources and rules",
+    impact: "Shorter learning curve",
   },
   {
-    task: "Investigación de incidente operativo",
-    before: "Horas o un día",
-    withCopilot: "Minutos con fuentes cruzadas",
-    impact: "Diagnóstico más rápido",
+    task: "Operational incident research",
+    before: "Hours or a full day",
+    withCopilot: "Minutes with cross-source references",
+    impact: "Faster diagnosis",
   },
 ];
 
-/* Trabajo que reduce / trabajo que potencia */
+/* Work the copilot reduces / amplifies — kept for potential reuse. */
 
 export const COPILOT_REDUCES: { text: string; icon: LucideIcon }[] = [
-  { text: "Sacar CSVs de un sistema y pegarlos en otro.", icon: Minus },
-  { text: "Armar VLOOKUPs cada semana.", icon: Minus },
-  { text: "Repetir reportes de cierre.", icon: Minus },
-  { text: "Buscar aprobaciones en correos antiguos.", icon: Minus },
-  { text: "Perseguir evidencia para auditoría.", icon: Minus },
   {
-    text: "Capacitar durante meses a cada nuevo analista en qué tabla contiene qué.",
+    text: "Exporting CSVs from one system and pasting them into another.",
+    icon: Minus,
+  },
+  { text: "Building VLOOKUPs every week.", icon: Minus },
+  { text: "Repeating monthly closing reports by hand.", icon: Minus },
+  { text: "Hunting approvals through old email threads.", icon: Minus },
+  { text: "Chasing evidence for an audit.", icon: Minus },
+  {
+    text: "Spending months teaching new analysts which table holds what.",
     icon: Minus,
   },
 ];
 
 export const COPILOT_POWERS: { text: string; icon: LucideIcon }[] = [
-  { text: "Analizar variaciones con datos cruzados.", icon: ArrowUp },
-  { text: "Decidir con datos completos y trazados.", icon: ArrowUp },
-  { text: "Detectar riesgos antes de que escalen.", icon: ArrowUp },
-  { text: "Priorizar acciones con criterio.", icon: ArrowUp },
-  { text: "Atender auditorías con evidencia lista.", icon: ArrowUp },
-  { text: "Diseñar mejores procesos sobre datos reales.", icon: ArrowUp },
+  { text: "Analyzing variances with cross-source data.", icon: ArrowUp },
+  { text: "Deciding with complete, traceable information.", icon: ArrowUp },
+  { text: "Detecting risks before they escalate.", icon: ArrowUp },
+  { text: "Prioritizing actions with criteria.", icon: ArrowUp },
+  { text: "Answering audits with evidence ready.", icon: ArrowUp },
+  { text: "Designing better processes over real data.", icon: ArrowUp },
 ];
 
-/* Lo que ve cada rol */
+/* What each role sees in the Copilot. */
 
 export const COPILOT_ROLES: {
   label: string;
@@ -527,75 +523,75 @@ export const COPILOT_ROLES: {
   {
     label: "CEO",
     description:
-      "Respuestas más rápidas para decidir sin esperar reportes manuales.",
+      "Faster answers to decide — no waiting for someone to build a spreadsheet.",
     icon: Compass,
   },
   {
     label: "CFO",
     description:
-      "Cierres, conciliaciones y variaciones con menos carga manual y más evidencia.",
+      "Closings, reconciliations, and variances with less manual work and more evidence.",
     icon: BarChart3,
   },
   {
-    label: "Compliance / Auditoría",
+    label: "Compliance / Audit",
     description:
-      "Quién hizo qué, cuándo, con qué fuente y bajo qué aprobación. Evidencia lista para revisar.",
+      "Who did what, when, with which source, and under which approval. Evidence ready to review.",
     icon: ShieldCheck,
   },
   {
-    label: "Consultor / Partner",
+    label: "Consultant / Partner",
     description:
-      "Menos horas moviendo datos, más horas diseñando soluciones de alto valor.",
+      "Fewer hours moving data, more hours designing high-value solutions.",
     icon: Briefcase,
   },
   {
-    label: "Operaciones",
+    label: "Operations",
     description:
-      "Incidentes, estados y validaciones cruzadas en menos tiempo y con menos errores.",
+      "Incidents, status, and cross-source validations resolved in less time and with fewer errors.",
     icon: Workflow,
   },
   {
-    label: "RRHH",
+    label: "HR",
     description:
-      "Headcount, ausencias, organigrama y datos maestros consultables con trazabilidad.",
+      "Headcount, absences, organizational structure, and master data — queryable with traceability.",
     icon: Building2,
   },
 ];
 
-/* ---------------------------------------------------------------- */
-/* Cards "Antes → Con Copiloto" que viven embebidas en el hero
-   nuevo de impacto (above the fold).                                */
+/* Hero cards "Before → With Enterprise Copilot" — short story-style. */
 
 export const COPILOT_HERO_CARDS: { before: string; after: string }[] = [
   {
-    before: "Reportes cruzados en 6–8 horas",
-    after: "Minutos con fuentes trazables",
+    before: "Cross-system reports in 6–8 hours",
+    after: "Minutes with traceable sources",
   },
   {
-    before: "Conciliaciones en 2–3 días",
-    after: "Minutos/horas según fuentes conectadas",
+    before: "Reconciliations in 2–3 days",
+    after: "Minutes to hours depending on connected sources",
   },
   {
-    before: "Auditoría manual y correos perdidos",
-    after: "Acciones, aprobaciones y fuentes registradas",
+    before: "Manual audit and lost emails",
+    after: "Actions, approvals, and sources logged",
   },
 ];
 
-/* ---------------------------------------------------------------- */
-/* "Qué hace exactamente" — 10 acciones operativas concretas.        */
+/* "What it does exactly" — 10 specific operational actions. */
 
 export const COPILOT_EXACTLY: { text: string; icon: LucideIcon }[] = [
-  { text: "Consulta SAP, bases de datos, APIs y reportes.", icon: Database },
-  { text: "Cruza información entre sistemas.", icon: Network },
-  { text: "Explica números con fuente.", icon: FileBarChart },
-  { text: "Valida inconsistencias.", icon: AlertTriangle },
-  { text: "Genera reportes ejecutivos.", icon: BarChart3 },
-  { text: "Prepara emails y documentos como draft.", icon: Layers },
-  { text: "Sugiere acciones operativas.", icon: Wand2 },
-  { text: "Pide aprobación antes de acciones sensibles.", icon: ShieldCheck },
-  { text: "Registra quién hizo qué, cuándo y con qué fuente.", icon: GitBranch },
+  { text: "Queries SAP, databases, APIs, and reports.", icon: Database },
+  { text: "Cross-checks information across systems.", icon: Network },
+  { text: "Explains numbers with their source.", icon: FileBarChart },
+  { text: "Validates inconsistencies.", icon: AlertTriangle },
+  { text: "Generates executive reports.", icon: BarChart3 },
+  { text: "Prepares emails and documents as drafts.", icon: Layers },
+  { text: "Suggests operational actions.", icon: Wand2 },
+  { text: "Requests approval before sensitive actions.", icon: ShieldCheck },
   {
-    text: "Ayuda a detectar anomalías, errores o datos faltantes.",
+    text: "Logs who did what, when, and with which source.",
+    icon: GitBranch,
+  },
+  {
+    text: "Helps detect anomalies, errors, or missing data.",
     icon: Activity,
   },
 ];

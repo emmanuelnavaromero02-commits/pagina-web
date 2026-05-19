@@ -8,9 +8,9 @@ export function ServicesOverview() {
   return (
     <Section className="bg-white">
       <SectionHeader
-        eyebrow="Servicios"
-        title="Cuatro líneas de servicio, una sola operación"
-        description="Combinamos fábrica de software, integración SAP, cloud y datos, e IA empresarial bajo el mismo equipo y la misma forma de entregar."
+        eyebrow="Services"
+        title="Four service lines, one delivery model"
+        description="Software factory, enterprise integration, cloud and governed data, and operational AI — under the same team and the same way of shipping."
       />
 
       <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -40,7 +40,7 @@ export function ServicesOverview() {
                 href={service.href}
                 className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 hover:text-brand-800"
               >
-                Explorar servicio
+                Explore service
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Card>

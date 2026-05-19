@@ -13,15 +13,11 @@ export function SoftwareFactoryBlocks() {
   return (
     <Section className="bg-white">
       <SectionHeader
-        eyebrow="Modelo de fábrica"
-        title="Qué construimos, cómo operamos y con qué tecnologías"
-        description="Una fábrica de software no es un grupo de programadores. Es una operación con responsabilidad sobre construcción, calidad y soporte."
+        eyebrow="Factory model"
+        title="What we build, how we operate, and with which stack"
+        description="A software factory is not a group of developers. It is an operation accountable for delivery, quality, and support."
       />
-      <Tabs
-        ariaLabel="Modelo de fábrica"
-        tabs={tabs}
-        className="mt-10"
-      />
+      <Tabs ariaLabel="Factory model" tabs={tabs} className="mt-10" />
     </Section>
   );
 }

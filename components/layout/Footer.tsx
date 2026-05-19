@@ -17,9 +17,9 @@ export function Footer() {
           <div>
             <Logo variant="dark" />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-ink-300">
-              Fábrica de software empresarial e IA operativa. Diseñamos,
-              integramos y soportamos soluciones sobre SAP, cloud, datos e
-              inteligencia artificial.
+              Intelligent business solutions. We design, integrate, and support
+              enterprise software, integration, governed data, and operational
+              AI for companies in Mexico and Spain.
             </p>
 
             {showContact ? (
@@ -27,10 +27,7 @@ export function Footer() {
                 {email ? (
                   <li className="flex items-start gap-2">
                     <Mail className="mt-0.5 h-4 w-4 text-ink-400" />
-                    <a
-                      href={`mailto:${email}`}
-                      className="hover:text-white"
-                    >
+                    <a href={`mailto:${email}`} className="hover:text-white">
                       {email}
                     </a>
                   </li>
@@ -50,12 +47,12 @@ export function Footer() {
               </ul>
             ) : (
               <p className="mt-6 text-sm text-ink-400">
-                Escríbenos desde la{" "}
+                Reach us through the{" "}
                 <Link
                   href="/contact"
                   className="text-ink-100 underline-offset-4 hover:underline"
                 >
-                  página de contacto
+                  contact page
                 </Link>
                 .
               </p>
@@ -118,21 +115,21 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-ink-800 pt-6 text-xs text-ink-400 sm:flex-row sm:items-center">
           <p>
-            © {year} {SITE.name}. Todos los derechos reservados.
+            © {year} {SITE.name}. All rights reserved.
           </p>
           <ul className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <li>
               <Link href="/privacy" className="hover:text-white">
-                Aviso de privacidad
+                Privacy Policy
               </Link>
             </li>
             <li>
               <Link href="/legal" className="hover:text-white">
-                Aviso legal
+                Legal Notice
               </Link>
             </li>
             <li className="text-ink-500">
-              Sitio estático Next.js · AWS S3 + CloudFront
+              Static Next.js site · AWS S3 + CloudFront
             </li>
           </ul>
         </div>

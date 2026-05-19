@@ -5,9 +5,9 @@ export function CopilotConnectionGroups() {
   return (
     <Section id="capabilities-by-connection" className="bg-ink-50">
       <SectionHeader
-        eyebrow="Capacidades por conexión"
-        title="Qué puede tocar el copiloto y con qué se integra"
-        description="Conectado a las plataformas que ya tiene el cliente, respetando permisos y trazabilidad. Cada bloque muestra el tipo de fuente y las tecnologías sobre las que ya tenemos experiencia."
+        eyebrow="Capabilities by connection"
+        title="What the copilot can reach — and how it integrates"
+        description="Connected to the platforms the client already operates, respecting permissions and traceability. Each block shows the source type and the technologies we have already shipped on."
       />
       <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {COPILOT_CONNECTION_GROUPS.map((g) => {

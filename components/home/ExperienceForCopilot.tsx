@@ -7,9 +7,9 @@ export function ExperienceForCopilot() {
   return (
     <Section className="bg-white">
       <SectionHeader
-        eyebrow="Experiencia que respalda el Copiloto Empresarial"
-        title="De la integración al software operativo"
-        description="Cada capacidad alimenta a la siguiente. El Copiloto Empresarial es la culminación natural de años de SAP, fábrica de software, datos e IA aplicada — no un experimento aislado."
+        eyebrow="Experience backing Enterprise Copilot"
+        title="From integration to operational software"
+        description="Every capability feeds the next. Enterprise Copilot is the natural outcome of years of SAP, software factory, data, and applied AI — not an isolated experiment."
       />
 
       <div className="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-5">
@@ -56,17 +56,17 @@ export function ExperienceForCopilot() {
           />
           <span className="relative inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-400">
             <Sparkles className="h-3 w-3" />
-            Resultado
+            Outcome
           </span>
           <h3 className="relative mt-3 font-display text-lg font-semibold">
-            Copiloto Empresarial
+            Enterprise Copilot
           </h3>
           <p className="relative mt-1.5 text-sm leading-relaxed text-ink-200">
-            La capa de IA operativa que aprovecha toda esa experiencia para
-            consultar, validar y reportar.
+            The operational AI layer that turns that experience into queries,
+            validations, and reports for the business.
           </p>
           <span className="relative mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-semibold text-white">
-            Ver producto
+            See product
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </span>
         </Link>

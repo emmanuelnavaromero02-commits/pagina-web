@@ -17,15 +17,15 @@ export function CopilotCtaFinal() {
         <div className="relative grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-center">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-400">
-              Próximo paso
+              Next step
             </p>
             <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-              ¿Quieres ver qué puede resolver en tus propios sistemas?
+              Want to see what it can solve in your own systems?
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-200">
-              En un piloto acotado podemos conectar una fuente, definir un
-              caso de uso y medir cuánto trabajo manual se reduce en reportes,
-              validaciones o consultas internas.
+              In a scoped pilot we connect one source, define one use case, and
+              measure how much manual work can be reduced in reports,
+              validations, or internal queries.
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row lg:flex-col lg:items-end">
@@ -34,7 +34,7 @@ export function CopilotCtaFinal() {
               size="lg"
               className="w-full sm:w-auto"
             >
-              Solicitar piloto del Copiloto
+              Request an Enterprise Copilot pilot
               <ArrowRight className="h-4 w-4" />
             </LinkButton>
             <LinkButton
@@ -43,7 +43,7 @@ export function CopilotCtaFinal() {
               variant="outline"
               className="w-full border-white/20 bg-white/5 text-white hover:bg-white/10 sm:w-auto"
             >
-              Hablar de un caso de uso
+              Talk about a use case
             </LinkButton>
           </div>
         </div>
