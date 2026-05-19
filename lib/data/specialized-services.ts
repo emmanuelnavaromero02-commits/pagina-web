@@ -14,14 +14,24 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
     parent: SF_PARENT,
     intro:
       "Enterprise applications and internal tools built by senior teams accountable for the result — not just for the tasks.",
+    heroBadges: ["Senior teams", "Sprint deliverables", "L2/L3 support"],
     problem:
-      "Off-the-shelf tools cover the obvious cases, but the processes that actually move the business often need software that fits exactly: integrated with SAP, databases, and APIs, traceable, and supported beyond go-live.",
+      "Off-the-shelf tools cover the obvious cases, but the processes that actually move the business often need software that fits exactly: integrated with SAP, databases, and APIs, traceable, and supported beyond go-live. Without that fit, every workaround silently adds operational cost.",
     whatWeDo: [
       "Tailored applications for finance, operations, HR, and customer-facing teams.",
       "Internal tools that replace Excel-driven processes with auditable software.",
       "Integration with SAP, enterprise databases, internal APIs, and cloud services.",
       "QA, documentation, deployment, and L2/L3 support from day one.",
       "Iterative delivery with sprint demos and a measurable per-cycle outcome.",
+      "Security-aware design with role-based access and audit logging.",
+    ],
+    useCases: [
+      "Internal application that replaces a critical Excel-driven process.",
+      "Operational platform connected to SAP, databases, and internal APIs.",
+      "Customer-facing portal with SSO and role-based access.",
+      "Reporting front-end that surfaces audited data to leadership.",
+      "Legacy application modernization with phased migration.",
+      "Cross-business workflow application with approvals and audit trail.",
     ],
     capabilitiesHeading:
       "Pragmatic stack chosen per case — not the trending one",
@@ -36,16 +46,19 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
       "Python",
       "ABAP",
       "SQL",
+      "PostgreSQL",
+      "SQL Server",
     ],
     deliverables: [
       "Documented architecture with versioned diagrams.",
       "Two-week sprints with demo and production-ready deliverables.",
       "CI/CD pipeline and observability configured from sprint one.",
       "Operations runbook and L2/L3 support handoff.",
-      "Post go-live evolution roadmap.",
+      "Post go-live evolution roadmap with quarterly reviews.",
+      "Audit-ready activity log built into the application.",
     ],
     copilot:
-      "Custom applications often become a natural source for Enterprise Copilot — internal workflows, business rules, and validations become consumable for assisted queries and reporting.",
+      "Custom applications often become a natural source for Enterprise Copilot — internal workflows, business rules, and validations become consumable for assisted queries, drafts, and reporting with traceability.",
   },
   "enterprise-portals": {
     slug: "enterprise-portals",
@@ -54,14 +67,24 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
     parent: SF_PARENT,
     intro:
       "Corporate front-ends for employees, suppliers, internal customers, and operations teams — wired into identity, workflows, and source systems.",
+    heroBadges: ["SSO ready", "Audit-ready workflows", "Mobile responsive"],
     problem:
-      "Portals are often the visible layer of a much messier operation underneath. When forms, approvals, and reports do not talk to the source systems, the portal becomes a parallel reality instead of a tool.",
+      "Portals are often the visible layer of a much messier operation underneath. When forms, approvals, and reports do not talk to the source systems, the portal becomes a parallel reality instead of a tool — and the data behind it stops being trustworthy.",
     whatWeDo: [
       "Front-ends with SSO, role-based permissions, and corporate identity.",
-      "Forms, approval workflows, and document handling integrated with backend.",
+      "Forms, approval workflows, and document handling integrated with the backend.",
       "Operational reports surfaced inside the portal with traceability.",
       "Accessible, responsive design consistent with the corporate brand.",
       "Secure deployment patterns for internal and external audiences.",
+      "Audit log of approvals, changes, and document access.",
+    ],
+    useCases: [
+      "Employee portal for HR self-service over SuccessFactors / SAP HCM.",
+      "Supplier portal with onboarding forms, document upload, and approval flows.",
+      "Customer portal with order status, invoicing history, and case tickets.",
+      "Internal operations portal with cross-system dashboards and alerts.",
+      "Compliance and audit portal with evidence search and export.",
+      "Partner portal with role-scoped catalogs and reports.",
     ],
     capabilities: [
       "Next.js / React",
@@ -72,6 +95,7 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
       "Tailwind",
       "Java / .NET back-ends",
       "S3 + CloudFront",
+      "Identity federation",
     ],
     deliverables: [
       "Portal with authenticated areas and role-based access.",
@@ -79,6 +103,7 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
       "Audit log of approvals and changes.",
       "Component library aligned to the corporate brand.",
       "Operations playbook and L2 support handoff.",
+      "Performance and accessibility baseline (Core Web Vitals + WCAG).",
     ],
     copilot:
       "Enterprise Copilot can be embedded inside the portal as an assisted entry point — querying internal data, validating inputs, and preparing drafts of forms or reports with traceability.",
@@ -90,14 +115,24 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
     parent: SF_PARENT,
     intro:
       "Operational software for finance, HR, operations, and support teams — built to replace the spreadsheets that quietly run critical processes.",
+    heroBadges: ["Replaces Excel", "Audit log built-in", "Approval workflows"],
     problem:
-      "Critical processes tied to a single Excel file maintained by one person are a hidden risk: opaque, error-prone, and impossible to audit. The fix is not a bigger spreadsheet — it is software that captures the same logic with validation and traceability.",
+      "Critical processes tied to a single Excel file maintained by one person are a hidden risk: opaque, error-prone, and impossible to audit. The fix is not a bigger spreadsheet — it is software that captures the same logic with validation, approvals, and traceability.",
     whatWeDo: [
       "Apps for closings, reconciliations, validations, and operational reporting.",
       "Workflows that replace email approval threads with structured processes.",
-      "Data quality validations built into the input layer, not after the fact.",
+      "Data-quality validations built into the input layer, not after the fact.",
       "Operational reports tied back to the source data, not to manual exports.",
       "Audit log of every change with user, timestamp, and source.",
+      "Phased migration from the legacy spreadsheet without disruption.",
+    ],
+    useCases: [
+      "Finance closing app with validations and approval gates.",
+      "HR change-request app over SAP HCM with audit trail.",
+      "Operations incident-tracking app with SLA timers.",
+      "Procurement spend-control app with policy validation.",
+      "Helpdesk app with ITSM integration and L1/L2 routing.",
+      "Compliance evidence app with document attachments and review log.",
     ],
     capabilities: [
       "TypeScript / React",
@@ -108,6 +143,7 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
       "SQL Server",
       "Workflow engines",
       "Authentication / RBAC",
+      "OData adapters",
     ],
     deliverables: [
       "Application that replaces the targeted Excel process.",
@@ -115,6 +151,7 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
       "Reports that match — and replace — the spreadsheet output.",
       "Migration plan from the legacy spreadsheet to the application.",
       "L2 support and continuous evolution.",
+      "Audit-export package per cycle.",
     ],
     copilot:
       "Once a process lives in real software, Enterprise Copilot can query it directly: status, validations, reports, and even prepare next-step actions for human approval.",
@@ -126,14 +163,24 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
     parent: SF_PARENT,
     intro:
       "Reusable services with explicit contracts, versioning, observability, and security by default — designed to outlive any single application.",
+    heroBadges: ["API-first", "Versioned contracts", "Observable"],
     problem:
-      "When every team builds point-to-point integrations, the architecture becomes a tangle no one fully understands. A reusable service layer with clear contracts is what keeps the operation sustainable.",
+      "When every team builds point-to-point integrations, the architecture becomes a tangle no one fully understands. A reusable service layer with clear contracts is what keeps the operation sustainable as the business adds applications, partners, and channels.",
     whatWeDo: [
       "API-first design with explicit contracts and semantic versioning.",
       "Authentication, authorization, and rate-limiting built in from the start.",
       "Observability: tracing, metrics, logs, and alerts per service.",
       "Documentation that stays in sync with the running code.",
       "Integrations with SAP, internal systems, and third-party platforms.",
+      "Event-driven patterns when the use case demands them.",
+    ],
+    useCases: [
+      "Public-facing API for partner integrations with rate limiting and auth.",
+      "Internal service layer between SAP and front-end applications.",
+      "Event-driven integration with Pub/Sub or message queues.",
+      "Customer-facing webhook framework for SaaS integrations.",
+      "Composable service catalog feeding multiple internal apps.",
+      "Aggregation API combining SAP, CRM, and database data behind one contract.",
     ],
     capabilities: [
       "REST",
@@ -145,6 +192,7 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
       "API Gateway",
       "Service mesh patterns",
       "Java / .NET / Node",
+      "Kafka / Pub/Sub",
     ],
     deliverables: [
       "Service catalog with contracts, ownership, and SLAs.",
@@ -152,6 +200,7 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
       "Observability stack with dashboards and alert routes.",
       "Versioning and deprecation policy.",
       "Onboarding kit for new internal teams.",
+      "Per-API security review and runtime hardening.",
     ],
     copilot:
       "Enterprise Copilot consumes these APIs as authorized data and action surfaces — every call inherits the same permissions and audit log.",
@@ -163,14 +212,24 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
     parent: SF_PARENT,
     intro:
       "Critical platforms do not stop on go-live day. We keep them alive, audit-ready, and evolving on a predictable cadence.",
+    heroBadges: ["L2/L3 SLAs", "Quarterly roadmap", "Monthly health"],
     problem:
-      "Many systems lose traction the moment the project closes: nobody owns evolutions, support is fragmented, and small fixes never land. A dedicated support model keeps the platform measurable and improving.",
+      "Many systems lose traction the moment the project closes: nobody owns evolutions, support is fragmented, and small fixes never land. A dedicated support model keeps the platform measurable and improving instead of slowly decaying.",
     whatWeDo: [
       "L2 and L3 support with defined SLAs and clear ownership.",
       "Continuous backlog with prioritized fixes and small enhancements.",
       "Quarterly evolutionary roadmap aligned with business priorities.",
       "Monitoring, alerts, and post-incident reviews.",
       "Documentation kept in sync as the platform changes.",
+      "Refactoring of risky modules with regression coverage.",
+    ],
+    useCases: [
+      "Critical SAP integration support with monitoring and reprocessing.",
+      "Internal-app L2/L3 support with incident playbooks.",
+      "Quarterly feature roadmap for a portal in production.",
+      "Refactoring of legacy modules with regression coverage.",
+      "On-call rotation for mission-critical platforms.",
+      "Continuous improvement of the support model itself.",
     ],
     capabilities: [
       "ITIL-aligned ticketing",
@@ -180,6 +239,7 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
       "Change Management",
       "Knowledge base",
       "Runbooks",
+      "Regression testing",
     ],
     deliverables: [
       "Support model with SLAs and clear escalation.",
@@ -187,6 +247,7 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
       "Quarterly roadmap with prioritized initiatives.",
       "Updated documentation and runbooks.",
       "Migration plans when the platform needs to evolve.",
+      "Post-incident reports with root cause and corrective actions.",
     ],
     copilot:
       "The support model feeds Enterprise Copilot with traceable change history — useful for audit, root-cause analysis, and assisted helpdesk.",
@@ -210,14 +271,24 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
     parent: SAP_PARENT,
     intro:
       "Productive work on SAP ECC and S/4HANA across the core functional modules — development, evolutions, and support without breaking what already runs.",
+    heroBadges: ["ECC + S/4HANA", "FI · CO · SD · MM · HCM · PS · PM", "ABAP hands-on"],
     problem:
-      "SAP On-Premise is rarely a greenfield. Most cases involve evolving FI, CO, SD, MM, HCM, PS, or PM modules while integrations and reports keep running. We work with that reality.",
+      "SAP On-Premise is rarely greenfield. Most cases involve evolving FI, CO, SD, MM, HCM, PS, or PM modules while integrations and reports keep running in production. Any change must respect that reality — or it stops being a change and becomes an incident.",
     whatWeDo: [
       "Functional and technical work across ECC and S/4HANA.",
       "Module-level support: FI, CO, SD, MM, HCM, PS, and PM.",
       "Custom reports, forms, enhancements, and conversions.",
       "Integration with internal systems, reporting, and third parties.",
       "Migration support, regression testing, and post go-live operation.",
+      "Performance tuning and SAP transport governance.",
+    ],
+    useCases: [
+      "S/4HANA migration support with regression testing on key interfaces.",
+      "Custom ABAP report for finance with traceability and performance review.",
+      "Enhancement (BAdI / User Exit) to extend SAP without modifying the core.",
+      "SAP-to-non-SAP interface stabilization with error reprocessing.",
+      "Functional support across FI, CO, SD, MM, HCM, PS, and PM.",
+      "Transport orchestration across DEV → QAS → PRD with audit log.",
     ],
     capabilities: [
       "ECC",
@@ -232,6 +303,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "ABAP",
       "RFC",
       "IDocs",
+      "BAPIs",
     ],
     deliverables: [
       "Diagnosis of critical interfaces and module risks.",
@@ -239,6 +311,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Custom development with documented architecture.",
       "Regression testing playbook for major SAP changes.",
       "Functional and technical L2/L3 support.",
+      "Transport governance and release calendar.",
     ],
     copilot:
       "Enterprise Copilot can query the SAP core directly — closings, reconciliations, master data, reports — with permissions inherited from the source system.",
@@ -250,14 +323,24 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
     parent: SAP_PARENT,
     intro:
       "Integration of SAP cloud solutions (SuccessFactors, Ariba, IBP, and more) with the rest of the corporate ecosystem — without losing governance.",
+    heroBadges: ["Hybrid integration", "SSO across boundaries", "Aligned master data"],
     problem:
-      "Cloud suites land easily, but most pain shows up at the integration boundary: cloud-to-on-prem flows, master data, security, and reporting. That boundary is where SAP Cloud projects either succeed or struggle.",
+      "Cloud suites land easily, but most pain shows up at the integration boundary: cloud-to-on-prem flows, master data, security, and reporting. That boundary is where SAP Cloud projects either succeed or struggle silently for months.",
     whatWeDo: [
       "Cloud-to-on-prem integrations between SAP Cloud and ECC / S/4HANA.",
       "SuccessFactors, Ariba, and IBP connectivity with internal systems.",
       "Master-data alignment between cloud and on-prem.",
       "Authentication, identity, and SSO across cloud and corporate networks.",
       "Reporting and governance across both worlds.",
+      "Migration planning for organizations moving from on-prem to cloud.",
+    ],
+    useCases: [
+      "SuccessFactors ↔ SAP HCM employee replication with validation.",
+      "Ariba ↔ ERP procurement integration with approval flows.",
+      "IBP ↔ S/4HANA planning data round-trip.",
+      "Cloud-to-on-prem identity and SSO alignment.",
+      "Reporting across SAP Cloud and the corporate on-prem stack.",
+      "Hybrid landscape monitoring with per-interface dashboards.",
     ],
     capabilities: [
       "SAP Cloud",
@@ -268,6 +351,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "REST",
       "SOAP",
       "Entra ID / SSO",
+      "OData",
     ],
     deliverables: [
       "Cloud-to-on-prem integration architecture.",
@@ -275,6 +359,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Operational dashboards across cloud and core systems.",
       "Identity and access design covering all surfaces.",
       "Operation runbook for hybrid scenarios.",
+      "Per-interface SLA and reprocessing logic.",
     ],
     copilot:
       "Enterprise Copilot can read across SAP Cloud and on-prem to deliver consolidated answers — HR queries, vendor lookups, planning data — without duplicating sources.",
@@ -286,24 +371,36 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
     parent: SAP_PARENT,
     intro:
       "Extensions, workflows, and applications on SAP Business Technology Platform — taking SAP beyond the core without compromising governance.",
+    heroBadges: ["Side-by-side extensions", "Workflow Management", "CAP · Build · CPI"],
     problem:
-      "Customizing the SAP core has costs and risks. BTP lets you extend outside the core, but only if the extensions are architected, secured, and monitored properly. Otherwise BTP becomes another mess on top of the existing one.",
+      "Customizing the SAP core has costs and risks. BTP lets you extend outside the core, but only if the extensions are architected, secured, and monitored properly. Otherwise BTP just becomes another mess sitting on top of the existing one.",
     whatWeDo: [
       "BTP extensions outside the SAP core to preserve upgrade paths.",
       "Workflow Management for human-in-the-loop processes.",
       "CAP (Node / Java) development with explicit data model and integration.",
       "Build / Apps applications for business users when applicable.",
+      "Integration Suite (HCI / CPI) for governed connectivity.",
       "Identity, security, and audit aligned with corporate policies.",
+    ],
+    useCases: [
+      "Approval workflow on BTP Workflow Management connected to S/4HANA.",
+      "Side-by-side extension instead of modifying the SAP core.",
+      "Custom UI on Build Apps for a business team.",
+      "Controlled API exposure of SAP data through Integration Suite.",
+      "Event-driven extension reacting to SAP changes.",
+      "Cloud-to-cloud integration between SAP and non-SAP SaaS.",
     ],
     capabilities: [
       "SAP BTP",
+      "Integration Suite",
+      "HCI / CPI",
+      "Workflow Management",
       "CAP",
       "Node",
       "Java",
-      "Workflow Management",
       "Build / Apps",
-      "HCI / CPI",
       "Authentication",
+      "API Management",
     ],
     deliverables: [
       "BTP extension architecture documented and versioned.",
@@ -311,9 +408,10 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Security model with role mapping and audit log.",
       "CI/CD for BTP deployments.",
       "Operations and evolution plan post go-live.",
+      "Side-by-side extension catalog with ownership.",
     ],
     copilot:
-      "BTP extensions become a natural integration surface for Enterprise Copilot — assisted approvals, validations, and reporting on top of new workflows.",
+      "BTP extensions become a natural integration surface for Enterprise Copilot — assisted approvals, validations, and reporting on top of governed SAP data.",
   },
   "abap-rfc-idocs": {
     slug: "abap-rfc-idocs",
@@ -322,14 +420,24 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
     parent: SAP_PARENT,
     intro:
       "Deep technical work inside SAP: ABAP development, RFC and IDoc integration, BAPIs, SAP JCo connectors, and NetWeaver Gateway services.",
+    heroBadges: ["ABAP standards", "IDoc monitoring", "Versioned BAPIs"],
     problem:
-      "Many integrations break because the technical layer was never owned by anyone. ABAP objects without standards, IDocs without monitoring, and BAPIs without versioning all generate silent failures that surface as business problems.",
+      "Many integrations break because the technical layer was never owned by anyone. ABAP objects without standards, IDocs without monitoring, and BAPIs without versioning all generate silent failures that surface later as business problems with finger-pointing across teams.",
     whatWeDo: [
       "ABAP development with performance and maintainability standards.",
       "RFC and IDoc integrations with monitoring and reprocessing.",
       "BAPIs and remote-callable services with versioned contracts.",
       "Java connectivity via SAP JCo 2 and 3.",
       "OData and REST services exposed through NetWeaver Gateway.",
+      "Custom enhancements (BAdIs, User Exits) without altering the core.",
+    ],
+    useCases: [
+      "Custom ABAP report for an SAP business process.",
+      "IDoc inbound/outbound flow with monitoring and reprocessing.",
+      "BAPI wrapper exposed safely to non-SAP applications.",
+      "SAP JCo connector embedded into an internal Java application.",
+      "OData service exposed via NetWeaver Gateway for an external consumer.",
+      "Conversion program for a SAP migration project.",
     ],
     capabilities: [
       "ABAP",
@@ -351,6 +459,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "BAPIs and services with contracts and versioning policy.",
       "Java connectivity reusable across internal applications.",
       "OData / REST endpoints exposed via NetWeaver Gateway.",
+      "Performance review and remediation report.",
     ],
     copilot:
       "Enterprise Copilot speaks to SAP through these technical surfaces — BAPIs, RFCs, IDocs — with the same permissions the source system enforces.",
@@ -362,14 +471,24 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
     parent: SAP_PARENT,
     intro:
       "Integration between SAP and the rest of the corporate ecosystem through enterprise middleware: Boomi, HCI/CPI, PI/PO, IBM WebSphere, and MQ.",
+    heroBadges: ["Boomi · HCI · PI", "IBM WebSphere · MQ", "Per-interface SLAs"],
     problem:
-      "When integration is treated as a bunch of one-off scripts, every change becomes a risk. Real middleware brings monitoring, error handling, reprocessing, and traceability — which is what separates a healthy operation from a fragile one.",
+      "When integration is treated as a bunch of one-off scripts, every change becomes a risk. Real middleware brings monitoring, error handling, reprocessing, and traceability — which is what separates a healthy operation from a fragile one that wakes up the on-call rotation every weekend.",
     whatWeDo: [
       "Integration design and implementation with explicit contracts.",
       "Operational monitoring of critical interfaces with alerting.",
       "Error handling and reprocessing logic per interface.",
       "Performance and throughput tuning.",
       "Documentation and per-interface audit log.",
+      "Migration of fragile point-to-point integrations into governed middleware.",
+    ],
+    useCases: [
+      "SAP ↔ CRM order synchronization with reconciliation.",
+      "SAP ↔ payroll provider monthly cycle with audit trail.",
+      "ERP ↔ e-commerce inventory and pricing synchronization.",
+      "API gateway pattern for legacy modernization.",
+      "Centralized monitoring of dozens of fragile interfaces.",
+      "Event-driven flow between SAP and a SaaS partner platform.",
     ],
     capabilities: [
       "Boomi",
@@ -381,6 +500,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "REST",
       "SOAP",
       "Java Open Source",
+      "API Management",
     ],
     deliverables: [
       "Integration architecture diagram with ownership and SLAs.",
@@ -388,6 +508,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Reprocessing playbook for common failure modes.",
       "Versioned integration contracts with consumers.",
       "Operations runbook and on-call rotation plan.",
+      "Migration backlog for fragile point-to-point integrations.",
     ],
     copilot:
       "Enterprise Copilot uses the same middleware as a controlled execution channel — actions go through the same monitoring, the same audit, the same governance.",
@@ -399,14 +520,24 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
     parent: SAP_PARENT,
     intro:
       "Integration with the systems that surround SAP — CRMs, banks, HR platforms, e-commerce, and legacy applications — through clean contracts and controlled channels.",
+    heroBadges: ["CRM · Banks · HR · E-com", "REST · SFTP · Events", "Versioned contracts"],
     problem:
-      "The systems outside SAP are where most of the noise comes from: file drops, ad-hoc APIs, custom payloads, and legacy quirks. Without a clear contract layer, every change downstream becomes a problem upstream.",
+      "The systems outside SAP are where most of the noise comes from: file drops, ad-hoc APIs, custom payloads, and legacy quirks. Without a clear contract layer, every change downstream becomes a problem upstream — and the operations team pays the price.",
     whatWeDo: [
       "Integration with CRMs, banks, payroll systems, e-commerce, and legacy.",
       "File-based, API-based, and event-based connectivity.",
       "Reconciliation and validation rules per integration.",
       "Versioned contracts so changes do not break consumers.",
       "Per-interface monitoring and alerts.",
+      "Decommissioning plans for legacy integrations.",
+    ],
+    useCases: [
+      "CRM ↔ ERP customer master synchronization.",
+      "Bank statement file ingestion with reconciliation.",
+      "Payroll provider integration with HR master data.",
+      "E-commerce platform ↔ ERP order flow.",
+      "Legacy mainframe to API exposure for new applications.",
+      "Partner EDI flow with reprocessing logic.",
     ],
     capabilities: [
       "REST",
@@ -417,6 +548,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "OAuth 2.0",
       "API Gateway",
       "Schema registry",
+      "EDI",
     ],
     deliverables: [
       "Integration map across SAP and external systems.",
@@ -424,6 +556,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Monitoring with alerts and reprocessing logic.",
       "Migration plan when legacy integrations need to evolve.",
       "Operations handoff to support teams.",
+      "Decommissioning plan for retired integrations.",
     ],
     copilot:
       "Enterprise Copilot can answer cross-system questions — comparing SAP with bank statements, CRM, or e-commerce data — using these same contracts.",
@@ -435,22 +568,34 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
     parent: SAP_PARENT,
     intro:
       "Work on SuccessFactors Employee Central, organizational data, absences, headcount, and integration with the rest of the corporate ecosystem.",
+    heroBadges: ["Employee Central", "OData APIs", "Master data aligned"],
     problem:
-      "SuccessFactors is rarely an island: it has to feed core finance, payroll, internal reporting, and operational systems. The friction is almost never the UI — it is the integrations and master data underneath.",
+      "SuccessFactors is rarely an island: it has to feed core finance, payroll, internal reporting, and operational systems. The friction is almost never the UI — it is the integrations and master-data alignment underneath, which silently drift and surface during audits.",
     whatWeDo: [
       "Employee Central configuration and master-data design.",
       "Headcount, absence, and organizational-structure reporting.",
       "Integration with SAP HCM, payroll, finance, and internal systems.",
-      "Identity and SSO alignment.",
+      "Identity and SSO alignment across the HR ecosystem.",
       "Operational dashboards and assisted queries for HR teams.",
+      "Position / job catalog feed to downstream systems.",
+    ],
+    useCases: [
+      "Headcount dashboard with traceability back to Employee Central.",
+      "Master-data validation between SuccessFactors and SAP HCM.",
+      "Organizational structure visibility across multiple business units.",
+      "Position / job catalog feed to downstream systems.",
+      "HR analytics consumed by Enterprise Copilot for assisted queries.",
+      "Employee lifecycle integration across hire-to-retire systems.",
     ],
     capabilities: [
       "SuccessFactors Employee Central",
+      "OData APIs",
       "Master data",
       "HCI / CPI",
       "Reporting",
       "Workflows",
       "SSO / SAML",
+      "Position management",
     ],
     deliverables: [
       "Configured Employee Central modules with documented rules.",
@@ -458,6 +603,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Master-data dictionary and validation rules.",
       "Operational HR dashboards and assisted reporting.",
       "Operations playbook for HR support teams.",
+      "Audit-ready report of master-data changes.",
     ],
     copilot:
       "Enterprise Copilot is a strong fit for HR: it can answer headcount, organizational, and absence questions over SuccessFactors with traceability and per-role permissions.",
@@ -468,23 +614,36 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
     title: "SAP HCM On-Premise",
     parent: SAP_PARENT,
     intro:
-      "Work on SAP HCM On-Premise — employee data, absences, workflows, and integration with payroll, finance, and downstream reporting.",
+      "Work on SAP HCM On-Premise — Personnel Administration, Organizational Management, Time, Absence, and integration with payroll, finance, and downstream reporting.",
+    heroBadges: ["Personnel Admin · OM", "Time · Absence", "Payroll-aware integration"],
     problem:
-      "HCM On-Premise carries years of customizations, infotype tweaks, and country-specific logic. Evolving it means working with that history, not pretending it does not exist.",
+      "HCM On-Premise carries years of customizations, infotype tweaks, and country-specific logic. Evolving it means working with that history, not pretending it does not exist — and every report or integration needs to respect the same legacy assumptions.",
     whatWeDo: [
       "HCM functional and technical evolutions.",
       "Master-data hygiene and validation rules.",
       "Workflows for organizational changes, absences, and approvals.",
       "Integration with payroll, finance, and downstream reporting.",
       "Migration path planning toward SuccessFactors when relevant.",
+      "Cost-center, position, and org hierarchy alignment with finance.",
+    ],
+    useCases: [
+      "Active-employees report by department and cost center.",
+      "Absence and time-evaluation reporting for operations.",
+      "Cost-center / position validation against finance master data.",
+      "Manager hierarchy export to identity and access systems.",
+      "HR operational report consumed by Enterprise Copilot.",
+      "Phased migration roadmap from SAP HCM to SuccessFactors.",
     ],
     capabilities: [
       "SAP HCM",
+      "Personnel Administration",
+      "Organizational Management",
+      "Time",
+      "Absence",
       "Infotypes",
       "Workflows",
       "ABAP HR",
       "Payroll integration",
-      "Reporting",
     ],
     deliverables: [
       "HCM evolutions delivered without breaking payroll cycles.",
@@ -492,6 +651,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Workflows for absences and organizational changes.",
       "Integration with downstream systems and reporting.",
       "Migration plan toward SuccessFactors when applicable.",
+      "Cost-center alignment report between HCM and finance.",
     ],
     copilot:
       "Enterprise Copilot can query HCM directly — headcount, absences, organizational queries — without forcing HR to learn the underlying data model.",
@@ -515,14 +675,24 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
     parent: CLOUD_PARENT,
     intro:
       "Lightweight, maintainable architectures on AWS — static sites, serverless APIs, transactional email, and storage tuned to the use case.",
+    heroBadges: ["S3 + CloudFront", "API Gateway + Lambda", "SES · RDS · DynamoDB"],
     problem:
-      "Cloud bills explode when AWS is treated as an unlimited datacenter. The solution is rarely 'more services' — it is fewer services, better understood, with clear per-environment ownership.",
+      "Cloud bills explode when AWS is treated as an unlimited datacenter. The solution is rarely 'more services' — it is fewer services, better understood, with clear per-environment ownership and explicit security boundaries.",
     whatWeDo: [
       "Static sites with S3 + CloudFront, including this one.",
       "Serverless APIs with API Gateway + Lambda for lightweight endpoints.",
       "Transactional email with SES for forms and notifications.",
       "Persistence with RDS or DynamoDB depending on the use case.",
       "Per-environment isolation with accounts, IAM, and explicit policies.",
+      "Observability and operational monitoring with CloudWatch.",
+    ],
+    useCases: [
+      "Corporate static website on S3 + CloudFront with CDN cache rules.",
+      "Contact form sending to API Gateway + Lambda + SES.",
+      "Lightweight integration API for an internal business system.",
+      "Lead capture stored in DynamoDB or RDS with audit fields.",
+      "Secure asset distribution behind authenticated CloudFront.",
+      "Serverless workflow for nightly reporting or notifications.",
     ],
     capabilities: [
       "S3 + CloudFront",
@@ -534,6 +704,7 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "CloudWatch",
       "IAM",
       "CloudFormation / Terraform",
+      "AWS Step Functions",
     ],
     deliverables: [
       "Reference architecture diagrams per environment.",
@@ -541,9 +712,10 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Observability stack: logs, metrics, and alerts.",
       "Cost model with per-environment budgets and alarms.",
       "Operations runbook for incident response.",
+      "Security baseline aligned with corporate policies.",
     ],
     copilot:
-      "Enterprise Copilot runs comfortably on AWS — Lambdas, API Gateway, and S3 are the same patterns we already operate.",
+      "Enterprise Copilot runs comfortably on AWS — Lambdas, API Gateway, SES, and S3 are the same patterns we already operate. Endpoints, events, and storage feed assisted queries, drafts, and approvals with traceability.",
   },
   azure: {
     slug: "azure",
@@ -552,14 +724,24 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
     parent: CLOUD_PARENT,
     intro:
       "Corporate platforms on Azure integrated with identity, data, and internal applications — keeping governance, security, and continuity in scope.",
+    heroBadges: ["App Service · Functions", "Azure SQL · Synapse", "Entra ID-native"],
     problem:
-      "Azure is the default cloud in many large enterprises. The opportunity is not 'go cloud' — it is making the existing Azure footprint useful, secure, and predictable.",
+      "Azure is the default cloud in many large enterprises. The opportunity is not 'go cloud' — it is making the existing Azure footprint useful, secure, and predictable instead of letting it sprawl across the organization.",
     whatWeDo: [
       "Corporate applications on App Service and Functions.",
       "Identity integration with Entra ID and group-based access.",
       "Data services on Azure SQL, Data Lake, and Synapse.",
       "Integration with internal APIs, SAP, and legacy systems.",
       "Governance, security baselines, and per-environment cost control.",
+      "Operational dashboards for the corporate Azure tenant.",
+    ],
+    useCases: [
+      "Internal business app on App Service integrated with Entra ID.",
+      "Reporting layer on Azure SQL with role-based access.",
+      "Data Lake / Synapse for operational analytics across business areas.",
+      "Functions for serverless workflows triggered by events.",
+      "Integration layer between SAP, CRM, and internal applications.",
+      "Executive dashboard fed from governed Azure data.",
     ],
     capabilities: [
       "App Service",
@@ -570,6 +752,7 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Entra ID",
       "Azure DevOps",
       "Key Vault",
+      "API Management",
     ],
     deliverables: [
       "Architecture aligned with corporate governance and security.",
@@ -577,9 +760,10 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Deployment automation and CI/CD pipelines.",
       "Cost dashboards with budgets and alerts.",
       "Operations runbook for the corporate workloads.",
+      "Per-environment policy and security baseline.",
     ],
     copilot:
-      "Enterprise Copilot can be deployed inside the corporate Azure tenant, using Entra ID for identity and respecting the same governance.",
+      "Enterprise Copilot can be deployed inside the corporate Azure tenant, using Entra ID for identity and respecting the same governance — answering questions over Azure SQL and Synapse with the same permissions users already have.",
   },
   gcp: {
     slug: "gcp",
@@ -588,14 +772,24 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
     parent: CLOUD_PARENT,
     intro:
       "Data, analytics, and managed services on Google Cloud — wired into operational sources for reporting and enterprise consumption.",
+    heroBadges: ["BigQuery", "Cloud Run", "Pub/Sub · Dataflow"],
     problem:
-      "GCP shines for analytics, but only if the data flowing into BigQuery is reconciled, governed, and traceable back to the source. Otherwise it becomes another dashboard layer without trust.",
+      "GCP shines for analytics, but only if the data flowing into BigQuery is reconciled, governed, and traceable back to the source. Otherwise it becomes another dashboard layer without trust — fast queries on questionable numbers.",
     whatWeDo: [
       "Analytics architecture on BigQuery with reconciliation and governance.",
       "Managed services (Cloud Run, Pub/Sub) for lightweight deployments.",
-      "Data pipelines and event-driven flows.",
+      "Data pipelines and event-driven flows on Dataflow.",
       "Reporting and visualization through Looker Studio.",
       "Integration with operational sources and identity.",
+      "Cost governance for analytics workloads.",
+    ],
+    useCases: [
+      "BigQuery reporting layer over operational sources.",
+      "Cloud Run microservices for lightweight enterprise APIs.",
+      "Pub/Sub event pipeline from ERP into analytics.",
+      "Dataflow batch and streaming ingestion.",
+      "Executive analytics dashboards backed by BigQuery.",
+      "Looker Studio reports with traceability to source events.",
     ],
     capabilities: [
       "BigQuery",
@@ -605,6 +799,7 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Looker Studio",
       "IAM",
       "Workload Identity",
+      "Cloud Storage",
     ],
     deliverables: [
       "BigQuery data model with reconciliation and quality rules.",
@@ -612,6 +807,7 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Looker Studio dashboards with traceability.",
       "Identity and access model aligned with corporate policies.",
       "Cost and governance dashboards.",
+      "Documented analytical layer with lineage to source.",
     ],
     copilot:
       "Enterprise Copilot can query BigQuery as the analytical backbone — giving the leadership team traceable answers across operational and analytical data.",
@@ -623,14 +819,24 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
     parent: CLOUD_PARENT,
     intro:
       "Work on SQL Server, Oracle, PostgreSQL, MySQL, DB2, Sybase, and SAP HANA — modeling, migration, integration, reporting, and traceability.",
+    heroBadges: ["SQL Server · Oracle · HANA", "PostgreSQL · MySQL · DB2", "Modeling + migration"],
     problem:
-      "Databases are usually fine — until they have to be migrated, reconciled, or used as a source for trustworthy reporting. That is where the gaps in the model and the missing constraints surface.",
+      "Databases are usually fine — until they have to be migrated, reconciled, or used as a source for trustworthy reporting. That is where the gaps in the model, the missing constraints, and the silent duplicates surface.",
     whatWeDo: [
       "Modeling and design tuned for performance and consistency.",
       "Migrations across enterprise engines with regression testing.",
       "Integration with SAP and non-SAP systems.",
       "Reporting wired back to the source data, not to manual extracts.",
       "Quality validations and reconciliation between sources.",
+      "Performance review and indexing strategy.",
+    ],
+    useCases: [
+      "Reporting database modeled for cross-system consumption.",
+      "Operational data mart fed by SAP and third-party systems.",
+      "Data-quality validation between source database and reporting.",
+      "Migration from on-prem database to cloud-managed engine.",
+      "Master-data consistency checks across enterprise systems.",
+      "Database-backed knowledge source for Enterprise Copilot.",
     ],
     capabilities: [
       "MS SQL Server",
@@ -642,6 +848,7 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "SAP HANA",
       "Snowflake",
       "BigQuery",
+      "T-SQL · PL/SQL",
     ],
     deliverables: [
       "Database model documented with relationships and constraints.",
@@ -649,6 +856,7 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Quality validation rules and exception reports.",
       "Reporting wired back to the source with traceability.",
       "Operations runbook for backups, recovery, and tuning.",
+      "Performance baseline and indexing recommendations.",
     ],
     copilot:
       "Enterprise Copilot can read the corporate databases as authorized sources — with permissions inherited and every query logged for audit.",
@@ -660,14 +868,24 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
     parent: CLOUD_PARENT,
     intro:
       "Auditable, reproducible ingestion, transformation, and quality — no orphan scripts, no processes only one person on the team understands.",
+    heroBadges: ["Bronze · Silver · Gold", "Quality + alerting", "Auditable lineage"],
     problem:
-      "Pipelines built as side projects work until the person who knows them leaves. A real pipeline practice means version control, monitoring, alerting, and reprocessing as first-class concerns.",
+      "Pipelines built as side projects work until the person who knows them leaves. A real pipeline practice means version control, monitoring, alerting, and reprocessing as first-class concerns — and a Bronze / Silver / Gold layering that everyone understands.",
     whatWeDo: [
       "Reliable ingestion from operational source systems.",
       "Versioned transformations checked into source control.",
+      "Bronze / Silver / Gold layered architecture.",
       "Quality validations with alerts before bad data flows downstream.",
       "Catalog of sources, dependencies, and lineage.",
       "Controlled reprocessing for failure recovery.",
+    ],
+    useCases: [
+      "ERP data into a Bronze → Silver → Gold reporting layer.",
+      "HR data validation pipeline with exception reports.",
+      "Finance reconciliation pipeline with daily refresh.",
+      "Operational data refresh feeding cross-system dashboards.",
+      "Data-quality checks gating downstream reporting.",
+      "Copilot-ready knowledge layer with lineage to source.",
     ],
     capabilities: [
       "ETL / ELT",
@@ -677,6 +895,7 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Airflow / Dagster patterns",
       "Data quality",
       "Lineage",
+      "Bronze / Silver / Gold",
     ],
     deliverables: [
       "Pipeline architecture with documented dependencies.",
@@ -684,9 +903,10 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Lineage map from source system to final report.",
       "Reprocessing playbook for common failures.",
       "Operations handoff and on-call rotation plan.",
+      "Pipeline catalog with ownership per layer.",
     ],
     copilot:
-      "Enterprise Copilot can answer 'why this number changed' by walking the pipeline lineage and pointing to the source event.",
+      "Enterprise Copilot can answer 'why this number changed' by walking the pipeline lineage and pointing to the source event — instead of guessing from a static dashboard.",
   },
   reporting: {
     slug: "reporting",
@@ -695,14 +915,24 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
     parent: CLOUD_PARENT,
     intro:
       "BI and executive reports with traceability back to the source — reports that hold up under audit, not pretty dashboards without substance.",
+    heroBadges: ["Common semantic layer", "Traceable KPIs", "Audit-ready"],
     problem:
-      "When every team builds reports differently, the leadership team gets different numbers for the same question. The fix is a common semantic layer plus traceability — not more dashboards.",
+      "When every team builds reports differently, the leadership team gets different numbers for the same question. The fix is a common semantic layer plus traceability — not more dashboards layered on top of conflicting sources.",
     whatWeDo: [
       "Common semantic layer aligned across business areas.",
       "Executive and operational dashboards wired to the semantic layer.",
       "Source validation and reconciliation rules.",
       "Traceability from KPI to source event.",
       "Per-domain data governance.",
+      "Refresh strategy aligned with operational cadence.",
+    ],
+    useCases: [
+      "CFO dashboard with margin, cash flow, and variance.",
+      "HR headcount reporting tied to validated master data.",
+      "Operations performance tracking with cycle-time and SLAs.",
+      "Board-level reporting pack with traceability per number.",
+      "Audit-ready report bundle exportable per cycle.",
+      "Copilot-drafted reports with sources and validations attached.",
     ],
     capabilities: [
       "Power BI",
@@ -711,6 +941,7 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Semantic layer",
       "Data governance",
       "Lineage",
+      "KPI catalog",
     ],
     deliverables: [
       "Documented semantic layer covering core business areas.",
@@ -718,6 +949,7 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Reconciliation reports across sources.",
       "Traceability from each KPI back to its source data.",
       "Governance policy and ownership map.",
+      "Refresh and SLA agreements per report.",
     ],
     copilot:
       "Enterprise Copilot reads the semantic layer as its primary source of truth — every answer references the same numbers leadership already trusts.",
@@ -741,14 +973,24 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
     parent: AI_PARENT,
     intro:
       "LLM solutions grounded on private data, with RAG, access controls, and traceability — useful answers with citations, not chat for the sake of chat.",
+    heroBadges: ["Corporate RAG", "Citations", "Per-role permissions"],
     problem:
-      "Generative AI without grounding produces fluent answers that look right and aren't. The fix is private data, explicit retrieval, and citations — not a fancier prompt.",
+      "Generative AI without grounding produces fluent answers that look right and aren't. The fix is private data, explicit retrieval, and citations — not a fancier prompt or a different model.",
     whatWeDo: [
       "Corporate RAG over private documents, policies, and structured data.",
       "Answers with citations and traceability back to the source.",
       "Per-role access controls and document-level permissions.",
       "Deployment in private cloud, VPC, or on-premise as required.",
       "Continuous evaluation of answer quality with feedback loops.",
+      "Vector search tuned for enterprise document corpora.",
+    ],
+    useCases: [
+      "Internal knowledge assistant grounded on policies and runbooks.",
+      "Documentation search across product catalogs and SOPs.",
+      "Consultant assistant over methodology and reference projects.",
+      "Customer-support assistant grounded on product knowledge.",
+      "Compliance assistant answering policy questions with citations.",
+      "Domain-specific Q&A over private structured and unstructured data.",
     ],
     capabilities: [
       "LLMs",
@@ -758,6 +1000,7 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
       "Per-role permissions",
       "Evaluation harness",
       "Prompt engineering",
+      "Private deployment",
     ],
     deliverables: [
       "RAG architecture with documented data sources.",
@@ -765,9 +1008,10 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
       "Permission model aligned with corporate policies.",
       "Evaluation harness with regression tests.",
       "Operations runbook and update cadence.",
+      "Citation pattern and answer format spec.",
     ],
     copilot:
-      "Generative AI is one of the engines behind Enterprise Copilot — but only one. The copilot adds permissions, validations, and approvals on top.",
+      "Generative AI is one of the engines behind Enterprise Copilot — but only one. The copilot adds permissions, validations, and approvals on top of the language layer.",
   },
   "machine-learning": {
     slug: "machine-learning",
@@ -776,14 +1020,24 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
     parent: AI_PARENT,
     intro:
       "Productive models for prediction, classification, and anomaly detection — with MLOps, monitoring, and continuous evaluation.",
+    heroBadges: ["Prediction · Classification", "Anomaly detection", "MLOps"],
     problem:
-      "Models that work in notebooks rarely survive production without monitoring, retraining, and a clear ownership model. That gap is what MLOps closes.",
+      "Models that work in notebooks rarely survive production without monitoring, retraining, and a clear ownership model. That gap is what MLOps closes — and what separates a working model from a model that quietly starts being wrong.",
     whatWeDo: [
       "Models for prediction, classification, and anomaly detection.",
       "Feature pipelines aligned with the source data lineage.",
       "Monitoring of model performance and data drift in production.",
       "Continuous evaluation with retraining triggers.",
       "Clear ownership and operational runbook per model.",
+      "Evaluation against business KPIs, not just statistical metrics.",
+    ],
+    useCases: [
+      "Sales forecasting model tied to CRM and ERP data.",
+      "Cash-flow projection with anomaly detection.",
+      "Customer-churn prediction over CRM history.",
+      "Operational-incident classification for support routing.",
+      "Master-data anomaly detection across enterprise sources.",
+      "Quality-control model over production data.",
     ],
     capabilities: [
       "Python",
@@ -793,6 +1047,7 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
       "Feature stores",
       "Model monitoring",
       "Continuous evaluation",
+      "Data drift detection",
     ],
     deliverables: [
       "Model documented with assumptions and expected behavior.",
@@ -800,6 +1055,7 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
       "Model monitoring dashboard with alerts.",
       "Retraining pipeline and approval flow.",
       "Operations runbook and rollback plan.",
+      "Evaluation report against business KPIs.",
     ],
     copilot:
       "Enterprise Copilot can call ML models as decision-support — surfacing predictions with the same traceability and approval flow as any other answer.",
@@ -811,14 +1067,24 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
     parent: AI_PARENT,
     intro:
       "AI-assisted flows where the human validates the call — not where the AI decides alone. Useful for reconciliations, validations, and recurring reports.",
+    heroBadges: ["Human-in-the-loop", "Approval gates", "Auditable"],
     problem:
-      "Full automation is risky for processes that need judgment. Assisted automation — where the AI prepares, validates, and proposes — keeps speed without giving up control.",
+      "Full automation is risky for processes that need judgment. Assisted automation — where the AI prepares, validates, and proposes, and the human decides — keeps speed without giving up control.",
     whatWeDo: [
       "Recurring reconciliations and validations prepared by the assistant.",
       "Reports drafted by the AI and approved by the human.",
       "Decision points with explicit human-in-the-loop checkpoints.",
       "Audit log of who approved what and when.",
       "Integration with the source systems and approval flows.",
+      "Notification engine wired to operational alerts.",
+    ],
+    useCases: [
+      "Reconciliation flow with assisted exception triage.",
+      "Recurring report generation with human validation.",
+      "Onboarding workflow with assisted document review.",
+      "Approval gate over finance entries with audit trail.",
+      "Notification engine wired to operational alerts.",
+      "Ticket triage routing tickets to the right team.",
     ],
     capabilities: [
       "Human-in-the-loop",
@@ -827,6 +1093,7 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
       "Audit log",
       "RAG",
       "ML decision support",
+      "Notification orchestration",
     ],
     deliverables: [
       "Automation map with human checkpoints per process.",
@@ -834,6 +1101,7 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
       "Operational dashboards showing assisted activity.",
       "Rollback path for any automated step.",
       "Operations and governance handoff.",
+      "Per-flow KPI dashboard.",
     ],
     copilot:
       "Enterprise Copilot is the natural surface for assisted automation — it prepares the action, shows the evidence, and waits for human approval.",
@@ -845,14 +1113,24 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
     parent: AI_PARENT,
     intro:
       "Assistants for internal teams over documentation, policies, and operational knowledge — wired into private context, not the open internet.",
+    heroBadges: ["Documentation search", "Citations", "Per-role access"],
     problem:
-      "Most internal questions get answered through tribal knowledge or stale wikis. An assistant grounded on the actual corporate knowledge — and respecting permissions — collapses that latency.",
+      "Most internal questions get answered through tribal knowledge or stale wikis. An assistant grounded on the actual corporate knowledge — and respecting permissions — collapses that latency from days to seconds.",
     whatWeDo: [
       "Assistants over internal documentation, policies, and runbooks.",
       "Onboarding helpers for new analysts, consultants, or operators.",
       "Search over corporate knowledge with citations.",
       "Per-role and per-document access controls.",
       "Feedback loop for content improvement.",
+      "Ticket and helpdesk integration for first-line response.",
+    ],
+    useCases: [
+      "Onboarding assistant for new consultants over methodology.",
+      "Helpdesk assistant grounded on knowledge base.",
+      "Policy Q&A assistant over corporate procedures.",
+      "Project assistant grounded on past project repositories.",
+      "Compliance assistant for regulated processes.",
+      "Engineering assistant over code conventions and architecture docs.",
     ],
     capabilities: [
       "RAG",
@@ -861,6 +1139,7 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
       "Document ingestion",
       "Citations",
       "Feedback capture",
+      "Helpdesk integration",
     ],
     deliverables: [
       "Assistant deployed with documented ingestion pipeline.",
@@ -868,6 +1147,7 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
       "Quality and evaluation harness.",
       "Feedback loop to improve corpus quality.",
       "Operations runbook and update cadence.",
+      "Adoption metrics dashboard.",
     ],
     copilot:
       "Internal assistants are a stepping stone toward Enterprise Copilot — once teams trust the assistant for answers, the copilot adds actions and operational reach.",
@@ -879,14 +1159,24 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
     parent: AI_PARENT,
     intro:
       "AI capabilities wired into SAP, databases, internal APIs, and reports — with permissions, validations, and audit. This is where Enterprise Copilot lives.",
+    heroBadges: ["Wired into SAP · DB · APIs", "Approval before action", "Audit log"],
     problem:
-      "A chatbot bolted on top of the business adds noise. A copilot wired into the operation — with permissions, validations, and approvals — adds capacity.",
+      "A chatbot bolted on top of the business adds noise. A copilot wired into the operation — with permissions, validations, and approvals — adds capacity. The difference is in the plumbing, the governance, and the audit log.",
     whatWeDo: [
       "Operational queries across SAP, databases, APIs, and reports.",
       "Validation of inconsistencies with explicit business rules.",
       "Report preparation with traceability to the source.",
       "Security per role inherited from the source system.",
       "Human approval before any sensitive action.",
+      "Audit log exportable for compliance.",
+    ],
+    useCases: [
+      "Finance copilot for reconciliations and variance analysis.",
+      "HR copilot for headcount, absences, and master-data queries.",
+      "Operations copilot for status, incident research, and alerts.",
+      "Executive copilot for boardroom-ready answers with citations.",
+      "Audit copilot for evidence retrieval and ticket history.",
+      "Procurement copilot for supplier and spend questions.",
     ],
     capabilities: [
       "RAG",
@@ -896,6 +1186,7 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
       "Workflow engines",
       "Approval flows",
       "Audit log",
+      "Identity inheritance",
     ],
     deliverables: [
       "Operational copilot scoped to one or more business processes.",
@@ -903,6 +1194,7 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
       "Validation rules aligned with the business.",
       "Audit log exportable for compliance.",
       "Operations runbook and evolution plan.",
+      "Adoption and impact dashboard.",
     ],
     copilot:
       "This is Enterprise Copilot. The flagship operational copilot — connected to real systems, with permissions, validations, and traceability.",

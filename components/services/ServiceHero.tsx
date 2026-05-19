@@ -1,10 +1,14 @@
-import type { LucideIcon } from "lucide-react";
+import { ArrowRight, type LucideIcon } from "lucide-react";
+import { LinkButton } from "@/components/ui/Button";
 
 type ServiceHeroProps = {
   eyebrow: string;
   title: string;
   description: string;
   icon?: LucideIcon;
+  badges?: string[];
+  primaryCta?: { label: string; href: string };
+  secondaryCta?: { label: string; href: string };
 };
 
 export function ServiceHero({
@@ -12,6 +16,9 @@ export function ServiceHero({
   title,
   description,
   icon: Icon,
+  badges,
+  primaryCta,
+  secondaryCta,
 }: ServiceHeroProps) {
   return (
     <section className="relative overflow-hidden bg-white">
@@ -28,6 +35,39 @@ export function ServiceHero({
           <p className="mt-5 text-base leading-relaxed text-ink-600 sm:text-lg">
             {description}
           </p>
+
+          {badges && badges.length > 0 ? (
+            <ul className="mt-6 flex flex-wrap gap-2">
+              {badges.map((b) => (
+                <li
+                  key={b}
+                  className="rounded-full border border-brand-200 bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.1em] text-brand-800 backdrop-blur"
+                >
+                  {b}
+                </li>
+              ))}
+            </ul>
+          ) : null}
+
+          {primaryCta || secondaryCta ? (
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              {primaryCta ? (
+                <LinkButton href={primaryCta.href} size="lg">
+                  {primaryCta.label}
+                  <ArrowRight className="h-4 w-4" />
+                </LinkButton>
+              ) : null}
+              {secondaryCta ? (
+                <LinkButton
+                  href={secondaryCta.href}
+                  size="lg"
+                  variant="outline"
+                >
+                  {secondaryCta.label}
+                </LinkButton>
+              ) : null}
+            </div>
+          ) : null}
         </div>
       </div>
     </section>

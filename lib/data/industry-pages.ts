@@ -11,14 +11,24 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
     rootBreadcrumb: IND_PARENT,
     intro:
       "Closings, reconciliations, variance analysis, and executive reporting wired to source data — with traceability and less manual work for the finance team.",
+    heroBadges: ["FI · CO", "Reconciliations · variance", "Audit-ready"],
     problem:
-      "Closings depend on Excel, items show up late, and every team builds reports differently. The leadership team ends up with different numbers for the same question. The fix is structured automation and a single source of truth.",
+      "Closings depend on Excel, items show up late, and every team builds reports differently. The leadership team ends up with different numbers for the same question. The fix is structured automation, a single source of truth, and traceable evidence — not a bigger spreadsheet.",
     whatWeDo: [
       "Assisted monthly closings with automatic validations.",
       "Reconciliations SAP FI ↔ banks and third-party systems.",
       "Variance explanation with traceability to the source data.",
       "Item and report validation before publishing.",
       "Audit-ready evidence and exportable activity logs.",
+      "Cash-flow and margin analytics across products and units.",
+    ],
+    useCases: [
+      "Monthly closing with automated validation gates.",
+      "Cash-flow forecasting tied to ERP and bank data.",
+      "Variance explanation prepared from source data.",
+      "Audit answers with evidence and approvals attached.",
+      "Margin analytics across products and business units.",
+      "Reconciliations SAP FI ↔ banks and third-party systems.",
     ],
     capabilities: [
       "SAP FI",
@@ -27,6 +37,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Reporting",
       "Reconciliation rules",
       "Approval workflows",
+      "EBITDA · Cash flow · Margin",
     ],
     deliverables: [
       "Closing-cycle dashboard with progress and exceptions.",
@@ -34,6 +45,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Variance-explanation drafts ready for review.",
       "Validation rules library aligned with finance policy.",
       "Audit-ready activity log per cycle.",
+      "Cash-flow and margin dashboards.",
     ],
     copilot:
       "Enterprise Copilot is a strong fit for finance: it can answer closing questions, surface unreconciled entries, and prepare variance summaries — all with traceability and approval before any action.",
@@ -48,14 +60,24 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
     rootBreadcrumb: IND_PARENT,
     intro:
       "Real-time visibility on process status, business-rule alerts before issues escalate, and assisted automation for the operational team.",
+    heroBadges: ["Cycle time · SLAs", "Cross-system alerts", "Incident research"],
     problem:
-      "Operational status lives across many systems. Alerts arrive too late, and functional support is resolved through email threads instead of structured flows. The result is slow response and silent risks.",
+      "Operational status lives across many systems. Alerts arrive too late, and functional support is resolved through email threads instead of structured flows. The result is slow response, silent risks, and incidents that surface as customer complaints.",
     whatWeDo: [
       "Real-time monitoring of critical processes and status.",
       "Business-rule alerts surfaced before issues escalate.",
       "Integration across operational and support systems.",
       "Automation of repetitive operational tasks with human validation.",
       "Incident-response playbooks with audit log.",
+      "Cycle-time analytics to detect bottlenecks early.",
+    ],
+    useCases: [
+      "Process status across multiple operational systems.",
+      "Bottleneck detection with cycle-time analytics.",
+      "Inventory and logistics monitoring.",
+      "Operational alert routing wired to business rules.",
+      "Incident investigation across logs and source events.",
+      "Daily operational refresh dashboards for ops teams.",
     ],
     capabilities: [
       "Operational systems",
@@ -64,6 +86,8 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Alerting",
       "Workflow engines",
       "Monitoring",
+      "Logistics",
+      "Inventory control",
     ],
     deliverables: [
       "Live operational dashboards with role-based access.",
@@ -71,6 +95,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Automation map with human checkpoints.",
       "Incident playbooks and post-mortem template.",
       "Activity log per critical process.",
+      "Bottleneck and cycle-time analytics.",
     ],
     copilot:
       "Enterprise Copilot can answer operational queries in real time — status, last successful run, error context — and prepare next-step actions for the operator to approve.",
@@ -85,14 +110,24 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
     rootBreadcrumb: IND_PARENT,
     intro:
       "Headcount, absences, organizational structure, and master-data validation across SAP HCM and SuccessFactors — with traceability per change.",
+    heroBadges: ["SAP HCM · SuccessFactors", "Headcount · absences", "Master data aligned"],
     problem:
-      "HR data lives across SAP HCM, SuccessFactors, spreadsheets, and manual reports. Queries take days; validations happen by hand. Master-data drift is silent and shows up at the worst time — often during an audit.",
+      "HR data lives across SAP HCM, SuccessFactors, spreadsheets, and manual reports. Queries take days; validations happen by hand. Master-data drift is silent and shows up at the worst time — often during an audit or a payroll cycle.",
     whatWeDo: [
       "Headcount reports by unit, site, and position.",
       "Assisted queries over SAP HCM and SuccessFactors.",
       "Absence, vacation, and organizational tracking.",
       "Master-data validation and approval workflows.",
       "Activity log of every master-data change.",
+      "Payroll-related integration with finance and reporting.",
+    ],
+    useCases: [
+      "Headcount report by business unit and cost center.",
+      "Absence and vacation tracking with validations.",
+      "Organizational-structure visibility for leadership.",
+      "Master-data validation across HCM and SuccessFactors.",
+      "Payroll-related integration with finance and reporting.",
+      "Assisted HR queries via Enterprise Copilot.",
     ],
     capabilities: [
       "SAP HCM",
@@ -101,6 +136,8 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Workflows",
       "Reporting",
       "Identity / SSO",
+      "Position management",
+      "Cost-center alignment",
     ],
     deliverables: [
       "Headcount and organizational dashboards.",
@@ -108,6 +145,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Approval workflows for organizational changes.",
       "Audit log of master-data activity.",
       "Operations playbook for HR support.",
+      "Position / cost-center alignment report.",
     ],
     copilot:
       "Enterprise Copilot answers HR questions — headcount, absences, organization — directly, with permissions inherited from the source system and an audit log for every query.",
@@ -122,14 +160,24 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
     rootBreadcrumb: IND_PARENT,
     intro:
       "Boardroom-ready dashboards and KPIs with traceability back to the source data — reports that hold up under audit, not pretty dashboards without substance.",
+    heroBadges: ["KPI intelligence", "Traceable answers", "Board-ready"],
     problem:
-      "Every team builds its own version of the same KPI. The leadership team ends up with different numbers for the same question. The fix is a shared semantic layer and traceability — not more dashboards.",
+      "Every team builds its own version of the same KPI. The leadership team ends up with different numbers for the same question. The fix is a shared semantic layer and traceability — not more dashboards layered on top of conflicting sources.",
     whatWeDo: [
       "Common semantic layer across business areas.",
       "Executive dashboards aligned to the semantic layer.",
       "Traceability from each KPI back to the source data.",
       "Source validation and reconciliation rules.",
       "Per-domain data governance with clear ownership.",
+      "Refresh strategy aligned with the operational cadence.",
+    ],
+    useCases: [
+      "Board dashboard for CFO, COO, and CEO.",
+      "Real-time monitoring of strategic KPIs.",
+      "Forecasting and performance management.",
+      "Board-pack generation with traceability per number.",
+      "Executive Q&A over governed data via Enterprise Copilot.",
+      "Strategic visibility across business areas.",
     ],
     capabilities: [
       "Power BI",
@@ -138,6 +186,8 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Semantic layer",
       "Lineage",
       "Data governance",
+      "KPI catalog",
+      "Forecasting",
     ],
     deliverables: [
       "Documented semantic layer covering core KPIs.",
@@ -145,6 +195,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Reconciliation reports across sources.",
       "KPI lineage from dashboard down to source events.",
       "Governance and ownership map.",
+      "Board-pack template per cycle.",
     ],
     copilot:
       "Enterprise Copilot uses the same semantic layer to answer executive questions in plain language — with traceability, not just a number on a dashboard.",
@@ -159,14 +210,24 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
     rootBreadcrumb: IND_PARENT,
     intro:
       "Fragile interfaces, failing IDocs, and SAP changes that break downstream systems — addressed with versioned contracts, monitoring, and reprocessing.",
+    heroBadges: ["SAP ↔ everything", "Monitored interfaces", "Versioned contracts"],
     problem:
-      "Integration between SAP and the rest of the corporate ecosystem is rarely the visible problem — it is usually the source of the visible problem. Without contracts, monitoring, and reprocessing, every change becomes a risk.",
+      "Integration between SAP and the rest of the corporate ecosystem is rarely the visible problem — it is usually the source of the visible problem. Without contracts, monitoring, and reprocessing, every change becomes a risk and every incident takes hours to diagnose.",
     whatWeDo: [
       "SAP ↔ third-party connectivity with versioned contracts.",
       "Monitoring of interfaces, IDocs, and critical jobs.",
       "Evolutionary support with regression testing.",
       "Re-architecture of fragile integrations without breaking productive flows.",
       "Per-interface audit log and reprocessing logic.",
+      "Legacy modernization through controlled migration paths.",
+    ],
+    useCases: [
+      "Stabilization of fragile SAP-to-third-party interfaces.",
+      "Centralized monitoring of IDocs and middleware flows.",
+      "Reconciliation between SAP and external systems.",
+      "Legacy modernization with controlled migration.",
+      "API exposure of SAP data through governance.",
+      "Operational continuity across hybrid SAP landscapes.",
     ],
     capabilities: [
       "RFC",
@@ -185,6 +246,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Reprocessing playbook for common failures.",
       "Versioned contracts with consumers.",
       "Operations runbook and on-call rotation.",
+      "Legacy decommissioning roadmap.",
     ],
     copilot:
       "Enterprise Copilot uses the same integration surfaces — same contracts, same monitoring, same audit — to query and act across SAP and non-SAP systems.",
@@ -199,6 +261,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
     rootBreadcrumb: IND_PARENT,
     intro:
       "Recurring closings, reconciliations, and reports moved out of email and Excel — into assisted flows with explicit human checkpoints.",
+    heroBadges: ["Workflow orchestration", "Approval gates", "Human-in-the-loop"],
     problem:
       "Closings, reconciliations, and recurring reports done by hand carry a heavy manual workload and errors that surface too late. Full automation is risky for processes that need judgment — assisted automation keeps the speed without giving up control.",
     whatWeDo: [
@@ -207,6 +270,15 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Auditable, reprocessable processes.",
       "Human-in-the-loop before any critical action.",
       "Operational dashboards showing assisted activity.",
+      "Notification engine wired to operational alerts.",
+    ],
+    useCases: [
+      "Manual finance closing tasks moved into assisted workflow.",
+      "Approval chains migrated from email to structured gates.",
+      "Rework reduction in master-data updates.",
+      "Notification engine wired to operational alerts.",
+      "Recurring report generation with validation.",
+      "AI-assisted exception triage.",
     ],
     capabilities: [
       "Workflow engines",
@@ -215,6 +287,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Audit log",
       "RAG",
       "ML decision support",
+      "Process mining concepts",
     ],
     deliverables: [
       "Automation map with checkpoints per process.",
@@ -222,6 +295,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Dashboards for the assisted process.",
       "Rollback path for any automated step.",
       "Governance and operations handoff.",
+      "Adoption and impact dashboard.",
     ],
     copilot:
       "Enterprise Copilot is the natural surface for assisted automation: it proposes the action, shows the evidence, and waits for human approval before anything happens.",
@@ -236,14 +310,24 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
     rootBreadcrumb: IND_PARENT,
     intro:
       "Helpdesk over internal documentation, ITSM with Solution Manager, and structured escalation — replacing tribal knowledge with auditable support.",
+    heroBadges: ["ITSM · Solution Manager", "Knowledge base", "L1 · L2 · L3"],
     problem:
-      "Tickets repeat themselves, documentation is scattered, and support depends on a few people who know where things live. The fix is structured ITSM plus an assistant that can carry the load on first-line response.",
+      "Tickets repeat themselves, documentation is scattered, and support depends on a few people who know where things live. The fix is structured ITSM plus an assistant that can carry the load on first-line response — and a knowledge base that does not rot.",
     whatWeDo: [
       "Assisted helpdesk over internal documentation and processes.",
       "ITSM and Change Management on Solution Manager.",
       "Intelligent search across corporate documentation.",
       "Structured L1 / L2 / L3 escalation.",
       "Continuous improvement loop on documentation quality.",
+      "Ticket triage and routing across teams.",
+    ],
+    useCases: [
+      "Ticket triage and routing across teams.",
+      "Documentation search across runbooks and SOPs.",
+      "L1 helpdesk grounded on the knowledge base.",
+      "Change management with traceability.",
+      "Escalation playbooks for critical incidents.",
+      "Continuous improvement loop over support data.",
     ],
     capabilities: [
       "ITSM",
@@ -252,6 +336,8 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Test Management",
       "Documentation",
       "RAG",
+      "Knowledge base",
+      "Ticket routing",
     ],
     deliverables: [
       "ITSM model with categories, ownership, and SLAs.",
@@ -259,6 +345,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Escalation playbook and on-call rotation.",
       "Activity log of tickets and resolution paths.",
       "Operations runbook and continuous-improvement cadence.",
+      "First-line response assistant connected to the knowledge base.",
     ],
     copilot:
       "Enterprise Copilot can act as first-line support — answering documentation and process questions with citations, and routing the rest to a human with full context.",
@@ -273,14 +360,24 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
     rootBreadcrumb: IND_PARENT,
     intro:
       "Common dictionary, versioned quality rules, and end-to-end traceability — so the leadership team sees consistent numbers and an auditor can follow them all the way down.",
+    heroBadges: ["Dictionary · rules", "Bronze · Silver · Gold", "Audit-ready"],
     problem:
-      "Catalogs without owners, quality rules that nobody applies, and different numbers across sources ending up in executive reports. Governance is what turns 'we have data' into 'we have trustworthy data'.",
+      "Catalogs without owners, quality rules that nobody applies, and different numbers across sources ending up in executive reports. Governance is what turns 'we have data' into 'we have trustworthy data' — and what saves the audit when the questions get specific.",
     whatWeDo: [
       "Common dictionary and versioned quality rules.",
       "Catalog validation and reconciliation between sources.",
       "End-to-end traceability all the way to the final report.",
       "Shared semantic layer across business areas.",
       "Governance policy with clear ownership per domain.",
+      "Bronze / Silver / Gold layering with quality gates.",
+    ],
+    useCases: [
+      "Master-data dictionary with owners per domain.",
+      "Data-quality rules versioned and exception-reported.",
+      "Bronze / Silver / Gold layered data foundation.",
+      "End-to-end lineage from KPI to source event.",
+      "Compliance-grade audit evidence for governance reviews.",
+      "Governed data foundation feeding Enterprise Copilot.",
     ],
     capabilities: [
       "Common dictionary",
@@ -289,6 +386,8 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Semantic layer",
       "Master-data management",
       "Reporting",
+      "Security frameworks",
+      "Compliance",
     ],
     deliverables: [
       "Data dictionary with ownership per term.",
@@ -296,6 +395,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Lineage map from source to report.",
       "Governance policy with clear roles and cadence.",
       "Operations runbook for data stewards.",
+      "Audit-ready evidence pack per governance review.",
     ],
     copilot:
       "Enterprise Copilot enforces governance at query time — every answer references the dictionary, the rules, and the source — and the audit log captures every interaction.",

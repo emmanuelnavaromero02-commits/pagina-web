@@ -12,8 +12,10 @@ export type SpecializedPage = {
   parent: { label: string; href: string };
   rootBreadcrumb?: { label: string; href: string };
   intro: string;
+  heroBadges?: string[];
   problem: string;
   whatWeDo: string[];
+  useCases?: string[];
   capabilitiesHeading?: string;
   capabilities: string[];
   deliverables: string[];
@@ -27,6 +29,11 @@ export function SpecializedServicePage({ data }: { data: SpecializedPage }) {
     label: "Services",
     href: "/services",
   };
+
+  const heroPrimary =
+    data.primaryCta ?? { label: "Request a diagnosis", href: "/contact" };
+  const heroSecondary =
+    data.secondaryCta ?? { label: `Back to ${data.parent.label}`, href: data.parent.href };
 
   return (
     <>
@@ -75,16 +82,19 @@ export function SpecializedServicePage({ data }: { data: SpecializedPage }) {
         eyebrow={data.eyebrow}
         title={data.title}
         description={data.intro}
+        badges={data.heroBadges}
+        primaryCta={heroPrimary}
+        secondaryCta={heroSecondary}
       />
 
       <Section className="bg-white">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:items-start">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-700">
-              Typical problem
+              The problem
             </p>
             <h2 className="mt-3 font-display text-2xl font-semibold tracking-tight text-ink-950 sm:text-3xl">
-              Where companies usually need help
+              Where companies lose time, money, or control
             </h2>
           </div>
           <p className="text-base leading-relaxed text-ink-700">
@@ -95,8 +105,8 @@ export function SpecializedServicePage({ data }: { data: SpecializedPage }) {
 
       <Section className="bg-ink-50">
         <SectionHeader
-          eyebrow="What we do"
-          title="Concrete activities, not vague offerings"
+          eyebrow="What 7 Business Solutions does"
+          title="From business problem to operational software"
         />
         <ul className="mt-10 grid gap-3 sm:grid-cols-2">
           {data.whatWeDo.map((item) => (
@@ -111,7 +121,32 @@ export function SpecializedServicePage({ data }: { data: SpecializedPage }) {
         </ul>
       </Section>
 
-      <Section className="bg-white">
+      {data.useCases && data.useCases.length > 0 ? (
+        <Section className="bg-white">
+          <SectionHeader
+            eyebrow="Use cases"
+            title="Where this shows up in real engagements"
+            description="Concrete scenarios where this capability moves the needle for the operation."
+          />
+          <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {data.useCases.map((uc, idx) => (
+              <li
+                key={uc}
+                className="group relative rounded-2xl border border-ink-100 bg-white p-5 shadow-soft transition-all hover:-translate-y-0.5 hover:border-brand-200 hover:shadow-elevate"
+              >
+                <span className="absolute -top-3 left-5 inline-flex items-center rounded-full bg-brand-700 px-2 py-0.5 text-[10px] font-semibold tracking-widest text-white">
+                  {String(idx + 1).padStart(2, "0")}
+                </span>
+                <p className="pt-1 text-sm leading-relaxed text-ink-800">
+                  {uc}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </Section>
+      ) : null}
+
+      <Section className="bg-ink-50">
         <SectionHeader
           eyebrow="Capabilities & technologies"
           title={data.capabilitiesHeading ?? "Stack and capabilities we apply"}
@@ -120,7 +155,7 @@ export function SpecializedServicePage({ data }: { data: SpecializedPage }) {
           {data.capabilities.map((b) => (
             <li
               key={b}
-              className="rounded-full border border-ink-200 bg-ink-50 px-4 py-1.5 text-sm font-medium text-ink-800"
+              className="rounded-full border border-ink-200 bg-white px-4 py-1.5 text-sm font-medium text-ink-800 shadow-soft"
             >
               {b}
             </li>
@@ -128,7 +163,7 @@ export function SpecializedServicePage({ data }: { data: SpecializedPage }) {
         </ul>
       </Section>
 
-      <Section className="bg-ink-50">
+      <Section className="bg-white">
         <SectionHeader
           eyebrow="What we deliver"
           title="Tangible outputs you can operate and audit"
@@ -147,7 +182,7 @@ export function SpecializedServicePage({ data }: { data: SpecializedPage }) {
       </Section>
 
       {data.copilot ? (
-        <Section className="bg-white">
+        <Section className="bg-ink-50">
           <article className="relative overflow-hidden rounded-3xl border border-brand-200 bg-gradient-to-br from-white via-brand-50/30 to-white p-8 sm:p-10">
             <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr] lg:items-center">
               <div>
@@ -175,30 +210,13 @@ export function SpecializedServicePage({ data }: { data: SpecializedPage }) {
 
       <Section className="bg-white">
         <div className="flex flex-col items-start gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-          <LinkButton
-            href={data.primaryCta?.href ?? "/contact"}
-            size="lg"
-          >
-            {data.primaryCta?.label ?? "Request a diagnosis"}
+          <LinkButton href={heroPrimary.href} size="lg">
+            {heroPrimary.label}
             <ArrowRight className="h-4 w-4" />
           </LinkButton>
-          {data.secondaryCta ? (
-            <LinkButton
-              href={data.secondaryCta.href}
-              size="lg"
-              variant="outline"
-            >
-              {data.secondaryCta.label}
-            </LinkButton>
-          ) : (
-            <LinkButton
-              href={data.parent.href}
-              size="lg"
-              variant="outline"
-            >
-              Back to {data.parent.label}
-            </LinkButton>
-          )}
+          <LinkButton href={heroSecondary.href} size="lg" variant="outline">
+            {heroSecondary.label}
+          </LinkButton>
         </div>
       </Section>
 
