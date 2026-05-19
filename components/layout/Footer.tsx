@@ -1,11 +1,15 @@
 import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
-import { SITE } from "@/lib/constants";
+import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { SITE, hasContactInfo } from "@/lib/constants";
 import { FOOTER_LINKS } from "@/lib/navigation";
 import { Logo } from "./Logo";
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const showContact = hasContactInfo();
+  const { email, phone, address } = SITE.contact;
+  const { linkedin, github } = SITE.social;
+
   return (
     <footer className="border-t border-ink-100 bg-ink-950 text-ink-200">
       <div className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
@@ -17,25 +21,76 @@ export function Footer() {
               integramos y soportamos soluciones sobre SAP, cloud, datos e
               inteligencia artificial.
             </p>
-            <ul className="mt-6 space-y-2 text-sm text-ink-300">
-              <li className="flex items-start gap-2">
-                <Mail className="mt-0.5 h-4 w-4 text-ink-400" />
-                <a
-                  href={`mailto:${SITE.contact.email}`}
-                  className="hover:text-white"
+
+            {showContact ? (
+              <ul className="mt-6 space-y-2 text-sm text-ink-300">
+                {email ? (
+                  <li className="flex items-start gap-2">
+                    <Mail className="mt-0.5 h-4 w-4 text-ink-400" />
+                    <a
+                      href={`mailto:${email}`}
+                      className="hover:text-white"
+                    >
+                      {email}
+                    </a>
+                  </li>
+                ) : null}
+                {phone ? (
+                  <li className="flex items-start gap-2">
+                    <Phone className="mt-0.5 h-4 w-4 text-ink-400" />
+                    <span>{phone}</span>
+                  </li>
+                ) : null}
+                {address ? (
+                  <li className="flex items-start gap-2">
+                    <MapPin className="mt-0.5 h-4 w-4 text-ink-400" />
+                    <span>{address}</span>
+                  </li>
+                ) : null}
+              </ul>
+            ) : (
+              <p className="mt-6 text-sm text-ink-400">
+                Escríbenos desde la{" "}
+                <Link
+                  href="/contact"
+                  className="text-ink-100 underline-offset-4 hover:underline"
                 >
-                  {SITE.contact.email}
-                </a>
-              </li>
-              <li className="flex items-start gap-2">
-                <Phone className="mt-0.5 h-4 w-4 text-ink-400" />
-                <span>{SITE.contact.phone}</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <MapPin className="mt-0.5 h-4 w-4 text-ink-400" />
-                <span>{SITE.contact.address}</span>
-              </li>
-            </ul>
+                  página de contacto
+                </Link>
+                .
+              </p>
+            )}
+
+            {(linkedin || github) && (
+              <ul className="mt-5 flex items-center gap-3">
+                {linkedin ? (
+                  <li>
+                    <a
+                      href={linkedin}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      aria-label="LinkedIn"
+                      className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-ink-200 hover:bg-white/10 hover:text-white"
+                    >
+                      <Linkedin className="h-4 w-4" />
+                    </a>
+                  </li>
+                ) : null}
+                {github ? (
+                  <li>
+                    <a
+                      href={github}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      aria-label="GitHub"
+                      className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-ink-200 hover:bg-white/10 hover:text-white"
+                    >
+                      <Github className="h-4 w-4" />
+                    </a>
+                  </li>
+                ) : null}
+              </ul>
+            )}
           </div>
 
           <div className="grid gap-8 sm:grid-cols-3">
@@ -65,9 +120,21 @@ export function Footer() {
           <p>
             © {year} {SITE.name}. Todos los derechos reservados.
           </p>
-          <p>
-            Sitio estático Next.js · desplegado en AWS S3 + CloudFront.
-          </p>
+          <ul className="flex flex-wrap items-center gap-x-4 gap-y-1">
+            <li>
+              <Link href="/privacy" className="hover:text-white">
+                Aviso de privacidad
+              </Link>
+            </li>
+            <li>
+              <Link href="/legal" className="hover:text-white">
+                Aviso legal
+              </Link>
+            </li>
+            <li className="text-ink-500">
+              Sitio estático Next.js · AWS S3 + CloudFront
+            </li>
+          </ul>
         </div>
       </div>
     </footer>

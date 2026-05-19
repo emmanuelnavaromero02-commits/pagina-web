@@ -1,6 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40">
-  <rect x="0" y="4" width="32" height="32" rx="7" fill="#1d36ab"/>
-  <path d="M6 10 L16 30 L26 10" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <circle cx="16" cy="20" r="2.6" fill="#5be1c4"/>
-  <text x="42" y="26" font-family="Inter, sans-serif" font-weight="600" font-size="18" fill="#0b0e1c">Vexar Consulting</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+  <rect width="40" height="40" rx="9" fill="#1d36ab"/>
+  <path d="M8 11 L20 33 L32 11" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <circle cx="20" cy="22" r="3" fill="#5be1c4"/>
 </svg>

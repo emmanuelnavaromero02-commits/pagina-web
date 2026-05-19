@@ -3,7 +3,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { Section } from "@/components/ui/Section";
 import { ServiceHero } from "@/components/services/ServiceHero";
-import { SITE } from "@/lib/constants";
+import { SITE, hasContactInfo } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Contacto",
@@ -12,6 +12,9 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
+  const { email, phone, address } = SITE.contact;
+  const showContact = hasContactInfo();
+
   return (
     <>
       <ServiceHero
@@ -36,30 +39,38 @@ export default function ContactPage() {
           </div>
 
           <aside className="space-y-6">
-            <div className="rounded-2xl border border-ink-100 bg-ink-50 p-6">
-              <h3 className="font-display text-base font-semibold text-ink-950">
-                Datos directos
-              </h3>
-              <ul className="mt-4 space-y-3 text-sm text-ink-800">
-                <li className="flex items-start gap-2.5">
-                  <Mail className="mt-0.5 h-4 w-4 text-brand-700" />
-                  <a
-                    href={`mailto:${SITE.contact.email}`}
-                    className="hover:text-brand-800"
-                  >
-                    {SITE.contact.email}
-                  </a>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <Phone className="mt-0.5 h-4 w-4 text-brand-700" />
-                  <span>{SITE.contact.phone}</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <MapPin className="mt-0.5 h-4 w-4 text-brand-700" />
-                  <span>{SITE.contact.address}</span>
-                </li>
-              </ul>
-            </div>
+            {showContact ? (
+              <div className="rounded-2xl border border-ink-100 bg-ink-50 p-6">
+                <h3 className="font-display text-base font-semibold text-ink-950">
+                  Datos directos
+                </h3>
+                <ul className="mt-4 space-y-3 text-sm text-ink-800">
+                  {email ? (
+                    <li className="flex items-start gap-2.5">
+                      <Mail className="mt-0.5 h-4 w-4 text-brand-700" />
+                      <a
+                        href={`mailto:${email}`}
+                        className="hover:text-brand-800"
+                      >
+                        {email}
+                      </a>
+                    </li>
+                  ) : null}
+                  {phone ? (
+                    <li className="flex items-start gap-2.5">
+                      <Phone className="mt-0.5 h-4 w-4 text-brand-700" />
+                      <span>{phone}</span>
+                    </li>
+                  ) : null}
+                  {address ? (
+                    <li className="flex items-start gap-2.5">
+                      <MapPin className="mt-0.5 h-4 w-4 text-brand-700" />
+                      <span>{address}</span>
+                    </li>
+                  ) : null}
+                </ul>
+              </div>
+            ) : null}
 
             <div className="rounded-2xl border border-brand-100 bg-brand-50/60 p-6">
               <h3 className="font-display text-base font-semibold text-brand-900">
