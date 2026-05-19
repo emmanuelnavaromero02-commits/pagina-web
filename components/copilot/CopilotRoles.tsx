@@ -10,7 +10,7 @@ export function CopilotRoles() {
         description="Cada usuario ve lo que su responsabilidad necesita: decisiones, cierres, evidencia o capacidad de entrega."
       />
 
-      <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {COPILOT_ROLES.map((role) => {
           const Icon = role.icon;
           return (

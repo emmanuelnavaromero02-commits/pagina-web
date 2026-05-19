@@ -185,13 +185,12 @@ export const COPILOT_CONNECTION_GROUPS: {
     id: "sap",
     title: "SAP",
     description:
-      "Consulta y valida sobre el core SAP con conectores estables y permisos heredados.",
+      "Consulta y cruza información del core operativo: finanzas, controlling, HCM, ventas, materiales y procesos conectados.",
     icon: Boxes,
     badges: [
       "ECC",
       "S/4HANA",
-      "FI",
-      "CO",
+      "FI / CO",
       "HCM",
       "SuccessFactors",
       "RFC",
@@ -203,7 +202,7 @@ export const COPILOT_CONNECTION_GROUPS: {
     id: "data",
     title: "Datos",
     description:
-      "Acceso controlado a las bases empresariales sobre las que ya descansa la operación.",
+      "Accede a las bases empresariales para responder con cifras consistentes y trazables al origen.",
     icon: Database,
     badges: [
       "SQL Server",
@@ -219,7 +218,7 @@ export const COPILOT_CONNECTION_GROUPS: {
     id: "cloud",
     title: "Cloud",
     description:
-      "Despliegue y conectividad sobre las plataformas cloud que el cliente ya utiliza.",
+      "Funciona sobre las plataformas cloud que el cliente ya opera, sin replicar infraestructura.",
     icon: Cloud,
     badges: ["AWS", "Azure", "GCP", "SAP BTP"],
   },
@@ -227,7 +226,7 @@ export const COPILOT_CONNECTION_GROUPS: {
     id: "integrations",
     title: "Integraciones",
     description:
-      "Conexión con sistemas no SAP a través de middleware empresarial y APIs.",
+      "Habla con sistemas no SAP a través de middleware empresarial y APIs sin romper lo que ya funciona.",
     icon: Plug,
     badges: ["APIs", "Boomi", "HCI / CPI", "PI / PO", "REST", "SOAP"],
   },
@@ -235,9 +234,28 @@ export const COPILOT_CONNECTION_GROUPS: {
     id: "reporting",
     title: "Reporting",
     description:
-      "Soporte a dashboards, reportes ejecutivos y validaciones con trazabilidad al dato.",
+      "Apoya dashboards, reportes ejecutivos y validaciones con trazabilidad al dato fuente.",
     icon: LineChart,
-    badges: ["Dashboards", "Reportes ejecutivos", "Validaciones", "Trazabilidad"],
+    badges: [
+      "Dashboards",
+      "Reportes ejecutivos",
+      "Validaciones",
+      "Trazabilidad",
+    ],
+  },
+  {
+    id: "security",
+    title: "Seguridad",
+    description:
+      "Permisos por rol heredados del sistema fuente, bitácora de acciones y validación antes de ejecutar.",
+    icon: ShieldCheck,
+    badges: [
+      "Roles",
+      "Permisos",
+      "Bitácora",
+      "Aprobaciones",
+      "Validaciones",
+    ],
   },
 ];
 
@@ -509,25 +527,75 @@ export const COPILOT_ROLES: {
   {
     label: "CEO",
     description:
-      "Decisiones más rápidas con datos trazables, sin esperar días a que alguien arme un Excel.",
+      "Respuestas más rápidas para decidir sin esperar reportes manuales.",
     icon: Compass,
   },
   {
     label: "CFO",
     description:
-      "Cierres, conciliaciones, variaciones y reportes con menos trabajo manual y mayor trazabilidad.",
+      "Cierres, conciliaciones y variaciones con menos carga manual y más evidencia.",
     icon: BarChart3,
   },
   {
     label: "Compliance / Auditoría",
     description:
-      "Registro de acciones, aprobaciones, fuentes consultadas y evidencia para revisar quién hizo qué, cuándo y con qué autorización.",
+      "Quién hizo qué, cuándo, con qué fuente y bajo qué aprobación. Evidencia lista para revisar.",
     icon: ShieldCheck,
   },
   {
     label: "Consultor / Partner",
     description:
-      "Mayor capacidad de entrega: menos horas moviendo datos y más tiempo diseñando soluciones de alto valor.",
+      "Menos horas moviendo datos, más horas diseñando soluciones de alto valor.",
     icon: Briefcase,
+  },
+  {
+    label: "Operaciones",
+    description:
+      "Incidentes, estados y validaciones cruzadas en menos tiempo y con menos errores.",
+    icon: Workflow,
+  },
+  {
+    label: "RRHH",
+    description:
+      "Headcount, ausencias, organigrama y datos maestros consultables con trazabilidad.",
+    icon: Building2,
+  },
+];
+
+/* ---------------------------------------------------------------- */
+/* Cards "Antes → Con Copiloto" que viven embebidas en el hero
+   nuevo de impacto (above the fold).                                */
+
+export const COPILOT_HERO_CARDS: { before: string; after: string }[] = [
+  {
+    before: "Reportes cruzados en 6–8 horas",
+    after: "Minutos con fuentes trazables",
+  },
+  {
+    before: "Conciliaciones en 2–3 días",
+    after: "Minutos/horas según fuentes conectadas",
+  },
+  {
+    before: "Auditoría manual y correos perdidos",
+    after: "Acciones, aprobaciones y fuentes registradas",
+  },
+];
+
+/* ---------------------------------------------------------------- */
+/* "Qué hace exactamente" — 10 acciones operativas concretas.        */
+
+export const COPILOT_EXACTLY: { text: string; icon: LucideIcon }[] = [
+  { text: "Consulta SAP, bases de datos, APIs y reportes.", icon: Database },
+  { text: "Cruza información entre sistemas.", icon: Network },
+  { text: "Explica números con fuente.", icon: FileBarChart },
+  { text: "Valida inconsistencias.", icon: AlertTriangle },
+  { text: "Genera reportes ejecutivos.", icon: BarChart3 },
+  { text: "Prepara emails y documentos como draft.", icon: Layers },
+  { text: "Sugiere acciones operativas.", icon: Wand2 },
+  { text: "Pide aprobación antes de acciones sensibles.", icon: ShieldCheck },
+  { text: "Registra quién hizo qué, cuándo y con qué fuente.", icon: GitBranch },
+  {
+    text: "Ayuda a detectar anomalías, errores o datos faltantes.",
+    icon: Activity,
   },
 ];

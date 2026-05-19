@@ -1,24 +1,20 @@
 import type { Metadata } from "next";
-import { CopilotArchitecture } from "@/components/copilot/CopilotArchitecture";
-import {
-  CopilotCapabilities,
-  CopilotProblems,
-} from "@/components/copilot/CopilotCapabilities";
 import { CopilotComparison } from "@/components/copilot/CopilotComparison";
 import { CopilotConnectionGroups } from "@/components/copilot/CopilotConnectionGroups";
+import { CopilotCtaFinal } from "@/components/copilot/CopilotCtaFinal";
+import { CopilotDemo } from "@/components/copilot/CopilotDemo";
+import { CopilotExactly } from "@/components/copilot/CopilotExactly";
+import { CopilotFlow } from "@/components/copilot/CopilotFlow";
 import { CopilotHero } from "@/components/copilot/CopilotHero";
 import { CopilotImpact } from "@/components/copilot/CopilotImpact";
-import { CopilotOrigin } from "@/components/copilot/CopilotOrigin";
-import { CopilotReduce } from "@/components/copilot/CopilotReduce";
+import { CopilotProblems } from "@/components/copilot/CopilotCapabilities";
 import { CopilotRoles } from "@/components/copilot/CopilotRoles";
 import { CopilotSecurity } from "@/components/copilot/CopilotSecurity";
-import { CopilotUseCases } from "@/components/copilot/CopilotUseCases";
-import { ContactCTA } from "@/components/home/ContactCTA";
 
 export const metadata: Metadata = {
-  title: "Copiloto Empresarial · Capa de IA operativa",
+  title: "Copiloto Empresarial · De horas a respuestas trazables en minutos",
   description:
-    "Copiloto Empresarial: capa de IA operativa que conecta SAP, datos y procesos para consultar, validar, reportar y automatizar con trazabilidad.",
+    "Capa de IA operativa que conecta SAP, datos, APIs y reportes para consultar, validar y preparar acciones con evidencia, permisos y trazabilidad.",
   alternates: { canonical: "/copilot" },
 };
 
@@ -26,18 +22,16 @@ export default function CopilotPage() {
   return (
     <>
       <CopilotHero />
-      <CopilotOrigin />
-      <CopilotProblems />
-      <CopilotComparison />
       <CopilotImpact />
-      <CopilotCapabilities />
-      <CopilotArchitecture />
+      <CopilotProblems />
+      <CopilotExactly />
+      <CopilotDemo />
       <CopilotConnectionGroups />
-      <CopilotUseCases />
-      <CopilotReduce />
-      <CopilotRoles />
+      <CopilotFlow />
+      <CopilotComparison />
       <CopilotSecurity />
-      <ContactCTA />
+      <CopilotRoles />
+      <CopilotCtaFinal />
     </>
   );
 }

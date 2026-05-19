@@ -1,14 +1,14 @@
 import { Card, CardDescription, CardTitle } from "@/components/ui/Card";
 import { Section, SectionHeader } from "@/components/ui/Section";
-import { COPILOT_SECURITY } from "@/lib/site-data";
+import { COPILOT_SECURITY } from "@/lib/data/copilot";
 
 export function CopilotSecurity() {
   return (
     <Section id="security" className="bg-white">
       <SectionHeader
         eyebrow="Seguridad y permisos"
-        title="Control real sobre lo que el copiloto puede ver y hacer"
-        description="Diseñado para entornos corporativos: permisos por rol, trazabilidad de acciones y validación antes de ejecutar."
+        title="Potencia operativa con control"
+        description="Permite actuar sobre sistemas reales sin perder gobierno. Permisos heredados, evidencia registrada y aprobación humana antes de cualquier acción sensible."
       />
       <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {COPILOT_SECURITY.map((s) => {
