@@ -12,7 +12,7 @@ export function ExperienceForCopilot() {
         description="Cada capacidad alimenta a la siguiente. El Copiloto Empresarial es la culminación natural de años de SAP, fábrica de software, datos e IA aplicada — no un experimento aislado."
       />
 
-      <div className="mt-12 grid gap-5 lg:grid-cols-5">
+      <div className="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-5">
         {EXPERIENCE_BRIDGE.map((stage) => {
           const Icon = stage.icon;
           return (
