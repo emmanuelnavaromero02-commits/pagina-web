@@ -7,6 +7,7 @@ import { CopilotExactly } from "@/components/copilot/CopilotExactly";
 import { CopilotFlow } from "@/components/copilot/CopilotFlow";
 import { CopilotHero } from "@/components/copilot/CopilotHero";
 import { CopilotImpact } from "@/components/copilot/CopilotImpact";
+import { CopilotPositioning } from "@/components/copilot/CopilotPositioning";
 import { CopilotProblems } from "@/components/copilot/CopilotCapabilities";
 import { CopilotRoles } from "@/components/copilot/CopilotRoles";
 import { CopilotSecurity } from "@/components/copilot/CopilotSecurity";
@@ -14,7 +15,7 @@ import { CopilotSecurity } from "@/components/copilot/CopilotSecurity";
 export const metadata: Metadata = {
   title: "Enterprise Copilot · From manual work to traceable answers in minutes",
   description:
-    "Operational AI layer that connects SAP, data, APIs, and reports so teams can ask, validate, explain, and act with evidence, permissions, and auditability.",
+    "Operational AI capability that connects SAP, data, APIs, and reports so teams can ask, validate, explain, and act with evidence, permissions, and auditability.",
   alternates: { canonical: "/copilot" },
 };
 
@@ -23,6 +24,7 @@ export default function CopilotPage() {
     <>
       <CopilotHero />
       <CopilotImpact />
+      <CopilotPositioning />
       <CopilotProblems />
       <CopilotExactly />
       <CopilotDemo />

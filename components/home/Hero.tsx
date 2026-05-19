@@ -28,13 +28,11 @@ export function Hero() {
             </h1>
 
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink-600 sm:text-lg">
-              We identify where your company is losing time, money, and
-              productivity — then deliver focused{" "}
-              <strong className="text-ink-900">software</strong>,{" "}
-              <strong className="text-ink-900">integration</strong>,{" "}
-              <strong className="text-ink-900">automation</strong>, and{" "}
-              <strong className="text-ink-900">AI</strong> solutions in weeks,
-              not months.
+              We help companies{" "}
+              <strong className="text-ink-900">optimize operations</strong>,
+              accelerate decisions, reduce costs, automate processes, integrate
+              business areas, increase productivity, and turn{" "}
+              <strong className="text-ink-900">data into strategic execution</strong>.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">

@@ -9,17 +9,22 @@ import {
   Code2,
   Compass,
   Database,
+  DollarSign,
   FileBarChart,
+  GitBranch,
+  Layers,
   LineChart,
   Network,
   Plug,
   ShoppingCart,
   Sparkles,
   Target,
+  Timer,
   TrendingUp,
   Users,
   Wand2,
   Workflow,
+  Zap,
   type LucideIcon,
 } from "lucide-react";
 
@@ -64,6 +69,98 @@ export const QUICK_WINS: {
     description:
       "ECC, S/4HANA, BTP, APIs, and middleware connected without breaking what already works.",
     icon: Plug,
+  },
+];
+
+/* HOME — The real business challenge */
+export const BUSINESS_CHALLENGES: {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}[] = [
+  {
+    title: "Speed",
+    description:
+      "Decisions and operational responses that arrive in hours, not weeks.",
+    icon: Zap,
+  },
+  {
+    title: "Efficiency",
+    description:
+      "Less manual rework, less idle time, less operational friction.",
+    icon: Activity,
+  },
+  {
+    title: "Integration",
+    description:
+      "ERP, CRM, cloud, APIs, and legacy systems working as one ecosystem.",
+    icon: Network,
+  },
+  {
+    title: "Automation",
+    description:
+      "Repeating tasks delegated to intelligent flows with human oversight.",
+    icon: Wand2,
+  },
+  {
+    title: "Operational Intelligence",
+    description:
+      "Data turned into predictions, alerts, and decisions — not dashboards alone.",
+    icon: Brain,
+  },
+  {
+    title: "Execution Capacity",
+    description:
+      "Capacity to deliver change continuously, not as one-off projects.",
+    icon: Target,
+  },
+];
+
+/* HOME — Strategic Process Analysis dimensions */
+export const ANALYSIS_DIMENSIONS: {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}[] = [
+  {
+    title: "Operations",
+    description: "How work actually moves through the business.",
+    icon: Workflow,
+  },
+  {
+    title: "Business Flows",
+    description: "End-to-end flows between teams, systems, and partners.",
+    icon: GitBranch,
+  },
+  {
+    title: "Productivity",
+    description: "Output per hour, per cycle, per role.",
+    icon: Activity,
+  },
+  {
+    title: "Costs",
+    description: "Where money is lost or absorbed silently.",
+    icon: DollarSign,
+  },
+  {
+    title: "Cycle Times",
+    description: "How long key processes really take.",
+    icon: Timer,
+  },
+  {
+    title: "Organizational Structure",
+    description: "Roles, responsibilities, and operating handoffs.",
+    icon: Users,
+  },
+  {
+    title: "Efficiency",
+    description: "Friction points and bottlenecks across the operation.",
+    icon: Layers,
+  },
+  {
+    title: "Decision-Making",
+    description: "How information becomes decisions and actions.",
+    icon: Compass,
   },
 ];
 
@@ -120,12 +217,12 @@ export const SEVEN_PILLARS: {
     number: "07",
     title: "Business Transformation",
     description:
-      "The goal is not to implement technology. The goal is to change how the company operates: more speed, intelligence, control, automation, efficiency, productivity, growth, and profitability.",
+      "The goal is not to implement technology. The goal is to transform how the company operates: more speed, intelligence, control, automation, efficiency, productivity, growth, and profitability.",
     icon: Sparkles,
   },
 ];
 
-/* HOME — Implementation model "Quick wins in 2–4 weeks" */
+/* HOME — Implementation model (kept for backward compat) */
 export const IMPLEMENTATION_STEPS: {
   step: string;
   title: string;
@@ -171,13 +268,13 @@ export const AREAS_OF_IMPACT: {
   {
     title: "Finance",
     description:
-      "EBITDA visibility, cash flow, margins, financial control, reconciliations, reporting, and intelligent variance analysis.",
+      "EBITDA visibility, cash flow, margins, intelligent financial control, reconciliations, and variance analysis.",
     icon: BarChart3,
   },
   {
     title: "Sales",
     description:
-      "Revenue intelligence, forecasting, customer analysis, commercial automation, and pipeline visibility.",
+      "Revenue intelligence, forecasting, commercial automation, customer analysis, and pipeline visibility.",
     icon: TrendingUp,
   },
   {
@@ -275,7 +372,7 @@ export const ECOSYSTEM_PILLS: string[] = [
   "Excel",
   "Legacy Systems",
   "Automations",
-  "AI",
+  "Artificial Intelligence",
   "Advanced Analytics",
 ];
 
@@ -340,7 +437,7 @@ export const HOME_USE_CASES: {
   { title: "Automation", icon: Wand2, href: "/industries#automation" },
 ];
 
-/* CONTACT — what happens next */
+/* CONTACT — what happens next (4 tight steps per spec) */
 export const CONTACT_AFTER_STEPS: {
   step: string;
   title: string;
@@ -356,29 +453,29 @@ export const CONTACT_AFTER_STEPS: {
   },
   {
     step: "02",
-    title: "We identify what you need",
+    title: "We identify the bottleneck",
     description:
-      "We decide whether your case is software factory, integration, data, AI, or a combination.",
+      "We pinpoint where the operation is losing time, money, or control.",
     icon: Target,
   },
   {
     step: "03",
-    title: "We propose a diagnosis",
+    title: "We define a quick-win scope",
     description:
-      "We send back an initial diagnosis with risks, estimated scope, and clear next steps.",
+      "We agree on one measurable problem, the sources we need, and the working window.",
     icon: CheckCircle2,
   },
   {
     step: "04",
-    title: "We scope a pilot or roadmap",
+    title: "We propose a pilot or roadmap",
     description:
-      "If there is a fit, we start a guided pilot or define a phased roadmap with measurable deliverables.",
+      "We send back a focused pilot proposal or a phased roadmap with deliverables.",
     icon: ArrowRight,
   },
 ];
 
 /* Re-export used as legacy helper for components that imported the
-   old WHAT_WE_DO / OPERATING_MODEL constants. */
+   old WHAT_WE_DO constant. */
 export const WHAT_WE_DO: {
   verb: string;
   title: string;

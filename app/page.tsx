@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
 import { AreasOfImpact } from "@/components/home/AreasOfImpact";
+import { BusinessChallenge } from "@/components/home/BusinessChallenge";
 import { ContactCTA } from "@/components/home/ContactCTA";
 import { CopilotSpotlight } from "@/components/home/CopilotSpotlight";
 import { EcosystemOrchestration } from "@/components/home/EcosystemOrchestration";
-import { ExperienceForCopilot } from "@/components/home/ExperienceForCopilot";
 import { Hero } from "@/components/home/Hero";
-import { ImplementationModel } from "@/components/home/ImplementationModel";
 import { Methodologies } from "@/components/home/Methodologies";
+import { NotJustSoftware } from "@/components/home/NotJustSoftware";
 import { ProofStrip } from "@/components/home/ProofStrip";
 import { QuickWins } from "@/components/home/QuickWins";
 import { ServicesOverview } from "@/components/home/ServicesOverview";
 import { SevenPillars } from "@/components/home/SevenPillars";
+import { StrategicProcessAnalysis } from "@/components/home/StrategicProcessAnalysis";
 
 export const metadata: Metadata = {
   title:
@@ -25,14 +26,15 @@ export default function HomePage() {
     <>
       <Hero />
       <QuickWins />
+      <BusinessChallenge />
+      <NotJustSoftware />
+      <StrategicProcessAnalysis />
       <SevenPillars />
-      <ImplementationModel />
-      <AreasOfImpact />
       <CopilotSpotlight />
       <ServicesOverview />
       <Methodologies />
+      <AreasOfImpact />
       <EcosystemOrchestration />
-      <ExperienceForCopilot />
       <ProofStrip />
       <ContactCTA />
     </>

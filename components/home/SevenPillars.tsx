@@ -6,18 +6,19 @@ export function SevenPillars() {
     <Section className="bg-ink-950 text-white">
       <div className="max-w-3xl">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-400">
-          The 7-Pillar Architecture
+          Architecture
         </p>
-        <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-          Not just software. An architecture for intelligent business
-          solutions.
+        <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+          The 7-Pillar Architecture
         </h2>
         <p className="mt-4 text-base leading-relaxed text-ink-300">
-          Our number is not decoration. It represents the operating structure
-          we use to activate intelligent companies. An intelligent company is
-          not built with isolated software — it is built with vision, strategy,
-          processes, governed data, automation, operational intelligence, and
-          continuous evolution.
+          The &ldquo;7&rdquo; is not decoration. It represents the operating
+          structure we use to activate intelligent companies.
+        </p>
+        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink-400">
+          An intelligent company is not built with isolated software. It is
+          built with vision, strategy, processes, governed data, automation,
+          operational intelligence, and continuous evolution.
         </p>
       </div>
 
@@ -50,6 +51,16 @@ export function SevenPillars() {
           );
         })}
       </ol>
+
+      <div className="mt-12 border-t border-white/10 pt-10 text-center">
+        <p className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+          Not just software. An{" "}
+          <span className="bg-gradient-to-r from-accent-400 to-brand-400 bg-clip-text text-transparent">
+            architecture for intelligent business solutions
+          </span>
+          .
+        </p>
+      </div>
     </Section>
   );
 }
