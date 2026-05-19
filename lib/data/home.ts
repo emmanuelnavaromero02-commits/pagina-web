@@ -1,9 +1,11 @@
 import {
   ArrowRight,
   BarChart3,
+  Brain,
   Building2,
   CalendarClock,
   CheckCircle2,
+  Cloud,
   Code2,
   Compass,
   Headphones,
@@ -116,6 +118,50 @@ export const HOME_USE_CASES: {
   },
   { title: "Integraciones", icon: Plug, href: "/industries#sap" },
   { title: "Automatización", icon: Wand2, href: "/industries#automation" },
+];
+
+/* HOME — Experiencia que respalda el Copiloto Empresarial.
+   Narrativa "De la integración al software operativo": cada frente
+   alimenta al siguiente y todo converge en el producto estrella. */
+export const EXPERIENCE_BRIDGE: {
+  step: string;
+  title: string;
+  description: string;
+  badges: string[];
+  icon: LucideIcon;
+}[] = [
+  {
+    step: "01",
+    title: "Integración empresarial",
+    description:
+      "Core SAP, desarrollo ABAP, RFC, IDocs y middleware sosteniendo operación crítica.",
+    badges: ["SAP", "ABAP", "Boomi", "HCI/CPI", "PI/PO"],
+    icon: Plug,
+  },
+  {
+    step: "02",
+    title: "Fábrica de software",
+    description:
+      "Equipos dedicados construyendo portales, apps y APIs con stack pragmático.",
+    badges: ["Java", ".NET", "TypeScript", "Microservicios"],
+    icon: Code2,
+  },
+  {
+    step: "03",
+    title: "Cloud y datos",
+    description:
+      "AWS, Azure, GCP y bases de datos empresariales con reporting auditable.",
+    badges: ["AWS", "Azure", "GCP", "SAP HANA"],
+    icon: Cloud,
+  },
+  {
+    step: "04",
+    title: "IA aplicada",
+    description:
+      "RAG corporativo, ML productivo y asistentes conectados a procesos reales.",
+    badges: ["IA generativa", "ML", "MLOps", "RAG"],
+    icon: Brain,
+  },
 ];
 
 /* CONTACT — qué pasa después */

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ContactCTA } from "@/components/home/ContactCTA";
 import { CopilotSpotlight } from "@/components/home/CopilotSpotlight";
+import { ExperienceForCopilot } from "@/components/home/ExperienceForCopilot";
 import { ExperienceProof } from "@/components/home/ExperienceProof";
 import { Hero } from "@/components/home/Hero";
 import { OperatingModel } from "@/components/home/OperatingModel";
@@ -26,6 +27,7 @@ export default function HomePage() {
       <ServicesOverview />
       <OperatingModel />
       <ExperienceProof />
+      <ExperienceForCopilot />
       <UseCasesPreview />
       <ProofStrip />
       <ContactCTA />
