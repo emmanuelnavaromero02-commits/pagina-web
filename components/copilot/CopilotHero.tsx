@@ -22,13 +22,13 @@ export function CopilotHero() {
             Copiloto Empresarial
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-ink-200">
-            Es una <strong className="text-white">capa de IA operativa</strong>{" "}
+            Una <strong className="text-white">capa de IA operativa</strong>{" "}
             que conecta sistemas, datos y procesos para que los equipos puedan
             consultar, validar, reportar y actuar desde un punto inteligente.
           </p>
           <p className="mt-4 text-base leading-relaxed text-ink-300">
-            No es un chatbot genérico. Está conectado a SAP, bases de datos,
-            APIs internas y reportes corporativos, con permisos y trazabilidad.
+            Conectado a SAP, bases de datos, APIs internas y reportes
+            corporativos, con permisos por rol y trazabilidad de cada acción.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <LinkButton href="/contact?topic=copilot" size="lg">
@@ -41,9 +41,44 @@ export function CopilotHero() {
               variant="outline"
               className="border-white/20 bg-white/5 text-white hover:bg-white/10"
             >
-              Cómo funciona
+              Ver cómo funciona
             </LinkButton>
           </div>
+
+          <dl className="mt-12 grid max-w-2xl grid-cols-2 gap-6 border-t border-white/10 pt-6 sm:grid-cols-4">
+            <div>
+              <dt className="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-400">
+                Para quién
+              </dt>
+              <dd className="mt-1 text-sm font-medium text-white">
+                Equipos operativos
+              </dd>
+            </div>
+            <div>
+              <dt className="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-400">
+                Foco
+              </dt>
+              <dd className="mt-1 text-sm font-medium text-white">
+                Consultar y validar
+              </dd>
+            </div>
+            <div>
+              <dt className="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-400">
+                Conexión
+              </dt>
+              <dd className="mt-1 text-sm font-medium text-white">
+                SAP · BD · APIs · BI
+              </dd>
+            </div>
+            <div>
+              <dt className="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-400">
+                Control
+              </dt>
+              <dd className="mt-1 text-sm font-medium text-white">
+                Permisos + auditoría
+              </dd>
+            </div>
+          </dl>
         </div>
       </div>
     </section>

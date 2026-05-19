@@ -17,7 +17,12 @@ export function ServicesOverview() {
         {SERVICES.map((service) => {
           const Icon = service.icon;
           return (
-            <Card key={service.slug} as="li" interactive className="flex flex-col">
+            <Card
+              key={service.slug}
+              as="li"
+              interactive
+              className="flex flex-col"
+            >
               <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-50 text-brand-700">
                 <Icon className="h-5 w-5" />
               </span>
@@ -35,7 +40,7 @@ export function ServicesOverview() {
                 href={service.href}
                 className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 hover:text-brand-800"
               >
-                Ver detalle
+                Explorar servicio
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Card>

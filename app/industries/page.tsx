@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { ContactCTA } from "@/components/home/ContactCTA";
 import { Card, CardDescription, CardTitle } from "@/components/ui/Card";
 import { Section, SectionHeader } from "@/components/ui/Section";
@@ -6,9 +8,10 @@ import { ServiceHero } from "@/components/services/ServiceHero";
 import { INDUSTRY_AREAS } from "@/lib/site-data";
 
 export const metadata: Metadata = {
-  title: "Industrias y casos de uso",
+  title: "Industrias y casos de uso · RRHH · Finanzas · Operaciones",
   description:
-    "Áreas funcionales y capacidades transversales: RRHH, finanzas, operaciones, reporting, integraciones SAP, automatización, soporte y gobierno de datos.",
+    "Casos de uso por área funcional: RRHH, finanzas, operaciones, reporting, soporte interno, integraciones SAP, automatización y gobierno de datos.",
+  alternates: { canonical: "/industries" },
 };
 
 export default function IndustriesPage() {
@@ -24,18 +27,19 @@ export default function IndustriesPage() {
         <SectionHeader
           eyebrow="Áreas"
           title="Funcionales y transversales"
-          description="Cada bloque puede arrancar de forma independiente o combinado con otros."
+          description="Cada bloque puede arrancar de forma independiente o combinado. Si te identificas con alguno, podemos hablar específicamente de ese caso."
         />
         <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {INDUSTRY_AREAS.map((area) => {
             const Icon = area.icon;
+            const contactHref = `/contact?topic=${area.id}`;
             return (
               <Card
                 key={area.id}
                 id={area.id}
                 as="li"
                 interactive
-                className="scroll-mt-24"
+                className="scroll-mt-24 flex flex-col"
               >
                 <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-50 text-brand-700">
                   <Icon className="h-5 w-5" />
@@ -53,6 +57,15 @@ export default function IndustriesPage() {
                     </li>
                   ))}
                 </ul>
+                {area.cta ? (
+                  <Link
+                    href={contactHref}
+                    className="mt-6 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-brand-700 hover:text-brand-800"
+                  >
+                    {area.cta}
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                ) : null}
               </Card>
             );
           })}

@@ -8,7 +8,8 @@ import { ServiceHero } from "@/components/services/ServiceHero";
 export const metadata: Metadata = {
   title: "Seguridad y permisos · Copiloto Empresarial",
   description:
-    "Modelo de seguridad del Copiloto Empresarial: permisos por rol, trazabilidad, validaciones y despliegue controlado.",
+    "Modelo de seguridad del Copiloto Empresarial: permisos por rol, trazabilidad, validaciones antes de ejecutar y despliegue controlado.",
+  alternates: { canonical: "/copilot/security" },
 };
 
 const principles = [

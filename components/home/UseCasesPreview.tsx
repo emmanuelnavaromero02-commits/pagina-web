@@ -16,21 +16,24 @@ export function UseCasesPreview() {
         {HOME_USE_CASES.map((uc) => {
           const Icon = uc.icon;
           return (
-            <li
-              key={uc.title}
-              className="group flex items-center gap-4 rounded-2xl border border-ink-100 bg-white p-5 shadow-soft transition-all hover:-translate-y-0.5 hover:border-ink-200 hover:shadow-elevate"
-            >
-              <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-50 text-brand-700">
-                <Icon className="h-5 w-5" />
-              </span>
-              <div>
-                <p className="font-display text-base font-semibold text-ink-900">
-                  {uc.title}
-                </p>
-                <p className="text-sm text-ink-500">
-                  Casos operativos asistidos.
-                </p>
-              </div>
+            <li key={uc.title}>
+              <Link
+                href={uc.href}
+                className="group flex items-center gap-4 rounded-2xl border border-ink-100 bg-white p-5 shadow-soft transition-all hover:-translate-y-0.5 hover:border-ink-200 hover:shadow-elevate"
+              >
+                <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-50 text-brand-700">
+                  <Icon className="h-5 w-5" />
+                </span>
+                <div className="flex-1">
+                  <p className="font-display text-base font-semibold text-ink-900 group-hover:text-brand-800">
+                    {uc.title}
+                  </p>
+                  <p className="text-sm text-ink-500">
+                    Casos operativos asistidos
+                  </p>
+                </div>
+                <ArrowRight className="h-4 w-4 text-ink-300 transition-transform group-hover:translate-x-0.5 group-hover:text-brand-700" />
+              </Link>
             </li>
           );
         })}

@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Aviso de privacidad",
   description:
     "Aviso de privacidad y tratamiento de datos personales para visitantes y prospectos del sitio corporativo.",
+  alternates: { canonical: "/privacy" },
   robots: { index: true, follow: true },
 };
 

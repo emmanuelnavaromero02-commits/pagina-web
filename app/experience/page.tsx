@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
+import { ExperienceRoles } from "@/components/experience/ExperienceRoles";
 import { ContactCTA } from "@/components/home/ContactCTA";
 import { ExperienceProof } from "@/components/home/ExperienceProof";
+import { ProofStrip } from "@/components/home/ProofStrip";
 import { Card, CardDescription, CardTitle } from "@/components/ui/Card";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { ServiceHero } from "@/components/services/ServiceHero";
-import { EXPERIENCE_CLIENTS, EXPERIENCE_HIGHLIGHTS } from "@/lib/site-data";
+import { EXPERIENCE_HIGHLIGHTS } from "@/lib/site-data";
 
 export const metadata: Metadata = {
-  title: "Experiencia",
+  title: "Experiencia · Clientes enterprise · SAP · Cloud · IA",
   description:
-    "Experiencia entregando proyectos para corporativos grandes en SAP, cloud, datos e IA empresarial.",
+    "Experiencia entregando proyectos para corporativos grandes sobre SAP, cloud, datos e IA. Capacidades del equipo, sectores atendidos y forma de trabajo.",
+  alternates: { canonical: "/experience" },
 };
 
 export default function ExperiencePage() {
@@ -18,7 +21,7 @@ export default function ExperiencePage() {
       <ServiceHero
         eyebrow="Experiencia"
         title="Trabajo real en clientes empresariales grandes"
-        description="Hemos entregado proyectos sobre SAP, cloud, datos e IA empresarial para corporativos en retail, energía, telecomunicaciones, manufactura, banca y sector público."
+        description="Programas entregados sobre SAP, cloud, datos e IA empresarial. Equipos senior con responsabilidad sobre la operación, no solo sobre el alcance."
       />
 
       <Section className="bg-white">
@@ -42,28 +45,8 @@ export default function ExperiencePage() {
         </ul>
       </Section>
 
-      <Section className="bg-ink-50">
-        <SectionHeader
-          eyebrow="Sectores"
-          title="Donde hemos entregado"
-          description="Trabajo con corporativos de distintos sectores, con foco en operación crítica e integraciones complejas."
-        />
-        <ul className="mt-10 flex flex-wrap gap-2">
-          {EXPERIENCE_CLIENTS.map((c) => (
-            <li
-              key={c}
-              className="rounded-full border border-ink-200 bg-white px-4 py-1.5 text-sm font-medium text-ink-800 shadow-soft"
-            >
-              {c}
-            </li>
-          ))}
-        </ul>
-        <p className="mt-6 max-w-2xl text-sm text-ink-500">
-          El detalle por cliente se comparte bajo NDA durante el diagnóstico
-          inicial.
-        </p>
-      </Section>
-
+      <ExperienceRoles />
+      <ProofStrip />
       <ExperienceProof />
       <ContactCTA />
     </>

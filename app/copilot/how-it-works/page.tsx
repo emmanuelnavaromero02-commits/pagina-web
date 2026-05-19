@@ -9,7 +9,8 @@ import { ServiceHero } from "@/components/services/ServiceHero";
 export const metadata: Metadata = {
   title: "Cómo funciona · Copiloto Empresarial",
   description:
-    "Arquitectura del Copiloto Empresarial: cómo se conecta a SAP, bases de datos, APIs y reportes con permisos y trazabilidad.",
+    "Arquitectura del Copiloto Empresarial: capas de IA, conectores, permisos, validaciones y trazabilidad sobre SAP, bases de datos, APIs y reportes.",
+  alternates: { canonical: "/copilot/how-it-works" },
 };
 
 const layers = [

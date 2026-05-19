@@ -5,7 +5,7 @@ import { Section } from "@/components/ui/Section";
 export function ContactCTA() {
   return (
     <Section className="bg-ink-950 text-white">
-      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-brand-800 to-ink-950 p-10 sm:p-14">
+      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-brand-800 via-brand-900 to-ink-950 p-10 sm:p-14">
         <div
           aria-hidden
           className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-accent-400/20 blur-3xl"
@@ -16,13 +16,16 @@ export function ContactCTA() {
         />
         <div className="relative grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-center">
           <div>
-            <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-400">
+              Próximo paso
+            </p>
+            <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
               ¿Quieres construir software, integrar SAP o probar un copiloto
               IA?
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-200">
               Te ayudamos a diagnosticar el caso, definir el alcance y arrancar
-              con un equipo dedicado. Hablamos claro: sin venta humo, sin
+              con un equipo dedicado. Hablamos claro: sin venta de humo, sin
               promesas vagas.
             </p>
           </div>

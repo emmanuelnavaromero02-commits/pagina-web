@@ -8,7 +8,8 @@ import { Section, SectionHeader } from "@/components/ui/Section";
 export const metadata: Metadata = {
   title: "Casos de uso · Copiloto Empresarial",
   description:
-    "Casos de uso reales del Copiloto Empresarial en RRHH, finanzas, operaciones, reporting, auditoría y soporte interno.",
+    "Casos de uso reales del Copiloto Empresarial en RRHH, finanzas, operaciones, reporting, auditoría y soporte interno corporativo.",
+  alternates: { canonical: "/copilot/use-cases" },
 };
 
 const scenarios = [

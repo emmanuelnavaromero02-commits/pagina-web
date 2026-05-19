@@ -5,39 +5,41 @@ import { COPILOT_CONNECTIONS, COPILOT_FLOW_STEPS } from "@/lib/site-data";
 
 export function CopilotArchitecture() {
   return (
-    <Section id="connects" className="bg-white">
-      <SectionHeader
-        eyebrow="Cómo se conecta"
-        title="Conectado a los sistemas que ya usas"
-        description="Se integra con SAP, bases de datos, APIs internas, plataformas cloud y reportes. Respeta los permisos del sistema fuente."
-      />
+    <>
+      <Section id="connects" className="bg-white">
+        <SectionHeader
+          eyebrow="Cómo se conecta"
+          title="Conectado a los sistemas que ya usas"
+          description="Se integra con SAP, bases de datos, APIs internas, plataformas cloud y reportes. Respeta los permisos del sistema fuente."
+        />
 
-      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {COPILOT_CONNECTIONS.map((c) => {
-          const Icon = c.icon;
-          return (
-            <div
-              key={c.title}
-              className="flex items-center gap-4 rounded-2xl border border-ink-100 bg-white p-5 shadow-soft"
-            >
-              <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-50 text-brand-700">
-                <Icon className="h-5 w-5" />
-              </span>
-              <p className="font-display text-base font-semibold text-ink-900">
-                {c.title}
-              </p>
-            </div>
-          );
-        })}
-      </div>
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {COPILOT_CONNECTIONS.map((c) => {
+            const Icon = c.icon;
+            return (
+              <div
+                key={c.title}
+                className="flex items-center gap-4 rounded-2xl border border-ink-100 bg-white p-5 shadow-soft transition-all hover:-translate-y-0.5 hover:border-ink-200 hover:shadow-elevate"
+              >
+                <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-50 text-brand-700">
+                  <Icon className="h-5 w-5" />
+                </span>
+                <p className="font-display text-base font-semibold text-ink-900">
+                  {c.title}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </Section>
 
-      <div className="mt-16">
+      <Section id="flow" className="bg-ink-50">
         <SectionHeader
           eyebrow="Flujo operativo"
-          title="Cuatro pasos, una sola conversación"
-          description="Del pregunta del usuario hasta la acción final, con validaciones y trazabilidad en cada paso."
+          title="Seis pasos, una sola conversación"
+          description="De la pregunta del usuario hasta la acción final, con validaciones y trazabilidad en cada paso. Sin atajos que rompan la operación."
         />
-        <ol className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <ol className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {COPILOT_FLOW_STEPS.map((step) => {
             const Icon = step.icon;
             return (
@@ -54,7 +56,9 @@ export function CopilotArchitecture() {
                 <p className="mt-4 font-display text-base font-semibold text-ink-900">
                   {step.title}
                 </p>
-                <p className="mt-1 text-sm text-ink-600">{step.description}</p>
+                <p className="mt-1.5 text-sm text-ink-600">
+                  {step.description}
+                </p>
               </li>
             );
           })}
@@ -68,7 +72,7 @@ export function CopilotArchitecture() {
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
-      </div>
-    </Section>
+      </Section>
+    </>
   );
 }

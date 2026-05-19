@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
 import { ContactCTA } from "@/components/home/ContactCTA";
+import { Deliverables } from "@/components/services/Deliverables";
 import { ServiceDetail } from "@/components/services/ServiceDetail";
 import { ServiceHero } from "@/components/services/ServiceHero";
+import { WhenToUse } from "@/components/services/WhenToUse";
 import { SERVICE_DETAILS } from "@/lib/site-data";
 
 const detail = SERVICE_DETAILS["sap-integrations"];
 
 export const metadata: Metadata = {
-  title: detail.title,
+  title: `${detail.title} · SAP On-Premise · Cloud · BTP`,
   description: detail.intro,
+  alternates: { canonical: "/services/sap-integrations" },
 };
 
 export default function SapIntegrationsPage() {
@@ -20,7 +23,15 @@ export default function SapIntegrationsPage() {
         description={detail.intro}
         icon={detail.icon}
       />
+      <WhenToUse slug="sap-integrations" />
       <ServiceDetail slug="sap-integrations" />
+      <Deliverables
+        slug="sap-integrations"
+        related={{
+          label: "Revisar integración SAP",
+          href: "/contact?topic=sap",
+        }}
+      />
       <ContactCTA />
     </>
   );

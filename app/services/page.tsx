@@ -4,9 +4,10 @@ import { ServiceGrid } from "@/components/services/ServiceGrid";
 import { ServiceHero } from "@/components/services/ServiceHero";
 
 export const metadata: Metadata = {
-  title: "Servicios",
+  title: "Servicios · Software, SAP, Cloud e IA",
   description:
-    "Servicios de fábrica de software, SAP & integraciones, cloud & data e IA empresarial.",
+    "Servicios de fábrica de software, SAP & integraciones, cloud & data e IA empresarial. Un solo equipo, cuatro líneas de servicio combinables.",
+  alternates: { canonical: "/services" },
 };
 
 export default function ServicesPage() {

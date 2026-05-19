@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { AfterSteps } from "@/components/contact/AfterSteps";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { Section } from "@/components/ui/Section";
 import { ServiceHero } from "@/components/services/ServiceHero";
 import { SITE, hasContactInfo } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Contacto",
+  title: "Contacto · Diagnóstico, integración SAP o piloto del Copiloto",
   description:
-    "Habla con nosotros para diagnóstico inicial, piloto del Copiloto Empresarial o un proyecto de fábrica de software.",
+    "Habla con nosotros para diagnóstico inicial, piloto del Copiloto Empresarial o un proyecto de fábrica de software. Respondemos en menos de 24 h hábiles.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {
@@ -94,6 +96,8 @@ export default function ContactPage() {
           </aside>
         </div>
       </Section>
+
+      <AfterSteps />
     </>
   );
 }

@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Aviso legal",
   description:
     "Términos de uso del sitio corporativo, propiedad intelectual y limitación de responsabilidad.",
+  alternates: { canonical: "/legal" },
   robots: { index: true, follow: true },
 };
 

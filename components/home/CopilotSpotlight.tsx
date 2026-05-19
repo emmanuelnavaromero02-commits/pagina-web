@@ -28,7 +28,7 @@ export function CopilotSpotlight() {
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <LinkButton href="/copilot" size="lg" variant="primary">
-              Conocer el copiloto
+              Ver Copiloto Empresarial
               <ArrowRight className="h-4 w-4" />
             </LinkButton>
             <LinkButton
@@ -37,9 +37,12 @@ export function CopilotSpotlight() {
               variant="outline"
               className="border-white/20 bg-white/5 text-white hover:bg-white/10"
             >
-              Cómo funciona
+              Ver cómo funciona
             </LinkButton>
           </div>
+          <p className="mt-8 text-xs uppercase tracking-[0.18em] text-ink-500">
+            Conectado a · SAP · BD · APIs · BI · Sistemas legacy
+          </p>
         </div>
 
         <ul className="grid gap-4 sm:grid-cols-2">
