@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { CopilotArchitecture } from "@/components/copilot/CopilotArchitecture";
-import { CopilotBenefits } from "@/components/copilot/CopilotBenefits";
 import {
   CopilotCapabilities,
   CopilotProblems,
@@ -8,7 +7,10 @@ import {
 import { CopilotComparison } from "@/components/copilot/CopilotComparison";
 import { CopilotConnectionGroups } from "@/components/copilot/CopilotConnectionGroups";
 import { CopilotHero } from "@/components/copilot/CopilotHero";
+import { CopilotImpact } from "@/components/copilot/CopilotImpact";
 import { CopilotOrigin } from "@/components/copilot/CopilotOrigin";
+import { CopilotReduce } from "@/components/copilot/CopilotReduce";
+import { CopilotRoles } from "@/components/copilot/CopilotRoles";
 import { CopilotSecurity } from "@/components/copilot/CopilotSecurity";
 import { CopilotUseCases } from "@/components/copilot/CopilotUseCases";
 import { ContactCTA } from "@/components/home/ContactCTA";
@@ -27,11 +29,13 @@ export default function CopilotPage() {
       <CopilotOrigin />
       <CopilotProblems />
       <CopilotComparison />
+      <CopilotImpact />
       <CopilotCapabilities />
       <CopilotArchitecture />
       <CopilotConnectionGroups />
       <CopilotUseCases />
-      <CopilotBenefits />
+      <CopilotReduce />
+      <CopilotRoles />
       <CopilotSecurity />
       <ContactCTA />
     </>

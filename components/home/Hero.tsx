@@ -27,12 +27,12 @@ export function Hero() {
             </Link>
 
             <h1 className="mt-6 font-display text-4xl font-semibold leading-[1.05] tracking-tight text-ink-950 sm:text-5xl lg:text-[3.5rem]">
-              Software empresarial, integraciones{" "}
-              <span className="whitespace-nowrap">SAP</span> e{" "}
-              <span className="bg-gradient-to-r from-brand-700 to-accent-500 bg-clip-text text-transparent">
-                IA operativa
-              </span>{" "}
-              para avanzar más rápido.
+              <span className="block bg-gradient-to-r from-brand-900 via-brand-600 to-accent-500 bg-clip-text font-bold uppercase tracking-tight text-transparent">
+                Soluciones empresariales
+              </span>
+              <span className="mt-2 block text-balance text-ink-900">
+                para integrar, automatizar y operar con IA.
+              </span>
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink-600 sm:text-lg">
               Diseñamos, integramos y soportamos plataformas empresariales

@@ -1,19 +1,23 @@
 import {
   Activity,
   AlertTriangle,
+  ArrowUp,
   BarChart3,
   Bot,
   Boxes,
+  Briefcase,
   Building2,
   Cable,
   CheckCircle2,
   Cloud,
+  Compass,
   Database,
   FileBarChart,
   GitBranch,
   Layers,
   LineChart,
   Lock,
+  Minus,
   Network,
   Plug,
   ServerCog,
@@ -414,5 +418,116 @@ export const COPILOT_ORIGIN_BLOCKS: {
     description:
       "RAG corporativo, ML productivo y asistentes internos sobre datos propios. Sin atajos, sin demos vacías.",
     icon: GitBranch,
+  },
+];
+
+/* Impacto operativo estimado — escenarios orientativos, NO promesas
+   garantizadas. El copy de la página debe acompañarse del disclaimer
+   "Estimación para discusión comercial, editable tras diagnóstico". */
+
+export const COPILOT_IMPACT_STATS: { label: string; value: string }[] = [
+  { label: "Velocidad", value: "De horas a minutos" },
+  { label: "Excel", value: "Menos trabajo manual" },
+  { label: "Auditoría", value: "Más trazabilidad" },
+  { label: "Acciones", value: "Aprobación antes de ejecutar" },
+];
+
+export const COPILOT_IMPACT_ROWS: {
+  task: string;
+  before: string;
+  withCopilot: string;
+  impact: string;
+}[] = [
+  {
+    task: "Reporte mensual entre sistemas",
+    before: "6–8 horas",
+    withCopilot: "Minutos",
+    impact: "Reducción fuerte de trabajo manual",
+  },
+  {
+    task: "Conciliación financiera multi-sistema",
+    before: "2–3 días",
+    withCopilot: "Minutos a horas según fuentes",
+    impact: "Menos reprocesos y menos errores",
+  },
+  {
+    task: "Respuesta a auditor externo",
+    before: "1–2 días",
+    withCopilot: "Segundos a minutos, con fuente trazada",
+    impact: "Trazabilidad inmediata",
+  },
+  {
+    task: "Generación de dashboards ejecutivos",
+    before: "Horas",
+    withCopilot: "Actualización asistida o casi en tiempo real",
+    impact: "Menos dependencia de reportes manuales",
+  },
+  {
+    task: "Onboarding de analista o consultor",
+    before: "Meses entendiendo tablas y sistemas",
+    withCopilot: "Guía contextual sobre fuentes, reglas y reportes",
+    impact: "Curva de aprendizaje menor",
+  },
+  {
+    task: "Investigación de incidente operativo",
+    before: "Horas o un día",
+    withCopilot: "Minutos con fuentes cruzadas",
+    impact: "Diagnóstico más rápido",
+  },
+];
+
+/* Trabajo que reduce / trabajo que potencia */
+
+export const COPILOT_REDUCES: { text: string; icon: LucideIcon }[] = [
+  { text: "Sacar CSVs de un sistema y pegarlos en otro.", icon: Minus },
+  { text: "Armar VLOOKUPs cada semana.", icon: Minus },
+  { text: "Repetir reportes de cierre.", icon: Minus },
+  { text: "Buscar aprobaciones en correos antiguos.", icon: Minus },
+  { text: "Perseguir evidencia para auditoría.", icon: Minus },
+  {
+    text: "Capacitar durante meses a cada nuevo analista en qué tabla contiene qué.",
+    icon: Minus,
+  },
+];
+
+export const COPILOT_POWERS: { text: string; icon: LucideIcon }[] = [
+  { text: "Analizar variaciones con datos cruzados.", icon: ArrowUp },
+  { text: "Decidir con datos completos y trazados.", icon: ArrowUp },
+  { text: "Detectar riesgos antes de que escalen.", icon: ArrowUp },
+  { text: "Priorizar acciones con criterio.", icon: ArrowUp },
+  { text: "Atender auditorías con evidencia lista.", icon: ArrowUp },
+  { text: "Diseñar mejores procesos sobre datos reales.", icon: ArrowUp },
+];
+
+/* Lo que ve cada rol */
+
+export const COPILOT_ROLES: {
+  label: string;
+  description: string;
+  icon: LucideIcon;
+}[] = [
+  {
+    label: "CEO",
+    description:
+      "Decisiones más rápidas con datos trazables, sin esperar días a que alguien arme un Excel.",
+    icon: Compass,
+  },
+  {
+    label: "CFO",
+    description:
+      "Cierres, conciliaciones, variaciones y reportes con menos trabajo manual y mayor trazabilidad.",
+    icon: BarChart3,
+  },
+  {
+    label: "Compliance / Auditoría",
+    description:
+      "Registro de acciones, aprobaciones, fuentes consultadas y evidencia para revisar quién hizo qué, cuándo y con qué autorización.",
+    icon: ShieldCheck,
+  },
+  {
+    label: "Consultor / Partner",
+    description:
+      "Mayor capacidad de entrega: menos horas moviendo datos y más tiempo diseñando soluciones de alto valor.",
+    icon: Briefcase,
   },
 ];
