@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ContactCTA } from "@/components/home/ContactCTA";
 import { Deliverables } from "@/components/services/Deliverables";
-import { ServiceDetail } from "@/components/services/ServiceDetail";
+import { EnterpriseAIBlocks } from "@/components/services/EnterpriseAIBlocks";
 import { ServiceHero } from "@/components/services/ServiceHero";
 import { WhenToUse } from "@/components/services/WhenToUse";
 import { SERVICE_DETAILS } from "@/lib/site-data";
@@ -23,8 +23,8 @@ export default function EnterpriseAIPage() {
         description={detail.intro}
         icon={detail.icon}
       />
+      <EnterpriseAIBlocks />
       <WhenToUse slug="enterprise-ai" variant="dark" />
-      <ServiceDetail slug="enterprise-ai" />
       <Deliverables
         slug="enterprise-ai"
         related={{

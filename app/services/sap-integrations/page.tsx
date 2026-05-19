@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ContactCTA } from "@/components/home/ContactCTA";
 import { Deliverables } from "@/components/services/Deliverables";
-import { ServiceDetail } from "@/components/services/ServiceDetail";
+import { SapDeepDive } from "@/components/services/SapDeepDive";
 import { ServiceHero } from "@/components/services/ServiceHero";
 import { WhenToUse } from "@/components/services/WhenToUse";
 import { SERVICE_DETAILS } from "@/lib/site-data";
@@ -23,8 +23,8 @@ export default function SapIntegrationsPage() {
         description={detail.intro}
         icon={detail.icon}
       />
+      <SapDeepDive />
       <WhenToUse slug="sap-integrations" />
-      <ServiceDetail slug="sap-integrations" />
       <Deliverables
         slug="sap-integrations"
         related={{

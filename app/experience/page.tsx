@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { ExperienceEducation } from "@/components/experience/ExperienceEducation";
 import { ExperienceRoles } from "@/components/experience/ExperienceRoles";
+import { ExperienceTracks } from "@/components/experience/ExperienceTracks";
 import { ContactCTA } from "@/components/home/ContactCTA";
 import { ExperienceProof } from "@/components/home/ExperienceProof";
 import { ProofStrip } from "@/components/home/ProofStrip";
@@ -11,7 +13,7 @@ import { EXPERIENCE_HIGHLIGHTS } from "@/lib/site-data";
 export const metadata: Metadata = {
   title: "Experiencia · Clientes enterprise · SAP · Cloud · IA",
   description:
-    "Experiencia entregando proyectos para corporativos grandes sobre SAP, cloud, datos e IA. Capacidades del equipo, sectores atendidos y forma de trabajo.",
+    "Experiencia entregando proyectos para corporativos grandes sobre SAP, cloud, datos e IA. Liderazgo, fábricas de software, integración y formación especializada.",
   alternates: { canonical: "/experience" },
 };
 
@@ -45,7 +47,9 @@ export default function ExperiencePage() {
         </ul>
       </Section>
 
+      <ExperienceTracks />
       <ExperienceRoles />
+      <ExperienceEducation />
       <ProofStrip />
       <ExperienceProof />
       <ContactCTA />

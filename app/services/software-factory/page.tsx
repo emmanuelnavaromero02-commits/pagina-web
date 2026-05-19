@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { ContactCTA } from "@/components/home/ContactCTA";
 import { Deliverables } from "@/components/services/Deliverables";
-import { ServiceDetail } from "@/components/services/ServiceDetail";
 import { ServiceHero } from "@/components/services/ServiceHero";
+import { SoftwareFactoryBlocks } from "@/components/services/SoftwareFactoryBlocks";
 import { WhenToUse } from "@/components/services/WhenToUse";
 import { SERVICE_DETAILS } from "@/lib/site-data";
 
@@ -23,8 +23,8 @@ export default function SoftwareFactoryPage() {
         description={detail.intro}
         icon={detail.icon}
       />
+      <SoftwareFactoryBlocks />
       <WhenToUse slug="software-factory" />
-      <ServiceDetail slug="software-factory" />
       <Deliverables
         slug="software-factory"
         related={{

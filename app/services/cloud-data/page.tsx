@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { ContactCTA } from "@/components/home/ContactCTA";
+import { CloudProvidersTabs } from "@/components/services/CloudProvidersTabs";
+import { DataPlatform } from "@/components/services/DataPlatform";
 import { Deliverables } from "@/components/services/Deliverables";
-import { ServiceDetail } from "@/components/services/ServiceDetail";
 import { ServiceHero } from "@/components/services/ServiceHero";
 import { WhenToUse } from "@/components/services/WhenToUse";
 import { SERVICE_DETAILS } from "@/lib/site-data";
@@ -23,8 +24,9 @@ export default function CloudDataPage() {
         description={detail.intro}
         icon={detail.icon}
       />
+      <CloudProvidersTabs />
+      <DataPlatform />
       <WhenToUse slug="cloud-data" />
-      <ServiceDetail slug="cloud-data" />
       <Deliverables
         slug="cloud-data"
         related={{
