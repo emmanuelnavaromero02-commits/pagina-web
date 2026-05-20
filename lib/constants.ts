@@ -25,7 +25,7 @@ export const SITE = {
     "Intelligent business solutions that turn operations, data, and AI into measurable execution.",
   description:
     "We help companies in Mexico and Spain eliminate slow processes, operational disorder, manual reporting, and disconnected systems through enterprise software, integration, automation, governed data, and operational AI.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://example.com",
   locale: "en_US",
   regions: ["Mexico", "Spain"] as const,
   product: {
