@@ -575,23 +575,35 @@ export const COPILOT_HERO_CARDS: { before: string; after: string }[] = [
   },
 ];
 
-/* "What it does exactly" — 10 specific operational actions. */
+/* 7 Enterprise Copilot Capabilities. */
 
 export const COPILOT_EXACTLY: { text: string; icon: LucideIcon }[] = [
-  { text: "Queries SAP, databases, APIs, and reports.", icon: Database },
-  { text: "Cross-checks information across systems.", icon: Network },
-  { text: "Explains numbers with their source.", icon: FileBarChart },
-  { text: "Validates inconsistencies.", icon: AlertTriangle },
-  { text: "Generates executive reports.", icon: BarChart3 },
-  { text: "Prepares emails and documents as drafts.", icon: Layers },
-  { text: "Suggests operational actions.", icon: Wand2 },
-  { text: "Requests approval before sensitive actions.", icon: ShieldCheck },
   {
-    text: "Logs who did what, when, and with which source.",
-    icon: GitBranch,
+    text: "Ask across systems — SAP, databases, APIs, and reports from one place.",
+    icon: Database,
   },
   {
-    text: "Helps detect anomalies, errors, or missing data.",
-    icon: Activity,
+    text: "Validate data inconsistencies between sources with explicit business rules.",
+    icon: AlertTriangle,
+  },
+  {
+    text: "Generate traceable reports with citations back to the source.",
+    icon: FileBarChart,
+  },
+  {
+    text: "Prepare drafts and summaries (emails, executive briefs, action plans).",
+    icon: Layers,
+  },
+  {
+    text: "Connect SAP, databases, APIs, and reporting under one controlled surface.",
+    icon: Network,
+  },
+  {
+    text: "Request approval before sensitive actions — never executes blind.",
+    icon: ShieldCheck,
+  },
+  {
+    text: "Leave an audit trail for every relevant step (user, source, action, time).",
+    icon: GitBranch,
   },
 ];

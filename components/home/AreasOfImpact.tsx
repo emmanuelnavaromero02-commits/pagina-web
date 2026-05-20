@@ -5,9 +5,9 @@ export function AreasOfImpact() {
   return (
     <Section className="bg-white">
       <SectionHeader
-        eyebrow="Areas of impact"
+        eyebrow="7 Areas of Impact"
         title="Where we deliver measurable business value"
-        description="Functional areas where a focused intervention — software, integration, data, or AI — turns a manual process into measurable execution."
+        description="Seven functional and cross-cutting areas where a focused intervention — software, integration, data, or AI — turns a manual process into measurable execution."
       />
 
       <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

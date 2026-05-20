@@ -5,12 +5,12 @@ export function QuickWins() {
   return (
     <Section className="bg-white">
       <SectionHeader
-        eyebrow="High-impact quick wins"
+        eyebrow="7 High-Impact Business Solutions"
         title="Business impact in weeks, not months."
-        description="One problem · one solution · one measurable result. We target the operational pain that is costing time, money, or control today."
+        description="One problem · one solution · one measurable result. Seven focused intervention areas where we have shipped operational value."
       />
 
-      <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {QUICK_WINS.map((w) => {
           const Icon = w.icon;
           return (

@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
-import { CopilotComparison } from "@/components/copilot/CopilotComparison";
-import { CopilotConnectionGroups } from "@/components/copilot/CopilotConnectionGroups";
+import { AnimatedImpactMetrics } from "@/components/copilot/AnimatedImpactMetrics";
 import { CopilotCtaFinal } from "@/components/copilot/CopilotCtaFinal";
-import { CopilotDemo } from "@/components/copilot/CopilotDemo";
 import { CopilotExactly } from "@/components/copilot/CopilotExactly";
-import { CopilotFlow } from "@/components/copilot/CopilotFlow";
 import { CopilotHero } from "@/components/copilot/CopilotHero";
 import { CopilotImpact } from "@/components/copilot/CopilotImpact";
-import { CopilotPositioning } from "@/components/copilot/CopilotPositioning";
 import { CopilotProblems } from "@/components/copilot/CopilotCapabilities";
 import { CopilotRoles } from "@/components/copilot/CopilotRoles";
 import { CopilotSecurity } from "@/components/copilot/CopilotSecurity";
@@ -23,16 +19,12 @@ export default function CopilotPage() {
   return (
     <>
       <CopilotHero />
+      <AnimatedImpactMetrics />
       <CopilotImpact />
-      <CopilotPositioning />
       <CopilotProblems />
       <CopilotExactly />
-      <CopilotDemo />
-      <CopilotConnectionGroups />
-      <CopilotFlow />
-      <CopilotComparison />
-      <CopilotSecurity />
       <CopilotRoles />
+      <CopilotSecurity />
       <CopilotCtaFinal />
     </>
   );

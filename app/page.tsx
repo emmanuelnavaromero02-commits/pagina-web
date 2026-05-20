@@ -7,6 +7,7 @@ import { EcosystemOrchestration } from "@/components/home/EcosystemOrchestration
 import { Hero } from "@/components/home/Hero";
 import { Methodologies } from "@/components/home/Methodologies";
 import { NotJustSoftware } from "@/components/home/NotJustSoftware";
+import { OperationalOutcomes } from "@/components/home/OperationalOutcomes";
 import { ProofStrip } from "@/components/home/ProofStrip";
 import { QuickWins } from "@/components/home/QuickWins";
 import { ServicesOverview } from "@/components/home/ServicesOverview";
@@ -34,6 +35,7 @@ export default function HomePage() {
       <ServicesOverview />
       <Methodologies />
       <AreasOfImpact />
+      <OperationalOutcomes />
       <EcosystemOrchestration />
       <ProofStrip />
       <ContactCTA />

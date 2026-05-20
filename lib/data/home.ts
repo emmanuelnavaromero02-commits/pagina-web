@@ -28,7 +28,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-/* HOME — High-impact quick wins block */
+/* HOME — 7 High-Impact Business Solutions */
 export const QUICK_WINS: {
   title: string;
   description: string;
@@ -69,6 +69,12 @@ export const QUICK_WINS: {
     description:
       "ECC, S/4HANA, BTP, APIs, and middleware connected without breaking what already works.",
     icon: Plug,
+  },
+  {
+    title: "Operational AI",
+    description:
+      "Generative AI, ML, and Enterprise Copilot wired into real systems, rules, and permissions.",
+    icon: Brain,
   },
 ];
 
@@ -259,7 +265,7 @@ export const IMPLEMENTATION_STEPS: {
   },
 ];
 
-/* HOME — Areas of Impact (business functions) */
+/* HOME — 7 Areas of Impact (business functions) */
 export const AREAS_OF_IMPACT: {
   title: string;
   description: string;
@@ -300,6 +306,54 @@ export const AREAS_OF_IMPACT: {
     description:
       "Headcount, payroll processes, absences, organizational structure, master data, and cross-system validation.",
     icon: Users,
+  },
+  {
+    title: "Data Governance",
+    description:
+      "Dictionary, quality rules, lineage, Bronze · Silver · Gold layers, and audit-ready evidence per domain.",
+    icon: Database,
+  },
+];
+
+/* HOME — 7 Operational Outcomes */
+export const OPERATIONAL_OUTCOMES: {
+  title: string;
+  description: string;
+}[] = [
+  {
+    title: "Fewer manual hours",
+    description:
+      "Recurring reports, validations, and reconciliations move from hand-work to assisted flows.",
+  },
+  {
+    title: "Faster decisions",
+    description:
+      "Leadership gets the answer with its source — not next week's spreadsheet.",
+  },
+  {
+    title: "Lower operational error",
+    description:
+      "Business rules catch inconsistencies before they reach the final report.",
+  },
+  {
+    title: "Audit-ready evidence",
+    description:
+      "Every query, source, validation, and action is logged and exportable.",
+  },
+  {
+    title: "Consistent KPIs",
+    description:
+      "One semantic layer feeds dashboards and Enterprise Copilot — same numbers everywhere.",
+  },
+  {
+    title: "Less Excel dependency",
+    description:
+      "Critical processes leave the spreadsheet and live in operable software.",
+  },
+  {
+    title: "Continuous improvement",
+    description:
+      "The platform evolves — new flows, new sources, new capabilities — instead of standing still.",
   },
 ];
 
