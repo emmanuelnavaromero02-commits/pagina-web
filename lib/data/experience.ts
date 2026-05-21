@@ -119,12 +119,12 @@ export const EXPERIENCE_CLIENTS: string[] = [
   "Construction",
   "Telecommunications",
   "Banking",
-  "Consumer goods",
-  "Public sector",
+  "Consumer Goods",
+  "Public Sector",
   "Logistics",
-  "Professional services",
-  "Real estate",
-  "Oil and gas",
+  "Professional Services",
+  "Real Estate",
+  "Oil & Gas",
 ];
 
 /* Tabs of leadership and ways of working on /experience */

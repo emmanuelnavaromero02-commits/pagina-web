@@ -6,8 +6,8 @@ export function CopilotImpact() {
     <Section id="impact" className="bg-white">
       <SectionHeader
         eyebrow="Before vs with Enterprise Copilot"
-        title="What used to take hours can become minutes."
-        description="The value is not in chatting with an AI. It is in wiring it into real systems, permissions, rules, reports, and traceable sources."
+        title="What used to take hours now moves in minutes."
+        description="The value is not in chatting with an AI. It comes from wiring it into real systems, permissions, rules, reports, and traceable sources."
       />
 
       <div className="mt-12 overflow-hidden rounded-2xl border border-ink-100 bg-white shadow-soft">

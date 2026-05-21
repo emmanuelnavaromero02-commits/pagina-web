@@ -231,6 +231,43 @@ export function AnimatedCopilotDemo() {
         </button>
       </div>
 
+      {/* Status badges that light up as the demo progresses */}
+      {(() => {
+        const permissionVerified = statusIdx >= STATUSES.length;
+        const sourcesConnected = sourceCount >= SOURCES.length;
+        const evidenceReady = tableCount >= TABLE_ROWS.length;
+        const approvalPending = auditCount >= AUDIT.length;
+        const statusBadges = [
+          { label: "Permission Verified", on: permissionVerified },
+          { label: "Sources Connected", on: sourcesConnected },
+          { label: "Evidence Ready", on: evidenceReady },
+          { label: "Approval Pending", on: approvalPending },
+        ];
+        return (
+          <ul className="flex flex-wrap gap-1.5 border-b border-ink-100 bg-white px-4 py-2.5 sm:px-5">
+            {statusBadges.map((b) => (
+              <li
+                key={b.label}
+                className={cn(
+                  "inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-semibold tracking-[0.06em] transition-colors duration-300",
+                  b.on
+                    ? "border-accent-400/50 bg-accent-400/10 text-accent-600"
+                    : "border-ink-100 bg-ink-50 text-ink-400",
+                )}
+              >
+                <span
+                  className={cn(
+                    "h-1.5 w-1.5 rounded-full transition-colors duration-300",
+                    b.on ? "bg-accent-500" : "bg-ink-300",
+                  )}
+                />
+                {b.label}
+              </li>
+            ))}
+          </ul>
+        );
+      })()}
+
       <div className="space-y-3 p-4 sm:p-5">
         {/* User question */}
         <div className="rounded-xl border border-ink-100 bg-ink-50 p-4 text-sm text-ink-800">

@@ -9,40 +9,69 @@ type Metric = {
   title: string;
   before: string;
   after: string;
-  /** Where the bar starts (manual effort baseline). 100 = full manual. */
+  impact: string;
+  /** Baseline (manual effort = 100). */
   startPct: number;
-  /** Indicative end value (lower = better). Disclaimer: orientative. */
+  /** Indicative end value. Orientative — never a guarantee. */
   endPct: number;
 };
 
 const METRICS: Metric[] = [
   {
-    title: "Manual report preparation",
-    before: "6–8 hours",
-    after: "Minutes, traceable",
+    title: "Manual Report Preparation",
+    before: "6–8 Hours",
+    after: "Minutes",
+    impact: "Less Manual Consolidation",
     startPct: 100,
     endPct: 18,
   },
   {
-    title: "Audit evidence retrieval",
-    before: "1–2 days",
-    after: "Minutes with source",
+    title: "Audit Evidence Retrieval",
+    before: "1–2 Days",
+    after: "Minutes with Traceable Sources",
+    impact: "Faster Audit Response",
     startPct: 100,
     endPct: 14,
   },
   {
-    title: "Financial reconciliation",
-    before: "2–3 days",
-    after: "Guided review",
+    title: "Financial Reconciliation Review",
+    before: "2–3 Days",
+    after: "Guided Review",
+    impact: "Less Rework, Faster Validation",
     startPct: 100,
     endPct: 22,
   },
   {
-    title: "Analyst onboarding",
-    before: "Months learning tables",
-    after: "Guided source discovery",
+    title: "Operational Incident Research",
+    before: "Hours or a Full Day",
+    after: "Minutes with Cross-System Evidence",
+    impact: "Faster Root-Cause Visibility",
+    startPct: 100,
+    endPct: 20,
+  },
+  {
+    title: "Analyst Onboarding",
+    before: "Months Learning Tables and Rules",
+    after: "Guided Source Discovery",
+    impact: "Lower Learning Curve",
     startPct: 100,
     endPct: 28,
+  },
+  {
+    title: "Executive Reporting",
+    before: "Manual Decks and Spreadsheets",
+    after: "Draft Reports with Evidence",
+    impact: "Faster Decision Support",
+    startPct: 100,
+    endPct: 24,
+  },
+  {
+    title: "Process Control",
+    before: "Manual Follow-Up",
+    after: "Traceable Tasks, Approvals, and Logs",
+    impact: "Better Operational Control",
+    startPct: 100,
+    endPct: 18,
   },
 ];
 
@@ -70,7 +99,7 @@ export function AnimatedImpactMetrics() {
           }
         });
       },
-      { threshold: 0.25 },
+      { threshold: 0.2 },
     );
     observer.observe(node);
     return () => observer.disconnect();
@@ -79,40 +108,53 @@ export function AnimatedImpactMetrics() {
   return (
     <Section className="bg-white" id="metrics">
       <SectionHeader
-        eyebrow="Operational impact, visualized"
-        title="Where manual hours collapse into traceable minutes."
-        description="Indicative scenarios showing how Enterprise Copilot can reduce manual work when it is connected to real systems, data, permissions, and rules."
+        eyebrow="Operational Impact, Visualized"
+        title="Manual hours collapse into traceable minutes."
+        description="Seven indicative scenarios showing how Enterprise Copilot reduces manual work when it is connected to real systems, data, permissions, and rules."
       />
 
       <div
         ref={ref}
-        className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
+        className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
       >
         {METRICS.map((m, idx) => {
           const width = active ? m.endPct : m.startPct;
-          const delayMs = idx * 150;
+          const delayMs = idx * 120;
           return (
             <article
               key={m.title}
-              className="rounded-2xl border border-ink-100 bg-white p-6 shadow-soft"
+              className="relative rounded-2xl border border-ink-100 bg-white p-6 shadow-soft"
             >
-              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-700">
+              <span className="absolute -top-3 left-6 inline-flex items-center rounded-full bg-brand-700 px-2.5 py-0.5 text-[10px] font-semibold tracking-widest text-white">
+                {String(idx + 1).padStart(2, "0")}
+              </span>
+
+              <p className="mt-2 font-display text-base font-semibold text-ink-950">
                 {m.title}
               </p>
 
-              <div className="mt-4 flex items-center gap-2 text-xs">
-                <span className="inline-flex items-center rounded-full border border-ink-200 bg-ink-50 px-2.5 py-0.5 font-medium text-ink-700 line-through decoration-1 decoration-ink-400">
-                  {m.before}
-                </span>
-                <ArrowRight className="h-3 w-3 text-ink-400" />
-                <span className="inline-flex items-center rounded-full border border-brand-200 bg-brand-50 px-2.5 py-0.5 font-semibold text-brand-800">
-                  {m.after}
-                </span>
+              <div className="mt-4 space-y-1.5 text-xs">
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-500">
+                    Before
+                  </span>
+                  <span className="inline-flex items-center rounded-full border border-ink-200 bg-ink-50 px-2.5 py-0.5 font-medium text-ink-700 line-through decoration-1 decoration-ink-400">
+                    {m.before}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-700">
+                    With Copilot
+                  </span>
+                  <span className="inline-flex items-center rounded-full border border-brand-200 bg-brand-50 px-2.5 py-0.5 font-semibold text-brand-800">
+                    {m.after}
+                  </span>
+                </div>
               </div>
 
               <div className="mt-5">
                 <div className="flex items-baseline justify-between text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-500">
-                  <span>Manual effort baseline</span>
+                  <span>Manual Effort Baseline</span>
                   <span className="tabular-nums text-ink-700">
                     {Math.round(width)}%
                   </span>
@@ -131,20 +173,19 @@ export function AnimatedImpactMetrics() {
                 </div>
               </div>
 
-              <p className="mt-4 text-[11px] leading-relaxed text-ink-500">
-                Estimated effort with Enterprise Copilot connected to the
-                source. Pilot-dependent.
-              </p>
+              <div className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-accent-400/40 bg-accent-400/10 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-accent-600">
+                <ArrowRight className="h-3 w-3" />
+                {m.impact}
+              </div>
             </article>
           );
         })}
       </div>
 
       <p className="mt-8 max-w-3xl text-xs leading-relaxed text-ink-500">
-        These are indicative scenarios. Actual impact depends on connected
-        sources, data quality, permissions, process complexity, and pilot
-        scope. Estimates are for commercial discussion — editable after
-        diagnosis.
+        Indicative scenarios. Actual impact depends on connected sources,
+        data quality, permissions, process complexity, and pilot scope.
+        Estimates are for commercial discussion — editable after diagnosis.
       </p>
     </Section>
   );

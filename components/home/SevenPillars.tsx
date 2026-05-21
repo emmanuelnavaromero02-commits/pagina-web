@@ -53,12 +53,15 @@ export function SevenPillars() {
       </ol>
 
       <div className="mt-12 border-t border-white/10 pt-10 text-center">
-        <p className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
-          Not just software. An{" "}
-          <span className="bg-gradient-to-r from-accent-400 to-brand-400 bg-clip-text text-transparent">
-            architecture for intelligent business solutions
+        <p className="font-display text-2xl font-semibold leading-tight tracking-tight sm:text-3xl">
+          <span className="block">Not just software.</span>
+          <span className="mt-2 block">
+            An{" "}
+            <span className="bg-gradient-to-r from-accent-400 to-brand-400 bg-clip-text text-transparent">
+              architecture for intelligent business solutions
+            </span>
+            .
           </span>
-          .
         </p>
       </div>
     </Section>

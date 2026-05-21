@@ -357,62 +357,110 @@ export const OPERATIONAL_OUTCOMES: {
   },
 ];
 
-/* HOME — Methodologies / Capabilities (tabs) */
+/* HOME — 7 Enterprise Methods for Operational Execution */
 export const METHODOLOGIES: {
-  id: string;
-  label: string;
+  title: string;
   description: string;
-  items: string[];
+  icon: LucideIcon;
 }[] = [
   {
-    id: "ops",
-    label: "Operational Optimization",
+    title: "Lean Operations",
     description:
-      "Reduce friction across the operation and free up capacity for higher-value work.",
-    items: [
-      "Lean Operations",
-      "Continuous Improvement",
-      "Process Optimization",
-      "Business Intelligence",
-    ],
+      "Remove waste, idle time, and rework so the operation moves with less drag.",
+    icon: Activity,
   },
   {
-    id: "automation",
-    label: "Automation & Efficiency",
+    title: "Continuous Improvement",
     description:
-      "Replace repetitive work with intelligent flows that integrate with the rest of the ecosystem.",
-    items: [
-      "Intelligent Automation",
-      "Workflow Orchestration",
-      "Process Mining",
-      "AI Operational Flows",
-    ],
+      "Measure, learn, and adjust on a steady cadence — not as a one-off project.",
+    icon: Workflow,
   },
   {
-    id: "strategy",
-    label: "Business Strategy",
+    title: "Process Optimization",
     description:
-      "Give leadership the visibility and predictive insight they need to decide faster.",
-    items: [
-      "KPI Intelligence",
-      "Executive Analytics",
-      "Forecasting",
-      "Strategic Visibility",
-      "Performance Management",
-    ],
+      "Redesign critical processes around evidence, validation, and traceability.",
+    icon: Wand2,
   },
   {
-    id: "governance",
-    label: "Governance & Control",
+    title: "Business Intelligence",
     description:
-      "Operate at scale without losing traceability, compliance, or security.",
-    items: [
-      "Data Governance",
-      "Compliance",
-      "Auditability",
-      "Security Frameworks",
-      "Traceability",
-    ],
+      "Trusted dashboards, KPI intelligence, and executive analytics on governed data.",
+    icon: BarChart3,
+  },
+  {
+    title: "SAP Integrated Operations",
+    description:
+      "SAP core, BTP, ABAP, RFC, IDocs, and middleware running as one ecosystem.",
+    icon: Plug,
+  },
+  {
+    title: "Operational Flow Automation",
+    description:
+      "Assisted workflows with human-in-the-loop, approvals, and audit log.",
+    icon: Network,
+  },
+  {
+    title: "Real-Time Monitoring and Control",
+    description:
+      "Live operational visibility, alerts, and AI-assisted control over the day-to-day.",
+    icon: Compass,
+  },
+];
+
+/* HOME — 7 Business Problems We Solve */
+export const SEVEN_BUSINESS_PROBLEMS: {
+  title: string;
+  impact: string;
+  whatWeDo: string;
+}[] = [
+  {
+    title: "Slow Manual Reporting",
+    impact:
+      "Teams spend hours preparing reports instead of analyzing decisions.",
+    whatWeDo:
+      "We connect sources, automate reporting flows, and make data traceable.",
+  },
+  {
+    title: "Disconnected Systems",
+    impact:
+      "ERP, CRM, cloud, Excel, and legacy systems operate separately.",
+    whatWeDo:
+      "We integrate them into one operational ecosystem with versioned contracts.",
+  },
+  {
+    title: "Excel-Based Operations",
+    impact:
+      "Critical workflows depend on spreadsheets and manual copy-paste.",
+    whatWeDo:
+      "We turn them into governed workflows, apps, APIs, and reports with audit.",
+  },
+  {
+    title: "Delayed Decisions",
+    impact:
+      "Leaders wait for data instead of acting with it.",
+    whatWeDo:
+      "We build reporting, analytics, and Enterprise Copilot flows that compress response time.",
+  },
+  {
+    title: "Poor Traceability",
+    impact:
+      "Audits depend on emails, screenshots, and manually collected evidence.",
+    whatWeDo:
+      "We design audit-ready flows with sources, logs, approvals, and per-role permissions.",
+  },
+  {
+    title: "Operational Rework",
+    impact:
+      "Teams repeat the same validation and reconciliation work every cycle.",
+    whatWeDo:
+      "We automate checks, validations, and recurring processes with human control.",
+  },
+  {
+    title: "Weak Real-Time Control",
+    impact:
+      "Managers see issues after the fact, when reaction is more expensive.",
+    whatWeDo:
+      "We create monitoring, alerts, dashboards, and AI-assisted operational visibility.",
   },
 ];
 

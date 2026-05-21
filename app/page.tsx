@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { AreasOfImpact } from "@/components/home/AreasOfImpact";
-import { BusinessChallenge } from "@/components/home/BusinessChallenge";
 import { ContactCTA } from "@/components/home/ContactCTA";
 import { CopilotSpotlight } from "@/components/home/CopilotSpotlight";
 import { EcosystemOrchestration } from "@/components/home/EcosystemOrchestration";
@@ -11,6 +10,7 @@ import { OperationalOutcomes } from "@/components/home/OperationalOutcomes";
 import { ProofStrip } from "@/components/home/ProofStrip";
 import { QuickWins } from "@/components/home/QuickWins";
 import { ServicesOverview } from "@/components/home/ServicesOverview";
+import { SevenBusinessProblems } from "@/components/home/SevenBusinessProblems";
 import { SevenPillars } from "@/components/home/SevenPillars";
 import { StrategicProcessAnalysis } from "@/components/home/StrategicProcessAnalysis";
 
@@ -27,7 +27,7 @@ export default function HomePage() {
     <>
       <Hero />
       <QuickWins />
-      <BusinessChallenge />
+      <SevenBusinessProblems />
       <NotJustSoftware />
       <StrategicProcessAnalysis />
       <SevenPillars />

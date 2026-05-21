@@ -18,8 +18,8 @@ export function NotJustSoftware() {
             Positioning
           </p>
           <h2 className="mt-4 font-display text-3xl font-semibold leading-[1.05] tracking-tight sm:text-4xl lg:text-5xl">
-            Not just software.{" "}
-            <span className="block sm:inline">
+            <span className="block">Not just software.</span>
+            <span className="mt-2 block">
               A{" "}
               <span className="bg-gradient-to-r from-accent-400 to-brand-400 bg-clip-text text-transparent">
                 business transformation firm
