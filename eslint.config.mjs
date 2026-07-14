@@ -14,6 +14,8 @@ const config = [
     ignores: [
       ".next/**",
       "out/**",
+      "infra/dist/**",
+      "infra/node_modules/**",
       "node_modules/**",
       "next-env.d.ts",
     ],

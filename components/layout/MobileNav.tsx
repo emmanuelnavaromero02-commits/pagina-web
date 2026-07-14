@@ -4,9 +4,11 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ChevronDown, X } from "lucide-react";
 import { LinkButton } from "@/components/ui/Button";
+import { l } from "@/lib/i18n/config";
 import { NAVIGATION } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 import { Logo } from "./Logo";
+import { LocaleSwitcher } from "./LocaleSwitcher";
 
 type MobileNavProps = {
   open: boolean;
@@ -38,7 +40,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
       className="fixed inset-0 z-50 lg:hidden"
       role="dialog"
       aria-modal="true"
-      aria-label="Primary menu"
+      aria-label={l("Menú principal", "Primary menu")}
     >
       <div
         className="absolute inset-0 bg-ink-950/40 backdrop-blur-sm"
@@ -47,18 +49,21 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
       <div className="absolute right-0 top-0 flex h-full w-full max-w-sm flex-col bg-white shadow-elevate">
         <div className="flex h-16 items-center justify-between border-b border-ink-100 px-4">
           <Logo />
-          <button
-            type="button"
-            onClick={onClose}
-            aria-label="Close menu"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-md text-ink-800 hover:bg-ink-100"
-          >
-            <X className="h-5 w-5" />
-          </button>
+          <div className="flex items-center gap-2">
+            <LocaleSwitcher />
+            <button
+              type="button"
+              onClick={onClose}
+              aria-label={l("Cerrar menú", "Close menu")}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-md text-ink-800 hover:bg-ink-100"
+            >
+              <X className="h-5 w-5" />
+            </button>
+          </div>
         </div>
 
         <nav
-          aria-label="Primary"
+          aria-label={l("Navegación principal", "Primary navigation")}
           className="flex-1 overflow-y-auto px-2 py-4"
         >
           <ul className="space-y-1">
@@ -142,7 +147,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
             size="md"
             className="w-full"
           >
-            Request a diagnosis
+            {l("Solicitar diagnóstico", "Request a diagnosis")}
           </LinkButton>
         </div>
       </div>

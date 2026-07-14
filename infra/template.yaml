@@ -1,0 +1,723 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: Contact API for 7 Business Solutions (API Gateway, Lambda, SES and WAF).
+
+Parameters:
+  Environment:
+    Type: String
+    Default: preview
+    AllowedValues:
+      - preview
+      - production
+  AllowedOrigin:
+    Type: String
+    Default: https://preview.7businesssolutions.com
+    AllowedPattern: ^https://[A-Za-z0-9.-]+$
+  ApiDomainName:
+    Type: String
+    Default: api.7businesssolutions.com
+    AllowedPattern: ^[A-Za-z0-9.-]+$
+  ApiCertificateArn:
+    Type: String
+    Default: ""
+    Description: ACM certificate ARN in the same Region as this regional API.
+  SesIdentityDomain:
+    Type: String
+    Default: 7businesssolutions.com
+    AllowedPattern: ^[A-Za-z0-9.-]+$
+  SenderEmail:
+    Type: String
+    Default: ventas@7businesssolutions.com
+  RecipientEmail:
+    Type: String
+    Default: ventas@7businesssolutions.com
+  OperationsEmail:
+    Type: String
+    Default: ""
+    Description: Optional email subscription for operational alarms; confirmation is required.
+  MinFormFillMs:
+    Type: Number
+    Default: 3000
+    MinValue: 1000
+    MaxValue: 60000
+  WafRequestsPerFiveMinutes:
+    Type: Number
+    Default: 100
+    MinValue: 10
+    MaxValue: 2000000000
+  WafChallengeRequestsPerFiveMinutes:
+    Type: Number
+    Default: 20
+    MinValue: 10
+    MaxValue: 2000000000
+
+Conditions:
+  HasOperationsEmail: !Not [!Equals [!Ref OperationsEmail, ""]]
+  HasApiCustomDomain: !Not [!Equals [!Ref ApiCertificateArn, ""]]
+  # API Gateway exposes one CloudWatch role setting per account and Region.
+  # Preview owns it; production reuses it instead of overwriting it.
+  OwnsRegionalApiGatewayAccount: !Equals [!Ref Environment, preview]
+
+Globals:
+  Function:
+    Runtime: nodejs24.x
+    Architectures:
+      - arm64
+    MemorySize: 256
+    Timeout: 10
+    Tracing: Active
+    Tags:
+      Application: 7businesssolutions-contact
+      Environment: !Ref Environment
+
+Resources:
+  ContactApiLogGroup:
+    Type: AWS::Logs::LogGroup
+    DeletionPolicy: Delete
+    UpdateReplacePolicy: Delete
+    Properties:
+      LogGroupName: !Sub /aws/apigateway/7bs-contact-${Environment}
+      RetentionInDays: 30
+
+  ApiGatewayCloudWatchRole:
+    Type: AWS::IAM::Role
+    Condition: OwnsRegionalApiGatewayAccount
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      # Keep the existing physical name to avoid replacing the live regional role.
+      RoleName: !Sub 7bs-apigateway-logs-${Environment}-${AWS::Region}
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: apigateway.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: WriteApiGatewayLogs
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:DescribeLogGroups
+                  - logs:DescribeLogStreams
+                  - logs:FilterLogEvents
+                  - logs:GetLogEvents
+                  - logs:PutLogEvents
+                Resource: "*"
+
+  ApiGatewayAccount:
+    Type: AWS::ApiGateway::Account
+    Condition: OwnsRegionalApiGatewayAccount
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      CloudWatchRoleArn: !GetAtt ApiGatewayCloudWatchRole.Arn
+
+  ContactApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: !Sub 7bs-contact-${Environment}
+      Description: Public contact endpoint; request bodies are never written to logs.
+      StageName: prod
+      EndpointConfiguration:
+        Type: REGIONAL
+      OpenApiVersion: 3.0.1
+      TracingEnabled: true
+      MinimumCompressionSize: 1024
+      AccessLogSetting:
+        DestinationArn: !GetAtt ContactApiLogGroup.Arn
+        Format: '{"requestId":"$context.requestId","method":"$context.httpMethod","path":"$context.resourcePath","status":"$context.status","responseLength":"$context.responseLength","integrationStatus":"$context.integration.status"}'
+      MethodSettings:
+        - ResourcePath: /*
+          HttpMethod: "*"
+          DataTraceEnabled: false
+          LoggingLevel: "OFF"
+          MetricsEnabled: true
+          ThrottlingBurstLimit: 25
+          ThrottlingRateLimit: 10
+      Cors:
+        AllowCredentials: true
+        AllowMethods: "'POST,OPTIONS'"
+        AllowHeaders: "'Content-Type'"
+        AllowOrigin: !Sub "'${AllowedOrigin}'"
+        MaxAge: "'600'"
+      GatewayResponses:
+        BAD_REQUEST_BODY:
+          StatusCode: "400"
+          ResponseParameters:
+            Headers:
+              Access-Control-Allow-Origin: !Sub "'${AllowedOrigin}'"
+              Access-Control-Allow-Credentials: "'true'"
+              Cache-Control: "'no-store'"
+          ResponseTemplates:
+            application/json: '{"ok":false,"code":"INVALID_REQUEST"}'
+        THROTTLED:
+          StatusCode: "429"
+          ResponseParameters:
+            Headers:
+              Access-Control-Allow-Origin: !Sub "'${AllowedOrigin}'"
+              Access-Control-Allow-Credentials: "'true'"
+              Cache-Control: "'no-store'"
+          ResponseTemplates:
+            application/json: '{"ok":false,"code":"RATE_LIMITED"}'
+        DEFAULT_5XX:
+          StatusCode: "500"
+          ResponseParameters:
+            Headers:
+              Access-Control-Allow-Origin: !Sub "'${AllowedOrigin}'"
+              Access-Control-Allow-Credentials: "'true'"
+              Cache-Control: "'no-store'"
+          ResponseTemplates:
+            application/json: '{"ok":false,"code":"TEMPORARY_ERROR"}'
+      Models:
+        ContactRequest:
+          type: object
+          additionalProperties: false
+          required:
+            - name
+            - company
+            - email
+            - service
+            - message
+            - locale
+            - privacyAccepted
+            - website
+            - formStartedAt
+          properties:
+            name:
+              type: string
+              minLength: 2
+              maxLength: 120
+            company:
+              type: string
+              minLength: 2
+              maxLength: 160
+            email:
+              type: string
+              minLength: 3
+              maxLength: 254
+            phone:
+              type: string
+              minLength: 6
+              maxLength: 30
+            service:
+              type: string
+              enum:
+                - software-factory
+                - enterprise-integration
+                - cloud-data
+                - operational-ai
+                - enterprise-copilot
+                - initial-diagnosis
+            message:
+              type: string
+              minLength: 10
+              maxLength: 4000
+            topic:
+              type: string
+              enum:
+                - copilot
+                - software
+                - finance
+                - operations
+                - hr
+                - reporting
+                - sap
+                - automation
+                - support
+                - governance
+            locale:
+              type: string
+              enum:
+                - es
+                - en
+            privacyAccepted:
+              type: boolean
+              enum:
+                - true
+            website:
+              type: string
+              maxLength: 200
+            formStartedAt:
+              type: integer
+              minimum: 1
+      Tags:
+        Application: 7businesssolutions-contact
+        Environment: !Ref Environment
+        RegionalApiGatewayAccountOwner: !If
+          - OwnsRegionalApiGatewayAccount
+          - !Ref ApiGatewayAccount
+          - preview-stack
+
+  ContactFunctionLogGroup:
+    Type: AWS::Logs::LogGroup
+    DeletionPolicy: Delete
+    UpdateReplacePolicy: Delete
+    Properties:
+      LogGroupName: !Sub /aws/lambda/7bs-contact-${Environment}
+      RetentionInDays: 30
+
+  ContactFunctionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub 7bs-contact-lambda-${Environment}-${AWS::Region}
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: ContactRuntime
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Sid: WriteOwnLogs
+                Effect: Allow
+                Action:
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource: !GetAtt ContactFunctionLogGroup.Arn
+              - Sid: WriteXRayTelemetry
+                Effect: Allow
+                Action:
+                  - xray:PutTraceSegments
+                  - xray:PutTelemetryRecords
+                Resource: "*"
+              - Sid: SendFromVerifiedIdentity
+                Effect: Allow
+                Action: ses:SendEmail
+                Resource:
+                  - !Sub arn:${AWS::Partition}:ses:${AWS::Region}:${AWS::AccountId}:identity/${SesIdentityDomain}
+                  - !Sub arn:${AWS::Partition}:ses:${AWS::Region}:${AWS::AccountId}:configuration-set/${SesConfigurationSet}
+                Condition:
+                  StringEquals:
+                    ses:FromAddress: !Ref SenderEmail
+
+  ContactFunction:
+    Type: AWS::Serverless::Function
+    DependsOn:
+      - ContactFunctionLogGroup
+    Properties:
+      FunctionName: !Sub 7bs-contact-${Environment}
+      Description: Validates contact requests and sends them to the corporate inbox with SES v2.
+      CodeUri: .
+      Handler: handler.handler
+      Role: !GetAtt ContactFunctionRole.Arn
+      Environment:
+        Variables:
+          ALLOWED_ORIGIN: !Ref AllowedOrigin
+          MIN_FORM_FILL_MS: !Ref MinFormFillMs
+          RECIPIENT_EMAIL: !Ref RecipientEmail
+          SENDER_EMAIL: !Ref SenderEmail
+          SES_CONFIGURATION_SET: !Ref SesConfigurationSet
+          NODE_OPTIONS: --enable-source-maps
+      Events:
+        ContactPost:
+          Type: Api
+          Properties:
+            RestApiId: !Ref ContactApi
+            Path: /v1/contact
+            Method: post
+            RequestModel:
+              Model: ContactRequest
+              Required: true
+              ValidateBody: true
+              ValidateParameters: false
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        EntryPoints:
+          - src/contact/handler.ts
+        Format: cjs
+        Minify: true
+        OutExtension:
+          - .js=.cjs
+        Sourcemap: false
+        Target: es2022
+
+  ApiWebAcl:
+    Type: AWS::WAFv2::WebACL
+    Properties:
+      Name: !Sub 7bs-contact-${Environment}
+      Description: IP reputation and per-IP rate protection for the public contact API.
+      Scope: REGIONAL
+      DefaultAction:
+        Allow: {}
+      ChallengeConfig:
+        ImmunityTimeProperty:
+          ImmunityTime: 300
+      CustomResponseBodies:
+        RateLimited:
+          ContentType: APPLICATION_JSON
+          Content: '{"ok":false,"code":"RATE_LIMITED"}'
+        InvalidRequest:
+          ContentType: APPLICATION_JSON
+          Content: '{"ok":false,"code":"INVALID_REQUEST"}'
+      VisibilityConfig:
+        CloudWatchMetricsEnabled: true
+        MetricName: !Sub 7bs-contact-${Environment}
+        SampledRequestsEnabled: false
+      Rules:
+        - Name: AmazonIpReputation
+          Priority: 0
+          OverrideAction:
+            None: {}
+          Statement:
+            ManagedRuleGroupStatement:
+              VendorName: AWS
+              Name: AWSManagedRulesAmazonIpReputationList
+          VisibilityConfig:
+            CloudWatchMetricsEnabled: true
+            MetricName: amazon-ip-reputation
+            SampledRequestsEnabled: false
+        - Name: BodySizeLimit
+          Priority: 1
+          Action:
+            Block:
+              CustomResponse:
+                CustomResponseBodyKey: InvalidRequest
+                ResponseCode: 400
+                ResponseHeaders:
+                  - Name: Access-Control-Allow-Origin
+                    Value: !Ref AllowedOrigin
+                  - Name: Cache-Control
+                    Value: no-store
+                  - Name: Access-Control-Allow-Credentials
+                    Value: "true"
+          Statement:
+            SizeConstraintStatement:
+              ComparisonOperator: GT
+              FieldToMatch:
+                Body:
+                  OversizeHandling: MATCH
+              Size: 10240
+              TextTransformations:
+                - Priority: 0
+                  Type: NONE
+          VisibilityConfig:
+            CloudWatchMetricsEnabled: true
+            MetricName: body-size-limit
+            SampledRequestsEnabled: false
+        - Name: PerIpChallenge
+          Priority: 2
+          Action:
+            Challenge: {}
+          Statement:
+            RateBasedStatement:
+              AggregateKeyType: IP
+              EvaluationWindowSec: 300
+              Limit: !Ref WafChallengeRequestsPerFiveMinutes
+          VisibilityConfig:
+            CloudWatchMetricsEnabled: true
+            MetricName: per-ip-challenge
+            SampledRequestsEnabled: false
+        - Name: PerIpRateLimit
+          Priority: 3
+          Action:
+            Block:
+              CustomResponse:
+                CustomResponseBodyKey: RateLimited
+                ResponseCode: 429
+                ResponseHeaders:
+                  - Name: Access-Control-Allow-Origin
+                    Value: !Ref AllowedOrigin
+                  - Name: Cache-Control
+                    Value: no-store
+                  - Name: Access-Control-Allow-Credentials
+                    Value: "true"
+          Statement:
+            RateBasedStatement:
+              AggregateKeyType: IP
+              EvaluationWindowSec: 300
+              Limit: !Ref WafRequestsPerFiveMinutes
+          VisibilityConfig:
+            CloudWatchMetricsEnabled: true
+            MetricName: per-ip-rate-limit
+            SampledRequestsEnabled: false
+      Tags:
+        - Key: Application
+          Value: 7businesssolutions-contact
+        - Key: Environment
+          Value: !Ref Environment
+
+  ApiWebAclAssociation:
+    Type: AWS::WAFv2::WebACLAssociation
+    Properties:
+      ResourceArn: !Join
+        - ""
+        - - !Sub arn:${AWS::Partition}:apigateway:${AWS::Region}::/restapis/
+          - !Ref ContactApi
+          - /stages/
+          - !Ref ContactApiprodStage
+      WebACLArn: !GetAtt ApiWebAcl.Arn
+
+  ApiDomain:
+    Type: AWS::ApiGateway::DomainName
+    Condition: HasApiCustomDomain
+    Properties:
+      DomainName: !Ref ApiDomainName
+      EndpointConfiguration:
+        Types:
+          - REGIONAL
+      RegionalCertificateArn: !Ref ApiCertificateArn
+      SecurityPolicy: TLS_1_2
+
+  ApiBasePathMapping:
+    Type: AWS::ApiGateway::BasePathMapping
+    Condition: HasApiCustomDomain
+    Properties:
+      DomainName: !Ref ApiDomain
+      RestApiId: !Ref ContactApi
+      Stage: !Ref ContactApiprodStage
+
+  NotificationKey:
+    Type: AWS::KMS::Key
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      Description: !Sub Encrypts contact notifications for ${Environment}.
+      EnableKeyRotation: true
+      PendingWindowInDays: 30
+      KeyPolicy:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: EnableAccountAdministration
+            Effect: Allow
+            Principal:
+              AWS: !Sub arn:${AWS::Partition}:iam::${AWS::AccountId}:root
+            Action: kms:*
+            Resource: "*"
+          - Sid: AllowCloudWatchAlarmPublishing
+            Effect: Allow
+            Principal:
+              Service: cloudwatch.amazonaws.com
+            Action:
+              - kms:Decrypt
+              - kms:GenerateDataKey*
+            Resource: "*"
+            Condition:
+              StringEquals:
+                aws:SourceAccount: !Ref AWS::AccountId
+              ArnLike:
+                aws:SourceArn: !Sub arn:${AWS::Partition}:cloudwatch:${AWS::Region}:${AWS::AccountId}:alarm:7bs-contact-*
+      Tags:
+        - Key: Application
+          Value: 7businesssolutions-contact
+        - Key: Environment
+          Value: !Ref Environment
+
+  NotificationKeyAlias:
+    Type: AWS::KMS::Alias
+    Properties:
+      AliasName: !Sub alias/7bs-contact-${Environment}
+      TargetKeyId: !Ref NotificationKey
+
+  NotificationTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: !Sub 7bs-contact-notifications-${Environment}
+      DisplayName: 7BS contact operations
+      KmsMasterKeyId: !GetAtt NotificationKey.Arn
+      Tags:
+        - Key: Application
+          Value: 7businesssolutions-contact
+        - Key: Environment
+          Value: !Ref Environment
+
+  NotificationTopicPolicy:
+    Type: AWS::SNS::TopicPolicy
+    Properties:
+      Topics:
+        - !Ref NotificationTopic
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: AllowCloudWatchPublish
+            Effect: Allow
+            Principal:
+              Service: cloudwatch.amazonaws.com
+            Action: sns:Publish
+            Resource: !Ref NotificationTopic
+            Condition:
+              StringEquals:
+                aws:SourceAccount: !Ref AWS::AccountId
+              ArnLike:
+                aws:SourceArn: !Sub arn:${AWS::Partition}:cloudwatch:${AWS::Region}:${AWS::AccountId}:alarm:7bs-contact-*
+
+  OperationsSubscription:
+    Type: AWS::SNS::Subscription
+    Condition: HasOperationsEmail
+    Properties:
+      Protocol: email
+      Endpoint: !Ref OperationsEmail
+      TopicArn: !Ref NotificationTopic
+
+  SesConfigurationSet:
+    Type: AWS::SES::ConfigurationSet
+    Properties:
+      Name: !Sub 7bs-contact-${Environment}
+      ReputationOptions:
+        ReputationMetricsEnabled: true
+      SendingOptions:
+        SendingEnabled: true
+      SuppressionOptions:
+        SuppressedReasons:
+          - BOUNCE
+          - COMPLAINT
+      Tags:
+        - Key: Application
+          Value: 7businesssolutions-contact
+        - Key: Environment
+          Value: !Ref Environment
+
+  LambdaErrorsAlarm:
+    Type: AWS::CloudWatch::Alarm
+    DependsOn: NotificationTopicPolicy
+    Properties:
+      AlarmName: !Sub 7bs-contact-${Environment}-lambda-errors
+      AlarmDescription: Contact Lambda returned one or more execution errors.
+      Namespace: AWS/Lambda
+      MetricName: Errors
+      Dimensions:
+        - Name: FunctionName
+          Value: !Ref ContactFunction
+      Statistic: Sum
+      Period: 300
+      EvaluationPeriods: 1
+      DatapointsToAlarm: 1
+      Threshold: 1
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      TreatMissingData: notBreaching
+      AlarmActions:
+        - !Ref NotificationTopic
+
+  ApiServerErrorsAlarm:
+    Type: AWS::CloudWatch::Alarm
+    DependsOn: NotificationTopicPolicy
+    Properties:
+      AlarmName: !Sub 7bs-contact-${Environment}-api-5xx
+      AlarmDescription: Contact API returned one or more 5xx responses.
+      Namespace: AWS/ApiGateway
+      MetricName: 5XXError
+      Dimensions:
+        - Name: ApiName
+          Value: !Sub 7bs-contact-${Environment}
+        - Name: Stage
+          Value: !Ref ContactApiprodStage
+      Statistic: Sum
+      Period: 300
+      EvaluationPeriods: 1
+      DatapointsToAlarm: 1
+      Threshold: 1
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      TreatMissingData: notBreaching
+      AlarmActions:
+        - !Ref NotificationTopic
+
+  WafBlockedRequestsAlarm:
+    Type: AWS::CloudWatch::Alarm
+    DependsOn: NotificationTopicPolicy
+    Properties:
+      AlarmName: !Sub 7bs-contact-${Environment}-waf-blocks
+      AlarmDescription: WAF blocked an unusual number of contact API requests.
+      Namespace: AWS/WAFV2
+      MetricName: BlockedRequests
+      Dimensions:
+        - Name: WebACL
+          Value: !Sub 7bs-contact-${Environment}
+        - Name: Region
+          Value: !Ref AWS::Region
+        - Name: Rule
+          Value: ALL
+      Statistic: Sum
+      Period: 300
+      EvaluationPeriods: 1
+      DatapointsToAlarm: 1
+      Threshold: 25
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      TreatMissingData: notBreaching
+      AlarmActions:
+        - !Ref NotificationTopic
+
+  SesBounceRateAlarm:
+    Type: AWS::CloudWatch::Alarm
+    DependsOn: NotificationTopicPolicy
+    Properties:
+      AlarmName: !Sub 7bs-contact-${Environment}-ses-bounce-rate
+      AlarmDescription: SES hard bounce rate exceeded 5 percent for the contact configuration set.
+      Namespace: AWS/SES
+      MetricName: Reputation.BounceRate
+      Dimensions:
+        - Name: ses:configuration-set
+          Value: !Ref SesConfigurationSet
+      Statistic: Average
+      Period: 300
+      EvaluationPeriods: 1
+      DatapointsToAlarm: 1
+      Threshold: 0.05
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      TreatMissingData: notBreaching
+      AlarmActions:
+        - !Ref NotificationTopic
+
+  SesComplaintRateAlarm:
+    Type: AWS::CloudWatch::Alarm
+    DependsOn: NotificationTopicPolicy
+    Properties:
+      AlarmName: !Sub 7bs-contact-${Environment}-ses-complaint-rate
+      AlarmDescription: SES complaint rate exceeded 0.1 percent for the contact configuration set.
+      Namespace: AWS/SES
+      MetricName: Reputation.ComplaintRate
+      Dimensions:
+        - Name: ses:configuration-set
+          Value: !Ref SesConfigurationSet
+      Statistic: Average
+      Period: 300
+      EvaluationPeriods: 1
+      DatapointsToAlarm: 1
+      Threshold: 0.001
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      TreatMissingData: notBreaching
+      AlarmActions:
+        - !Ref NotificationTopic
+
+Outputs:
+  ExecuteApiContactUrl:
+    Description: Temporary execute-api URL for smoke tests before DNS cutover.
+    Value: !Join
+      - ""
+      - - https://
+        - !Ref ContactApi
+        - !Sub .execute-api.${AWS::Region}.${AWS::URLSuffix}/
+        - !Ref ContactApiprodStage
+        - /v1/contact
+  ApiContactUrl:
+    Condition: HasApiCustomDomain
+    Description: Canonical contact URL after the DNS record is created.
+    Value: !Sub https://${ApiDomainName}/v1/contact
+  ApiDnsRecordName:
+    Condition: HasApiCustomDomain
+    Value: !Ref ApiDomainName
+  ApiDnsRecordType:
+    Condition: HasApiCustomDomain
+    Description: Record type to create at the external DNS provider.
+    Value: CNAME
+  ApiDnsTarget:
+    Condition: HasApiCustomDomain
+    Description: Create an Alias/CNAME-compatible record pointing the API hostname here.
+    Value: !GetAtt ApiDomain.RegionalDomainName
+  ApiDnsHostedZoneId:
+    Condition: HasApiCustomDomain
+    Description: API Gateway regional hosted zone ID for a Route 53 alias record.
+    Value: !GetAtt ApiDomain.RegionalHostedZoneId
+  NotificationTopicArn:
+    Value: !Ref NotificationTopic
+  SesConfigurationSetName:
+    Value: !Ref SesConfigurationSet

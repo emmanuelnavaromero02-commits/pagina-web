@@ -343,7 +343,7 @@ export const OPERATIONAL_OUTCOMES: {
   {
     title: "Consistent KPIs",
     description:
-      "One semantic layer feeds dashboards and Enterprise Copilot — same numbers everywhere.",
+      "Dashboards and Enterprise Copilot can present indicators using the same agreed business definitions.",
   },
   {
     title: "Less Excel dependency",

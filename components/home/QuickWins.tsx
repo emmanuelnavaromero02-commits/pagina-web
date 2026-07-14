@@ -1,13 +1,23 @@
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { QUICK_WINS } from "@/lib/data/home";
+import { l } from "@/lib/i18n/config";
 
 export function QuickWins() {
   return (
     <Section className="bg-white">
       <SectionHeader
-        eyebrow="7 High-Impact Business Solutions"
-        title="Business impact in weeks, not months."
-        description="One problem · one solution · one measurable result. Seven focused intervention areas where we have shipped operational value."
+        eyebrow={l(
+          "7 soluciones empresariales de alto impacto",
+          "7 High-Impact Business Solutions",
+        )}
+        title={l(
+          "Impacto empresarial en semanas, no en meses.",
+          "Business impact in weeks, not months.",
+        )}
+        description={l(
+          "Un problema · una solución · un resultado medible. Siete áreas de intervención para generar valor operativo.",
+          "One problem · one solution · one measurable result. Seven focused intervention areas for delivering operational value.",
+        )}
       />
 
       <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -33,9 +43,10 @@ export function QuickWins() {
       </ul>
 
       <p className="mt-8 max-w-3xl text-xs leading-relaxed text-ink-500">
-        Typical quick-win pilots can be scoped for 2–4 weeks, depending on
-        systems, data access, and complexity. Not a guarantee — a working
-        window for discussion during the diagnosis.
+        {l(
+          "Un piloto de alcance acotado puede plantearse en un plazo estimado de 2 a 4 semanas, según los sistemas, el acceso a los datos y la complejidad. Es una referencia para el diagnóstico, no una garantía.",
+          "A focused pilot can typically be scoped for an estimated 2–4 weeks, depending on systems, data access, and complexity. This is a planning reference for the diagnosis, not a guarantee.",
+        )}
       </p>
     </Section>
   );

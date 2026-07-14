@@ -1,13 +1,14 @@
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { COPILOT_EXACTLY } from "@/lib/data/copilot";
+import { l } from "@/lib/i18n/config";
 
 export function CopilotExactly() {
   return (
     <Section className="bg-white">
       <SectionHeader
-        eyebrow="7 Enterprise Copilot Capabilities"
-        title="Operational capabilities — not generic chat"
-        description="Seven specific things Enterprise Copilot does over real systems, with permissions, validations, and an audit trail behind every step."
+        eyebrow={l("7 capacidades de Enterprise Copilot", "7 Enterprise Copilot capabilities")}
+        title={l("Capacidades operativas, no conversación genérica", "Operational capabilities — not generic chat")}
+        description={l("Siete funciones concretas sobre sistemas reales, con permisos, validaciones y trazabilidad en cada paso.", "Seven concrete functions over real systems, with permissions, validations, and traceability at every step.")}
       />
 
       <ol className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">

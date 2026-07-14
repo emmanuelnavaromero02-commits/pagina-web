@@ -3,14 +3,15 @@ import { ArrowRight } from "lucide-react";
 import { Card, CardDescription, CardTitle } from "@/components/ui/Card";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { SERVICES } from "@/lib/site-data";
+import { l } from "@/lib/i18n/config";
 
 export function ServiceGrid() {
   return (
     <Section className="bg-ink-50">
       <SectionHeader
-        eyebrow="Core capabilities"
-        title="Four service lines, one team"
-        description="Each service can be engaged independently or combined. We work as a single factory."
+        eyebrow={l("Capacidades principales", "Core capabilities")}
+        title={l("Cuatro líneas de servicio, un solo equipo", "Four service lines, one team")}
+        description={l("Cada servicio puede contratarse de forma independiente o combinarse en una solución integral.", "Each service can be engaged independently or combined into an integrated solution.")}
       />
 
       <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
@@ -49,7 +50,7 @@ export function ServiceGrid() {
                 href={service.href}
                 className="mt-2 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-brand-700 hover:text-brand-800"
               >
-                See service detail
+                {l("Ver detalle del servicio", "See service detail")}
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Card>

@@ -1,13 +1,23 @@
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { ANALYSIS_DIMENSIONS } from "@/lib/data/home";
+import { l } from "@/lib/i18n/config";
 
 export function StrategicProcessAnalysis() {
   return (
     <Section className="bg-white">
       <SectionHeader
-        eyebrow="Strategic Process Analysis"
-        title="We start by understanding how the business actually operates."
-        description="We analyze operations, business flows, productivity, costs, cycle times, organizational structure, efficiency, and decision-making to identify opportunities for efficiency, automation, and growth."
+        eyebrow={l(
+          "Análisis estratégico de procesos",
+          "Strategic Process Analysis",
+        )}
+        title={l(
+          "Empezamos por entender cómo opera realmente el negocio.",
+          "We start by understanding how the business actually operates.",
+        )}
+        description={l(
+          "Analizamos operaciones, flujos de negocio, productividad, costos, tiempos de ciclo, estructura organizativa, eficiencia y toma de decisiones para detectar oportunidades de mejora, automatización y crecimiento.",
+          "We analyze operations, business flows, productivity, costs, cycle times, organizational structure, efficiency, and decision-making to identify opportunities for improvement, automation, and growth.",
+        )}
       />
       <ul className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {ANALYSIS_DIMENSIONS.map((d) => {

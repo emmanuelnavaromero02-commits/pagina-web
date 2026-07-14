@@ -1,13 +1,23 @@
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { METHODOLOGIES } from "@/lib/data/home";
+import { l } from "@/lib/i18n/config";
 
 export function Methodologies() {
   return (
     <Section className="bg-ink-50">
       <SectionHeader
-        eyebrow="7 Enterprise Methods for Operational Execution"
-        title="Enterprise methods. Operational execution."
-        description="Seven methods we apply across engagements — selected to fit the case, not applied as a checklist."
+        eyebrow={l(
+          "7 métodos empresariales para la ejecución operativa",
+          "7 Enterprise Methods for Operational Execution",
+        )}
+        title={l(
+          "Métodos empresariales. Ejecución operativa.",
+          "Enterprise methods. Operational execution.",
+        )}
+        description={l(
+          "Aplicamos siete métodos según las necesidades de cada proyecto, no como una lista rígida.",
+          "Seven methods we apply across engagements — selected to fit the case, not applied as a checklist.",
+        )}
       />
 
       <ol className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

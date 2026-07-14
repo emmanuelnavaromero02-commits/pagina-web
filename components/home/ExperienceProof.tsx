@@ -1,13 +1,23 @@
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { TECH_STACK } from "@/lib/site-data";
+import { l } from "@/lib/i18n/config";
 
 export function ExperienceProof() {
   return (
     <Section className="bg-ink-50">
       <SectionHeader
-        eyebrow="Technology that runs in enterprises"
-        title="The stack we have already shipped on"
-        description="Real experience on enterprise platforms — SAP, cloud, data, and AI. No theory, no demos. Productive work for large clients."
+        eyebrow={l(
+          "Tecnología para entornos empresariales",
+          "Technology for enterprise environments",
+        )}
+        title={l(
+          "Capacidades técnicas disponibles para cada proyecto",
+          "Technical capabilities available for each project",
+        )}
+        description={l(
+          "Especialistas senior seleccionados según las necesidades de cada proyecto en SAP, nube, datos e IA.",
+          "Senior specialists selected according to each project's needs across SAP, cloud, data, and AI.",
+        )}
       />
 
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

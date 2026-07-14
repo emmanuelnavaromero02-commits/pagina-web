@@ -1,18 +1,19 @@
-import type { Metadata } from "next";
 import { ContactCTA } from "@/components/home/ContactCTA";
 import { Deliverables } from "@/components/services/Deliverables";
 import { EnterpriseAIBlocks } from "@/components/services/EnterpriseAIBlocks";
 import { ServiceHero } from "@/components/services/ServiceHero";
 import { WhenToUse } from "@/components/services/WhenToUse";
 import { SERVICE_DETAILS } from "@/lib/site-data";
+import { l } from "@/lib/i18n/config";
+import { createPageMetadata } from "@/lib/seo";
 
 const detail = SERVICE_DETAILS["enterprise-ai"];
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
+  path: "/services/enterprise-ai",
   title: `${detail.title} · GenAI · ML · Corporate RAG`,
   description: detail.intro,
-  alternates: { canonical: "/services/enterprise-ai" },
-};
+});
 
 export default function EnterpriseAIPage() {
   return (
@@ -28,7 +29,7 @@ export default function EnterpriseAIPage() {
       <Deliverables
         slug="enterprise-ai"
         related={{
-          label: "Explore Enterprise Copilot",
+          label: l("Conocer Enterprise Copilot", "Explore Enterprise Copilot"),
           href: "/copilot",
         }}
       />

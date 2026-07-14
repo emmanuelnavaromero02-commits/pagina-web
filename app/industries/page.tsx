@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ContactCTA } from "@/components/home/ContactCTA";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { ServiceHero } from "@/components/services/ServiceHero";
 import { INDUSTRY_PAGES } from "@/lib/data/industry-pages";
+import { l } from "@/lib/i18n/config";
+import { createPageMetadata } from "@/lib/seo";
 
 // Stable, sales-led order: business areas first, then cross-cutting.
 const PAGE_ORDER = [
@@ -18,27 +19,41 @@ const PAGE_ORDER = [
   "data-governance",
 ];
 
-export const metadata: Metadata = {
-  title: "Industries & use cases · Finance · Operations · HR",
-  description:
-    "Eight specialized use-case pages: Finance, Operations, HR / Payroll, Executive Reporting, SAP Integrations, Process Automation, Internal Support, and Data Governance.",
-  alternates: { canonical: "/industries" },
-};
+export const metadata = createPageMetadata({
+  path: "/industries",
+  title: l(
+    "Áreas y casos de uso · Finanzas · Operaciones · RR. HH.",
+    "Business areas and use cases · Finance · Operations · HR",
+  ),
+  description: l(
+    "Ocho áreas especializadas: finanzas, operaciones, recursos humanos y nómina, reporte ejecutivo, integraciones SAP, automatización, soporte interno y gobierno de datos.",
+    "Eight specialized areas: finance, operations, HR and payroll, executive reporting, SAP integrations, automation, internal support, and data governance.",
+  ),
+});
 
 export default function IndustriesPage() {
   return (
     <>
       <ServiceHero
-        eyebrow="Industries / use cases"
-        title="Where we deliver value"
-        description="Each functional area has its own dedicated page — with the typical problem, what we do, the systems and capabilities involved, the deliverables, and how Enterprise Copilot connects."
+        eyebrow={l("Áreas y casos de uso", "Business areas and use cases")}
+        title={l("Dónde podemos aportar valor", "Where we can add value")}
+        description={l(
+          "Cada área dispone de una página con el problema habitual, el enfoque propuesto, los sistemas y capacidades implicados, los entregables y la posible conexión con Enterprise Copilot.",
+          "Each area has a page covering the common problem, proposed approach, involved systems and capabilities, deliverables, and potential connection with Enterprise Copilot.",
+        )}
       />
 
       <Section className="bg-white">
         <SectionHeader
-          eyebrow="Specialized pages"
-          title="Eight functional and cross-cutting areas"
-          description="Pick the area that matters to you to see specific problems, capabilities, and deliverables."
+          eyebrow={l("Páginas especializadas", "Specialized pages")}
+          title={l(
+            "Ocho áreas funcionales y transversales",
+            "Eight functional and cross-cutting areas",
+          )}
+          description={l(
+            "Seleccione el área relevante para consultar problemas, capacidades y entregables posibles.",
+            "Select the relevant area to review potential problems, capabilities, and deliverables.",
+          )}
         />
         <ul className="mt-12 grid gap-6 sm:grid-cols-2">
           {PAGE_ORDER.map((slug) => {
@@ -62,7 +77,7 @@ export default function IndustriesPage() {
 
                 <div className="mt-5">
                   <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-500">
-                    Systems and capabilities
+                    {l("Sistemas y capacidades", "Systems and capabilities")}
                   </p>
                   <ul className="mt-2 flex flex-wrap gap-1.5">
                     {page.capabilities.slice(0, 6).map((s) => (
@@ -80,7 +95,7 @@ export default function IndustriesPage() {
                   href={`/industries/${page.slug}`}
                   className="mt-6 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-brand-700 hover:text-brand-800"
                 >
-                  Open {page.title} page
+                  {l("Abrir", "Open")} {page.title}
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </li>

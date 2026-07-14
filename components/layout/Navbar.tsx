@@ -5,14 +5,17 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Menu } from "lucide-react";
 import { LinkButton } from "@/components/ui/Button";
+import { l, stripLocalePrefix } from "@/lib/i18n/config";
 import { NAVIGATION } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 import { Logo } from "./Logo";
+import { LocaleSwitcher } from "./LocaleSwitcher";
 import { MegaMenu } from "./MegaMenu";
 import { MobileNav } from "./MobileNav";
 
 export function Navbar() {
   const pathname = usePathname();
+  const routePath = stripLocalePrefix(pathname || "/");
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -62,14 +65,14 @@ export function Navbar() {
         <Logo />
 
         <nav
-          aria-label="Primary"
+          aria-label={l("Navegación principal", "Primary navigation")}
           className="hidden lg:flex lg:items-center lg:gap-1"
         >
           {NAVIGATION.map((item, index) => {
             const hasMenu = !!item.columns;
             const isActive =
-              pathname === item.href ||
-              (item.href !== "/" && pathname.startsWith(item.href));
+              routePath === item.href ||
+              (item.href !== "/" && routePath.startsWith(item.href));
             const isOpen = openIndex === index;
 
             if (!hasMenu) {
@@ -129,20 +132,21 @@ export function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
+          <LocaleSwitcher />
           <LinkButton
             href="/contact"
             variant="primary"
             size="sm"
             className="whitespace-nowrap"
           >
-            Request a diagnosis
+            {l("Solicitar diagnóstico", "Request a diagnosis")}
           </LinkButton>
         </div>
 
         <button
           type="button"
           className="inline-flex h-10 w-10 items-center justify-center rounded-md text-ink-800 hover:bg-ink-100 lg:hidden"
-          aria-label="Open menu"
+          aria-label={l("Abrir menú", "Open menu")}
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen(true)}
         >

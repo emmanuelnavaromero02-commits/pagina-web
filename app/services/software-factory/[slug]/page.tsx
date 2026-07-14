@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SpecializedServicePage } from "@/components/services/SpecializedServicePage";
 import { SOFTWARE_FACTORY_PAGES } from "@/lib/data/specialized-services";
+import { l } from "@/lib/i18n/config";
+import { createPageMetadata } from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -17,13 +19,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const page = SOFTWARE_FACTORY_PAGES[slug];
   if (!page) return {};
-  return {
-    title: `${page.title} · Software Factory`,
+  return createPageMetadata({
+    path: `/services/software-factory/${page.slug}`,
+    title: `${page.title} · ${l("Fábrica de software", "Software Factory")}`,
     description: page.intro,
-    alternates: {
-      canonical: `/services/software-factory/${page.slug}`,
-    },
-  };
+  });
 }
 
 export default async function Page({

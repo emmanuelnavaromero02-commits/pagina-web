@@ -1,14 +1,15 @@
 import { Card, CardDescription, CardTitle } from "@/components/ui/Card";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { COPILOT_CAPABILITIES, COPILOT_PROBLEMS } from "@/lib/site-data";
+import { l } from "@/lib/i18n/config";
 
 export function CopilotProblems() {
   return (
     <Section id="problem" className="bg-white">
       <SectionHeader
-        eyebrow="The problem we solve"
-        title="Operations stuck in manual work"
-        description="Enterprise Copilot reduces the time the team spends searching, validating, and consolidating scattered information."
+        eyebrow={l("El problema que resolvemos", "The problem we solve")}
+        title={l("Operaciones detenidas por trabajo manual", "Operations stuck in manual work")}
+        description={l("Enterprise Copilot ayuda a reducir el tiempo dedicado a buscar, validar y consolidar información dispersa.", "Enterprise Copilot helps reduce the time spent searching, validating, and consolidating scattered information.")}
       />
       <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {COPILOT_PROBLEMS.map((p) => (
@@ -26,9 +27,9 @@ export function CopilotCapabilities() {
   return (
     <Section id="does" className="bg-ink-50">
       <SectionHeader
-        eyebrow="What it does"
-        title="Operational capabilities, not generic talk"
-        description="Each capability is designed to support real work: query, explain, validate, report, connect, and reduce manual tasks."
+        eyebrow={l("Qué hace", "What it does")}
+        title={l("Capacidades operativas, no conversación genérica", "Operational capabilities, not generic chat")}
+        description={l("Cada capacidad apoya trabajo real: consultar, explicar, validar, informar, conectar y reducir tareas manuales.", "Each capability supports real work: query, explain, validate, report, connect, and reduce manual tasks.")}
       />
       <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {COPILOT_CAPABILITIES.map((cap) => {

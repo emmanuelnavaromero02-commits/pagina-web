@@ -1,18 +1,19 @@
-import type { Metadata } from "next";
 import { ContactCTA } from "@/components/home/ContactCTA";
 import { Deliverables } from "@/components/services/Deliverables";
 import { SapDeepDive } from "@/components/services/SapDeepDive";
 import { ServiceHero } from "@/components/services/ServiceHero";
 import { WhenToUse } from "@/components/services/WhenToUse";
 import { SERVICE_DETAILS } from "@/lib/site-data";
+import { l } from "@/lib/i18n/config";
+import { createPageMetadata } from "@/lib/seo";
 
 const detail = SERVICE_DETAILS["sap-integrations"];
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
+  path: "/services/sap-integrations",
   title: `${detail.title} · SAP On-Premise · Cloud · BTP`,
   description: detail.intro,
-  alternates: { canonical: "/services/sap-integrations" },
-};
+});
 
 export default function SapIntegrationsPage() {
   return (
@@ -28,7 +29,7 @@ export default function SapIntegrationsPage() {
       <Deliverables
         slug="sap-integrations"
         related={{
-          label: "Review SAP integration",
+          label: l("Revisar una integración SAP", "Review a SAP integration"),
           href: "/contact?topic=sap",
         }}
       />

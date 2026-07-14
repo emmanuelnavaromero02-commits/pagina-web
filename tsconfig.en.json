@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@/lib/site-data": ["./lib/i18n/data/en/index.ts"],
+      "@/lib/navigation": ["./lib/i18n/navigation/en.ts"],
+      "@/lib/data/home": ["./lib/i18n/data/en/home.ts"],
+      "@/lib/data/copilot": ["./lib/i18n/data/en/copilot.ts"],
+      "@/lib/data/services": ["./lib/i18n/data/en/services.ts"],
+      "@/lib/data/experience": ["./lib/i18n/data/en/experience.ts"],
+      "@/lib/data/industries": ["./lib/i18n/data/en/industries.ts"],
+      "@/lib/data/technology": ["./lib/i18n/data/en/technology.ts"],
+      "@/lib/data/specialized-services": ["./lib/i18n/data/en/specialized-services.ts"],
+      "@/lib/data/industry-pages": ["./lib/i18n/data/en/industry-pages.ts"],
+      "@/*": ["./*"]
+    }
+  }
+}

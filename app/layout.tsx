@@ -2,7 +2,15 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
-import { SITE } from "@/lib/constants";
+import { StructuredData } from "@/components/seo/StructuredData";
+import { SITE, assertLaunchConfiguration } from "@/lib/constants";
+import {
+  BUILD_LOCALE,
+  IS_LAUNCH_READY,
+  SITE_ORIGIN,
+  languageAlternates,
+  l,
+} from "@/lib/i18n/config";
 import "./globals.css";
 
 const inter = Inter({
@@ -11,10 +19,15 @@ const inter = Inter({
   display: "swap",
 });
 
-const titleDefault = `${SITE.name} · Intelligent business solutions`;
+assertLaunchConfiguration();
+
+const titleDefault = `${SITE.name} · ${l(
+  "Soluciones empresariales inteligentes",
+  "Intelligent business solutions",
+)}`;
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE.url),
+  metadataBase: new URL(SITE_ORIGIN),
   title: {
     default: titleDefault,
     template: `%s · ${SITE.name}`,
@@ -38,19 +51,17 @@ export const metadata: Metadata = {
     "Mexico",
     "Spain",
   ],
-  alternates: {
-    canonical: "/",
-  },
+  alternates: languageAlternates("/"),
   openGraph: {
     type: "website",
     locale: SITE.locale,
-    url: SITE.url,
+    url: SITE_ORIGIN,
     siteName: SITE.name,
     title: titleDefault,
     description: SITE.description,
     images: [
       {
-        url: "/og-image.svg",
+        url: BUILD_LOCALE === "es" ? "/og-es.png" : "/og-en.png",
         width: 1200,
         height: 630,
         alt: `${SITE.name} · Enterprise Copilot`,
@@ -61,21 +72,21 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: titleDefault,
     description: SITE.description,
-    images: ["/og-image.svg"],
+    images: [BUILD_LOCALE === "es" ? "/og-es.png" : "/og-en.png"],
   },
   robots: {
-    index: true,
-    follow: true,
+    index: IS_LAUNCH_READY,
+    follow: IS_LAUNCH_READY,
     googleBot: {
-      index: true,
-      follow: true,
+      index: IS_LAUNCH_READY,
+      follow: IS_LAUNCH_READY,
       "max-image-preview": "large",
       "max-snippet": -1,
     },
   },
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
-    apple: [{ url: "/favicon.svg" }],
+    apple: [{ url: "/apple-touch-icon.png" }],
   },
   category: "technology",
 };
@@ -95,13 +106,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang={BUILD_LOCALE} className={inter.variable}>
+      <head>
+        <StructuredData />
+      </head>
       <body className="min-h-screen bg-white font-sans text-ink-900 antialiased">
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-brand-700 focus:px-3 focus:py-2 focus:text-sm focus:font-medium focus:text-white"
         >
-          Skip to content
+          {l("Saltar al contenido", "Skip to content")}
         </a>
         <Navbar />
         <main id="main">{children}</main>

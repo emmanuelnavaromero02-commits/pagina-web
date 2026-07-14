@@ -1,37 +1,51 @@
-import type { Metadata } from "next";
 import { ContactCTA } from "@/components/home/ContactCTA";
 import { CopilotSecurity } from "@/components/copilot/CopilotSecurity";
 import { Card, CardDescription, CardTitle } from "@/components/ui/Card";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { ServiceHero } from "@/components/services/ServiceHero";
+import { l } from "@/lib/i18n/config";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Security & permissions · Enterprise Copilot",
-  description:
-    "Enterprise Copilot security model: per-role permissions, traceability, validations before execution, and controlled deployment.",
-  alternates: { canonical: "/copilot/security" },
-};
+export const metadata = createPageMetadata({
+  path: "/copilot/security",
+  title: l(
+    "Seguridad y permisos · Enterprise Copilot",
+    "Security and permissions · Enterprise Copilot",
+  ),
+  description: l(
+    "Principios de seguridad para Enterprise Copilot: acceso controlado, trazabilidad, validaciones previas y supervisión humana.",
+    "Security principles for Enterprise Copilot: controlled access, traceability, pre-execution validation, and human oversight.",
+  ),
+});
 
 const principles = [
   {
-    title: "Least privilege",
-    description:
-      "The copilot never has more permissions than the user invoking it. It inherits and respects the existing policies.",
+    title: l("Mínimo privilegio", "Least privilege"),
+    description: l(
+      "La solución se diseña para respetar los permisos de los sistemas de origen y limitar el acceso según el rol.",
+      "The solution is designed to respect source-system permissions and limit access by role.",
+    ),
   },
   {
-    title: "Traceability by default",
-    description:
-      "Every query, source, validation, and action is logged for audit without extra configuration.",
+    title: l("Trazabilidad desde el diseño", "Traceability by design"),
+    description: l(
+      "El alcance define qué consultas, fuentes, validaciones y acciones deben registrarse para auditoría.",
+      "The project scope defines which queries, sources, validations, and actions must be logged for audit.",
+    ),
   },
   {
-    title: "Human-in-the-loop",
-    description:
-      "Critical actions are explicitly confirmed before they are applied against real systems.",
+    title: l("Supervisión humana", "Human oversight"),
+    description: l(
+      "Las acciones críticas pueden exigir confirmación explícita antes de aplicarse en sistemas reales.",
+      "Critical actions can require explicit confirmation before they are applied to production systems.",
+    ),
   },
   {
-    title: "Data where the client decides",
-    description:
-      "On-premise, private cloud, or dedicated VPC — the deployment model follows the client's policy.",
+    title: l("Datos bajo control del cliente", "Client-controlled data"),
+    description: l(
+      "El alcance define qué información puede utilizarse, quién puede consultarla y qué acciones requieren aprobación.",
+      "The scope defines which information may be used, who may access it, and which actions require approval.",
+    ),
   },
 ];
 
@@ -39,15 +53,24 @@ export default function CopilotSecurityPage() {
   return (
     <>
       <ServiceHero
-        eyebrow="Security"
-        title="Security and permissions built for the enterprise"
-        description="An operational copilot is only useful if it does not break existing security. These are the principles we apply by default."
+        eyebrow={l("Seguridad", "Security")}
+        title={l(
+          "Seguridad y permisos para el entorno empresarial",
+          "Security and permissions for enterprise environments",
+        )}
+        description={l(
+          "Una solución operativa debe integrarse con los controles existentes. Estos principios orientan el diseño de cada implementación.",
+          "An operational solution must integrate with existing controls. These principles guide each implementation.",
+        )}
       />
 
       <Section className="bg-white">
         <SectionHeader
-          eyebrow="Principles"
-          title="Four principles that guide the design"
+          eyebrow={l("Principios", "Principles")}
+          title={l(
+            "Cuatro principios que orientan el diseño",
+            "Four principles that guide the design",
+          )}
         />
         <ul className="mt-12 grid gap-6 sm:grid-cols-2">
           {principles.map((p) => (

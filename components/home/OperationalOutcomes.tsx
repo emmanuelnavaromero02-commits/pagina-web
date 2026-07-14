@@ -1,13 +1,20 @@
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { OPERATIONAL_OUTCOMES } from "@/lib/data/home";
+import { l } from "@/lib/i18n/config";
 
 export function OperationalOutcomes() {
   return (
     <Section className="bg-ink-50">
       <SectionHeader
-        eyebrow="7 Operational Outcomes"
-        title="The signals a real engagement leaves behind."
-        description="When the work lands, leadership sees these signals across the operation. Outcomes are scope-dependent and orientative."
+        eyebrow={l("7 resultados operativos", "7 Operational Outcomes")}
+        title={l(
+          "Las señales que deja una intervención bien ejecutada.",
+          "The signals a well-executed engagement leaves behind.",
+        )}
+        description={l(
+          "Cuando el trabajo entra en operación, la dirección puede observar estas señales. Los resultados son orientativos y dependen del alcance.",
+          "Once the work is operational, leadership can observe these signals. Outcomes are indicative and depend on scope.",
+        )}
       />
       <ol className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {OPERATIONAL_OUTCOMES.map((o, idx) => (

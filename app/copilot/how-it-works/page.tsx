@@ -1,54 +1,78 @@
-import type { Metadata } from "next";
-import { Bot, Layers, Lock, Network, ShieldCheck, Workflow } from "lucide-react";
+import {
+  BookOpenCheck,
+  Eye,
+  GitBranch,
+  ListChecks,
+  ScanSearch,
+  ShieldCheck,
+} from "lucide-react";
 import { ContactCTA } from "@/components/home/ContactCTA";
-import { CopilotArchitecture } from "@/components/copilot/CopilotArchitecture";
 import { Card, CardDescription, CardTitle } from "@/components/ui/Card";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { ServiceHero } from "@/components/services/ServiceHero";
+import { l } from "@/lib/i18n/config";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "How it works · Enterprise Copilot",
-  description:
-    "Enterprise Copilot architecture: AI layers, connectors, permissions, validations, and traceability over SAP, databases, APIs, and reports.",
-  alternates: { canonical: "/copilot/how-it-works" },
-};
+export const metadata = createPageMetadata({
+  path: "/copilot/how-it-works",
+  title: l(
+    "Qué resuelve · Enterprise Copilot",
+    "What it solves · Enterprise Copilot",
+  ),
+  description: l(
+    "Enterprise Copilot convierte información dispersa en evidencia verificable, señales relevantes, opciones comparables y acciones controladas.",
+    "Enterprise Copilot turns fragmented information into verifiable evidence, relevant signals, comparable options, and controlled actions.",
+  ),
+});
 
-const layers = [
+const outcomes = [
   {
-    title: "Conversational interface",
-    description:
-      "A single entry point where users ask, validate, report, or request actions. Plain UI, no distractions.",
-    icon: Bot,
+    title: l("Reúne el contexto", "Brings context together"),
+    description: l(
+      "Consolida la información autorizada que una persona tendría que buscar entre distintos sistemas, archivos y equipos.",
+      "Consolidates authorized information that would otherwise be searched across systems, files, and teams.",
+    ),
+    icon: ScanSearch,
   },
   {
-    title: "AI orchestrator",
-    description:
-      "Decides which source to query, which rule to apply, and when to escalate to a human before executing.",
-    icon: Workflow,
+    title: l("Señala lo importante", "Surfaces what matters"),
+    description: l(
+      "Identifica diferencias, cambios y riesgos que requieren revisión sin obligar al equipo a inspeccionar cada fuente por separado.",
+      "Highlights differences, changes, and risks that require review without forcing teams to inspect every source separately.",
+    ),
+    icon: Eye,
   },
   {
-    title: "Connector layer",
-    description:
-      "Connectors to SAP, databases, internal APIs, cloud, and corporate reports.",
-    icon: Network,
+    title: l("Explica con evidencia", "Explains with evidence"),
+    description: l(
+      "Presenta respuestas, reportes y hallazgos con el contexto necesario para verificarlos.",
+      "Presents answers, reports, and findings with the context needed to verify them.",
+    ),
+    icon: BookOpenCheck,
   },
   {
-    title: "Permissions and policies",
-    description:
-      "Respects the source system's permissions and applies additional policies per role and per area.",
-    icon: Lock,
+    title: l("Ordena las opciones", "Frames the options"),
+    description: l(
+      "Organiza alternativas y criterios para que la persona responsable pueda compararlos antes de decidir.",
+      "Organizes alternatives and criteria so the accountable person can compare them before deciding.",
+    ),
+    icon: ListChecks,
   },
   {
-    title: "Business validations",
-    description:
-      "Rules that detect inconsistencies and validate before applying any critical action.",
+    title: l("Prepara el siguiente paso", "Prepares the next step"),
+    description: l(
+      "Deja lista la acción, el reporte o el seguimiento correspondiente y solicita aprobación cuando pueda afectar la operación.",
+      "Gets the action, report, or follow-up ready and requests approval whenever it may affect the operation.",
+    ),
     icon: ShieldCheck,
   },
   {
-    title: "Traceability",
-    description:
-      "Auditable record of every query, source consulted, validation, and result.",
-    icon: Layers,
+    title: l("Conserva el resultado", "Preserves the outcome"),
+    description: l(
+      "Mantiene vinculados la consulta, la decisión, la autorización y el resultado para facilitar seguimiento y auditoría.",
+      "Keeps the request, decision, authorization, and result connected for follow-up and audit.",
+    ),
+    icon: GitBranch,
   },
 ];
 
@@ -56,34 +80,45 @@ export default function HowItWorksPage() {
   return (
     <>
       <ServiceHero
-        eyebrow="How it works"
-        title="An architecture designed for enterprise environments"
-        description="Enterprise Copilot is not a loose model — it is a complete architecture with orchestration, connectors, permissions, validations, and traceability."
+        eyebrow={l("Qué resuelve", "What it solves")}
+        title={l(
+          "Convierte información dispersa en una decisión útil",
+          "Turns fragmented information into a useful decision",
+        )}
+        description={l(
+          "Enterprise Copilot ayuda a pasar de buscar datos en varios lugares a revisar evidencia, entender qué requiere atención y decidir el siguiente paso con control.",
+          "Enterprise Copilot helps teams move from searching across multiple places to reviewing evidence, understanding what needs attention, and deciding the next step with control.",
+        )}
       />
 
       <Section className="bg-white">
         <SectionHeader
-          eyebrow="Layers"
-          title="Six layers working together"
-          description="Each layer has a clear responsibility and can evolve independently."
+          eyebrow={l("Resultados", "Outcomes")}
+          title={l(
+            "Seis mejoras visibles para la operación",
+            "Six visible improvements for the operation",
+          )}
+          description={l(
+            "El valor está en reducir trabajo manual, aclarar la decisión y mantener control sobre el resultado.",
+            "The value lies in reducing manual work, clarifying the decision, and maintaining control over the outcome.",
+          )}
         />
         <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {layers.map((l) => {
-            const Icon = l.icon;
+          {outcomes.map((outcome) => {
+            const Icon = outcome.icon;
             return (
-              <Card key={l.title} as="li" interactive>
+              <Card key={outcome.title} as="li" interactive>
                 <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-50 text-brand-700">
                   <Icon className="h-5 w-5" />
                 </span>
-                <CardTitle className="mt-5">{l.title}</CardTitle>
-                <CardDescription>{l.description}</CardDescription>
+                <CardTitle className="mt-5">{outcome.title}</CardTitle>
+                <CardDescription>{outcome.description}</CardDescription>
               </Card>
             );
           })}
         </ul>
       </Section>
 
-      <CopilotArchitecture />
       <ContactCTA />
     </>
   );

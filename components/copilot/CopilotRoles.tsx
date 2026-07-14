@@ -1,13 +1,14 @@
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { COPILOT_ROLES } from "@/lib/data/copilot";
+import { l } from "@/lib/i18n/config";
 
 export function CopilotRoles() {
   return (
     <Section className="bg-white">
       <SectionHeader
-        eyebrow="What each role sees"
-        title="Same copilot, different value per role"
-        description="Each user sees what their responsibility requires — decisions, closings, evidence, or delivery capacity."
+        eyebrow={l("Qué ve cada rol", "What each role sees")}
+        title={l("El mismo copilot, adaptado a cada rol", "The same copilot, adapted to each role")}
+        description={l("Cada usuario accede a lo que requiere su responsabilidad: decisiones, cierres, evidencia o capacidad de entrega.", "Each user accesses what their responsibility requires: decisions, closings, evidence, or delivery capacity.")}
       />
 
       <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

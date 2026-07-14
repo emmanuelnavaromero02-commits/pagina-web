@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SpecializedServicePage } from "@/components/services/SpecializedServicePage";
 import { ENTERPRISE_AI_PAGES } from "@/lib/data/specialized-services";
+import { l } from "@/lib/i18n/config";
+import { createPageMetadata } from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -17,13 +19,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const page = ENTERPRISE_AI_PAGES[slug];
   if (!page) return {};
-  return {
-    title: `${page.title} · Operational AI`,
+  return createPageMetadata({
+    path: `/services/enterprise-ai/${page.slug}`,
+    title: `${page.title} · ${l("IA operativa", "Operational AI")}`,
     description: page.intro,
-    alternates: {
-      canonical: `/services/enterprise-ai/${page.slug}`,
-    },
-  };
+  });
 }
 
 export default async function Page({
