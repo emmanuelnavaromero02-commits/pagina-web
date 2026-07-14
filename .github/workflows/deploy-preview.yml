@@ -122,6 +122,24 @@ jobs:
             --s3-prefix contact-preview/${{ github.sha }} \
             --output-template-file .aws-sam/packaged.yaml
 
+      - name: Recover a terminally failed contact stack
+        env:
+          EXECUTION_ROLE_ARN: ${{ vars.AWS_CLOUDFORMATION_EXECUTION_ROLE_ARN }}
+        run: |
+          status="$(aws cloudformation describe-stacks \
+            --stack-name "$CONTACT_STACK" \
+            --query 'Stacks[0].StackStatus' \
+            --output text 2>/dev/null || true)"
+          case "$status" in
+            ROLLBACK_COMPLETE|CREATE_FAILED|REVIEW_IN_PROGRESS)
+              aws cloudformation delete-stack \
+                --stack-name "$CONTACT_STACK" \
+                --role-arn "$EXECUTION_ROLE_ARN"
+              aws cloudformation wait stack-delete-complete \
+                --stack-name "$CONTACT_STACK"
+              ;;
+          esac
+
       - name: Deploy contact API
         env:
           EXECUTION_ROLE_ARN: ${{ vars.AWS_CLOUDFORMATION_EXECUTION_ROLE_ARN }}
