@@ -124,11 +124,15 @@ Resources:
                   - iam:UntagRole
                   - iam:UpdateAssumeRolePolicy
                   - iam:UpdateRoleDescription
-                Resource: !Sub arn:${AWS::Partition}:iam::${AWS::AccountId}:role/7bs-*
+                Resource:
+                  - !Sub arn:${AWS::Partition}:iam::${AWS::AccountId}:role/7bs-contact-lambda-*
+                  - !Sub arn:${AWS::Partition}:iam::${AWS::AccountId}:role/7bs-apigateway-logs-*
               - Sid: PassOnly7bsRuntimeRoles
                 Effect: Allow
                 Action: iam:PassRole
-                Resource: !Sub arn:${AWS::Partition}:iam::${AWS::AccountId}:role/7bs-*
+                Resource:
+                  - !Sub arn:${AWS::Partition}:iam::${AWS::AccountId}:role/7bs-contact-lambda-*
+                  - !Sub arn:${AWS::Partition}:iam::${AWS::AccountId}:role/7bs-apigateway-logs-*
                 Condition:
                   StringEquals:
                     iam:PassedToService:
@@ -145,6 +149,10 @@ Resources:
           PolicyDocument:
             Version: "2012-10-17"
             Statement:
+              - Sid: ExpandServerlessTransform
+                Effect: Allow
+                Action: cloudformation:CreateChangeSet
+                Resource: !Sub arn:${AWS::Partition}:cloudformation:${AWS::Region}:aws:transform/Serverless-2016-10-31
               - Sid: Manage7bsLambda
                 Effect: Allow
                 Action:
@@ -395,7 +403,9 @@ Resources:
                   - cloudformation:CreateChangeSet
                   - cloudformation:CreateStack
                   - cloudformation:UpdateStack
-                Resource: !Sub arn:${AWS::Partition}:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/sevenbs-*/*
+                Resource:
+                  - !Sub arn:${AWS::Partition}:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/sevenbs-web-*/*
+                  - !Sub arn:${AWS::Partition}:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/sevenbs-contact-*/*
                 Condition:
                   StringEquals:
                     cloudformation:RoleArn: !GetAtt CloudFormationExecutionRole.Arn
@@ -414,11 +424,15 @@ Resources:
                   - cloudformation:GetTemplate
                   - cloudformation:ListChangeSets
                   - cloudformation:ListStackResources
-                Resource: !Sub arn:${AWS::Partition}:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/sevenbs-*/*
+                Resource:
+                  - !Sub arn:${AWS::Partition}:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/sevenbs-web-*/*
+                  - !Sub arn:${AWS::Partition}:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/sevenbs-contact-*/*
               - Sid: DeleteWithApprovedExecutionRole
                 Effect: Allow
                 Action: cloudformation:DeleteStack
-                Resource: !Sub arn:${AWS::Partition}:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/sevenbs-*/*
+                Resource:
+                  - !Sub arn:${AWS::Partition}:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/sevenbs-web-*/*
+                  - !Sub arn:${AWS::Partition}:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/sevenbs-contact-*/*
                 Condition:
                   StringEquals:
                     cloudformation:RoleArn: !GetAtt CloudFormationExecutionRole.Arn

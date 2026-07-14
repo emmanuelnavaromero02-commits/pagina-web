@@ -16,7 +16,7 @@ Infraestructura separada de la aplicación. Ningún comando de despliegue se eje
 
 Este stack se ejecuta una sola vez desde una sesión humana federada con MFA. No crea usuarios IAM, access keys ni `AdministratorAccess`. Si todavía solo existe acceso root, primero configura IAM Identity Center u otro proveedor corporativo y prueba ese acceso; después elimina las credenciales root únicamente cuando el acceso alternativo esté verificado.
 
-El rol de GitHub acepta solo la rama configurada (por defecto, `agent/puesta-produccion-bilingue`) y audiencia `sts.amazonaws.com`. GitHub puede administrar stacks `sevenbs-*` solo pasando el rol de ejecución de CloudFormation, subir artefactos al bucket privado, publicar en buckets `7bs-web-*` e invalidar distribuciones etiquetadas `Application=7businesssolutions-web`. El rol de ejecución enumera los servicios usados por `template.yaml` y `hosting-template.yaml`; no tiene permisos de cuenta completa.
+El rol de GitHub acepta solo la rama configurada (por defecto, `agent/puesta-produccion-bilingue`) y audiencia `sts.amazonaws.com`. GitHub puede administrar únicamente stacks `sevenbs-web-*` y `sevenbs-contact-*` pasando el rol de ejecución de CloudFormation; no puede modificar el stack de acceso ni sus propios roles. También puede subir artefactos al bucket privado, publicar en buckets `7bs-web-*` e invalidar distribuciones etiquetadas `Application=7businesssolutions-web`. El rol de ejecución enumera los servicios usados por `template.yaml` y `hosting-template.yaml`; no tiene permisos de cuenta completa.
 
 Si la cuenta ya tiene el proveedor OIDC global de GitHub, pasa su ARN para no intentar duplicarlo:
 
