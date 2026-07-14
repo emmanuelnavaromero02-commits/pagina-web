@@ -177,6 +177,7 @@ Resources:
                   - apigateway:PATCH
                   - apigateway:POST
                   - apigateway:PUT
+                  - apigateway:SetWebACL
                 Resource:
                   - !Sub arn:${AWS::Partition}:apigateway:${AWS::Region}::/account
                   - !Sub arn:${AWS::Partition}:apigateway:${AWS::Region}::/domainnames
