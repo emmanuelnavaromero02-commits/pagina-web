@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/ui/Section";
 import { ServiceHero } from "@/components/services/ServiceHero";
-import { LEGAL_REVIEWED, SITE } from "@/lib/constants";
+import { SITE } from "@/lib/constants";
 import { l } from "@/lib/i18n/config";
 import { createPageMetadata } from "@/lib/seo";
 
@@ -126,15 +126,12 @@ export default function CookiesPage() {
           </section>
 
           <div className="rounded-xl border border-ink-200 bg-ink-50 p-5 text-xs text-ink-600">
-            <p>{l("Versión 1.0 · 14 de julio de 2026.", "Version 1.0 · 14 July 2026.")}</p>
-            {!LEGAL_REVIEWED ? (
-              <p className="mt-2 font-medium text-amber-800">
-                {l(
-                  "Borrador normativo pendiente de revisión profesional final.",
-                  "Regulatory draft pending final professional review.",
-                )}
-              </p>
-            ) : null}
+            <p>
+              {l(
+                "Última actualización · 14 de julio de 2026.",
+                "Last updated · 14 July 2026.",
+              )}
+            </p>
           </div>
         </article>
       </Section>

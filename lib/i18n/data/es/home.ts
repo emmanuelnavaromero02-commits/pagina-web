@@ -343,7 +343,7 @@ export const OPERATIONAL_OUTCOMES: {
   {
     title: "Definiciones compartidas de KPI",
     description:
-      "Una capa semántica gobernada puede alimentar los paneles y Enterprise Copilot con definiciones comunes.",
+      "Los paneles y Enterprise Copilot pueden presentar indicadores con las mismas definiciones de negocio acordadas.",
   },
   {
     title: "Flujos gobernados",

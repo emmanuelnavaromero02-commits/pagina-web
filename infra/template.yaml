@@ -54,6 +54,9 @@ Parameters:
 Conditions:
   HasOperationsEmail: !Not [!Equals [!Ref OperationsEmail, ""]]
   HasApiCustomDomain: !Not [!Equals [!Ref ApiCertificateArn, ""]]
+  # API Gateway exposes one CloudWatch role setting per account and Region.
+  # Preview owns it; production reuses it instead of overwriting it.
+  OwnsRegionalApiGatewayAccount: !Equals [!Ref Environment, preview]
 
 Globals:
   Function:
@@ -78,7 +81,11 @@ Resources:
 
   ApiGatewayCloudWatchRole:
     Type: AWS::IAM::Role
+    Condition: OwnsRegionalApiGatewayAccount
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
     Properties:
+      # Keep the existing physical name to avoid replacing the live regional role.
       RoleName: !Sub 7bs-apigateway-logs-${Environment}-${AWS::Region}
       AssumeRolePolicyDocument:
         Version: "2012-10-17"
@@ -105,13 +112,14 @@ Resources:
 
   ApiGatewayAccount:
     Type: AWS::ApiGateway::Account
+    Condition: OwnsRegionalApiGatewayAccount
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
     Properties:
       CloudWatchRoleArn: !GetAtt ApiGatewayCloudWatchRole.Arn
 
   ContactApi:
     Type: AWS::Serverless::Api
-    DependsOn:
-      - ApiGatewayAccount
     Properties:
       Name: !Sub 7bs-contact-${Environment}
       Description: Public contact endpoint; request bodies are never written to logs.
@@ -214,6 +222,7 @@ Resources:
               type: string
               enum:
                 - copilot
+                - software
                 - finance
                 - operations
                 - hr
@@ -240,6 +249,10 @@ Resources:
       Tags:
         Application: 7businesssolutions-contact
         Environment: !Ref Environment
+        RegionalApiGatewayAccountOwner: !If
+          - OwnsRegionalApiGatewayAccount
+          - !Ref ApiGatewayAccount
+          - preview-stack
 
   ContactFunctionLogGroup:
     Type: AWS::Logs::LogGroup
@@ -692,6 +705,10 @@ Outputs:
   ApiDnsRecordName:
     Condition: HasApiCustomDomain
     Value: !Ref ApiDomainName
+  ApiDnsRecordType:
+    Condition: HasApiCustomDomain
+    Description: Record type to create at the external DNS provider.
+    Value: CNAME
   ApiDnsTarget:
     Condition: HasApiCustomDomain
     Description: Create an Alias/CNAME-compatible record pointing the API hostname here.

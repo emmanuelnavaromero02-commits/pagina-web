@@ -10,31 +10,30 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
   "custom-development": {
     slug: "custom-development",
     eyebrow: "Fábrica de software",
-    title: "Desarrollo personalizado",
+    title: "Desarrollo a medida",
     parent: SF_PARENT,
     intro:
-      "Aplicaciones empresariales y herramientas internas propuestas con especialistas senior seleccionados para el proyecto.",
-    heroBadges: ["Equipos senior", "Entregables de sprint", "Soporte L2/L3"],
+      "Aplicaciones empresariales y herramientas internas para reducir trabajo manual, conectar sistemas y sostener procesos que una solución estándar no cubre.",
+    heroBadges: ["Especialistas senior", "Entrega por etapas", "Soporte L2/L3"],
     problem:
-      "Las herramientas estándar cubren los casos obvios, pero los procesos que realmente mueven el negocio suelen necesitar software a la medida: integrado con SAP, bases de datos y API, trazable y con soporte después de la puesta en producción. Sin ese ajuste, cada solución provisional añade costos operativos de forma silenciosa.",
+      "Las herramientas estándar cubren los casos obvios, pero los procesos que realmente mueven el negocio suelen necesitar software a la medida: integrado con SAP, bases de datos y APIs, trazable y con soporte después de la puesta en producción. Sin ese ajuste, cada solución provisional añade costos operativos de forma silenciosa.",
     whatWeDo: [
       "Aplicaciones personalizadas para equipos de finanzas, operaciones, recursos humanos y atención al cliente.",
-      "Herramientas internas que reemplazan los procesos basados en Excel con software auditable.",
-      "Integración con SAP, bases de datos empresariales, API internas y servicios en la nube.",
-      "Control de calidad, documentación, implementación y soporte L2/L3 incluidos en el alcance de entrega.",
+      "Herramientas internas que reemplazan procesos basados en Excel con validaciones y trazabilidad definidas.",
+      "Integración con SAP, bases de datos empresariales, APIs internas y servicios en la nube.",
+      "Control de calidad, documentación, implementación y soporte L2/L3 según el alcance acordado.",
       "Entrega iterativa con revisiones y criterios de aceptación acordados por ciclo.",
       "Diseño consciente de la seguridad con acceso basado en roles y registro de auditoría.",
     ],
     useCases: [
-      "Aplicación interna que reemplaza un proceso crítico impulsado por Excel.",
-      "Plataforma operativa conectada a SAP, bases de datos y API internas.",
+      "Aplicación interna que reemplaza un proceso crítico basado en Excel.",
+      "Plataforma operativa conectada a SAP, bases de datos y APIs internas.",
       "Portal de atención al cliente con SSO y acceso basado en roles.",
-      "Front-end de informes que presenta los datos auditados al liderazgo.",
+      "Interfaz de informes que presenta datos validados al equipo directivo.",
       "Modernización de aplicaciones heredadas con migración por fases.",
       "Aplicación de flujo de trabajo entre empresas con aprobaciones y seguimiento de auditoría.",
     ],
-    capabilitiesHeading:
-      "Pila pragmática elegida por caso, no la de tendencia",
+    capabilitiesHeading: "Tecnología elegida según el caso",
     capabilities: [
       "Java",
       "J2EE / JSE",
@@ -52,13 +51,13 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
     deliverables: [
       "Arquitectura documentada con diagramas versionados.",
       "Ciclos de entrega acordados con revisión y criterios de aceptación.",
-      "Pipeline de CI/CD y observabilidad incluidos en el diseño de entrega.",
+      "Pipeline de CI/CD y observabilidad cuando formen parte del alcance acordado.",
       "Runbook de operaciones y transferencia al soporte L2/L3.",
       "Hoja de ruta de evolución posterior a la puesta en producción, con revisiones acordadas.",
       "Registro de actividad diseñado para apoyar la revisión de auditoría.",
     ],
     copilot:
-      "Las aplicaciones personalizadas a menudo se convierten en una fuente natural para Enterprise Copilot: los flujos internos, las reglas de negocio y las validaciones quedan disponibles para consultas asistidas, borradores e informes con trazabilidad.",
+      "En estos procesos, Enterprise Copilot ayuda a reunir contexto, identificar diferencias o riesgos y preparar informes o siguientes pasos para revisión humana.",
   },
   "enterprise-portals": {
     slug: "enterprise-portals",
@@ -66,8 +65,8 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
     title: "Portales empresariales",
     parent: SF_PARENT,
     intro:
-      "Interfaces corporativas para empleados, proveedores, clientes internos y equipos de operaciones, conectadas a identidades, flujos de trabajo y sistemas de origen.",
-    heroBadges: ["Preparado para SSO", "Flujos auditables", "Adaptado a móviles"],
+      "Portales para empleados, proveedores y clientes que concentran consultas, solicitudes, documentos y aprobaciones en una experiencia clara.",
+    heroBadges: ["Acceso por roles", "Flujos trazables", "Diseño adaptable"],
     problem:
       "Los portales son a menudo la capa visible de una operación mucho más complicada que hay debajo. Cuando los formularios, las aprobaciones y los informes no se comunican con los sistemas de origen, el portal se convierte en una realidad paralela en lugar de una herramienta, y los datos que hay detrás de él dejan de ser confiables.",
     whatWeDo: [
@@ -106,7 +105,7 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
       "Línea base de rendimiento y accesibilidad (Core Web Vitals + WCAG).",
     ],
     copilot:
-      "Enterprise Copilot se puede integrar dentro del portal como un punto de entrada asistido: consulta de datos internos, validación de entradas y preparación de borradores de formularios o informes con trazabilidad.",
+      "Dentro de un portal, Enterprise Copilot ayuda a encontrar información relevante, entender pendientes y preparar solicitudes o respuestas para revisión y aprobación.",
   },
   "internal-apps": {
     slug: "internal-apps",
@@ -114,22 +113,22 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
     title: "Aplicaciones internas",
     parent: SF_PARENT,
     intro:
-      "Software operativo para equipos de finanzas, recursos humanos, operaciones y soporte, creado para reemplazar las hojas de cálculo que ejecutan silenciosamente procesos críticos.",
-    heroBadges: ["Reemplaza a Excel", "Registro de auditoría incorporado", "Flujos de trabajo de aprobación"],
+      "Software operativo para finanzas, recursos humanos, operaciones y soporte que reemplaza tareas dispersas con validaciones, responsables y seguimiento.",
+    heroBadges: ["Menos hojas de cálculo", "Cambios trazables", "Aprobaciones definidas"],
     problem:
-      "Los procesos críticos vinculados a un único archivo de Excel mantenido por una sola persona son un riesgo oculto: opacos, propensos a errores e imposibles de auditar. La solución no es una hoja de cálculo más grande: es un software que captura la misma lógica con validación, aprobaciones y trazabilidad.",
+      "Los procesos críticos vinculados a un único archivo mantenido por una sola persona son un riesgo oculto: resultan opacos, propensos a errores y difíciles de revisar. La solución es trasladar esa lógica a un software con validaciones, aprobaciones y trazabilidad.",
     whatWeDo: [
       "Aplicaciones para cierres, conciliaciones, validaciones e informes operativos.",
       "Flujos de trabajo que reemplazan los hilos de aprobación de correo electrónico con procesos estructurados.",
       "Validaciones de calidad de datos integradas en la capa de entrada, no a posteriori.",
       "Informes operativos vinculados a los datos de origen, no a exportaciones manuales.",
       "Registro de auditoría de cada cambio con usuario, marca de tiempo y fuente.",
-      "Migración por fases desde la hoja de cálculo heredada sin interrupciones.",
+      "Transición por fases desde la hoja de cálculo heredada, con plan de reversión.",
     ],
     useCases: [
       "Aplicación de cierre financiero con validaciones y controles de aprobación.",
       "Aplicación de solicitud de cambio de recursos humanos a través de SAP HCM con seguimiento de auditoría.",
-      "Aplicación de seguimiento de incidentes de operaciones con temporizadores SLA.",
+      "Aplicación de seguimiento de incidentes con tiempos de atención visibles.",
       "Aplicación de control de gastos de adquisiciones con validación de políticas.",
       "Aplicación de mesa de ayuda con integración ITSM y enrutamiento L1/L2.",
       "Aplicación de evidencia de cumplimiento con documentos adjuntos y registro de revisión.",
@@ -154,15 +153,15 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
       "Paquete de exportación para auditoría por ciclo.",
     ],
     copilot:
-      "Una vez que un proceso reside en el software real, Enterprise Copilot puede consultarlo directamente: estado, validaciones, informes e incluso preparar acciones del siguiente paso para la aprobación humana.",
+      "Enterprise Copilot puede resumir el estado de un proceso, señalar excepciones y preparar el siguiente paso para aprobación, manteniendo visible el contexto de la decisión.",
   },
   "apis-microservices": {
     slug: "apis-microservices",
     eyebrow: "Fábrica de software",
-    title: "API y microservicios",
+    title: "APIs y microservicios",
     parent: SF_PARENT,
     intro:
-      "Servicios reutilizables con contratos explícitos, control de versiones, observabilidad y seguridad de forma predeterminada, diseñados para perdurar más allá de una sola aplicación.",
+      "Servicios reutilizables que conectan aplicaciones, socios y canales con contratos claros, seguridad, seguimiento y control de cambios.",
     heroBadges: ["API-first", "Contratos versionados", "Observables"],
     problem:
       "Cuando cada equipo crea integraciones punto a punto, la arquitectura se convierte en un enredo que nadie comprende del todo. Una capa de servicio reutilizable con contratos claros es lo que mantiene la operación sostenible a medida que la empresa agrega aplicaciones, socios y canales.",
@@ -178,7 +177,7 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
       "API pública para integraciones de socios con limitación de solicitudes y autenticación.",
       "Capa de servicio interna entre SAP y aplicaciones front-end.",
       "Integración basada en eventos con Pub/Sub o colas de mensajes.",
-      "Marco de webhook orientado al cliente para integraciones SaaS.",
+      "Gestión de webhooks para integraciones SaaS.",
       "Catálogo de servicios componible que alimenta múltiples aplicaciones internas.",
       "API de agregación que combina SAP, CRM y datos de bases de datos detrás de un contrato.",
     ],
@@ -200,24 +199,24 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
       "Pila de observabilidad con paneles y rutas de alerta.",
       "Política de versiones y retirada.",
       "Kit de incorporación para nuevos equipos internos.",
-      "Revisión de seguridad por API y refuerzo del tiempo de ejecución.",
+      "Revisión de seguridad por API y configuración segura del entorno de ejecución.",
     ],
     copilot:
-      "Enterprise Copilot consume estas API como fuentes autorizadas de datos y acciones: cada llamada hereda los mismos permisos y registro de auditoría.",
+      "Enterprise Copilot ayuda a reunir información de distintos sistemas en una vista útil, explicar hallazgos y preparar acciones controladas para revisión.",
   },
   "evolutionary-support": {
     slug: "evolutionary-support",
     eyebrow: "Fábrica de software",
-    title: "Soporte evolutivo",
+    title: "Soporte y evolución",
     parent: SF_PARENT,
     intro:
-      "Un modelo de soporte para continuidad operativa, trazabilidad y evolución controlada después de la puesta en producción.",
-    heroBadges: ["SLA L2/L3", "Hoja de ruta evolutiva", "Revisiones de salud"],
+      "Continuidad operativa y mejora gradual de plataformas en producción, con responsables, prioridades y niveles de servicio acordados.",
+    heroBadges: ["Soporte L2/L3", "Prioridades visibles", "Evolución acordada"],
     problem:
       "Muchos sistemas pierden tracción en cuanto se cierra el proyecto: nadie se responsabiliza de su evolución, el soporte está fragmentado y las pequeñas correcciones nunca llegan. Un modelo de soporte dedicado mantiene la plataforma medible y en mejora continua, en lugar de permitir que se deteriore.",
     whatWeDo: [
-      "Soporte L2 y L3 con SLA definidos y responsabilidades claras.",
-      "Trabajo pendiente continuo con correcciones prioritarias y pequeñas mejoras.",
+      "Soporte L2 y L3 con niveles de servicio y responsabilidades acordadas.",
+      "Backlog continuo con correcciones prioritarias y pequeñas mejoras.",
       "Hoja de ruta evolutiva alineada con las prioridades del negocio.",
       "Monitoreo, alertas y revisiones post-incidente.",
       "La documentación se mantiene sincronizada a medida que cambia la plataforma.",
@@ -226,13 +225,13 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
     useCases: [
       "Soporte crítico de integración SAP con monitoreo y reprocesamiento.",
       "Soporte L2/L3 para aplicaciones internas con guías de respuesta a incidentes.",
-      "Hoja de ruta de funciones para un portal en producción.",
+      "Hoja de ruta funcional para un portal en producción.",
       "Refactorización de módulos heredados con cobertura de regresión.",
-      "Rotación de guardia para plataformas de misión crítica.",
+      "Cobertura de guardia para plataformas críticas cuando el alcance contratado lo requiera.",
       "Mejora continua del propio modelo de soporte.",
     ],
     capabilities: [
-      "Gestión de tickets alineada con ITIL",
+      "Gestión de tickets con prácticas acordadas, incluido ITIL cuando aplique",
       "Monitoreo",
       "Observabilidad",
       "Gestión de lanzamientos",
@@ -242,7 +241,7 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
       "Pruebas de regresión",
     ],
     deliverables: [
-      "Modelo de soporte con SLA y escalamiento claro.",
+      "Modelo de soporte con niveles de servicio y escalamiento claros.",
       "Informe de servicio sobre tickets, evoluciones y salud de la plataforma.",
       "Hoja de ruta con iniciativas priorizadas.",
       "Documentación y runbooks actualizados.",
@@ -250,7 +249,7 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
       "Informes post-incidente con causa raíz y acciones correctivas.",
     ],
     copilot:
-      "El modelo de soporte alimenta a Enterprise Copilot con un historial de cambios trazable, útil para auditorías, análisis de causa raíz y asistencia técnica.",
+      "Enterprise Copilot ayuda a ordenar incidentes y cambios, mostrar el contexto disponible, identificar patrones recurrentes y preparar el seguimiento para revisión del equipo.",
   },
 };
 
@@ -314,7 +313,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Gobernanza de transportes y calendario de versiones.",
     ],
     copilot:
-      "Enterprise Copilot puede consultar el núcleo SAP directamente (cierres, conciliaciones, datos maestros, informes) con permisos heredados del sistema fuente.",
+      "Enterprise Copilot ayuda a revisar cierres, conciliaciones, datos maestros e informes, señala diferencias y prepara el siguiente paso para revisión.",
   },
   "sap-cloud": {
     slug: "sap-cloud",
@@ -362,7 +361,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "SLA por interfaz y lógica de reprocesamiento.",
     ],
     copilot:
-      "Enterprise Copilot puede leer en SAP Cloud y en las instalaciones para ofrecer respuestas consolidadas (consultas de recursos humanos, búsquedas de proveedores, datos de planificación) sin duplicar fuentes.",
+      "Enterprise Copilot reúne el contexto necesario para responder consultas de recursos humanos, proveedores o planificación y mostrar pendientes con claridad.",
   },
   "sap-btp": {
     slug: "sap-btp",
@@ -411,7 +410,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Catálogo de extensiones side-by-side con responsables definidos.",
     ],
     copilot:
-      "Las extensiones BTP se convierten en una superficie de integración natural para Enterprise Copilot: aprobaciones, validaciones e informes asistidos además de los datos gobernados SAP.",
+      "Enterprise Copilot ayuda a revisar solicitudes, validar información y preparar informes o aprobaciones con evidencia visible.",
   },
   "abap-rfc-idocs": {
     slug: "abap-rfc-idocs",
@@ -462,7 +461,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Informe de revisión y corrección del rendimiento.",
     ],
     copilot:
-      "Enterprise Copilot se comunica con SAP mediante estas interfaces técnicas —BAPIs, RFC e IDocs— con los mismos permisos que aplica el sistema fuente.",
+      "Enterprise Copilot ayuda a entender el estado de los intercambios con SAP, señalar errores y preparar el seguimiento para el equipo responsable.",
   },
   middleware: {
     slug: "middleware",
@@ -511,7 +510,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Backlog de migración para integraciones frágiles punto a punto.",
     ],
     copilot:
-      "Enterprise Copilot utiliza el mismo middleware como canal de ejecución controlada: las acciones pasan por el mismo monitoreo, la misma auditoría, la misma gobernanza.",
+      "Enterprise Copilot ayuda a identificar mensajes pendientes, explicar incidencias y preparar acciones de seguimiento sujetas a revisión.",
   },
   "third-party": {
     slug: "third-party",
@@ -559,7 +558,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Plan de desmantelamiento de integraciones retiradas.",
     ],
     copilot:
-      "Enterprise Copilot puede responder preguntas entre sistemas (comparando SAP con extractos bancarios, CRM o datos de comercio electrónico) utilizando estos mismos contratos.",
+      "Enterprise Copilot reúne contexto entre SAP y otras plataformas para comparar información, explicar diferencias y apoyar una decisión.",
   },
   successfactors: {
     slug: "successfactors",
@@ -606,7 +605,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Informe trazable de cambios en los datos maestros para revisión de auditoría.",
     ],
     copilot:
-      "Enterprise Copilot puede apoyar consultas de RR. HH. sobre SuccessFactors con trazabilidad y permisos por rol.",
+      "Enterprise Copilot ayuda a responder consultas de RR. HH., resumir pendientes y preparar solicitudes para revisión por la persona responsable.",
   },
   "sap-hcm": {
     slug: "sap-hcm",
@@ -654,7 +653,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Informe de alineación de centros de costos entre HCM y finanzas.",
     ],
     copilot:
-      "Enterprise Copilot puede consultar HCM directamente (recuento de personal, ausencias, consultas organizativas) sin obligar a RR.HH. a aprender el modelo de datos subyacente.",
+      "Enterprise Copilot ayuda a entender información de plantilla, ausencias y organización sin exigir al usuario conocer la estructura técnica del sistema.",
   },
 };
 
@@ -715,7 +714,7 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Línea base de seguridad alineada con las políticas corporativas.",
     ],
     copilot:
-      "Enterprise Copilot puede utilizar Lambda, API Gateway, SES y S3 bajo una arquitectura AWS gobernada. Los endpoints, eventos y sistemas de almacenamiento pueden apoyar consultas, borradores y aprobaciones con trazabilidad.",
+      "En operaciones sobre AWS, Enterprise Copilot ayuda a reunir alertas y contexto, explicar qué requiere atención y preparar el seguimiento para aprobación.",
   },
   azure: {
     slug: "azure",
@@ -763,7 +762,7 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Política por entorno y línea base de seguridad.",
     ],
     copilot:
-      "Enterprise Copilot puede implementarse dentro del tenant corporativo de Azure, usar Entra ID para la identidad y respetar la gobernanza existente. Así responde preguntas sobre Azure SQL y Synapse con los mismos permisos que ya tienen los usuarios.",
+      "En entornos Azure, Enterprise Copilot ayuda a responder preguntas operativas, resumir evidencia y preparar acciones sin perder el control de acceso.",
   },
   gcp: {
     slug: "gcp",
@@ -810,7 +809,7 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Capa analítica documentada con linaje hasta la fuente.",
     ],
     copilot:
-      "Enterprise Copilot puede consultar BigQuery como plataforma analítica central y ofrecer al equipo directivo respuestas trazables sobre datos operativos y analíticos.",
+      "Enterprise Copilot ayuda al equipo directivo a revisar información operativa y analítica, entender cambios y decidir con evidencia.",
   },
   databases: {
     slug: "databases",
@@ -859,7 +858,7 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Línea base de rendimiento y recomendaciones de indexación.",
     ],
     copilot:
-      "Enterprise Copilot puede leer las bases de datos corporativas como fuentes autorizadas, con permisos heredados y cada consulta registrada para auditoría.",
+      "Enterprise Copilot ayuda a responder preguntas sobre información corporativa, señalar discrepancias y conservar el contexto revisado.",
   },
   "data-pipelines": {
     slug: "data-pipelines",
@@ -906,7 +905,7 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Catálogo de pipelines con responsables por capa.",
     ],
     copilot:
-      "Enterprise Copilot puede responder \"por qué cambió esta cifra\" recorriendo el linaje del pipeline y señalando el evento de origen, en lugar de inferirlo desde un panel estático.",
+      "Enterprise Copilot ayuda a explicar por qué cambió una cifra, muestra la evidencia disponible y señala qué debe revisarse.",
   },
   reporting: {
     slug: "reporting",
@@ -952,7 +951,7 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Acuerdos de actualización y SLA por informe.",
     ],
     copilot:
-      "Enterprise Copilot puede utilizar la capa semántica gobernada como fuente principal y referenciar las mismas definiciones de KPI acordadas.",
+      "Enterprise Copilot ayuda a interpretar indicadores con las definiciones acordadas, explicar variaciones y preparar resúmenes para decisión.",
   },
 };
 
@@ -1011,7 +1010,7 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
       "Patrón de cita y especificación de formato de respuesta.",
     ],
     copilot:
-      "La IA generativa es uno de los motores de Enterprise Copilot, pero no el único. El copiloto añade permisos, validaciones y aprobaciones sobre la capa de lenguaje.",
+      "Enterprise Copilot responde preguntas, resume evidencia y prepara documentos o siguientes pasos para revisión y aprobación.",
   },
   "machine-learning": {
     slug: "machine-learning",
@@ -1058,7 +1057,7 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
       "Informe de evaluación frente a KPI de negocio.",
     ],
     copilot:
-      "Enterprise Copilot puede utilizar modelos de aprendizaje automático como soporte para la toma de decisiones, lo que genera predicciones con la misma trazabilidad y flujo de aprobación que cualquier otra respuesta.",
+      "Enterprise Copilot presenta predicciones junto con su contexto, señala riesgos y ayuda a comparar opciones antes de decidir.",
   },
   "intelligent-automation": {
     slug: "intelligent-automation",
@@ -1150,7 +1149,7 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
       "Panel de métricas de adopción.",
     ],
     copilot:
-      "Los asistentes internos son un trampolín hacia Enterprise Copilot: una vez que los equipos confían en el asistente para obtener respuestas, el copiloto agrega acciones y alcance operativo.",
+      "Enterprise Copilot responde consultas internas, resume información y prepara acciones de seguimiento cuando el proceso requiere algo más que una respuesta.",
   },
   "operational-copilots": {
     slug: "operational-copilots",
@@ -1158,17 +1157,17 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
     title: "Copilotos operativos",
     parent: AI_PARENT,
     intro:
-      "Capacidades de IA conectadas a SAP, bases de datos, API internas e informes, con permisos, validaciones y auditorías. Aquí es donde vive Enterprise Copilot.",
-    heroBadges: ["Conectado a SAP · DB · API", "Aprobación antes de la acción", "Registro de auditoría"],
+      "Copilotos que convierten información dispersa en evidencia, opciones y siguientes pasos sujetos a revisión humana.",
+    heroBadges: ["Evidencia verificable", "Aprobación antes de la acción", "Seguimiento trazable"],
     problem:
-      "Un chatbot añadido al negocio genera ruido. Un copiloto conectado a la operación, con permisos, validaciones y aprobaciones, aporta capacidad. La diferencia está en la integración técnica, la gobernanza y el registro de auditoría.",
+      "Una respuesta aislada no basta cuando el equipo necesita entender qué ocurrió, revisar la evidencia y decidir el siguiente paso. Un copiloto operativo debe aportar contexto, control y seguimiento.",
     whatWeDo: [
-      "Consultas operativas en SAP, bases de datos, API e informes.",
-      "Validación de inconsistencias con reglas de negocio explícitas.",
-      "Elaboración de informes con trazabilidad hasta el origen.",
-      "Seguridad por rol heredada del sistema fuente.",
-      "Aprobación humana ante cualquier acción sensible.",
-      "Registro de auditoría exportable para cumplimiento.",
+      "Reunir el contexto relevante para una consulta o decisión.",
+      "Señalar diferencias, excepciones y riesgos que requieren atención.",
+      "Preparar respuestas e informes con evidencia para revisión.",
+      "Organizar alternativas y criterios antes de decidir.",
+      "Preparar acciones sensibles para aprobación humana.",
+      "Conservar el contexto, la decisión y el resultado para seguimiento.",
     ],
     useCases: [
       "Copiloto de finanzas para conciliaciones y análisis de variaciones.",
@@ -1179,25 +1178,25 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
       "Copiloto de adquisiciones para preguntas de proveedores y gastos.",
     ],
     capabilities: [
-      "RAG",
-      "Uso de herramientas",
-      "Conectores SAP",
-      "Adaptadores de base de datos",
-      "Motores de flujo de trabajo",
-      "Flujos de aprobación",
-      "Registro de auditoría",
-      "Herencia de identidad",
+      "Contexto operativo",
+      "Evidencia verificable",
+      "Señales y excepciones",
+      "Opciones comparables",
+      "Informes para revisión",
+      "Aprobación humana",
+      "Seguimiento trazable",
+      "Acceso controlado",
     ],
     deliverables: [
       "Copiloto operativo con alcance a uno o más procesos de negocio.",
-      "Modelo de permisos heredado de los sistemas fuente.",
-      "Reglas de validación alineadas con el negocio.",
-      "Registro de auditoría exportable para cumplimiento.",
-      "Runbook de operaciones y plan de evolución.",
-      "Panel de adopción y uso.",
+      "Matriz de acceso y responsabilidades acordada.",
+      "Criterios de validación alineados con el negocio.",
+      "Registro de decisiones y resultados según el alcance.",
+      "Guía de operación y plan de evolución.",
+      "Panel de adopción y uso cuando forme parte del alcance.",
     ],
     copilot:
-      "Enterprise Copilot es un copiloto operativo diseñado para sistemas autorizados, permisos, validaciones y trazabilidad.",
+      "Enterprise Copilot convierte información dispersa en evidencia, opciones y acciones controladas para que el equipo decida con claridad.",
     primaryCta: { label: "Explorar Enterprise Copilot", href: "/copilot" },
     secondaryCta: { label: "Solicitar un piloto", href: "/copilot/pilot" },
   },

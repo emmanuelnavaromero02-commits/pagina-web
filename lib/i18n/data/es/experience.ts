@@ -99,7 +99,7 @@ export const EXPERIENCE_ROLES: {
   {
     title: "IA aplicada",
     description:
-      "Asistentes internos, RAG sobre datos privados y copilotos operativos diseñados para la trazabilidad.",
+      "Asistentes internos y copilotos operativos centrados en evidencia, revisión humana y trazabilidad.",
     icon: Brain,
   },
   {

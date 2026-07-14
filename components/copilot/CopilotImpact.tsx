@@ -8,7 +8,7 @@ export function CopilotImpact() {
       <SectionHeader
         eyebrow={l("Antes y con Enterprise Copilot", "Before and with Enterprise Copilot")}
         title={l("De tareas dispersas a un flujo trazable", "From scattered tasks to a traceable workflow")}
-        description={l("El valor surge al conectarlo con sistemas, permisos, reglas, informes y fuentes trazables.", "The value comes from connecting it to systems, permissions, rules, reports, and traceable sources.")}
+        description={l("El valor está en reducir búsquedas y cruces manuales, mostrar evidencia y dejar claro qué debe revisarse o aprobarse.", "The value is in reducing manual searches and cross-checks, showing evidence, and making clear what needs review or approval.")}
       />
 
       <div className="mt-12 overflow-hidden rounded-2xl border border-ink-100 bg-white shadow-soft">

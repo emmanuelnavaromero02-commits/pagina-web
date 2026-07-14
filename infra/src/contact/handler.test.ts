@@ -14,7 +14,7 @@ const validRequest: ContactRequest = {
   phone: "+52 55 1234 5678",
   service: "initial-diagnosis",
   message: "Necesitamos revisar nuestros procesos internos.",
-  topic: "operations",
+  topic: "software",
   locale: "es",
   privacyAccepted: true,
   website: "",
@@ -67,6 +67,10 @@ describe("contact handler", () => {
     ]);
     assert.deepEqual(sent?.ReplyToAddresses, ["contacto@example.org"]);
     assert.equal(sent?.ConfigurationSetName, "7bs-contact-preview");
+    assert.match(
+      sent?.Content?.Simple?.Body?.Text?.Data ?? "",
+      /Tema: software/,
+    );
     assert.equal(
       result.headers?.["Access-Control-Allow-Origin"],
       "https://preview.7businesssolutions.com",

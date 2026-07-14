@@ -46,6 +46,22 @@ describe("contact infrastructure controls", () => {
     }
   });
 
+  it("keeps the regional API Gateway account setting owned by preview only", () => {
+    assert.match(
+      template,
+      /OwnsRegionalApiGatewayAccount: !Equals \[!Ref Environment, preview\]/,
+    );
+    assert.match(
+      template,
+      /ApiGatewayCloudWatchRole:[\s\S]*?Condition: OwnsRegionalApiGatewayAccount/,
+    );
+    assert.match(
+      template,
+      /ApiGatewayAccount:[\s\S]*?Condition: OwnsRegionalApiGatewayAccount/,
+    );
+    assert.doesNotMatch(template, /DependsOn:\s+- ApiGatewayAccount/);
+  });
+
   it("does not reserve concurrency below this account's unreserved minimum", () => {
     assert.doesNotMatch(template, /ReservedConcurrentExecutions/);
   });
@@ -54,6 +70,10 @@ describe("contact infrastructure controls", () => {
     assert.match(template, /additionalProperties: false/);
     assert.match(template, /ValidateBody: true/);
     assert.doesNotMatch(template, /FailOnWarnings: true/);
+  });
+
+  it("accepts the software topic in the API request model", () => {
+    assert.match(template, /topic:\s+type: string\s+enum:[\s\S]*?- software/);
   });
 
   it("lets Lambda classify a populated honeypot as a 403 antispam response", () => {

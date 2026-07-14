@@ -12,7 +12,7 @@ const localized = {
       "Ayudamos a empresas de México y España a mejorar procesos, integrar sistemas y convertir sus datos en decisiones mediante software, automatización e IA operacional.",
     regions: ["México", "España"] as const,
     productHeadline:
-      "Del trabajo manual a respuestas trazables en minutos.",
+      "Del trabajo manual a decisiones con evidencia y control.",
   },
   en: {
     tagline:
@@ -21,7 +21,7 @@ const localized = {
       "We help companies in Mexico and Spain improve processes, integrate systems, and turn data into decisions through software, automation, and operational AI.",
     regions: ["Mexico", "Spain"] as const,
     productHeadline:
-      "From manual work to traceable answers in minutes.",
+      "From manual work to decisions with evidence and control.",
   },
 } as const;
 

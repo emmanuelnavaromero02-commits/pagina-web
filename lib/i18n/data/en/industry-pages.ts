@@ -148,7 +148,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Position / cost-center alignment report.",
     ],
     copilot:
-      "Enterprise Copilot can support HR queries with permissions inherited from the source system and a configurable activity log.",
+      "Enterprise Copilot helps answer HR questions, summarize pending work, and prepare requests for accountable review.",
     primaryCta: { label: "Talk about this case", href: "/contact?topic=hr" },
     secondaryCta: { label: "Explore Enterprise Copilot", href: "/copilot" },
   },
@@ -198,7 +198,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Board-pack template per cycle.",
     ],
     copilot:
-      "Enterprise Copilot uses the same semantic layer to answer executive questions in plain language — with traceability, not just a number on a dashboard.",
+      "Enterprise Copilot helps answer executive questions, explain variances, and present evidence using the same agreed business definitions.",
     primaryCta: { label: "Talk about this case", href: "/contact?topic=reporting" },
     secondaryCta: { label: "Explore Enterprise Copilot", href: "/copilot" },
   },
@@ -249,7 +249,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Legacy decommissioning roadmap.",
     ],
     copilot:
-      "Enterprise Copilot uses the same integration surfaces — same contracts, same monitoring, same audit — to query and act across SAP and non-SAP systems.",
+      "Enterprise Copilot helps review process status across SAP and other platforms, explain differences, and prepare controlled follow-up.",
     primaryCta: { label: "Review your SAP integrations", href: "/contact?topic=sap" },
     secondaryCta: { label: "Explore Enterprise Copilot", href: "/copilot" },
   },
@@ -377,7 +377,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Bronze / Silver / Gold layered data foundation.",
       "End-to-end lineage from KPI to source event.",
       "Traceable evidence for compliance and governance reviews.",
-      "Governed data foundation feeding Enterprise Copilot.",
+      "Governed context for verifiable answers and decisions with Enterprise Copilot.",
     ],
     capabilities: [
       "Common dictionary",
@@ -398,7 +398,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Audit-ready evidence pack per governance review.",
     ],
     copilot:
-      "Enterprise Copilot enforces governance at query time — every answer references the dictionary, the rules, and the source — and the audit log captures every interaction.",
+      "Enterprise Copilot helps answer with agreed definitions, show the available evidence, and preserve the context needed for review.",
     primaryCta: { label: "Talk about this case", href: "/contact?topic=governance" },
     secondaryCta: { label: "Explore Enterprise Copilot", href: "/copilot" },
   },

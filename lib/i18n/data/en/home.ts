@@ -343,7 +343,7 @@ export const OPERATIONAL_OUTCOMES: {
   {
     title: "Shared KPI definitions",
     description:
-      "A governed semantic layer can serve dashboards and Enterprise Copilot from common definitions.",
+      "Dashboards and Enterprise Copilot can present indicators using the same agreed business definitions.",
   },
   {
     title: "Governed workflows",

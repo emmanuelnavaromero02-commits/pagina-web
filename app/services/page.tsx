@@ -11,7 +11,7 @@ export const metadata = createPageMetadata({
     "Services · Software, SAP integration, data, and AI",
   ),
   description: l(
-    "Cuatro líneas de servicio coordinadas por un mismo equipo: Software Factory, integración empresarial, nube y datos gobernados e IA operativa.",
+    "Cuatro líneas de servicio coordinadas por un mismo equipo: fábrica de software, integración empresarial, nube y datos gobernados e IA operativa.",
     "Four service lines coordinated by one team: Software Factory, Enterprise Integration, Cloud & Governed Data, and Operational AI.",
   ),
 });
@@ -26,7 +26,7 @@ export default function ServicesPage() {
           "Capabilities for mission-critical operations",
         )}
         description={l(
-          "Software Factory, integración SAP, nube, datos e IA operativa, coordinados con una misma forma de trabajo y entregables verificables.",
+          "Fábrica de software, integración SAP, nube, datos e IA operativa, coordinados con una misma forma de trabajo y entregables verificables.",
           "Software Factory, SAP integration, cloud, data, and operational AI, coordinated through one delivery approach and verifiable deliverables.",
         )}
       />

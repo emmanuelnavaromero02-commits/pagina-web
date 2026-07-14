@@ -1,7 +1,6 @@
 import { CopilotCtaFinal } from "@/components/copilot/CopilotCtaFinal";
 import { CopilotDemo } from "@/components/copilot/CopilotDemo";
 import { CopilotExactly } from "@/components/copilot/CopilotExactly";
-import { CopilotFlow } from "@/components/copilot/CopilotFlow";
 import { ServiceHero } from "@/components/services/ServiceHero";
 import { l } from "@/lib/i18n/config";
 import { createPageMetadata } from "@/lib/seo";
@@ -9,12 +8,12 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   path: "/copilot/demo",
   title: l(
-    "Demostración conceptual · Enterprise Copilot",
-    "Conceptual demo · Enterprise Copilot",
+    "Caso operativo · Enterprise Copilot",
+    "Operational scenario · Enterprise Copilot",
   ),
   description: l(
-    "Recorrido conceptual por una interacción con Enterprise Copilot: solicitud, consulta de fuentes, validación, borrador, aprobación y registro de auditoría.",
-    "A conceptual walk-through of an Enterprise Copilot interaction: request, source lookup, validation, draft, approval, and audit log.",
+    "Ejemplo de cómo Enterprise Copilot ayuda a convertir evidencia fragmentada en una decisión trazable y controlada.",
+    "An example of how Enterprise Copilot helps turn fragmented evidence into a traceable, controlled decision.",
   ),
 });
 
@@ -23,19 +22,21 @@ export default function CopilotDemoPage() {
     <>
       <ServiceHero
         eyebrow={l(
-          "Enterprise Copilot · Demostración",
-          "Enterprise Copilot · Demo",
+          "Enterprise Copilot · Caso operativo",
+          "Enterprise Copilot · Operational scenario",
         )}
-        title={l("Un recorrido conceptual", "A conceptual walk-through")}
+        title={l(
+          "Qué cambia para el equipo",
+          "What changes for the team",
+        )}
         description={l(
-          "Una interacción ilustrativa que consulta SAP, datos bancarios, reglas de validación y un borrador de informe sin salir del copilot. El comportamiento real depende de la configuración y las fuentes conectadas.",
-          "An illustrative interaction involving SAP, banking data, validation rules, and a draft report without leaving the copilot. Actual behavior depends on configuration and connected sources.",
+          "Menos tiempo reconstruyendo el contexto y más claridad para revisar evidencia, decidir y dar seguimiento.",
+          "Less time rebuilding context and more clarity to review evidence, decide, and follow through.",
         )}
       />
 
       <CopilotDemo />
       <CopilotExactly />
-      <CopilotFlow />
       <CopilotCtaFinal />
     </>
   );

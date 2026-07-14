@@ -2,6 +2,7 @@ import { ArrowRight, CheckCircle2, ChevronRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { LinkButton } from "@/components/ui/Button";
 import { ContactCTA } from "@/components/home/ContactCTA";
+import { ServicePageStructuredData } from "@/components/seo/ServicePageStructuredData";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { ServiceHero } from "@/components/services/ServiceHero";
 import { l } from "@/lib/i18n/config";
@@ -31,13 +32,29 @@ export function SpecializedServicePage({ data }: { data: SpecializedPage }) {
     href: "/services",
   };
 
+  const defaultContactHref = data.parent.href.startsWith(
+    "/services/software-factory",
+  )
+    ? "/contact?topic=software"
+    : data.parent.href.startsWith("/services/sap-integrations")
+      ? "/contact?topic=sap"
+      : data.parent.href.startsWith("/services/cloud-data")
+        ? "/contact?topic=governance"
+        : data.parent.href.startsWith("/services/enterprise-ai")
+          ? "/contact?topic=automation"
+          : "/contact";
   const heroPrimary =
-    data.primaryCta ?? { label: l("Solicitar diagnóstico", "Request a diagnosis"), href: "/contact" };
+    data.primaryCta ?? {
+      label: l("Solicitar diagnóstico", "Request a diagnosis"),
+      href: defaultContactHref,
+    };
   const heroSecondary =
     data.secondaryCta ?? { label: l(`Volver a ${data.parent.label}`, `Back to ${data.parent.label}`), href: data.parent.href };
+  const hasCustomCtas = Boolean(data.primaryCta || data.secondaryCta);
 
   return (
     <>
+      <ServicePageStructuredData data={data} />
       <div className="bg-white">
         <div className="mx-auto w-full max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
           <nav aria-label={l("Ruta de navegación", "Breadcrumb")} className="text-xs text-ink-500">
@@ -192,7 +209,10 @@ export function SpecializedServicePage({ data }: { data: SpecializedPage }) {
                   Enterprise Copilot
                 </div>
                 <h3 className="mt-3 font-display text-2xl font-semibold text-ink-950">
-                  {l("Cómo se conecta con Enterprise Copilot", "How this connects with Enterprise Copilot")}
+                  {l(
+                    "Qué puede resolver Enterprise Copilot",
+                    "What Enterprise Copilot can help solve",
+                  )}
                 </h3>
                 <p className="mt-2 text-base leading-relaxed text-ink-700">
                   {data.copilot}
@@ -209,19 +229,21 @@ export function SpecializedServicePage({ data }: { data: SpecializedPage }) {
         </Section>
       ) : null}
 
-      <Section className="bg-white">
-        <div className="flex flex-col items-start gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-          <LinkButton href={heroPrimary.href} size="lg">
-            {heroPrimary.label}
-            <ArrowRight className="h-4 w-4" />
-          </LinkButton>
-          <LinkButton href={heroSecondary.href} size="lg" variant="outline">
-            {heroSecondary.label}
-          </LinkButton>
-        </div>
-      </Section>
-
-      <ContactCTA />
+      {hasCustomCtas ? (
+        <Section className="bg-white">
+          <div className="flex flex-col items-start gap-4 sm:flex-row sm:flex-wrap sm:items-center">
+            <LinkButton href={heroPrimary.href} size="lg">
+              {heroPrimary.label}
+              <ArrowRight className="h-4 w-4" />
+            </LinkButton>
+            <LinkButton href={heroSecondary.href} size="lg" variant="outline">
+              {heroSecondary.label}
+            </LinkButton>
+          </div>
+        </Section>
+      ) : (
+        <ContactCTA primaryHref={defaultContactHref} />
+      )}
     </>
   );
 }

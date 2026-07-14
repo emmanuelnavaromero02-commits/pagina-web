@@ -30,9 +30,9 @@ const TEXT: Record<string, string> = {
   "APIs & microservices": "APIs y microservicios",
   "Reusable services with clear contracts.":
     "Servicios reutilizables con contratos claros.",
-  "Evolutionary support": "Soporte evolutivo",
-  "L2/L3 support and quarterly roadmap.":
-    "Soporte L2/L3 y hoja de ruta trimestral.",
+  "Support and evolution": "Soporte y evolución",
+  "L2/L3 support and an agreed evolution roadmap.":
+    "Soporte L2/L3 y hoja de ruta de evolución acordada.",
   "Enterprise Integration": "Integración Empresarial",
   "SAP On-Premise": "SAP On-Premise",
   "ECC, S/4HANA, and the core modules.":
@@ -103,13 +103,13 @@ const TEXT: Record<string, string> = {
   "Operational impact": "Impacto operacional",
   "Before vs with Enterprise Copilot.":
     "Comparativa antes y después de Enterprise Copilot.",
-  "How it works": "Cómo funciona",
-  "Architecture and operational flow.":
-    "Arquitectura y flujo operacional.",
+  "What it solves": "Qué resuelve",
+  "Problems, outcomes, and controlled action.":
+    "Problemas, resultados y acción controlada.",
   Application: "Aplicación",
-  "Conceptual demo": "Demostración conceptual",
-  "A walk-through interaction with sources and audit.":
-    "Recorrido de una interacción con fuentes y auditoría.",
+  "Operational scenario": "Caso operativo",
+  "From fragmented evidence to a traceable decision.":
+    "De evidencia fragmentada a una decisión trazable.",
   "Use cases": "Casos de uso",
   "Finance, HR, operations, reporting.":
     "Finanzas, RR. HH., operaciones e informes.",

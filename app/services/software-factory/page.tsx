@@ -11,7 +11,7 @@ const detail = SERVICE_DETAILS["software-factory"];
 
 export const metadata = createPageMetadata({
   path: "/services/software-factory",
-  title: `${detail.title} · ${l("Equipos senior dedicados", "Senior dedicated teams")}`,
+  title: `${detail.title} · ${l("Desarrollo de software a medida", "Custom software development")}`,
   description: detail.intro,
 });
 
@@ -29,11 +29,11 @@ export default function SoftwareFactoryPage() {
       <Deliverables
         slug="software-factory"
         related={{
-          label: l("Conocer Enterprise Copilot", "Explore Enterprise Copilot"),
-          href: "/copilot",
+          label: l("Hablar sobre tu proyecto", "Discuss your project"),
+          href: "/contact?topic=software",
         }}
       />
-      <ContactCTA />
+      <ContactCTA primaryHref="/contact?topic=software" />
     </>
   );
 }

@@ -1,4 +1,3 @@
-import { AnimatedImpactMetrics } from "@/components/copilot/AnimatedImpactMetrics";
 import { CopilotCtaFinal } from "@/components/copilot/CopilotCtaFinal";
 import { CopilotExactly } from "@/components/copilot/CopilotExactly";
 import { CopilotHero } from "@/components/copilot/CopilotHero";
@@ -12,12 +11,12 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   path: "/copilot",
   title: l(
-    "Enterprise Copilot · De trabajo manual a respuestas trazables",
-    "Enterprise Copilot · From manual work to traceable answers",
+    "Enterprise Copilot · Decisiones y acciones controladas",
+    "Enterprise Copilot · Controlled decisions and actions",
   ),
   description: l(
-    "Capacidad de IA operativa que conecta SAP, datos, APIs e informes para consultar, validar, explicar y actuar con evidencia, permisos y trazabilidad.",
-    "Operational AI capability that connects SAP, data, APIs, and reports so teams can ask, validate, explain, and act with evidence, permissions, and traceability.",
+    "Inteligencia operativa que reúne información dispersa, presenta evidencia verificable, organiza opciones y prepara acciones sujetas a aprobación.",
+    "Operational intelligence that brings fragmented information together, presents verifiable evidence, frames options, and prepares actions for approval.",
   ),
 });
 
@@ -25,7 +24,6 @@ export default function CopilotPage() {
   return (
     <>
       <CopilotHero />
-      <AnimatedImpactMetrics />
       <CopilotImpact />
       <CopilotProblems />
       <CopilotExactly />

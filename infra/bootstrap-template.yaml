@@ -16,6 +16,11 @@ Parameters:
     Type: String
     Default: agent/puesta-produccion-bilingue
     AllowedPattern: ^[A-Za-z0-9_./-]+$
+  GitHubProductionEnvironment:
+    Type: String
+    Default: production
+    AllowedPattern: ^[A-Za-z0-9._-]+$
+    Description: Protected GitHub Environment allowed to request production credentials.
   ExistingGitHubOidcProviderArn:
     Type: String
     Default: ""
@@ -153,6 +158,13 @@ Resources:
                 Effect: Allow
                 Action: cloudformation:CreateChangeSet
                 Resource: !Sub arn:${AWS::Partition}:cloudformation:${AWS::Region}:aws:transform/Serverless-2016-10-31
+              - Sid: ReadCertificateForCustomDomains
+                Effect: Allow
+                Action:
+                  - acm:DescribeCertificate
+                  - acm:ListCertificates
+                  - acm:ListTagsForCertificate
+                Resource: "*"
               - Sid: Manage7bsLambda
                 Effect: Allow
                 Action:
@@ -387,7 +399,9 @@ Resources:
             Condition:
               StringEquals:
                 token.actions.githubusercontent.com:aud: sts.amazonaws.com
-                token.actions.githubusercontent.com:sub: !Sub repo:${GitHubOwner}/${GitHubRepository}:ref:refs/heads/${GitHubBranch}
+                token.actions.githubusercontent.com:sub:
+                  - !Sub repo:${GitHubOwner}/${GitHubRepository}:ref:refs/heads/${GitHubBranch}
+                  - !Sub repo:${GitHubOwner}/${GitHubRepository}:environment:${GitHubProductionEnvironment}
       Policies:
         - PolicyName: DeployOnly7bsStacks
           PolicyDocument:
@@ -445,6 +459,25 @@ Resources:
                 Condition:
                   StringEquals:
                     iam:PassedToService: cloudformation.amazonaws.com
+        - PolicyName: ReadProductionPreflight
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Sid: ReadCertificateAndEmailReadiness
+                Effect: Allow
+                Action:
+                  - acm:DescribeCertificate
+                  - ses:GetAccount
+                  - ses:GetEmailIdentity
+                Resource: "*"
+              - Sid: ReadRegionalApiGatewayAccount
+                Effect: Allow
+                Action: apigateway:GET
+                Resource: !Sub arn:${AWS::Partition}:apigateway:${AWS::Region}::/account
+              - Sid: VerifyRegionalApiGatewayLogRole
+                Effect: Allow
+                Action: iam:GetRole
+                Resource: !Sub arn:${AWS::Partition}:iam::${AWS::AccountId}:role/7bs-apigateway-logs-*
         - PolicyName: StoreDeploymentArtifacts
           PolicyDocument:
             Version: "2012-10-17"
@@ -504,6 +537,8 @@ Outputs:
       - !Ref ExistingGitHubOidcProviderArn
   GitHubSubject:
     Value: !Sub repo:${GitHubOwner}/${GitHubRepository}:ref:refs/heads/${GitHubBranch}
+  GitHubProductionSubject:
+    Value: !Sub repo:${GitHubOwner}/${GitHubRepository}:environment:${GitHubProductionEnvironment}
   GitHubDeployRoleArn:
     Value: !GetAtt GitHubDeployRole.Arn
   CloudFormationExecutionRoleArn:

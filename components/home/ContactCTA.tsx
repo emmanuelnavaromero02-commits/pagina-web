@@ -3,7 +3,7 @@ import { LinkButton } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { l } from "@/lib/i18n/config";
 
-export function ContactCTA() {
+export function ContactCTA({ primaryHref = "/contact" }: { primaryHref?: string }) {
   return (
     <Section className="bg-ink-950 text-white">
       <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-brand-800 via-brand-900 to-ink-950 p-10 sm:p-14">
@@ -22,19 +22,19 @@ export function ContactCTA() {
             </p>
             <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
               {l(
-                "¿Quiere desarrollar software, integrar SAP o probar un piloto de Enterprise Copilot?",
+                "¿Quieres desarrollar software, integrar SAP o probar un piloto de Enterprise Copilot?",
                 "Want to build software, integrate SAP, or pilot an Enterprise Copilot?",
               )}
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-200">
               {l(
-                "Le ayudamos a diagnosticar el caso, definir un alcance concreto y formar el equipo adecuado. Comunicación clara, sin promesas vagas.",
+                "Te ayudamos a diagnosticar el caso, definir un alcance concreto y formar el equipo adecuado. Comunicación clara, sin promesas vagas.",
                 "We help diagnose the case, define a focused scope, and assemble the right team. Clear communication, without vague promises.",
               )}
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
-            <LinkButton href="/contact" size="lg">
+            <LinkButton href={primaryHref} size="lg">
               {l("Solicitar un diagnóstico", "Request a diagnosis")}
               <ArrowRight className="h-4 w-4" />
             </LinkButton>

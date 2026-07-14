@@ -5,7 +5,6 @@ import { ServiceHero } from "@/components/services/ServiceHero";
 import {
   EU_REPRESENTATIVE,
   LEGAL_ENTITY,
-  LEGAL_REVIEWED,
   SITE,
 } from "@/lib/constants";
 import { l } from "@/lib/i18n/config";
@@ -212,16 +211,11 @@ export default function PrivacyPage() {
 
           <div className="rounded-xl border border-ink-200 bg-ink-50 p-5 text-xs text-ink-600">
             <p>
-              {l("Versión 1.0 · 14 de julio de 2026.", "Version 1.0 · 14 July 2026.")}
+              {l(
+                "Última actualización · 14 de julio de 2026.",
+                "Last updated · 14 July 2026.",
+              )}
             </p>
-            {!LEGAL_REVIEWED ? (
-              <p className="mt-2 font-medium text-amber-800">
-                {l(
-                  "Borrador normativo pendiente de revisión profesional final.",
-                  "Regulatory draft pending final professional review.",
-                )}
-              </p>
-            ) : null}
             <p className="mt-2">
               {l("Consulte también nuestra ", "See also our ")}
               <Link href="/cookies" className="text-brand-700 hover:text-brand-800">

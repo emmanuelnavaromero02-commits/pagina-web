@@ -237,6 +237,9 @@ Outputs:
     Value: !GetAtt SiteDistribution.DomainName
   SiteDnsRecordName:
     Value: !Ref SiteDomainName
+  SiteDnsRecordType:
+    Description: Record type to create for the canonical hostname at the external DNS provider.
+    Value: CNAME
   SiteDnsTarget:
     Description: Create a Route 53 alias or provider CNAME pointing SiteDnsRecordName here.
     Value: !GetAtt SiteDistribution.DomainName
@@ -255,3 +258,17 @@ Outputs:
     Condition: HasApexDomain
     Description: Point the apex alias to this same distribution; the edge function redirects to SiteDomainName.
     Value: !GetAtt SiteDistribution.DomainName
+  SquarespaceApexForwardSource:
+    Condition: IsProduction
+    Description: Configure this source after all DNS records are complete.
+    Value: "@"
+  SquarespaceApexForwardDestination:
+    Condition: IsProduction
+    Description: Permanent canonical destination for the root domain.
+    Value: !Sub https://${SiteDomainName}
+  SquarespaceApexForwardStatus:
+    Condition: IsProduction
+    Value: "301 Permanent Redirect"
+  SquarespaceApexForwardPathMode:
+    Condition: IsProduction
+    Value: Maintain paths

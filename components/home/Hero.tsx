@@ -122,14 +122,14 @@ function HeroVisual() {
           <span className="h-2.5 w-2.5 rounded-full bg-ink-200" />
           <span className="h-2.5 w-2.5 rounded-full bg-ink-200" />
           <span className="ml-3 text-xs font-medium text-ink-500">
-            Enterprise Copilot · {l("Vista conceptual", "Conceptual preview")}
+            Enterprise Copilot · {l("Escenario operativo", "Operational scenario")}
           </span>
         </div>
         <div className="space-y-4 p-5">
           <div className="rounded-xl border border-ink-100 bg-ink-50 px-4 py-3 text-sm text-ink-700">
             {l(
-              "¿Cuál fue el cierre financiero de marzo y qué partidas siguen sin conciliar?",
-              "What was the March finance closing, and which entries are still unreconciled?",
+              "¿Qué requiere atención antes de completar el cierre?",
+              "What needs attention before the closing can be completed?",
             )}
           </div>
           <div className="rounded-xl border border-brand-100 bg-white px-4 py-4 shadow-soft">
@@ -138,42 +138,43 @@ function HeroVisual() {
             </p>
             <p className="mt-2 text-sm text-ink-800">
               {l(
-                "El cierre de marzo se registró el día 7. Encontré ",
-                "March closing posted on the 7th. I found ",
-              )}
-              <strong>{l("3 partidas", "3 entries")}</strong>
-              {l(
-                " sin conciliar entre SAP FI y el estado de cuenta bancario. Preparé el detalle y una propuesta de ajuste para su revisión antes de aplicar cualquier cambio.",
-                " unreconciled between SAP FI and the bank statement. I prepared the detail and a proposed adjustment for your review before applying anything.",
+                "Reuní la evidencia disponible, señalé las diferencias pendientes y preparé un resumen verificable. El siguiente paso queda listo para revisión antes de cualquier acción.",
+                "I brought the available evidence together, flagged the pending differences, and prepared a verifiable summary. The next step is ready for review before any action.",
               )}
             </p>
             <div className="mt-3 grid grid-cols-3 gap-2 text-[11px]">
               <div className="rounded-md bg-ink-50 px-2 py-1.5 text-ink-700">
-                <span className="block font-semibold text-ink-900">SAP FI</span>
-                {l("3 documentos", "3 docs")}
+                <span className="block font-semibold text-ink-900">
+                  {l("Hallazgo", "Finding")}
+                </span>
+                {l("Diferencias por revisar", "Differences to review")}
               </div>
               <div className="rounded-md bg-ink-50 px-2 py-1.5 text-ink-700">
                 <span className="block font-semibold text-ink-900">
-                  {l("Banco", "Bank")}
+                  {l("Evidencia", "Evidence")}
                 </span>
-                {l("3 partidas", "3 entries")}
+                {l("Contexto disponible", "Context available")}
               </div>
               <div className="rounded-md bg-accent-400/15 px-2 py-1.5 text-accent-600">
                 <span className="block font-semibold">
-                  {l("Estado", "Status")}
+                  {l("Control", "Control")}
                 </span>
-                {l("Listo para revisión", "Ready to review")}
+                {l("Revisión requerida", "Review required")}
               </div>
             </div>
           </div>
           <div className="flex flex-wrap items-center gap-2 text-[11px] text-ink-500">
-            <span className="rounded-full bg-ink-100 px-2 py-0.5">SAP</span>
             <span className="rounded-full bg-ink-100 px-2 py-0.5">
-              {l("Base de datos", "Database")}
+              {l("Evidencia", "Evidence")}
             </span>
-            <span className="rounded-full bg-ink-100 px-2 py-0.5">API</span>
             <span className="rounded-full bg-ink-100 px-2 py-0.5">
-              {l("Reporte ejecutivo", "Executive report")}
+              {l("Señales", "Signals")}
+            </span>
+            <span className="rounded-full bg-ink-100 px-2 py-0.5">
+              {l("Decisión", "Decision")}
+            </span>
+            <span className="rounded-full bg-ink-100 px-2 py-0.5">
+              {l("Seguimiento", "Follow-up")}
             </span>
           </div>
         </div>

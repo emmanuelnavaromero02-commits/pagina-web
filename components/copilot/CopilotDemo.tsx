@@ -1,82 +1,88 @@
-import { Sparkles, UserCircle2 } from "lucide-react";
+import { FileCheck2, SearchCheck, ShieldCheck } from "lucide-react";
+import { Card, CardDescription, CardTitle } from "@/components/ui/Card";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { l } from "@/lib/i18n/config";
 
-const RESPONSE_BADGES = [
-  { label: "SAP FI", tone: "brand" as const },
-  { label: l("Banco", "Bank"), tone: "brand" as const },
-  { label: l("Validación", "Validation"), tone: "brand" as const },
-  { label: l("Borrador", "Draft"), tone: "brand" as const },
-  { label: l("Requiere aprobación", "Approval required"), tone: "accent" as const },
-  { label: l("Registro de auditoría", "Audit log"), tone: "neutral" as const },
+const scenario = [
+  {
+    eyebrow: l("Situación", "Situation"),
+    title: l(
+      "La explicación está repartida",
+      "The explanation is spread across multiple places",
+    ),
+    description: l(
+      "Finanzas necesita explicar una diferencia de cierre, pero la evidencia está distribuida entre sistemas, archivos y conversaciones.",
+      "Finance needs to explain a closing difference, but the evidence is spread across systems, files, and conversations.",
+    ),
+    icon: SearchCheck,
+  },
+  {
+    eyebrow: l("Resultado", "Outcome"),
+    title: l(
+      "La evidencia queda lista para revisar",
+      "The evidence is ready for review",
+    ),
+    description: l(
+      "Enterprise Copilot reúne la información relevante, señala las diferencias que requieren atención y prepara un resumen verificable.",
+      "Enterprise Copilot brings together the relevant information, flags the differences that need attention, and prepares a verifiable summary.",
+    ),
+    icon: FileCheck2,
+  },
+  {
+    eyebrow: l("Control", "Control"),
+    title: l(
+      "La decisión sigue en manos de la persona responsable",
+      "The decision remains with the accountable person",
+    ),
+    description: l(
+      "La persona responsable revisa la evidencia y aprueba, rechaza o ajusta el siguiente paso. La decisión y su resultado permanecen registrados.",
+      "The accountable person reviews the evidence and approves, rejects, or adjusts the next step. The decision and its outcome remain recorded.",
+    ),
+    icon: ShieldCheck,
+  },
 ];
-
-const TONE_CLASSES: Record<"brand" | "accent" | "neutral", string> = {
-  brand: "border-brand-200 bg-brand-50 text-brand-800",
-  accent: "border-accent-400/40 bg-accent-400/10 text-accent-600",
-  neutral: "border-ink-200 bg-ink-50 text-ink-700",
-};
 
 export function CopilotDemo() {
   return (
     <Section className="bg-ink-50">
       <SectionHeader
-        eyebrow={l("Interacción de ejemplo", "Example interaction")}
-        title={l("Una consulta que reúne varios sistemas", "One query that brings multiple systems together")}
-        description={l("Ejemplo de una consulta financiera que combina SAP, el banco y reglas de validación sin salir del copilot.", "Example of a finance query combining SAP, the bank, and validation rules without leaving the copilot.")}
+        eyebrow={l("Caso operativo", "Operational scenario")}
+        title={l(
+          "Del cierre fragmentado a una decisión trazable",
+          "From a fragmented close to a traceable decision",
+        )}
+        description={l(
+          "Un ejemplo centrado en el problema y el resultado, sin depender de cifras o respuestas simuladas.",
+          "An example focused on the problem and the outcome, without relying on simulated figures or answers.",
+        )}
       />
 
-      <div className="mx-auto mt-12 max-w-3xl space-y-4">
-        <article className="rounded-2xl border border-ink-100 bg-white p-5 shadow-soft sm:ml-12">
-          <div className="flex items-center gap-2">
-            <UserCircle2 className="h-4 w-4 text-ink-500" />
-            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-500">
-              {l("Usuario · finanzas", "User · finance")}
-            </p>
-          </div>
-          <p className="mt-3 text-sm leading-relaxed text-ink-800">
-            {l("«Muéstrame las partidas no conciliadas del cierre de marzo, cruza SAP FI con el banco y prepara un resumen para finanzas»." , "“Show me the unreconciled entries from the March closing, cross SAP FI with the bank, and prepare a summary for finance.”")}
-          </p>
-        </article>
+      <ol className="mt-12 grid gap-6 lg:grid-cols-3">
+        {scenario.map((item, index) => {
+          const Icon = item.icon;
+          return (
+            <Card key={item.title} as="li" className="relative">
+              <span className="absolute -top-3 right-5 inline-flex items-center rounded-full bg-brand-700 px-2.5 py-0.5 text-[10px] font-semibold tracking-widest text-white">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-50 text-brand-700">
+                <Icon className="h-5 w-5" />
+              </span>
+              <p className="mt-5 text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-700">
+                {item.eyebrow}
+              </p>
+              <CardTitle className="mt-2">{item.title}</CardTitle>
+              <CardDescription>{item.description}</CardDescription>
+            </Card>
+          );
+        })}
+      </ol>
 
-        <article className="relative overflow-hidden rounded-2xl border border-brand-200 bg-gradient-to-br from-white to-brand-50/40 p-5 shadow-elevate sm:mr-12">
-          <div
-            aria-hidden
-            className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-accent-400/15 blur-2xl"
-          />
-          <div className="relative flex items-center gap-2">
-            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-brand-700 text-white">
-              <Sparkles className="h-3 w-3" />
-            </span>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-700">
-              Enterprise Copilot
-            </p>
-          </div>
-          <p className="relative mt-3 text-sm leading-relaxed text-ink-800">
-            {l("Encontré ", "I found ")}
-            <strong className="text-ink-950">{l("3 partidas no conciliadas", "3 unreconciled entries")}</strong>{" "}
-            {l("entre SAP FI y el estado de cuenta bancario del cierre de marzo. Preparé un ", "between SAP FI and the bank statement for the March closing. I prepared an ")}
-            <strong className="text-ink-950">{l("resumen ejecutivo", "executive summary")}</strong>{" "}
-            {l("y una propuesta de revisión.", "and a proposed review.")}
-          </p>
-          <p className="relative mt-2 text-sm leading-relaxed text-ink-700">
-            {l("No aplicaré ningún ajuste sin aprobación.", "I will not apply any adjustment without approval.")}
-          </p>
-          <ul className="relative mt-4 flex flex-wrap gap-1.5">
-            {RESPONSE_BADGES.map((b) => (
-              <li
-                key={b.label}
-                className={`rounded-full border px-2.5 py-0.5 text-xs font-medium ${TONE_CLASSES[b.tone]}`}
-              >
-                {b.label}
-              </li>
-            ))}
-          </ul>
-        </article>
-      </div>
-
-      <p className="mx-auto mt-6 max-w-3xl text-xs leading-relaxed text-ink-500">
-        {l("Ejemplo ilustrativo. El comportamiento real depende de la configuración, las fuentes conectadas y las reglas de negocio de cada implementación.", "Illustrative example. Actual behavior depends on configuration, connected sources, and business rules in each implementation.")}
+      <p className="mt-8 max-w-3xl text-xs leading-relaxed text-ink-500">
+        {l(
+          "Escenario ilustrativo. El alcance y el impacto se validan con los datos y procesos del cliente durante el piloto.",
+          "Illustrative scenario. Scope and impact are validated against the client’s data and processes during the pilot.",
+        )}
       </p>
     </Section>
   );

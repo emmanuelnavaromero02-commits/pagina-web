@@ -1,6 +1,12 @@
-import { Bot, Layers, Lock, Network, ShieldCheck, Workflow } from "lucide-react";
+import {
+  BookOpenCheck,
+  Eye,
+  GitBranch,
+  ListChecks,
+  ScanSearch,
+  ShieldCheck,
+} from "lucide-react";
 import { ContactCTA } from "@/components/home/ContactCTA";
-import { CopilotArchitecture } from "@/components/copilot/CopilotArchitecture";
 import { Card, CardDescription, CardTitle } from "@/components/ui/Card";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { ServiceHero } from "@/components/services/ServiceHero";
@@ -10,63 +16,63 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   path: "/copilot/how-it-works",
   title: l(
-    "Cómo funciona · Enterprise Copilot",
-    "How it works · Enterprise Copilot",
+    "Qué resuelve · Enterprise Copilot",
+    "What it solves · Enterprise Copilot",
   ),
   description: l(
-    "Arquitectura de Enterprise Copilot: capas de IA, conectores, permisos, validaciones y trazabilidad sobre SAP, bases de datos, APIs e informes.",
-    "Enterprise Copilot architecture: AI layers, connectors, permissions, validations, and traceability across SAP, databases, APIs, and reports.",
+    "Enterprise Copilot convierte información dispersa en evidencia verificable, señales relevantes, opciones comparables y acciones controladas.",
+    "Enterprise Copilot turns fragmented information into verifiable evidence, relevant signals, comparable options, and controlled actions.",
   ),
 });
 
-const layers = [
+const outcomes = [
   {
-    title: l("Interfaz conversacional", "Conversational interface"),
+    title: l("Reúne el contexto", "Brings context together"),
     description: l(
-      "Un único punto de entrada para consultar, validar, informar o solicitar acciones mediante una interfaz directa.",
-      "A single entry point to ask, validate, report, or request actions through a direct interface.",
+      "Consolida la información autorizada que una persona tendría que buscar entre distintos sistemas, archivos y equipos.",
+      "Consolidates authorized information that would otherwise be searched across systems, files, and teams.",
     ),
-    icon: Bot,
+    icon: ScanSearch,
   },
   {
-    title: l("Orquestador de IA", "AI orchestrator"),
+    title: l("Señala lo importante", "Surfaces what matters"),
     description: l(
-      "Determina qué fuente consultar, qué regla aplicar y cuándo escalar a una persona antes de ejecutar.",
-      "Determines which source to query, which rule to apply, and when to escalate to a person before execution.",
+      "Identifica diferencias, cambios y riesgos que requieren revisión sin obligar al equipo a inspeccionar cada fuente por separado.",
+      "Highlights differences, changes, and risks that require review without forcing teams to inspect every source separately.",
     ),
-    icon: Workflow,
+    icon: Eye,
   },
   {
-    title: l("Capa de conectores", "Connector layer"),
+    title: l("Explica con evidencia", "Explains with evidence"),
     description: l(
-      "Conectores para SAP, bases de datos, APIs internas, nube e informes corporativos.",
-      "Connectors for SAP, databases, internal APIs, cloud, and corporate reports.",
+      "Presenta respuestas, reportes y hallazgos con el contexto necesario para verificarlos.",
+      "Presents answers, reports, and findings with the context needed to verify them.",
     ),
-    icon: Network,
+    icon: BookOpenCheck,
   },
   {
-    title: l("Permisos y políticas", "Permissions and policies"),
+    title: l("Ordena las opciones", "Frames the options"),
     description: l(
-      "Respeta los permisos del sistema de origen y permite aplicar políticas adicionales por rol y área.",
-      "Respects source-system permissions and supports additional policies by role and business area.",
+      "Organiza alternativas y criterios para que la persona responsable pueda compararlos antes de decidir.",
+      "Organizes alternatives and criteria so the accountable person can compare them before deciding.",
     ),
-    icon: Lock,
+    icon: ListChecks,
   },
   {
-    title: l("Validaciones de negocio", "Business validations"),
+    title: l("Prepara el siguiente paso", "Prepares the next step"),
     description: l(
-      "Reglas que detectan inconsistencias y validan antes de aplicar una acción crítica.",
-      "Rules that detect inconsistencies and validate before a critical action is applied.",
+      "Deja lista la acción, el reporte o el seguimiento correspondiente y solicita aprobación cuando pueda afectar la operación.",
+      "Gets the action, report, or follow-up ready and requests approval whenever it may affect the operation.",
     ),
     icon: ShieldCheck,
   },
   {
-    title: l("Trazabilidad", "Traceability"),
+    title: l("Conserva el resultado", "Preserves the outcome"),
     description: l(
-      "Registro auditable de cada consulta, fuente consultada, validación y resultado.",
-      "Auditable record of each query, source consulted, validation, and result.",
+      "Mantiene vinculados la consulta, la decisión, la autorización y el resultado para facilitar seguimiento y auditoría.",
+      "Keeps the request, decision, authorization, and result connected for follow-up and audit.",
     ),
-    icon: Layers,
+    icon: GitBranch,
   },
 ];
 
@@ -74,46 +80,45 @@ export default function HowItWorksPage() {
   return (
     <>
       <ServiceHero
-        eyebrow={l("Cómo funciona", "How it works")}
+        eyebrow={l("Qué resuelve", "What it solves")}
         title={l(
-          "Una arquitectura diseñada para entornos empresariales",
-          "An architecture designed for enterprise environments",
+          "Convierte información dispersa en una decisión útil",
+          "Turns fragmented information into a useful decision",
         )}
         description={l(
-          "Enterprise Copilot combina orquestación, conectores, permisos, validaciones y trazabilidad en una arquitectura configurable.",
-          "Enterprise Copilot combines orchestration, connectors, permissions, validations, and traceability in a configurable architecture.",
+          "Enterprise Copilot ayuda a pasar de buscar datos en varios lugares a revisar evidencia, entender qué requiere atención y decidir el siguiente paso con control.",
+          "Enterprise Copilot helps teams move from searching across multiple places to reviewing evidence, understanding what needs attention, and deciding the next step with control.",
         )}
       />
 
       <Section className="bg-white">
         <SectionHeader
-          eyebrow={l("Capas", "Layers")}
+          eyebrow={l("Resultados", "Outcomes")}
           title={l(
-            "Seis capas que trabajan en conjunto",
-            "Six layers working together",
+            "Seis mejoras visibles para la operación",
+            "Six visible improvements for the operation",
           )}
           description={l(
-            "Cada capa tiene una responsabilidad definida y puede evolucionar de forma independiente.",
-            "Each layer has a defined responsibility and can evolve independently.",
+            "El valor está en reducir trabajo manual, aclarar la decisión y mantener control sobre el resultado.",
+            "The value lies in reducing manual work, clarifying the decision, and maintaining control over the outcome.",
           )}
         />
         <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {layers.map((l) => {
-            const Icon = l.icon;
+          {outcomes.map((outcome) => {
+            const Icon = outcome.icon;
             return (
-              <Card key={l.title} as="li" interactive>
+              <Card key={outcome.title} as="li" interactive>
                 <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-50 text-brand-700">
                   <Icon className="h-5 w-5" />
                 </span>
-                <CardTitle className="mt-5">{l.title}</CardTitle>
-                <CardDescription>{l.description}</CardDescription>
+                <CardTitle className="mt-5">{outcome.title}</CardTitle>
+                <CardDescription>{outcome.description}</CardDescription>
               </Card>
             );
           })}
         </ul>
       </Section>
 
-      <CopilotArchitecture />
       <ContactCTA />
     </>
   );

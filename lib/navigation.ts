@@ -65,9 +65,9 @@ export const NAVIGATION: NavItem[] = [
             description: "Reusable services with clear contracts.",
           },
           {
-            label: "Evolutionary support",
+            label: "Support and evolution",
             href: "/services/software-factory/evolutionary-support",
-            description: "L2/L3 support and quarterly roadmap.",
+            description: "L2/L3 support and an agreed evolution roadmap.",
           },
         ],
       },
@@ -212,9 +212,9 @@ export const NAVIGATION: NavItem[] = [
             description: "Before vs with Enterprise Copilot.",
           },
           {
-            label: "How it works",
+            label: "What it solves",
             href: "/copilot/how-it-works",
-            description: "Architecture and operational flow.",
+            description: "Problems, outcomes, and controlled action.",
           },
         ],
       },
@@ -222,9 +222,9 @@ export const NAVIGATION: NavItem[] = [
         title: "Application",
         links: [
           {
-            label: "Conceptual demo",
+            label: "Operational scenario",
             href: "/copilot/demo",
-            description: "A walk-through interaction with sources and audit.",
+            description: "From fragmented evidence to a traceable decision.",
           },
           {
             label: "Use cases",
@@ -344,7 +344,7 @@ export const FOOTER_LINKS: { title: string; links: NavLink[] }[] = [
     links: [
       { label: "Overview", href: "/copilot" },
       { label: "Operational impact", href: "/copilot/impact" },
-      { label: "How it works", href: "/copilot/how-it-works" },
+      { label: "What it solves", href: "/copilot/how-it-works" },
       { label: "Use cases", href: "/copilot/use-cases" },
       { label: "Security", href: "/copilot/security" },
       { label: "Request a pilot", href: "/copilot/pilot" },

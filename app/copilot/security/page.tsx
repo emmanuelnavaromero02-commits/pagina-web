@@ -13,8 +13,8 @@ export const metadata = createPageMetadata({
     "Security and permissions · Enterprise Copilot",
   ),
   description: l(
-    "Principios de seguridad para Enterprise Copilot: permisos por rol, trazabilidad, validaciones previas y despliegue controlado.",
-    "Security principles for Enterprise Copilot: role-based permissions, traceability, pre-execution validations, and controlled deployment.",
+    "Principios de seguridad para Enterprise Copilot: acceso controlado, trazabilidad, validaciones previas y supervisión humana.",
+    "Security principles for Enterprise Copilot: controlled access, traceability, pre-execution validation, and human oversight.",
   ),
 });
 
@@ -43,8 +43,8 @@ const principles = [
   {
     title: l("Datos bajo control del cliente", "Client-controlled data"),
     description: l(
-      "El modelo de despliegue se define según la política del cliente y la viabilidad técnica: local, nube privada o VPC dedicada.",
-      "The deployment model is defined according to client policy and technical feasibility: on-premises, private cloud, or dedicated VPC.",
+      "El alcance define qué información puede utilizarse, quién puede consultarla y qué acciones requieren aprobación.",
+      "The scope defines which information may be used, who may access it, and which actions require approval.",
     ),
   },
 ];

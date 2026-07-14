@@ -3,13 +3,9 @@ import {
   AlertTriangle,
   ArrowUp,
   BarChart3,
-  Bot,
-  Boxes,
   Briefcase,
   Building2,
   Cable,
-  CheckCircle2,
-  Cloud,
   Compass,
   Database,
   FileBarChart,
@@ -19,7 +15,6 @@ import {
   Lock,
   Minus,
   Network,
-  Plug,
   ServerCog,
   ShieldCheck,
   Wand2,
@@ -103,155 +98,6 @@ export const COPILOT_PROBLEMS: { title: string; description: string }[] = [
   },
 ];
 
-export const COPILOT_IS: string[] = [
-  "An operational AI layer wired into your current systems.",
-  "A single point of intelligent inquiry for internal teams.",
-  "A validator that applies explicit business rules.",
-  "A report generator with traceability back to the source.",
-  "An assistant connected to SAP, databases, APIs, and reports.",
-];
-
-export const COPILOT_ISNT: string[] = [
-  "Not a generic chatbot without enterprise context.",
-  "Not a replacement for SAP, ERP, CRM, or for the team's accountability.",
-  "Not an agent that executes sensitive actions without explicit approval.",
-  "Not a tool that invents data or hallucinates results.",
-  "Not a system that breaks existing flows or duplicates them in parallel.",
-];
-
-export const COPILOT_BENEFITS: {
-  title: string;
-  description: string;
-  icon: LucideIcon;
-}[] = [
-  {
-    title: "Less manual work",
-    description:
-      "Queries, validations, and reports that used to be done by hand move into an assisted flow.",
-    icon: Wand2,
-  },
-  {
-    title: "Less Excel dependency",
-    description:
-      "Critical processes stop depending on a file maintained by a single person.",
-    icon: FileBarChart,
-  },
-  {
-    title: "Fewer consolidation errors",
-    description:
-      "The copilot catches mismatches between sources before they reach the final report.",
-    icon: AlertTriangle,
-  },
-  {
-    title: "Faster internal answers",
-    description:
-      "Operational questions get an answer with traceability back to the source data.",
-    icon: Activity,
-  },
-  {
-    title: "More traceability",
-    description:
-      "Every query, validation, and action is logged for audit without extra effort.",
-    icon: GitBranch,
-  },
-  {
-    title: "Better data governance",
-    description:
-      "Rules apply in one place and propagate into every answer and report.",
-    icon: Layers,
-  },
-];
-
-export const COPILOT_CONNECTIONS: { title: string; icon: LucideIcon }[] = [
-  { title: "SAP On-Premise / Cloud / BTP", icon: Boxes },
-  { title: "Enterprise databases", icon: Database },
-  { title: "Internal APIs", icon: Network },
-  { title: "Cloud platforms", icon: Cloud },
-  { title: "Reports and BI", icon: LineChart },
-  { title: "Legacy systems", icon: ServerCog },
-];
-
-/* Capabilities by connection — richer version shown on /copilot. */
-
-export const COPILOT_CONNECTION_GROUPS: {
-  id: string;
-  title: string;
-  description: string;
-  icon: LucideIcon;
-  badges: string[];
-}[] = [
-  {
-    id: "sap",
-    title: "SAP",
-    description:
-      "Reads and cross-checks the operational core: finance, controlling, HR, sales, materials, and the processes around them.",
-    icon: Boxes,
-    badges: [
-      "ECC",
-      "S/4HANA",
-      "FI / CO",
-      "HCM",
-      "SuccessFactors",
-      "RFC",
-      "IDocs",
-      "BAPIs",
-    ],
-  },
-  {
-    id: "data",
-    title: "Data",
-    description:
-      "Reaches enterprise databases to answer with consistent figures traceable back to the source.",
-    icon: Database,
-    badges: [
-      "SQL Server",
-      "Oracle",
-      "PostgreSQL",
-      "MySQL",
-      "DB2",
-      "Sybase",
-      "SAP HANA",
-    ],
-  },
-  {
-    id: "cloud",
-    title: "Cloud",
-    description:
-      "Runs on the cloud platforms the client already operates — no infrastructure duplication.",
-    icon: Cloud,
-    badges: ["AWS", "Azure", "GCP", "SAP BTP"],
-  },
-  {
-    id: "integrations",
-    title: "Integrations",
-    description:
-      "Speaks with non-SAP systems through enterprise middleware and APIs without breaking what already works.",
-    icon: Plug,
-    badges: ["APIs", "Boomi", "HCI / CPI", "PI / PO", "REST", "SOAP"],
-  },
-  {
-    id: "reporting",
-    title: "Reporting",
-    description:
-      "Supports dashboards, executive reports, and validations with traceability to the source data.",
-    icon: LineChart,
-    badges: [
-      "Dashboards",
-      "Executive reports",
-      "Validations",
-      "Traceability",
-    ],
-  },
-  {
-    id: "security",
-    title: "Security",
-    description:
-      "Inherits role-based permissions from the source system, logs every action, and validates before any sensitive execution.",
-    icon: ShieldCheck,
-    badges: ["Roles", "Permissions", "Audit log", "Approvals", "Validations"],
-  },
-];
-
 export const COPILOT_USE_CASES: {
   area: string;
   description: string;
@@ -303,13 +149,13 @@ export const COPILOT_SECURITY: {
   {
     title: "Role-based permissions",
     description:
-      "Each user sees only what their role allows. The AI layer respects the permissions defined in the source system.",
+      "Each user accesses only the information authorized for their role and the agreed scope.",
     icon: Lock,
   },
   {
     title: "Traceability",
     description:
-      "Every query and action is logged with user, context, and result for audit.",
+      "Relevant queries and actions can be logged with user, context, and result for audit review.",
     icon: GitBranch,
   },
   {
@@ -321,7 +167,7 @@ export const COPILOT_SECURITY: {
   {
     title: "Audit log",
     description:
-      "A full log of changes, access, and results — exportable for compliance.",
+      "Configurable logs of changes, access, and results, exportable for compliance review.",
     icon: FileBarChart,
   },
   {
@@ -331,105 +177,10 @@ export const COPILOT_SECURITY: {
     icon: AlertTriangle,
   },
   {
-    title: "Controlled deployment",
+    title: "Controlled scope",
     description:
-      "Runs on-premise, on private cloud, or in a dedicated VPC depending on the client's policy.",
+      "Each pilot defines the authorized information, accountable people, and actions subject to approval.",
     icon: ServerCog,
-  },
-];
-
-export const COPILOT_FLOW_STEPS: {
-  step: string;
-  title: string;
-  description: string;
-  icon: LucideIcon;
-}[] = [
-  {
-    step: "01",
-    title: "User asks",
-    description:
-      "An authorized user asks a question or requests a report from the copilot interface.",
-    icon: Bot,
-  },
-  {
-    step: "02",
-    title: "Intent & permission check",
-    description:
-      "It parses what is being asked and verifies the user is allowed to see that information or trigger that action.",
-    icon: ShieldCheck,
-  },
-  {
-    step: "03",
-    title: "Query authorized systems",
-    description:
-      "It reads SAP, databases, APIs, and reports based on the user's permissions and the request's context.",
-    icon: Network,
-  },
-  {
-    step: "04",
-    title: "Validate rules and gaps",
-    description:
-      "It applies business rules and checks for inconsistencies across sources before answering.",
-    icon: AlertTriangle,
-  },
-  {
-    step: "05",
-    title: "Answer with traceability",
-    description:
-      "Returns the answer with the source referenced — not as an opinion without evidence.",
-    icon: FileBarChart,
-  },
-  {
-    step: "06",
-    title: "Propose action for approval",
-    description:
-      "If the workflow requires it, the copilot proposes an action (a report, an export, a flow) for a human to approve.",
-    icon: CheckCircle2,
-  },
-];
-
-/* Origin context — kept available even if not currently used on
-   /copilot, in case it returns to /experience or a future page. */
-export const COPILOT_ORIGIN_BLOCKS: {
-  title: string;
-  description: string;
-  icon: LucideIcon;
-}[] = [
-  {
-    title: "Real SAP operations",
-    description:
-      "Years of connecting FI, CO, MM, SD, HCM, and related processes to external systems. The copilot knows where to touch and where not to.",
-    icon: Boxes,
-  },
-  {
-    title: "Software factories",
-    description:
-      "We have run dedicated factories with backlog, QA, deployment, and support. That discipline carries over into the product.",
-    icon: Workflow,
-  },
-  {
-    title: "Enterprise integrations",
-    description:
-      "Boomi, HCI/CPI, PI/PO, IBM WebSphere, and MQ. The copilot consumes and respects those channels — it does not replace them.",
-    icon: Plug,
-  },
-  {
-    title: "Databases & reporting",
-    description:
-      "SQL Server, Oracle, PostgreSQL, MySQL, DB2, Sybase, and SAP HANA connected to auditable executive reports.",
-    icon: Database,
-  },
-  {
-    title: "Support & governance",
-    description:
-      "Solution Manager, ITSM, Change, and Test Management gave us the discipline to design a copilot that is operable and auditable.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Applied AI",
-    description:
-      "Corporate RAG, productive ML, and internal assistants grounded on private data — no shortcuts, no empty demos.",
-    icon: GitBranch,
   },
 ];
 
@@ -437,9 +188,9 @@ export const COPILOT_ORIGIN_BLOCKS: {
    as orientative, never as guaranteed results. */
 
 export const COPILOT_IMPACT_STATS: { label: string; value: string }[] = [
-  { label: "Speed", value: "From hours to minutes" },
-  { label: "Spreadsheets", value: "Less manual Excel" },
-  { label: "Audit", value: "More traceability" },
+  { label: "Workflow", value: "Assisted queries" },
+  { label: "Spreadsheets", value: "Controlled inputs" },
+  { label: "Audit", value: "Source references" },
   { label: "Actions", value: "Approval before executing" },
 ];
 
@@ -451,39 +202,39 @@ export const COPILOT_IMPACT_ROWS: {
 }[] = [
   {
     task: "Monthly report across systems",
-    before: "6–8 hours",
-    withCopilot: "Minutes",
-    impact: "Strong reduction in manual consolidation",
+    before: "Manual exports and cross-checks",
+    withCopilot: "Assisted consolidation with source references",
+    impact: "Designed to reduce manual consolidation",
   },
   {
     task: "Multi-system financial reconciliation",
-    before: "2–3 days",
-    withCopilot: "Minutes to hours depending on sources",
-    impact: "Fewer rework cycles and errors",
+    before: "Manual matching across disconnected sources",
+    withCopilot: "Assisted matching under explicit rules",
+    impact: "Designed to surface mismatches for review",
   },
   {
     task: "Answer to an external auditor",
-    before: "1–2 days",
-    withCopilot: "Seconds to minutes, source referenced",
-    impact: "Immediate traceability",
+    before: "Evidence gathered across files and messages",
+    withCopilot: "Referenced evidence prepared for review",
+    impact: "Designed to support traceability",
   },
   {
     task: "Executive dashboard generation",
-    before: "Hours",
-    withCopilot: "Assisted refresh, near real-time",
-    impact: "Less dependency on manual reports",
+    before: "Manual refresh from multiple sources",
+    withCopilot: "Assisted refresh from authorized sources",
+    impact: "Designed to reduce dependence on manual reports",
   },
   {
     task: "Analyst / consultant onboarding",
-    before: "Months learning tables and processes",
+    before: "Undocumented knowledge of tables and processes",
     withCopilot: "Contextual guidance over sources and rules",
-    impact: "Shorter learning curve",
+    impact: "Designed to make operational context easier to find",
   },
   {
     task: "Operational incident research",
-    before: "Hours or a full day",
-    withCopilot: "Minutes with cross-source references",
-    impact: "Faster diagnosis",
+    before: "Manual searches across logs and systems",
+    withCopilot: "Cross-source references prepared for analysis",
+    impact: "Designed to support incident diagnosis",
   },
 ];
 
@@ -562,12 +313,12 @@ export const COPILOT_ROLES: {
 
 export const COPILOT_HERO_CARDS: { before: string; after: string }[] = [
   {
-    before: "Cross-system reports in 6–8 hours",
-    after: "Minutes with traceable sources",
+    before: "Cross-system reports built by hand",
+    after: "Assisted consolidation with source references",
   },
   {
-    before: "Reconciliations in 2–3 days",
-    after: "Minutes to hours depending on connected sources",
+    before: "Reconciliations across disconnected sources",
+    after: "Assisted matching under explicit rules",
   },
   {
     before: "Manual audit and lost emails",
@@ -579,31 +330,31 @@ export const COPILOT_HERO_CARDS: { before: string; after: string }[] = [
 
 export const COPILOT_EXACTLY: { text: string; icon: LucideIcon }[] = [
   {
-    text: "Ask across systems — SAP, databases, APIs, and reports from one place.",
+    text: "Bring together authorized context currently scattered across systems, files, and teams.",
     icon: Database,
   },
   {
-    text: "Validate data inconsistencies between sources with explicit business rules.",
+    text: "Surface differences, changes, risks, and pending work that require review.",
     icon: AlertTriangle,
   },
   {
-    text: "Generate traceable reports with citations back to the source.",
+    text: "Present answers, reports, and findings with verifiable evidence.",
     icon: FileBarChart,
   },
   {
-    text: "Prepare drafts and summaries (emails, executive briefs, action plans).",
+    text: "Prepare summaries, reports, and follow-up for team review.",
     icon: Layers,
   },
   {
-    text: "Connect SAP, databases, APIs, and reporting under one controlled surface.",
+    text: "Frame options and criteria so the accountable person can compare them.",
     icon: Network,
   },
   {
-    text: "Request approval before sensitive actions — never executes blind.",
+    text: "Get the next step ready and request approval before any sensitive action.",
     icon: ShieldCheck,
   },
   {
-    text: "Leave an audit trail for every relevant step (user, source, action, time).",
+    text: "Keep the request, decision, authorization, and outcome connected.",
     icon: GitBranch,
   },
 ];

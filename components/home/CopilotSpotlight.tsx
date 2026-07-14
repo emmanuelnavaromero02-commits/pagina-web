@@ -19,14 +19,14 @@ export function CopilotSpotlight() {
           </h2>
           <p className="mt-4 text-base leading-relaxed text-ink-300 sm:text-lg">
             {l(
-              "La capa inteligente que consulta, valida, reporta y actúa sobre los sistemas que su empresa ya utiliza.",
-              "The intelligent layer that queries, validates, reports, and acts across the systems your company already operates.",
+              "Convierte información dispersa en respuestas verificables, señales relevantes y opciones claras para decidir.",
+              "Turns fragmented information into verifiable answers, relevant signals, and clear options for decision-making.",
             )}
           </p>
           <p className="mt-4 text-sm leading-relaxed text-ink-300/90">
             {l(
-              "No es un chatbot genérico. Es un copiloto operativo conectado a datos, reglas, reportes, APIs y sistemas empresariales para ayudar a los equipos a trabajar con mayor velocidad, control y trazabilidad.",
-              "Not a generic chatbot. An operational copilot connected to data, rules, reports, APIs, and enterprise systems — helping internal teams work faster with greater control and traceability.",
+              "Ayuda a los equipos a reunir evidencia, entender qué requiere atención y preparar el siguiente paso bajo aprobación humana y trazabilidad.",
+              "Helps teams bring evidence together, understand what needs attention, and prepare the next step under human approval and traceability.",
             )}
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -40,13 +40,13 @@ export function CopilotSpotlight() {
               variant="outline"
               className="border-white/20 bg-white/5 text-white hover:bg-white/10"
             >
-              {l("Ver cómo funciona", "See how it works")}
+              {l("Ver qué resuelve", "See what it solves")}
             </LinkButton>
           </div>
           <p className="mt-8 text-xs uppercase tracking-[0.18em] text-ink-500">
             {l(
-              "Conectado a · SAP · Bases de datos · APIs · BI · Sistemas heredados",
-              "Connected to · SAP · Databases · APIs · BI · Legacy systems",
+              "Evidencia · Decisiones · Aprobaciones · Seguimiento",
+              "Evidence · Decisions · Approvals · Follow-up",
             )}
           </p>
         </div>

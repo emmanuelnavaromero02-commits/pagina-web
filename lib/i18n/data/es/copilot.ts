@@ -3,13 +3,9 @@ import {
   AlertTriangle,
   ArrowUp,
   BarChart3,
-  Bot,
-  Boxes,
   Briefcase,
   Building2,
   Cable,
-  CheckCircle2,
-  Cloud,
   Compass,
   Database,
   FileBarChart,
@@ -19,7 +15,6 @@ import {
   Lock,
   Minus,
   Network,
-  Plug,
   ServerCog,
   ShieldCheck,
   Wand2,
@@ -33,39 +28,39 @@ export const COPILOT_CAPABILITIES: {
   icon: LucideIcon;
 }[] = [
   {
-    title: "Consultar datos empresariales",
+    title: "Reunir contexto operativo",
     description:
-      "Responde preguntas operativas con datos reales de SAP, bases de datos y reportes internos.",
+      "Organiza información autorizada que hoy está repartida entre sistemas, archivos y equipos.",
     icon: Database,
   },
   {
-    title: "Explicar cifras y reportes",
+    title: "Explicar con evidencia",
     description:
-      "Convierte métricas y cierres en explicaciones claras para el equipo y la dirección.",
+      "Presenta respuestas y hallazgos con el contexto necesario para revisarlos y verificarlos.",
     icon: FileBarChart,
   },
   {
-    title: "Validar inconsistencias",
+    title: "Señalar diferencias y riesgos",
     description:
-      "Detecta diferencias entre fuentes y propone correcciones antes de que lleguen al reporte final.",
+      "Destaca cambios, inconsistencias y pendientes que requieren atención de una persona responsable.",
     icon: AlertTriangle,
   },
   {
-    title: "Generar reportes ejecutivos",
+    title: "Preparar reportes para revisión",
     description:
-      "Crea vistas para la dirección a partir de la información operativa del día.",
+      "Deja listos resúmenes e informes verificables para que el equipo los revise y complete.",
     icon: BarChart3,
   },
   {
-    title: "Conectar SAP, bases de datos y APIs",
+    title: "Organizar opciones",
     description:
-      "Se integra con SAP, bases de datos corporativas y APIs internas sin afectar lo que ya funciona.",
+      "Ordena alternativas y criterios para comparar el siguiente paso antes de decidir.",
     icon: Cable,
   },
   {
-    title: "Reducir tareas repetitivas",
+    title: "Preparar acciones controladas",
     description:
-      "Automatiza consultas, validaciones y reportes que actualmente se realizan de forma manual en Excel.",
+      "Prepara acciones y seguimientos sujetos a permisos, revisión humana y trazabilidad.",
     icon: Wand2,
   },
 ];
@@ -100,155 +95,6 @@ export const COPILOT_PROBLEMS: { title: string; description: string }[] = [
     title: "Respuestas internas lentas",
     description:
       "Preguntas operativas retrasadas por búsquedas manuales y validación de fuentes.",
-  },
-];
-
-export const COPILOT_IS: string[] = [
-  "Una capa de IA operativa conectada a tus sistemas actuales.",
-  "Un único punto de consulta inteligente para los equipos internos.",
-  "Un validador que aplica reglas de negocio explícitas.",
-  "Un generador de reportes con trazabilidad hasta la fuente.",
-  "Un asistente conectado a SAP, bases de datos, APIs y reportes.",
-];
-
-export const COPILOT_ISNT: string[] = [
-  "No es un chatbot genérico sin contexto empresarial.",
-  "No sustituye a SAP, ERP, CRM ni la responsabilidad del equipo.",
-  "No es un agente que ejecuta acciones sensibles sin aprobación explícita.",
-  "No es una herramienta que inventa datos ni genera resultados sin fundamento.",
-  "No es un sistema que rompe los flujos existentes ni los duplica en paralelo.",
-];
-
-export const COPILOT_BENEFITS: {
-  title: string;
-  description: string;
-  icon: LucideIcon;
-}[] = [
-  {
-    title: "Flujos asistidos",
-    description:
-      "Las consultas, validaciones y reportes manuales pueden incorporarse a un flujo asistido controlado.",
-    icon: Wand2,
-  },
-  {
-    title: "Registros de proceso gobernados",
-    description:
-      "La lógica seleccionada de hojas de cálculo puede capturarse en un flujo documentado y controlado.",
-    icon: FileBarChart,
-  },
-  {
-    title: "Validación entre fuentes",
-    description:
-      "El copiloto puede comparar fuentes autorizadas y señalar diferencias para revisión.",
-    icon: AlertTriangle,
-  },
-  {
-    title: "Respuestas internas asistidas",
-    description:
-      "Diseñado para responder preguntas operativas con referencias a los datos de origen.",
-    icon: Activity,
-  },
-  {
-    title: "Trazabilidad de actividad",
-    description:
-      "Las consultas, validaciones y acciones pertinentes pueden registrarse según el diseño acordado.",
-    icon: GitBranch,
-  },
-  {
-    title: "Gobierno de datos centralizado",
-    description:
-      "Las reglas pueden centralizarse y ser referenciadas por respuestas y reportes.",
-    icon: Layers,
-  },
-];
-
-export const COPILOT_CONNECTIONS: { title: string; icon: LucideIcon }[] = [
-  { title: "SAP On-Premise / Cloud / BTP", icon: Boxes },
-  { title: "Bases de datos empresariales", icon: Database },
-  { title: "APIs internas", icon: Network },
-  { title: "Plataformas de nube", icon: Cloud },
-  { title: "Reportes y BI", icon: LineChart },
-  { title: "Sistemas heredados", icon: ServerCog },
-];
-
-/* Capabilities by connection — richer version shown on /copilot. */
-
-export const COPILOT_CONNECTION_GROUPS: {
-  id: string;
-  title: string;
-  description: string;
-  icon: LucideIcon;
-  badges: string[];
-}[] = [
-  {
-    id: "sap",
-    title: "SAP",
-    description:
-      "Lee y contrasta el núcleo operativo: finanzas, controlling, RR. HH., ventas, materiales y sus procesos relacionados.",
-    icon: Boxes,
-    badges: [
-      "ECC",
-      "S/4HANA",
-      "FI / CO",
-      "HCM",
-      "SuccessFactors",
-      "RFC",
-      "IDocs",
-      "BAPIs",
-    ],
-  },
-  {
-    id: "data",
-    title: "Datos",
-    description:
-      "Accede a bases de datos empresariales para responder con cifras coherentes y trazables hasta la fuente.",
-    icon: Database,
-    badges: [
-      "SQL Server",
-      "Oracle",
-      "PostgreSQL",
-      "MySQL",
-      "DB2",
-      "Sybase",
-      "SAP HANA",
-    ],
-  },
-  {
-    id: "cloud",
-    title: "Nube",
-    description:
-      "Funciona en las plataformas de nube que el cliente ya utiliza, sin duplicar infraestructura.",
-    icon: Cloud,
-    badges: ["AWS", "Azure", "GCP", "SAP BTP"],
-  },
-  {
-    id: "integrations",
-    title: "Integraciones",
-    description:
-      "Se comunica con sistemas ajenos a SAP mediante middleware empresarial y APIs sin afectar lo que ya funciona.",
-    icon: Plug,
-    badges: ["APIs", "Boomi", "HCI / CPI", "PI / PO", "REST", "SOAP"],
-  },
-  {
-    id: "reporting",
-    title: "Reportes",
-    description:
-      "Sustenta paneles, reportes ejecutivos y validaciones con trazabilidad hasta los datos de origen.",
-    icon: LineChart,
-    badges: [
-      "Paneles",
-      "Reportes ejecutivos",
-      "Validaciones",
-      "Trazabilidad",
-    ],
-  },
-  {
-    id: "security",
-    title: "Seguridad",
-    description:
-      "Hereda los permisos por función del sistema de origen, registra cada acción y valida antes de cualquier ejecución sensible.",
-    icon: ShieldCheck,
-    badges: ["Funciones", "Permisos", "Registro de auditoría", "Aprobaciones", "Validaciones"],
   },
 ];
 
@@ -303,7 +149,7 @@ export const COPILOT_SECURITY: {
   {
     title: "Permisos por función",
     description:
-      "Cada usuario ve únicamente lo que permite su función. La capa de IA respeta los permisos definidos en el sistema de origen.",
+      "Cada usuario accede únicamente a la información autorizada para su función y el alcance acordado.",
     icon: Lock,
   },
   {
@@ -331,105 +177,10 @@ export const COPILOT_SECURITY: {
     icon: AlertTriangle,
   },
   {
-    title: "Despliegue controlado",
+    title: "Alcance controlado",
     description:
-      "Funciona on-premise, en nube privada o en una VPC dedicada, según la política del cliente.",
+      "Cada piloto delimita la información autorizada, las personas responsables y las acciones sujetas a aprobación.",
     icon: ServerCog,
-  },
-];
-
-export const COPILOT_FLOW_STEPS: {
-  step: string;
-  title: string;
-  description: string;
-  icon: LucideIcon;
-}[] = [
-  {
-    step: "01",
-    title: "El usuario consulta",
-    description:
-      "Un usuario autorizado formula una pregunta o solicita un reporte desde la interfaz del copiloto.",
-    icon: Bot,
-  },
-  {
-    step: "02",
-    title: "Validación de intención y permisos",
-    description:
-      "Interpreta la solicitud y verifica que el usuario pueda consultar esa información o activar esa acción.",
-    icon: ShieldCheck,
-  },
-  {
-    step: "03",
-    title: "Consultar sistemas autorizados",
-    description:
-      "Lee SAP, bases de datos, APIs y reportes según los permisos del usuario y el contexto de la solicitud.",
-    icon: Network,
-  },
-  {
-    step: "04",
-    title: "Validar reglas y diferencias",
-    description:
-      "Aplica reglas de negocio y comprueba inconsistencias entre fuentes antes de responder.",
-    icon: AlertTriangle,
-  },
-  {
-    step: "05",
-    title: "Responder con trazabilidad",
-    description:
-      "Devuelve la respuesta con referencia a la fuente, no como una opinión sin evidencia.",
-    icon: FileBarChart,
-  },
-  {
-    step: "06",
-    title: "Proponer una acción para aprobación",
-    description:
-      "Si el flujo lo requiere, el copiloto propone una acción —un reporte, una exportación o un flujo— para que una persona la apruebe.",
-    icon: CheckCircle2,
-  },
-];
-
-/* Delivery principles — kept available even if not currently used on
-   /copilot, in case they return to a future page. */
-export const COPILOT_ORIGIN_BLOCKS: {
-  title: string;
-  description: string;
-  icon: LucideIcon;
-}[] = [
-  {
-    title: "Alcance de integración SAP",
-    description:
-      "Un diseño controlado para conectar FI, CO, MM, SD, HCM y procesos relacionados con sistemas externos.",
-    icon: Boxes,
-  },
-  {
-    title: "Disciplina de entrega",
-    description:
-      "El modelo de implementación utiliza backlog priorizado, QA, despliegue controlado, documentación y soporte.",
-    icon: Workflow,
-  },
-  {
-    title: "Integraciones empresariales",
-    description:
-      "Los patrones compatibles incluyen Boomi, HCI/CPI, PI/PO, IBM WebSphere y MQ; el copiloto utiliza canales gobernados en lugar de reemplazarlos.",
-    icon: Plug,
-  },
-  {
-    title: "Bases de datos y reportes",
-    description:
-      "El alcance de conexión puede incluir SQL Server, Oracle, PostgreSQL, MySQL, DB2, Sybase y SAP HANA con referencias a las fuentes.",
-    icon: Database,
-  },
-  {
-    title: "Soporte y gobierno",
-    description:
-      "El modelo operativo puede incorporar controles de Solution Manager, ITSM, Change y Test Management.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "IA aplicada",
-    description:
-      "Los patrones de diseño incluyen RAG corporativo, ML gobernado y asistentes internos basados en datos privados autorizados.",
-    icon: GitBranch,
   },
 ];
 
@@ -578,31 +329,31 @@ export const COPILOT_HERO_CARDS: { before: string; after: string }[] = [
 
 export const COPILOT_EXACTLY: { text: string; icon: LucideIcon }[] = [
   {
-    text: "Consultar varios sistemas —SAP, bases de datos, APIs y reportes— desde un solo lugar.",
+    text: "Reunir el contexto autorizado que hoy está repartido entre sistemas, archivos y equipos.",
     icon: Database,
   },
   {
-    text: "Validar inconsistencias de datos entre fuentes mediante reglas de negocio explícitas.",
+    text: "Señalar diferencias, cambios, riesgos y pendientes que requieren revisión.",
     icon: AlertTriangle,
   },
   {
-    text: "Generar reportes trazables con referencias a la fuente.",
+    text: "Presentar respuestas, reportes y hallazgos con evidencia verificable.",
     icon: FileBarChart,
   },
   {
-    text: "Preparar borradores y resúmenes —correos, informes ejecutivos y planes de acción—.",
+    text: "Preparar resúmenes, informes y seguimientos para revisión del equipo.",
     icon: Layers,
   },
   {
-    text: "Conectar SAP, bases de datos, APIs y reportes en una interfaz controlada.",
+    text: "Organizar opciones y criterios para que la persona responsable pueda compararlos.",
     icon: Network,
   },
   {
-    text: "Solicitar aprobación antes de acciones sensibles; nunca ejecutar sin validación.",
+    text: "Dejar listo el siguiente paso y solicitar aprobación antes de cualquier acción sensible.",
     icon: ShieldCheck,
   },
   {
-    text: "Mantener un rastro de auditoría de cada paso relevante —usuario, fuente, acción y momento—.",
+    text: "Mantener vinculados la consulta, la decisión, la autorización y el resultado.",
     icon: GitBranch,
   },
 ];

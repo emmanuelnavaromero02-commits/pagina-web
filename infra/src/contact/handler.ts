@@ -24,6 +24,7 @@ export const ALLOWED_SERVICES = [
 
 export const ALLOWED_TOPICS = [
   "copilot",
+  "software",
   "finance",
   "operations",
   "hr",

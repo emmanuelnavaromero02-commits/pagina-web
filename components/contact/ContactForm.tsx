@@ -37,6 +37,7 @@ const SERVICES = [
 type AllowedService = (typeof SERVICES)[number]["value"];
 
 const ALLOWED_TOPICS = [
+  "software",
   "copilot",
   "finance",
   "operations",
@@ -51,6 +52,7 @@ const ALLOWED_TOPICS = [
 type AllowedTopic = (typeof ALLOWED_TOPICS)[number];
 
 const TOPIC_SERVICE: Record<AllowedTopic, AllowedService> = {
+  software: "software-factory",
   copilot: "enterprise-copilot",
   finance: "operational-ai",
   operations: "operational-ai",
@@ -200,8 +202,8 @@ export function ContactForm() {
         setStatus("success");
         setServerMessage(
           l(
-            "Recibimos tu mensaje. Te responderemos en un día hábil.",
-            "We received your message. We will reply within one business day.",
+            "Recibimos tu mensaje. Nuestro objetivo es responder en un día hábil.",
+            "We received your message. Our target is to reply within one business day.",
           ),
         );
         setValues(initialValues);

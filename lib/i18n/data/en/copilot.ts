@@ -3,13 +3,9 @@ import {
   AlertTriangle,
   ArrowUp,
   BarChart3,
-  Bot,
-  Boxes,
   Briefcase,
   Building2,
   Cable,
-  CheckCircle2,
-  Cloud,
   Compass,
   Database,
   FileBarChart,
@@ -19,7 +15,6 @@ import {
   Lock,
   Minus,
   Network,
-  Plug,
   ServerCog,
   ShieldCheck,
   Wand2,
@@ -33,39 +28,39 @@ export const COPILOT_CAPABILITIES: {
   icon: LucideIcon;
 }[] = [
   {
-    title: "Query enterprise data",
+    title: "Bring operational context together",
     description:
-      "Answers operational questions using real data from SAP, databases, and internal reports.",
+      "Organizes authorized information currently scattered across systems, files, and teams.",
     icon: Database,
   },
   {
-    title: "Explain numbers and reports",
+    title: "Explain with evidence",
     description:
-      "Turns metrics and closings into clear explanations for the team and the leadership.",
+      "Presents answers and findings with the context needed to review and verify them.",
     icon: FileBarChart,
   },
   {
-    title: "Validate inconsistencies",
+    title: "Surface differences and risks",
     description:
-      "Detects gaps between sources and proposes corrections before they reach the final report.",
+      "Highlights changes, inconsistencies, and pending work that require accountable review.",
     icon: AlertTriangle,
   },
   {
-    title: "Generate executive reports",
+    title: "Prepare reports for review",
     description:
-      "Builds leadership-ready views from the operational information of the day.",
+      "Gets verifiable summaries and reports ready for the team to review and complete.",
     icon: BarChart3,
   },
   {
-    title: "Connect SAP, databases & APIs",
+    title: "Frame the options",
     description:
-      "Integrates with SAP, corporate databases, and internal APIs without breaking what already works.",
+      "Organizes alternatives and criteria so teams can compare the next step before deciding.",
     icon: Cable,
   },
   {
-    title: "Reduce repetitive tasks",
+    title: "Prepare controlled actions",
     description:
-      "Automates queries, validations, and reports that are currently done manually in Excel.",
+      "Prepares actions and follow-up under permissions, human review, and traceability.",
     icon: Wand2,
   },
 ];
@@ -103,155 +98,6 @@ export const COPILOT_PROBLEMS: { title: string; description: string }[] = [
   },
 ];
 
-export const COPILOT_IS: string[] = [
-  "An operational AI layer wired into your current systems.",
-  "A single point of intelligent inquiry for internal teams.",
-  "A validator that applies explicit business rules.",
-  "A report generator with traceability back to the source.",
-  "An assistant connected to SAP, databases, APIs, and reports.",
-];
-
-export const COPILOT_ISNT: string[] = [
-  "Not a generic chatbot without enterprise context.",
-  "Not a replacement for SAP, ERP, CRM, or for the team's accountability.",
-  "Not an agent that executes sensitive actions without explicit approval.",
-  "Not a tool that invents data or hallucinates results.",
-  "Not a system that breaks existing flows or duplicates them in parallel.",
-];
-
-export const COPILOT_BENEFITS: {
-  title: string;
-  description: string;
-  icon: LucideIcon;
-}[] = [
-  {
-    title: "Assisted workflows",
-    description:
-      "Manual queries, validations, and reports can be brought into a controlled assisted flow.",
-    icon: Wand2,
-  },
-  {
-    title: "Governed process records",
-    description:
-      "Selected spreadsheet logic can be captured in a documented, controlled workflow.",
-    icon: FileBarChart,
-  },
-  {
-    title: "Cross-source validation",
-    description:
-      "The copilot can compare authorized sources and flag mismatches for review.",
-    icon: AlertTriangle,
-  },
-  {
-    title: "Assisted internal answers",
-    description:
-      "Designed to answer operational questions with references to the source data.",
-    icon: Activity,
-  },
-  {
-    title: "Activity traceability",
-    description:
-      "Relevant queries, validations, and actions can be logged under the agreed design.",
-    icon: GitBranch,
-  },
-  {
-    title: "Centralized data governance",
-    description:
-      "Rules can be centralized and referenced by answers and reports.",
-    icon: Layers,
-  },
-];
-
-export const COPILOT_CONNECTIONS: { title: string; icon: LucideIcon }[] = [
-  { title: "SAP On-Premise / Cloud / BTP", icon: Boxes },
-  { title: "Enterprise databases", icon: Database },
-  { title: "Internal APIs", icon: Network },
-  { title: "Cloud platforms", icon: Cloud },
-  { title: "Reports and BI", icon: LineChart },
-  { title: "Legacy systems", icon: ServerCog },
-];
-
-/* Capabilities by connection — richer version shown on /copilot. */
-
-export const COPILOT_CONNECTION_GROUPS: {
-  id: string;
-  title: string;
-  description: string;
-  icon: LucideIcon;
-  badges: string[];
-}[] = [
-  {
-    id: "sap",
-    title: "SAP",
-    description:
-      "Reads and cross-checks the operational core: finance, controlling, HR, sales, materials, and the processes around them.",
-    icon: Boxes,
-    badges: [
-      "ECC",
-      "S/4HANA",
-      "FI / CO",
-      "HCM",
-      "SuccessFactors",
-      "RFC",
-      "IDocs",
-      "BAPIs",
-    ],
-  },
-  {
-    id: "data",
-    title: "Data",
-    description:
-      "Reaches enterprise databases to answer with consistent figures traceable back to the source.",
-    icon: Database,
-    badges: [
-      "SQL Server",
-      "Oracle",
-      "PostgreSQL",
-      "MySQL",
-      "DB2",
-      "Sybase",
-      "SAP HANA",
-    ],
-  },
-  {
-    id: "cloud",
-    title: "Cloud",
-    description:
-      "Runs on the cloud platforms the client already operates — no infrastructure duplication.",
-    icon: Cloud,
-    badges: ["AWS", "Azure", "GCP", "SAP BTP"],
-  },
-  {
-    id: "integrations",
-    title: "Integrations",
-    description:
-      "Speaks with non-SAP systems through enterprise middleware and APIs without breaking what already works.",
-    icon: Plug,
-    badges: ["APIs", "Boomi", "HCI / CPI", "PI / PO", "REST", "SOAP"],
-  },
-  {
-    id: "reporting",
-    title: "Reporting",
-    description:
-      "Supports dashboards, executive reports, and validations with traceability to the source data.",
-    icon: LineChart,
-    badges: [
-      "Dashboards",
-      "Executive reports",
-      "Validations",
-      "Traceability",
-    ],
-  },
-  {
-    id: "security",
-    title: "Security",
-    description:
-      "Inherits role-based permissions from the source system, logs every action, and validates before any sensitive execution.",
-    icon: ShieldCheck,
-    badges: ["Roles", "Permissions", "Audit log", "Approvals", "Validations"],
-  },
-];
-
 export const COPILOT_USE_CASES: {
   area: string;
   description: string;
@@ -266,7 +112,7 @@ export const COPILOT_USE_CASES: {
   {
     area: "Finance",
     description:
-      "Closings, reconciliations, variance explanation, and partida-level validation.",
+      "Closings, reconciliations, variance explanation, and line-item validation.",
     icon: BarChart3,
   },
   {
@@ -303,7 +149,7 @@ export const COPILOT_SECURITY: {
   {
     title: "Role-based permissions",
     description:
-      "Each user sees only what their role allows. The AI layer respects the permissions defined in the source system.",
+      "Each user accesses only the information authorized for their role and the agreed scope.",
     icon: Lock,
   },
   {
@@ -331,105 +177,10 @@ export const COPILOT_SECURITY: {
     icon: AlertTriangle,
   },
   {
-    title: "Controlled deployment",
+    title: "Controlled scope",
     description:
-      "Runs on-premise, on private cloud, or in a dedicated VPC depending on the client's policy.",
+      "Each pilot defines the authorized information, accountable people, and actions subject to approval.",
     icon: ServerCog,
-  },
-];
-
-export const COPILOT_FLOW_STEPS: {
-  step: string;
-  title: string;
-  description: string;
-  icon: LucideIcon;
-}[] = [
-  {
-    step: "01",
-    title: "User asks",
-    description:
-      "An authorized user asks a question or requests a report from the copilot interface.",
-    icon: Bot,
-  },
-  {
-    step: "02",
-    title: "Intent & permission check",
-    description:
-      "It parses what is being asked and verifies the user is allowed to see that information or trigger that action.",
-    icon: ShieldCheck,
-  },
-  {
-    step: "03",
-    title: "Query authorized systems",
-    description:
-      "It reads SAP, databases, APIs, and reports based on the user's permissions and the request's context.",
-    icon: Network,
-  },
-  {
-    step: "04",
-    title: "Validate rules and gaps",
-    description:
-      "It applies business rules and checks for inconsistencies across sources before answering.",
-    icon: AlertTriangle,
-  },
-  {
-    step: "05",
-    title: "Answer with traceability",
-    description:
-      "Returns the answer with the source referenced — not as an opinion without evidence.",
-    icon: FileBarChart,
-  },
-  {
-    step: "06",
-    title: "Propose action for approval",
-    description:
-      "If the workflow requires it, the copilot proposes an action (a report, an export, a flow) for a human to approve.",
-    icon: CheckCircle2,
-  },
-];
-
-/* Delivery principles — kept available even if not currently used on
-   /copilot, in case they return to a future page. */
-export const COPILOT_ORIGIN_BLOCKS: {
-  title: string;
-  description: string;
-  icon: LucideIcon;
-}[] = [
-  {
-    title: "SAP integration scope",
-    description:
-      "A controlled design for connecting FI, CO, MM, SD, HCM, and related processes to external systems.",
-    icon: Boxes,
-  },
-  {
-    title: "Delivery discipline",
-    description:
-      "The implementation model uses a prioritized backlog, QA, controlled deployment, documentation, and support.",
-    icon: Workflow,
-  },
-  {
-    title: "Enterprise integrations",
-    description:
-      "Compatible patterns include Boomi, HCI/CPI, PI/PO, IBM WebSphere, and MQ; the copilot uses governed channels instead of replacing them.",
-    icon: Plug,
-  },
-  {
-    title: "Databases & reporting",
-    description:
-      "The connection scope can include SQL Server, Oracle, PostgreSQL, MySQL, DB2, Sybase, and SAP HANA with source references.",
-    icon: Database,
-  },
-  {
-    title: "Support & governance",
-    description:
-      "The operating model can incorporate Solution Manager, ITSM, Change, and Test Management controls.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Applied AI",
-    description:
-      "Design patterns include corporate RAG, governed ML, and internal assistants grounded on authorized private data.",
-    icon: GitBranch,
   },
 ];
 
@@ -578,31 +329,31 @@ export const COPILOT_HERO_CARDS: { before: string; after: string }[] = [
 
 export const COPILOT_EXACTLY: { text: string; icon: LucideIcon }[] = [
   {
-    text: "Ask across systems — SAP, databases, APIs, and reports from one place.",
+    text: "Bring together authorized context currently scattered across systems, files, and teams.",
     icon: Database,
   },
   {
-    text: "Validate data inconsistencies between sources with explicit business rules.",
+    text: "Surface differences, changes, risks, and pending work that require review.",
     icon: AlertTriangle,
   },
   {
-    text: "Generate traceable reports with citations back to the source.",
+    text: "Present answers, reports, and findings with verifiable evidence.",
     icon: FileBarChart,
   },
   {
-    text: "Prepare drafts and summaries (emails, executive briefs, action plans).",
+    text: "Prepare summaries, reports, and follow-up for team review.",
     icon: Layers,
   },
   {
-    text: "Connect SAP, databases, APIs, and reporting under one controlled surface.",
+    text: "Frame options and criteria so the accountable person can compare them.",
     icon: Network,
   },
   {
-    text: "Request approval before sensitive actions — never executes blind.",
+    text: "Get the next step ready and request approval before any sensitive action.",
     icon: ShieldCheck,
   },
   {
-    text: "Leave an audit trail for every relevant step (user, source, action, time).",
+    text: "Keep the request, decision, authorization, and outcome connected.",
     icon: GitBranch,
   },
 ];

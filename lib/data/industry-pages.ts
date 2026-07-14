@@ -48,7 +48,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Cash-flow and margin dashboards.",
     ],
     copilot:
-      "Enterprise Copilot is a strong fit for finance: it can answer closing questions, surface unreconciled entries, and prepare variance summaries — all with traceability and approval before any action.",
+      "Enterprise Copilot can support finance queries, surface unreconciled entries, and prepare variance summaries for review before any action.",
     primaryCta: { label: "Talk about this case", href: "/contact?topic=finance" },
     secondaryCta: { label: "Explore Enterprise Copilot", href: "/copilot" },
   },
@@ -98,7 +98,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Bottleneck and cycle-time analytics.",
     ],
     copilot:
-      "Enterprise Copilot can answer operational queries in real time — status, last successful run, error context — and prepare next-step actions for the operator to approve.",
+      "Enterprise Copilot can present current operational status and available error context, then prepare actions for operator approval.",
     primaryCta: { label: "Talk about this case", href: "/contact?topic=operations" },
     secondaryCta: { label: "Explore Enterprise Copilot", href: "/copilot" },
   },
@@ -148,7 +148,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Position / cost-center alignment report.",
     ],
     copilot:
-      "Enterprise Copilot answers HR questions — headcount, absences, organization — directly, with permissions inherited from the source system and an audit log for every query.",
+      "Enterprise Copilot helps answer HR questions, summarize pending work, and prepare requests for accountable review.",
     primaryCta: { label: "Talk about this case", href: "/contact?topic=hr" },
     secondaryCta: { label: "Explore Enterprise Copilot", href: "/copilot" },
   },
@@ -198,7 +198,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Board-pack template per cycle.",
     ],
     copilot:
-      "Enterprise Copilot uses the same semantic layer to answer executive questions in plain language — with traceability, not just a number on a dashboard.",
+      "Enterprise Copilot helps answer executive questions, explain variances, and present evidence using the same agreed business definitions.",
     primaryCta: { label: "Talk about this case", href: "/contact?topic=reporting" },
     secondaryCta: { label: "Explore Enterprise Copilot", href: "/copilot" },
   },
@@ -249,7 +249,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Legacy decommissioning roadmap.",
     ],
     copilot:
-      "Enterprise Copilot uses the same integration surfaces — same contracts, same monitoring, same audit — to query and act across SAP and non-SAP systems.",
+      "Enterprise Copilot helps review process status across SAP and other platforms, explain differences, and prepare controlled follow-up.",
     primaryCta: { label: "Review your SAP integrations", href: "/contact?topic=sap" },
     secondaryCta: { label: "Explore Enterprise Copilot", href: "/copilot" },
   },
@@ -377,7 +377,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Bronze / Silver / Gold layered data foundation.",
       "End-to-end lineage from KPI to source event.",
       "Compliance-grade audit evidence for governance reviews.",
-      "Governed data foundation feeding Enterprise Copilot.",
+      "Governed context for verifiable answers and decisions with Enterprise Copilot.",
     ],
     capabilities: [
       "Common dictionary",
@@ -398,7 +398,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Audit-ready evidence pack per governance review.",
     ],
     copilot:
-      "Enterprise Copilot enforces governance at query time — every answer references the dictionary, the rules, and the source — and the audit log captures every interaction.",
+      "Enterprise Copilot helps answer with agreed definitions, show the available evidence, and preserve the context needed for review.",
     primaryCta: { label: "Talk about this case", href: "/contact?topic=governance" },
     secondaryCta: { label: "Explore Enterprise Copilot", href: "/copilot" },
   },

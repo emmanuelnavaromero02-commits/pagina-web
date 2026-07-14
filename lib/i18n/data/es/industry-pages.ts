@@ -148,7 +148,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Informe de alineación de posición/centros de costos.",
     ],
     copilot:
-      "Enterprise Copilot puede apoyar consultas de recursos humanos con permisos heredados del sistema fuente y un registro de actividad configurable.",
+      "Enterprise Copilot ayuda a responder consultas de recursos humanos, resumir pendientes y preparar solicitudes para revisión responsable.",
     primaryCta: { label: "Hablar de este caso", href: "/contact?topic=hr" },
     secondaryCta: { label: "Explorar Enterprise Copilot", href: "/copilot" },
   },
@@ -198,7 +198,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Plantilla del paquete para el consejo por ciclo.",
     ],
     copilot:
-      "Enterprise Copilot utiliza la misma capa semántica para responder preguntas ejecutivas en lenguaje natural y con trazabilidad, no solo con una cifra en un panel.",
+      "Enterprise Copilot ayuda a responder preguntas ejecutivas, explicar variaciones y presentar evidencia con las mismas definiciones de negocio acordadas.",
     primaryCta: { label: "Hablar de este caso", href: "/contact?topic=reporting" },
     secondaryCta: { label: "Explorar Enterprise Copilot", href: "/copilot" },
   },
@@ -249,7 +249,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Hoja de ruta para retirar sistemas heredados.",
     ],
     copilot:
-      "Enterprise Copilot utiliza las mismas interfaces de integración —con los mismos contratos, monitoreo y auditoría— para consultar y actuar en sistemas SAP y no SAP.",
+      "Enterprise Copilot ayuda a consultar el estado de procesos entre SAP y otras plataformas, explicar diferencias y preparar seguimientos controlados.",
     primaryCta: { label: "Revise sus integraciones SAP", href: "/contact?topic=sap" },
     secondaryCta: { label: "Explorar Enterprise Copilot", href: "/copilot" },
   },
@@ -377,7 +377,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Base de datos en capas Bronze / Silver / Gold.",
       "Linaje de un extremo a otro desde KPI hasta el evento de origen.",
       "Evidencia trazable para revisiones de cumplimiento y gobernanza.",
-      "Base de datos gobernada alimentando Enterprise Copilot.",
+      "Contexto gobernado para respuestas y decisiones verificables con Enterprise Copilot.",
     ],
     capabilities: [
       "Diccionario común",
@@ -398,7 +398,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Paquete de evidencia listo para auditoría por revisión de gobernanza.",
     ],
     copilot:
-      "Enterprise Copilot aplica la gobernanza en el momento de la consulta (cada respuesta hace referencia al diccionario, las reglas y la fuente) y el registro de auditoría captura cada interacción.",
+      "Enterprise Copilot ayuda a responder con definiciones acordadas, mostrar la evidencia disponible y conservar el contexto necesario para revisión.",
     primaryCta: { label: "Hablar de este caso", href: "/contact?topic=governance" },
     secondaryCta: { label: "Explorar Enterprise Copilot", href: "/copilot" },
   },

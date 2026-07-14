@@ -99,7 +99,7 @@ export const EXPERIENCE_ROLES: {
   {
     title: "Applied AI",
     description:
-      "Internal assistants, RAG over private data, and operational copilots designed for traceability.",
+      "Internal assistants and operational copilots focused on evidence, human review, and traceability.",
     icon: Brain,
   },
   {
