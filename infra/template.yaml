@@ -233,7 +233,7 @@ Resources:
                 - true
             website:
               type: string
-              maxLength: 0
+              maxLength: 200
             formStartedAt:
               type: integer
               minimum: 1

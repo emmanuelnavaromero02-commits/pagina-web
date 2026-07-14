@@ -55,4 +55,8 @@ describe("contact infrastructure controls", () => {
     assert.match(template, /ValidateBody: true/);
     assert.doesNotMatch(template, /FailOnWarnings: true/);
   });
+
+  it("lets Lambda classify a populated honeypot as a 403 antispam response", () => {
+    assert.match(template, /website:\s+type: string\s+maxLength: 200/);
+  });
 });
