@@ -64,4 +64,12 @@ describe("contact infrastructure controls", () => {
     assert.match(template, /Format: cjs/);
     assert.match(template, /\.js=\.cjs/);
   });
+
+  it("authorizes both SES resources referenced by each send", () => {
+    assert.match(template, /identity\/\$\{SesIdentityDomain\}/);
+    assert.match(
+      template,
+      /configuration-set\/\$\{SesConfigurationSet\}/,
+    );
+  });
 });

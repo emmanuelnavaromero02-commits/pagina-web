@@ -280,7 +280,9 @@ Resources:
               - Sid: SendFromVerifiedIdentity
                 Effect: Allow
                 Action: ses:SendEmail
-                Resource: !Sub arn:${AWS::Partition}:ses:${AWS::Region}:${AWS::AccountId}:identity/${SesIdentityDomain}
+                Resource:
+                  - !Sub arn:${AWS::Partition}:ses:${AWS::Region}:${AWS::AccountId}:identity/${SesIdentityDomain}
+                  - !Sub arn:${AWS::Partition}:ses:${AWS::Region}:${AWS::AccountId}:configuration-set/${SesConfigurationSet}
                 Condition:
                   StringEquals:
                     ses:FromAddress: !Ref SenderEmail
