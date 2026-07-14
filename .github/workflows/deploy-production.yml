@@ -373,6 +373,7 @@ jobs:
             --header "Content-Type: application/json" \
             --data '{}' \
             "$EXECUTE_ENDPOINT")"
+          echo "Invalid request smoke returned HTTP $invalid_status."
           test "$invalid_status" = "400"
 
           if [ "$SES_ACCESS_MODE" = "sandbox" ]; then sleep 2; fi
@@ -382,8 +383,9 @@ jobs:
             --request POST \
             --header "Origin: $SITE_ORIGIN" \
             --header "Content-Type: application/json" \
-            --data '{"name":"Prueba de producción","company":"7 Business Solutions","email":"ventas@7businesssolutions.com","service":"initial-diagnosis","message":"Prueba controlada del filtro antispam.","topic":"operations","locale":"es","privacyAccepted":true,"website":"robot","formStartedAt":0}' \
+            --data '{"name":"Prueba de producción","company":"7 Business Solutions","email":"ventas@7businesssolutions.com","service":"initial-diagnosis","message":"Prueba controlada del filtro antispam.","topic":"operations","locale":"es","privacyAccepted":true,"website":"robot","formStartedAt":1}' \
             "$EXECUTE_ENDPOINT")"
+          echo "Honeypot smoke returned HTTP $honeypot_status."
           test "$honeypot_status" = "403"
 
           if [ "$SES_ACCESS_MODE" = "sandbox" ]; then sleep 2; fi
@@ -396,6 +398,7 @@ jobs:
             --header "Content-Type: application/json" \
             --data "{\"name\":\"Prueba de producción\",\"company\":\"7 Business Solutions\",\"email\":\"ventas@7businesssolutions.com\",\"service\":\"software-factory\",\"message\":\"Prueba automatizada del formulario antes del corte DNS.\",\"topic\":\"software\",\"locale\":\"es\",\"privacyAccepted\":true,\"website\":\"\",\"formStartedAt\":$started_at}" \
             "$EXECUTE_ENDPOINT")"
+          echo "Delivery smoke returned HTTP $sent_status."
           test "$sent_status" = "200"
 
       - name: Publish DNS handoff
