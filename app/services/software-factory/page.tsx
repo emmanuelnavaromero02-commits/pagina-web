@@ -1,18 +1,19 @@
-import type { Metadata } from "next";
 import { ContactCTA } from "@/components/home/ContactCTA";
 import { Deliverables } from "@/components/services/Deliverables";
 import { ServiceHero } from "@/components/services/ServiceHero";
 import { SoftwareFactoryBlocks } from "@/components/services/SoftwareFactoryBlocks";
 import { WhenToUse } from "@/components/services/WhenToUse";
 import { SERVICE_DETAILS } from "@/lib/site-data";
+import { l } from "@/lib/i18n/config";
+import { createPageMetadata } from "@/lib/seo";
 
 const detail = SERVICE_DETAILS["software-factory"];
 
-export const metadata: Metadata = {
-  title: `${detail.title} · Senior dedicated teams`,
+export const metadata = createPageMetadata({
+  path: "/services/software-factory",
+  title: `${detail.title} · ${l("Equipos senior dedicados", "Senior dedicated teams")}`,
   description: detail.intro,
-  alternates: { canonical: "/services/software-factory" },
-};
+});
 
 export default function SoftwareFactoryPage() {
   return (
@@ -28,7 +29,7 @@ export default function SoftwareFactoryPage() {
       <Deliverables
         slug="software-factory"
         related={{
-          label: "Explore Enterprise Copilot",
+          label: l("Conocer Enterprise Copilot", "Explore Enterprise Copilot"),
           href: "/copilot",
         }}
       />

@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { cn } from "@/lib/utils";
+import { l } from "@/lib/i18n/config";
 
 type Metric = {
   title: string;
@@ -18,58 +19,58 @@ type Metric = {
 
 const METRICS: Metric[] = [
   {
-    title: "Manual Report Preparation",
-    before: "6–8 Hours",
-    after: "Minutes",
-    impact: "Less Manual Consolidation",
+    title: l("Preparación de informes", "Report preparation"),
+    before: l("Consolidación manual", "Manual consolidation"),
+    after: l("Borrador con fuentes", "Source-backed draft"),
+    impact: l("Menos pasos manuales", "Fewer manual steps"),
     startPct: 100,
     endPct: 18,
   },
   {
-    title: "Audit Evidence Retrieval",
-    before: "1–2 Days",
-    after: "Minutes with Traceable Sources",
-    impact: "Faster Audit Response",
+    title: l("Obtención de evidencia de auditoría", "Audit evidence retrieval"),
+    before: l("Búsqueda entre sistemas", "Cross-system search"),
+    after: l("Fuentes trazables", "Traceable sources"),
+    impact: l("Respuesta estructurada", "Structured response"),
     startPct: 100,
     endPct: 14,
   },
   {
-    title: "Financial Reconciliation Review",
-    before: "2–3 Days",
-    after: "Guided Review",
-    impact: "Less Rework, Faster Validation",
+    title: l("Revisión de conciliación financiera", "Financial reconciliation review"),
+    before: l("Cruce manual", "Manual matching"),
+    after: l("Revisión guiada", "Guided review"),
+    impact: l("Validación trazable", "Traceable validation"),
     startPct: 100,
     endPct: 22,
   },
   {
-    title: "Operational Incident Research",
-    before: "Hours or a Full Day",
-    after: "Minutes with Cross-System Evidence",
-    impact: "Faster Root-Cause Visibility",
+    title: l("Análisis de incidentes operativos", "Operational incident analysis"),
+    before: l("Consulta fuente por fuente", "Source-by-source research"),
+    after: l("Evidencia entre sistemas", "Cross-system evidence"),
+    impact: l("Contexto centralizado", "Centralized context"),
     startPct: 100,
     endPct: 20,
   },
   {
-    title: "Analyst Onboarding",
-    before: "Months Learning Tables and Rules",
-    after: "Guided Source Discovery",
-    impact: "Lower Learning Curve",
+    title: l("Incorporación de analistas", "Analyst onboarding"),
+    before: l("Documentación dispersa", "Scattered documentation"),
+    after: l("Exploración guiada", "Guided discovery"),
+    impact: l("Acceso contextual", "Contextual access"),
     startPct: 100,
     endPct: 28,
   },
   {
-    title: "Executive Reporting",
-    before: "Manual Decks and Spreadsheets",
-    after: "Draft Reports with Evidence",
-    impact: "Faster Decision Support",
+    title: l("Informes ejecutivos", "Executive reporting"),
+    before: l("Presentaciones y hojas manuales", "Manual decks and spreadsheets"),
+    after: l("Borradores con evidencia", "Evidence-backed drafts"),
+    impact: l("Soporte verificable", "Verifiable support"),
     startPct: 100,
     endPct: 24,
   },
   {
-    title: "Process Control",
-    before: "Manual Follow-Up",
-    after: "Traceable Tasks, Approvals, and Logs",
-    impact: "Better Operational Control",
+    title: l("Control de procesos", "Process control"),
+    before: l("Seguimiento manual", "Manual follow-up"),
+    after: l("Tareas, aprobaciones y registros", "Tasks, approvals, and logs"),
+    impact: l("Control trazable", "Traceable control"),
     startPct: 100,
     endPct: 18,
   },
@@ -108,9 +109,9 @@ export function AnimatedImpactMetrics() {
   return (
     <Section className="bg-white" id="metrics">
       <SectionHeader
-        eyebrow="Operational Impact, Visualized"
-        title="Manual hours collapse into traceable minutes."
-        description="Seven indicative scenarios showing how Enterprise Copilot reduces manual work when it is connected to real systems, data, permissions, and rules."
+        eyebrow={l("Flujos operativos, visualizados", "Operational workflows, visualized")}
+        title={l("Del proceso manual a un flujo asistido y trazable", "From a manual process to an assisted, traceable workflow")}
+        description={l("Siete escenarios ilustrativos de cómo Enterprise Copilot puede apoyar el trabajo al conectarse con sistemas, datos, permisos y reglas.", "Seven illustrative scenarios of how Enterprise Copilot can support work when connected to systems, data, permissions, and rules.")}
       />
 
       <div
@@ -136,7 +137,7 @@ export function AnimatedImpactMetrics() {
               <div className="mt-4 space-y-1.5 text-xs">
                 <div className="flex items-center gap-2">
                   <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-500">
-                    Before
+                    {l("Antes", "Before")}
                   </span>
                   <span className="inline-flex items-center rounded-full border border-ink-200 bg-ink-50 px-2.5 py-0.5 font-medium text-ink-700 line-through decoration-1 decoration-ink-400">
                     {m.before}
@@ -144,7 +145,7 @@ export function AnimatedImpactMetrics() {
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-700">
-                    With Copilot
+                    {l("Con Copilot", "With Copilot")}
                   </span>
                   <span className="inline-flex items-center rounded-full border border-brand-200 bg-brand-50 px-2.5 py-0.5 font-semibold text-brand-800">
                     {m.after}
@@ -154,10 +155,7 @@ export function AnimatedImpactMetrics() {
 
               <div className="mt-5">
                 <div className="flex items-baseline justify-between text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-500">
-                  <span>Manual Effort Baseline</span>
-                  <span className="tabular-nums text-ink-700">
-                    {Math.round(width)}%
-                  </span>
+                  <span>{l("Representación ilustrativa del flujo", "Illustrative workflow representation")}</span>
                 </div>
                 <div className="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-ink-100">
                   <div
@@ -183,9 +181,7 @@ export function AnimatedImpactMetrics() {
       </div>
 
       <p className="mt-8 max-w-3xl text-xs leading-relaxed text-ink-500">
-        Indicative scenarios. Actual impact depends on connected sources,
-        data quality, permissions, process complexity, and pilot scope.
-        Estimates are for commercial discussion — editable after diagnosis.
+        {l("Escenarios ilustrativos, sin porcentajes ni resultados garantizados. El impacto real se valida durante el diagnóstico y depende de las fuentes, los datos, los permisos, el proceso y el alcance del piloto.", "Illustrative scenarios with no guaranteed percentages or results. Actual impact is validated during diagnosis and depends on sources, data, permissions, process, and pilot scope.")}
       </p>
     </Section>
   );

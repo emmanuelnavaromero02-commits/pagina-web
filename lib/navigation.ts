@@ -204,7 +204,7 @@ export const NAVIGATION: NavItem[] = [
           {
             label: "Overview",
             href: "/copilot",
-            description: "From manual work to traceable answers in minutes.",
+            description: "From manual work to traceable, governed answers.",
           },
           {
             label: "Operational impact",

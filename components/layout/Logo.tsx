@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SITE } from "@/lib/constants";
+import { l } from "@/lib/i18n/config";
 import { cn } from "@/lib/utils";
 
 type LogoProps = {
@@ -17,7 +18,7 @@ export function Logo({ className, variant = "light" }: LogoProps) {
         isDark ? "text-white" : "text-ink-950",
         className,
       )}
-      aria-label={`${SITE.name} — Home`}
+      aria-label={`${SITE.name} — ${l("Inicio", "Home")}`}
     >
       <span
         aria-hidden

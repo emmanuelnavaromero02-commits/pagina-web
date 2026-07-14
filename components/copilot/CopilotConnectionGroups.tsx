@@ -1,13 +1,14 @@
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { COPILOT_CONNECTION_GROUPS } from "@/lib/data/copilot";
+import { l } from "@/lib/i18n/config";
 
 export function CopilotConnectionGroups() {
   return (
     <Section id="capabilities-by-connection" className="bg-ink-50">
       <SectionHeader
-        eyebrow="Capabilities by connection"
-        title="What the copilot can reach — and how it integrates"
-        description="Connected to the platforms the client already operates, respecting permissions and traceability. Each block shows the source type and the technologies we have already shipped on."
+        eyebrow={l("Capacidades por conexión", "Capabilities by connection")}
+        title={l("A qué puede acceder el copilot y cómo se integra", "What the copilot can reach — and how it integrates")}
+        description={l("Se conecta con las plataformas que el cliente ya opera, respetando permisos y trazabilidad. Cada bloque muestra el tipo de fuente y tecnologías compatibles.", "It connects to platforms the client already operates, respecting permissions and traceability. Each block shows the source type and compatible technologies.")}
       />
       <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {COPILOT_CONNECTION_GROUPS.map((g) => {

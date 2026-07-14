@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import {
   Activity,
   ArrowRight,
@@ -13,66 +12,102 @@ import { LinkButton } from "@/components/ui/Button";
 import { ContactCTA } from "@/components/home/ContactCTA";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { ServiceHero } from "@/components/services/ServiceHero";
+import { l } from "@/lib/i18n/config";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Request a pilot · Enterprise Copilot",
-  description:
-    "Scoped Enterprise Copilot pilot: what we connect, the use cases we can test, how we measure impact, and the next step toward a roadmap.",
-  alternates: { canonical: "/copilot/pilot" },
-};
+export const metadata = createPageMetadata({
+  path: "/copilot/pilot",
+  title: l(
+    "Solicitar un piloto · Enterprise Copilot",
+    "Request a pilot · Enterprise Copilot",
+  ),
+  description: l(
+    "Alcance de un piloto de Enterprise Copilot: conexiones, caso de uso, criterios de evaluación y siguiente paso hacia una hoja de ruta.",
+    "Scope of an Enterprise Copilot pilot: connections, use case, evaluation criteria, and the next step toward a roadmap.",
+  ),
+});
 
 const CONNECTS = [
   {
-    title: "One operational source",
-    description:
-      "Typically SAP (FI/CO/HCM), a corporate database, or one critical internal API.",
+    title: l("Una fuente operativa", "One operational source"),
+    description: l(
+      "Por ejemplo, SAP (FI/CO/HCM), una base de datos corporativa o una API interna crítica.",
+      "For example, SAP (FI/CO/HCM), a corporate database, or a critical internal API.",
+    ),
     icon: Cable,
   },
   {
-    title: "Business rules and validations",
-    description:
-      "The rules that turn raw data into a decision — closing rules, reconciliation logic, HR validations.",
+    title: l("Reglas y validaciones de negocio", "Business rules and validations"),
+    description: l(
+      "Reglas que convierten datos en criterios de decisión: cierre, conciliación o validaciones de recursos humanos.",
+      "Rules that turn data into decision criteria: closing, reconciliation, or HR validations.",
+    ),
     icon: ShieldCheck,
   },
   {
-    title: "Reporting surface",
-    description:
-      "An existing report or dashboard the team uses today, used as the comparison baseline.",
+    title: l("Informe de referencia", "Reference report"),
+    description: l(
+      "Un informe o panel que el equipo ya utiliza y que sirve como base de comparación.",
+      "An existing report or dashboard used by the team as the comparison baseline.",
+    ),
     icon: FileBarChart,
   },
 ];
 
 const USE_CASES = [
-  "Assisted monthly closing or reconciliation.",
-  "Headcount, absences, or organizational queries over SAP HCM / SuccessFactors.",
-  "Executive report preparation with traceability to source.",
-  "Operational incident research across multiple systems.",
-  "Helpdesk first-line response over corporate documentation.",
+  l(
+    "Cierre mensual o conciliación asistida.",
+    "Assisted monthly closing or reconciliation.",
+  ),
+  l(
+    "Consultas de plantilla, ausencias u organización sobre SAP HCM o SuccessFactors.",
+    "Headcount, absence, or organizational queries across SAP HCM or SuccessFactors.",
+  ),
+  l(
+    "Preparación de informes ejecutivos con trazabilidad a la fuente.",
+    "Executive report preparation with source traceability.",
+  ),
+  l(
+    "Investigación de incidentes operativos en varios sistemas.",
+    "Operational incident research across multiple systems.",
+  ),
+  l(
+    "Primera respuesta de soporte basada en documentación corporativa.",
+    "First-line support based on corporate documentation.",
+  ),
 ];
 
 const MEASURE = [
   {
-    title: "Manual hours reduced",
-    description:
-      "Time the team used to spend on the targeted task, before vs after.",
+    title: l("Variación del trabajo manual", "Change in manual effort"),
+    description: l(
+      "Comparación del tiempo dedicado a la tarea antes y durante el piloto.",
+      "Comparison of the time spent on the task before and during the pilot.",
+    ),
     icon: Activity,
   },
   {
-    title: "Cycle-time delta",
-    description:
-      "How long it now takes from question to traceable, approved answer.",
+    title: l("Variación del tiempo de ciclo", "Cycle-time change"),
+    description: l(
+      "Tiempo desde la consulta hasta una respuesta trazable y aprobada.",
+      "Time from a query to a traceable, approved answer.",
+    ),
     icon: Compass,
   },
   {
-    title: "Audit evidence ready",
-    description:
-      "Whether the audit log produced is exportable and complete.",
+    title: l("Evidencia de auditoría", "Audit evidence"),
+    description: l(
+      "Evaluación de si el registro generado cumple el alcance definido y puede exportarse.",
+      "Assessment of whether the generated record meets the defined scope and can be exported.",
+    ),
     icon: CheckCircle2,
   },
   {
-    title: "Operational fit",
-    description:
-      "How the pilot fits into the team's existing workflow — adoption is part of the measurement.",
+    title: l("Encaje operativo", "Operational fit"),
+    description: l(
+      "Cómo se integra el piloto en el flujo existente y qué barreras de adopción aparecen.",
+      "How the pilot fits into the existing workflow and which adoption barriers emerge.",
+    ),
     icon: Target,
   },
 ];
@@ -81,16 +116,31 @@ export default function CopilotPilotPage() {
   return (
     <>
       <ServiceHero
-        eyebrow="Enterprise Copilot · Pilot"
-        title="Run a scoped pilot in your own systems."
-        description="In a focused pilot we connect one operational source, define one use case, and measure how much manual work can be reduced — with traceability and human approval before any action."
+        eyebrow={l(
+          "Enterprise Copilot · Piloto",
+          "Enterprise Copilot · Pilot",
+        )}
+        title={l(
+          "Pruebe un alcance definido en sus propios sistemas.",
+          "Test a defined scope in your own systems.",
+        )}
+        description={l(
+          "Un piloto conecta una fuente operativa, delimita un caso de uso y evalúa el esfuerzo manual, con trazabilidad y aprobación humana antes de las acciones definidas como críticas.",
+          "A pilot connects one operational source, scopes one use case, and evaluates manual effort, with traceability and human approval before actions defined as critical.",
+        )}
       />
 
       <Section className="bg-white">
         <SectionHeader
-          eyebrow="What gets connected"
-          title="A pilot is intentionally small."
-          description="One source, a clear use case, an existing report as comparison. We do not boil the ocean."
+          eyebrow={l("Qué se conecta", "What gets connected")}
+          title={l(
+            "Un piloto tiene un alcance acotado.",
+            "A pilot has a focused scope.",
+          )}
+          description={l(
+            "Una fuente, un caso de uso claro y un informe existente como referencia.",
+            "One source, a clear use case, and an existing report as a reference.",
+          )}
         />
         <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {CONNECTS.map((c) => {
@@ -117,9 +167,12 @@ export default function CopilotPilotPage() {
 
       <Section className="bg-ink-50">
         <SectionHeader
-          eyebrow="Use cases we can test"
-          title="Pick one, not five"
-          description="The point of a pilot is to learn fast on a real case — not to demo every feature."
+          eyebrow={l("Casos que se pueden probar", "Use cases to test")}
+          title={l("Elegir un caso concreto", "Choose one focused case")}
+          description={l(
+            "El objetivo es evaluar un caso operativo definido, no demostrar todas las funciones.",
+            "The goal is to evaluate a defined operational case, not demonstrate every feature.",
+          )}
         />
         <ul className="mt-10 grid gap-3 sm:grid-cols-2">
           {USE_CASES.map((u) => (
@@ -136,9 +189,12 @@ export default function CopilotPilotPage() {
 
       <Section className="bg-white">
         <SectionHeader
-          eyebrow="What we measure"
-          title="Concrete signals, not vague feelings"
-          description="The pilot ends with measurable signals on whether scaling Enterprise Copilot makes sense for the operation."
+          eyebrow={l("Qué se evalúa", "What we evaluate")}
+          title={l("Criterios concretos", "Concrete criteria")}
+          description={l(
+            "El piloto aporta información medible para decidir si tiene sentido ampliar Enterprise Copilot en la operación.",
+            "The pilot provides measurable information to decide whether expanding Enterprise Copilot in the operation makes sense.",
+          )}
         />
         <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {MEASURE.map((m) => {
@@ -163,9 +219,10 @@ export default function CopilotPilotPage() {
         </ul>
 
         <p className="mt-8 max-w-3xl text-xs leading-relaxed text-ink-500">
-          Typical pilots can be scoped for 2–4 weeks. The actual window depends
-          on connected sources, data access, permissions, and complexity. The
-          range is a planning reference for the diagnosis — not a guarantee.
+          {l(
+            "El calendario se estima después del diagnóstico y depende de las fuentes, el acceso a datos, los permisos y la complejidad. La propuesta concreta el alcance, los supuestos y los criterios de aceptación.",
+            "The schedule is estimated after diagnosis and depends on sources, data access, permissions, and complexity. The proposal defines the scope, assumptions, and acceptance criteria.",
+          )}
         </p>
       </Section>
 
@@ -177,19 +234,20 @@ export default function CopilotPilotPage() {
           />
           <div className="relative max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-400">
-              Next step
+              {l("Siguiente paso", "Next step")}
             </p>
             <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-              Ready to scope a pilot?
+              {l("¿Definimos el alcance del piloto?", "Ready to scope a pilot?")}
             </h2>
             <p className="mt-4 text-base leading-relaxed text-ink-200">
-              Tell us the source, the use case, and the existing report we
-              should use as baseline. We come back with a focused pilot
-              proposal — including timeline, scope, and what we will measure.
+              {l(
+                "Indíquenos la fuente, el caso de uso y el informe de referencia. Prepararemos una propuesta con calendario, alcance y criterios de evaluación.",
+                "Tell us the source, use case, and reference report. We will prepare a proposal with the schedule, scope, and evaluation criteria.",
+              )}
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <LinkButton href="/contact?topic=copilot-pilot" size="lg">
-                Request a pilot
+              <LinkButton href="/contact?topic=copilot" size="lg">
+                {l("Solicitar un piloto", "Request a pilot")}
                 <ArrowRight className="h-4 w-4" />
               </LinkButton>
               <LinkButton
@@ -198,7 +256,7 @@ export default function CopilotPilotPage() {
                 variant="outline"
                 className="border-white/20 bg-white/5 text-white hover:bg-white/10"
               >
-                See the product
+                {l("Ver el producto", "See the product")}
               </LinkButton>
             </div>
           </div>

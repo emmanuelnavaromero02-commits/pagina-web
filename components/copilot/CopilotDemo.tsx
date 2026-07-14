@@ -1,13 +1,14 @@
 import { Sparkles, UserCircle2 } from "lucide-react";
 import { Section, SectionHeader } from "@/components/ui/Section";
+import { l } from "@/lib/i18n/config";
 
 const RESPONSE_BADGES = [
   { label: "SAP FI", tone: "brand" as const },
-  { label: "Bank", tone: "brand" as const },
-  { label: "Validation", tone: "brand" as const },
-  { label: "Draft", tone: "brand" as const },
-  { label: "Approval required", tone: "accent" as const },
-  { label: "Audit log", tone: "neutral" as const },
+  { label: l("Banco", "Bank"), tone: "brand" as const },
+  { label: l("Validación", "Validation"), tone: "brand" as const },
+  { label: l("Borrador", "Draft"), tone: "brand" as const },
+  { label: l("Requiere aprobación", "Approval required"), tone: "accent" as const },
+  { label: l("Registro de auditoría", "Audit log"), tone: "neutral" as const },
 ];
 
 const TONE_CLASSES: Record<"brand" | "accent" | "neutral", string> = {
@@ -20,9 +21,9 @@ export function CopilotDemo() {
   return (
     <Section className="bg-ink-50">
       <SectionHeader
-        eyebrow="Example interaction"
-        title="A question that used to open five systems"
-        description="What happens when a finance question touches SAP, the bank, and validation rules without the user ever leaving the copilot."
+        eyebrow={l("Interacción de ejemplo", "Example interaction")}
+        title={l("Una consulta que reúne varios sistemas", "One query that brings multiple systems together")}
+        description={l("Ejemplo de una consulta financiera que combina SAP, el banco y reglas de validación sin salir del copilot.", "Example of a finance query combining SAP, the bank, and validation rules without leaving the copilot.")}
       />
 
       <div className="mx-auto mt-12 max-w-3xl space-y-4">
@@ -30,12 +31,11 @@ export function CopilotDemo() {
           <div className="flex items-center gap-2">
             <UserCircle2 className="h-4 w-4 text-ink-500" />
             <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-500">
-              User · finance
+              {l("Usuario · finanzas", "User · finance")}
             </p>
           </div>
           <p className="mt-3 text-sm leading-relaxed text-ink-800">
-            “Show me the unreconciled entries from the March closing, cross
-            SAP FI with the bank, and prepare a summary for finance.”
+            {l("«Muéstrame las partidas no conciliadas del cierre de marzo, cruza SAP FI con el banco y prepara un resumen para finanzas»." , "“Show me the unreconciled entries from the March closing, cross SAP FI with the bank, and prepare a summary for finance.”")}
           </p>
         </article>
 
@@ -53,15 +53,14 @@ export function CopilotDemo() {
             </p>
           </div>
           <p className="relative mt-3 text-sm leading-relaxed text-ink-800">
-            I found{" "}
-            <strong className="text-ink-950">3 unreconciled entries</strong>{" "}
-            between SAP FI and the bank statement for the March closing. I
-            prepared an{" "}
-            <strong className="text-ink-950">executive summary</strong> and a
-            proposed review.
+            {l("Encontré ", "I found ")}
+            <strong className="text-ink-950">{l("3 partidas no conciliadas", "3 unreconciled entries")}</strong>{" "}
+            {l("entre SAP FI y el estado de cuenta bancario del cierre de marzo. Preparé un ", "between SAP FI and the bank statement for the March closing. I prepared an ")}
+            <strong className="text-ink-950">{l("resumen ejecutivo", "executive summary")}</strong>{" "}
+            {l("y una propuesta de revisión.", "and a proposed review.")}
           </p>
           <p className="relative mt-2 text-sm leading-relaxed text-ink-700">
-            I will not apply any adjustment without approval.
+            {l("No aplicaré ningún ajuste sin aprobación.", "I will not apply any adjustment without approval.")}
           </p>
           <ul className="relative mt-4 flex flex-wrap gap-1.5">
             {RESPONSE_BADGES.map((b) => (
@@ -77,8 +76,7 @@ export function CopilotDemo() {
       </div>
 
       <p className="mx-auto mt-6 max-w-3xl text-xs leading-relaxed text-ink-500">
-        Illustrative example. Actual behavior depends on configuration,
-        connected sources, and business rules in each implementation.
+        {l("Ejemplo ilustrativo. El comportamiento real depende de la configuración, las fuentes conectadas y las reglas de negocio de cada implementación.", "Illustrative example. Actual behavior depends on configuration, connected sources, and business rules in each implementation.")}
       </p>
     </Section>
   );

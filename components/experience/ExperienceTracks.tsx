@@ -1,6 +1,7 @@
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { Tabs } from "@/components/ui/Tabs";
 import { EXPERIENCE_TRACKS } from "@/lib/data/experience";
+import { l } from "@/lib/i18n/config";
 
 export function ExperienceTracks() {
   const tabs = EXPERIENCE_TRACKS.map((track) => {
@@ -45,11 +46,21 @@ export function ExperienceTracks() {
   return (
     <Section className="bg-white">
       <SectionHeader
-        eyebrow="Experience fronts"
-        title="Four fronts where the team has already delivered value"
-        description="Pick the front that matters to you to see where we have real operational history."
+        eyebrow={l("Áreas de experiencia", "Experience areas")}
+        title={l(
+          "Cuatro áreas de capacidad del equipo",
+          "Four areas of team capability",
+        )}
+        description={l(
+          "Explore el área más relevante para conocer el enfoque de trabajo y las capacidades disponibles.",
+          "Explore the most relevant area to understand the working approach and available capabilities.",
+        )}
       />
-      <Tabs ariaLabel="Experience fronts" tabs={tabs} className="mt-10" />
+      <Tabs
+        ariaLabel={l("Áreas de experiencia", "Experience areas")}
+        tabs={tabs}
+        className="mt-10"
+      />
     </Section>
   );
 }

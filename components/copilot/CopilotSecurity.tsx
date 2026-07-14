@@ -1,14 +1,15 @@
 import { Card, CardDescription, CardTitle } from "@/components/ui/Card";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { COPILOT_SECURITY } from "@/lib/data/copilot";
+import { l } from "@/lib/i18n/config";
 
 export function CopilotSecurity() {
   return (
     <Section id="security" className="bg-white">
       <SectionHeader
-        eyebrow="Security & permissions"
-        title="Operational power with control"
-        description="Operates across real systems without losing governance. Inherited permissions, logged evidence, and human approval before any sensitive action."
+        eyebrow={l("Seguridad y permisos", "Security and permissions")}
+        title={l("Capacidad operativa con control", "Operational capability with control")}
+        description={l("Opera sobre sistemas reales con gobierno: permisos heredados, evidencia registrada y aprobación humana antes de acciones sensibles.", "It operates across real systems with governance: inherited permissions, logged evidence, and human approval before sensitive actions.")}
       />
       <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {COPILOT_SECURITY.map((s) => {

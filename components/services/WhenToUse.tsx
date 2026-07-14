@@ -2,6 +2,7 @@ import { CheckCircle2 } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import type { ServiceCard } from "@/lib/site-data";
 import { SERVICE_WHEN_TO_USE } from "@/lib/site-data";
+import { l } from "@/lib/i18n/config";
 
 type WhenToUseProps = {
   slug: ServiceCard["slug"];
@@ -22,7 +23,7 @@ export function WhenToUse({ slug, variant = "light" }: WhenToUseProps) {
                 : "text-xs font-semibold uppercase tracking-[0.18em] text-brand-700"
             }
           >
-            When it applies
+            {l("Cuándo aplica", "When it applies")}
           </p>
           <h2
             className={`mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl ${

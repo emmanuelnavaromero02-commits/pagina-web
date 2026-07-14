@@ -1,43 +1,38 @@
-import { Award, BookOpen, GraduationCap } from "lucide-react";
+import { Award, GraduationCap } from "lucide-react";
 import { Section, SectionHeader } from "@/components/ui/Section";
-import {
-  EXPERIENCE_CERTIFICATIONS,
-  EXPERIENCE_EDUCATION,
-} from "@/lib/data/experience";
+import { l } from "@/lib/i18n/config";
 
 export function ExperienceEducation() {
   return (
     <Section className="bg-ink-50">
       <SectionHeader
-        eyebrow="Technical foundation"
-        title="Education and certifications behind the team"
-        description="Not a résumé — the technical foundation we use to scope diagnostics, architectures, and commercial proposals."
+        eyebrow={l("Asignación de especialistas", "Specialist assignment")}
+        title={l(
+          "Capacidad adecuada para cada proyecto",
+          "The right capability for each project",
+        )}
+        description={l(
+          "No presentamos estudios ni certificaciones personales como credenciales corporativas. La experiencia y las credenciales relevantes se validan para el equipo propuesto antes de iniciar.",
+          "We do not present personal education or certifications as corporate credentials. Relevant experience and credentials are validated for the proposed team before work begins.",
+        )}
       />
 
-      <div className="mt-12 grid gap-6 lg:grid-cols-[1fr_1.6fr]">
+      <div className="mt-12 grid gap-6 lg:grid-cols-2">
         <article className="rounded-2xl border border-ink-100 bg-white p-7 shadow-soft">
           <div className="flex items-center gap-3">
             <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
               <GraduationCap className="h-5 w-5" />
             </span>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-700">
-              Education
+              {l("Competencia técnica", "Technical competence")}
             </p>
           </div>
-          <ul className="mt-5 space-y-4">
-            {EXPERIENCE_EDUCATION.map((edu) => (
-              <li key={edu.title}>
-                <p className="font-display text-base font-semibold text-ink-950">
-                  {edu.title}
-                </p>
-                {edu.subtitle ? (
-                  <p className="mt-1 text-sm leading-relaxed text-ink-600">
-                    {edu.subtitle}
-                  </p>
-                ) : null}
-              </li>
-            ))}
-          </ul>
+          <p className="mt-5 text-sm leading-relaxed text-ink-600">
+            {l(
+              "La propuesta identifica las funciones, capacidades y experiencia requeridas para cumplir el alcance acordado.",
+              "The proposal identifies the roles, capabilities, and experience required to deliver the agreed scope.",
+            )}
+          </p>
         </article>
 
         <article className="rounded-2xl border border-ink-100 bg-white p-7 shadow-soft">
@@ -46,23 +41,15 @@ export function ExperienceEducation() {
               <Award className="h-5 w-5" />
             </span>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-700">
-              SAP certifications
+              {l("Validación por proyecto", "Project-level validation")}
             </p>
           </div>
-          <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-            {EXPERIENCE_CERTIFICATIONS.map((c) => (
-              <li
-                key={c.title}
-                className="flex items-start gap-3 rounded-xl border border-ink-100 bg-ink-50/60 p-4 text-sm leading-relaxed text-ink-800"
-              >
-                <BookOpen className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" />
-                <div>
-                  <p className="font-medium text-ink-900">{c.title}</p>
-                  <p className="text-xs text-ink-500">{c.track}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <p className="mt-5 text-sm leading-relaxed text-ink-600">
+            {l(
+              "Cuando una certificación sea necesaria, se documentará en la propuesta y se verificará antes de asignar al especialista.",
+              "When a certification is required, it will be documented in the proposal and verified before assigning the specialist.",
+            )}
+          </p>
         </article>
       </div>
     </Section>

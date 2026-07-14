@@ -1,13 +1,14 @@
 import Link from "next/link";
-import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Github, Linkedin, Mail, Phone } from "lucide-react";
 import { SITE, hasContactInfo } from "@/lib/constants";
+import { l } from "@/lib/i18n/config";
 import { FOOTER_LINKS } from "@/lib/navigation";
 import { Logo } from "./Logo";
 
 export function Footer() {
   const year = new Date().getFullYear();
   const showContact = hasContactInfo();
-  const { email, phone, address } = SITE.contact;
+  const { email, phone, phoneHref } = SITE.contact;
   const { linkedin, github } = SITE.social;
 
   return (
@@ -17,9 +18,10 @@ export function Footer() {
           <div>
             <Logo variant="dark" />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-ink-300">
-              Intelligent business solutions. We design, integrate, and support
-              enterprise software, integration, governed data, and operational
-              AI for companies in Mexico and Spain.
+              {l(
+                "Soluciones empresariales inteligentes. Diseñamos, integramos y damos soporte a software, integraciones, datos gobernados e IA operacional para empresas de México y España.",
+                "Intelligent business solutions. We design, integrate, and support enterprise software, integrations, governed data, and operational AI for companies in Mexico and Spain.",
+              )}
             </p>
 
             {showContact ? (
@@ -35,24 +37,20 @@ export function Footer() {
                 {phone ? (
                   <li className="flex items-start gap-2">
                     <Phone className="mt-0.5 h-4 w-4 text-ink-400" />
-                    <span>{phone}</span>
-                  </li>
-                ) : null}
-                {address ? (
-                  <li className="flex items-start gap-2">
-                    <MapPin className="mt-0.5 h-4 w-4 text-ink-400" />
-                    <span>{address}</span>
+                    <a href={`tel:${phoneHref}`} className="hover:text-white">
+                      {phone}
+                    </a>
                   </li>
                 ) : null}
               </ul>
             ) : (
               <p className="mt-6 text-sm text-ink-400">
-                Reach us through the{" "}
+                {l("Escríbenos desde la", "Reach us through the")}{" "}
                 <Link
                   href="/contact"
                   className="text-ink-100 underline-offset-4 hover:underline"
                 >
-                  contact page
+                  {l("página de contacto", "contact page")}
                 </Link>
                 .
               </p>
@@ -90,7 +88,7 @@ export function Footer() {
             )}
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
             {FOOTER_LINKS.map((group) => (
               <div key={group.title}>
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-400">
@@ -115,21 +113,24 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-ink-800 pt-6 text-xs text-ink-400 sm:flex-row sm:items-center">
           <p>
-            © {year} {SITE.name}. All rights reserved.
+            © {year} {SITE.name}.{" "}
+            {l("Todos los derechos reservados.", "All rights reserved.")}
           </p>
           <ul className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <li>
               <Link href="/privacy" className="hover:text-white">
-                Privacy Policy
+                {l("Aviso de privacidad", "Privacy Notice")}
               </Link>
             </li>
             <li>
               <Link href="/legal" className="hover:text-white">
-                Legal Notice
+                {l("Aviso legal", "Legal Notice")}
               </Link>
             </li>
-            <li className="text-ink-500">
-              Static Next.js site · AWS S3 + CloudFront
+            <li>
+              <Link href="/cookies" className="hover:text-white">
+                {l("Política de cookies", "Cookie Policy")}
+              </Link>
             </li>
           </ul>
         </div>

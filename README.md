@@ -1,181 +1,62 @@
-# 7 Business Solutions · Corporate site
+# 7 Business Solutions
 
-Corporate site for **7 Business Solutions** — an intelligent business
-solutions firm helping companies in Mexico and Spain. Built as a static
-**Next.js 15 (App Router) + TypeScript + Tailwind CSS** application,
-designed to be deployed to **AWS S3 + CloudFront**.
+Sitio corporativo estático bilingüe de 7 Business Solutions. Las URL actuales publican español neutro y sus equivalentes en inglés viven bajo `/en`.
 
-Flagship product: **Enterprise Copilot**.
+## Tecnología
 
----
+- Next.js 15, React 19, TypeScript estricto y Tailwind CSS 3.
+- Export estático: dos builds localizados se combinan en un único `out/`.
+- API de contacto e infraestructura AWS declaradas en `infra/`.
+- Canonical de producción: `https://www.7businesssolutions.com`.
 
-## Stack
-
-- Next.js 15 (App Router)
-- TypeScript (strict)
-- Tailwind CSS 3
-- `lucide-react` for icons
-- `clsx` + `tailwind-merge`
-- ESLint 9 (flat config) + `eslint-config-next`
-- Static export (`output: "export"`) — no SSR, no API routes
-
----
-
-## Structure
-
-```
-app/
-├── layout.tsx              # Root layout (Navbar + Footer + global metadata)
-├── page.tsx                # Home
-├── globals.css             # Tailwind + base styles
-├── sitemap.ts              # sitemap.xml
-├── robots.ts               # robots.txt
-├── services/               # Overview + 4 service detail pages
-├── copilot/                # Enterprise Copilot (3 subpages)
-├── industries/             # Industries / use cases
-├── experience/             # Experience and capabilities
-├── contact/                # Contact form and process
-├── privacy/                # Privacy Policy
-└── legal/                  # Legal Notice
-
-components/
-├── layout/                 # Navbar, MegaMenu, MobileNav, Footer, Logo
-├── home/                   # Home sections (Hero, Quick Wins, 7 Pillars, etc.)
-├── copilot/                # Enterprise Copilot sections
-├── services/               # Service hero, grid, deep-dives
-├── experience/             # Experience tracks + education
-├── contact/                # ContactForm + AfterSteps
-├── sections/               # Reusable DeepDiveBlock
-└── ui/                     # Button, Card, Section, Badge, Tabs
-
-lib/
-├── constants.ts            # SITE brand + TODO_CLIENTE list
-├── navigation.ts           # NAVIGATION + FOOTER_LINKS
-├── site-data.ts            # Barrel re-export of lib/data/*
-├── utils.ts                # cn()
-└── data/
-    ├── home.ts             # Quick Wins, 7 Pillars, Areas of Impact, etc.
-    ├── copilot.ts          # All Enterprise Copilot content
-    ├── services.ts         # SERVICES + per-service deep dive
-    ├── experience.ts       # Tracks, certifications, sectors
-    ├── industries.ts       # Functional-area cards
-    └── technology.ts       # Tech catalog
-
-public/
-├── favicon.svg
-├── logo.svg
-└── og-image.svg            # OG / Twitter card
-```
-
----
-
-## Local development
+## Uso local
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
-### Scripts
-
-| Script              | Description                                      |
-| ------------------- | ------------------------------------------------ |
-| `npm run dev`       | Development server                                |
-| `npm run build`     | Static build (creates `out/`)                     |
-| `npm run start`     | Serves the production build                       |
-| `npm run lint`      | ESLint (flat config + next)                       |
-| `npm run typecheck` | `tsc --noEmit`                                    |
-
----
-
-## Environment variables
-
-Copy `.env.example` to `.env.local`. All variables are prefixed
-`NEXT_PUBLIC_` because they are injected at build time and exposed to
-the client (this is a static site — there is no server runtime).
-
-| Variable                       | Purpose                                                |
-| ------------------------------ | ------------------------------------------------------ |
-| `NEXT_PUBLIC_SITE_URL`         | Canonical domain. Feeds OG, sitemap, and robots.       |
-| `NEXT_PUBLIC_CONTACT_ENDPOINT` | API Gateway URL that the contact form POSTs to.        |
-
-If `NEXT_PUBLIC_CONTACT_ENDPOINT` is empty, the form shows a controlled
-placeholder state instead of POSTing to an invented backend.
-
-> The `out/` folder is produced by `npm run build` and is **gitignored**.
-> Upload it to S3 from your deploy machine or CI pipeline.
-
----
-
-## Static build & AWS deployment
-
-`next.config.ts` is already configured with:
-
-```ts
-const nextConfig = {
-  output: "export",
-  images: { unoptimized: true },
-  trailingSlash: true,
-  reactStrictMode: true,
-};
-```
-
-Build:
+El servidor de desarrollo usa español. El build completo genera ambos idiomas:
 
 ```bash
+npm run typecheck
+npm run lint
 npm run build
+npm run validate:export
+npm run start
 ```
 
-Deploy to S3 (private bucket behind CloudFront OAC is recommended):
+## Variables de build
 
-```bash
-aws s3 sync out/ s3://<your-bucket> --delete \
-  --cache-control "public, max-age=31536000, immutable" \
-  --exclude "*.html" --exclude "sitemap.xml" --exclude "robots.txt"
+Copia `.env.example` a `.env.local`. Todas son públicas porque se incorporan al sitio estático; nunca deben contener secretos.
 
-aws s3 sync out/ s3://<your-bucket> \
-  --cache-control "public, max-age=60, must-revalidate" \
-  --exclude "*" \
-  --include "*.html" --include "sitemap.xml" --include "robots.txt"
+- `NEXT_PUBLIC_CONTACT_ENDPOINT`: API pública del formulario.
+- `NEXT_PUBLIC_LAUNCH_READY`: activa indexación y validaciones de lanzamiento.
+- `NEXT_PUBLIC_LEGAL_REVIEWED`: confirma la revisión legal final.
+- `NEXT_PUBLIC_EU_REP_*`: representante en la UE requerido antes de publicar para España.
 
-aws cloudfront create-invalidation --distribution-id <ID> --paths "/*"
-```
+Cuando `NEXT_PUBLIC_LAUNCH_READY=true`, el build falla si falta el endpoint, la revisión legal o el representante UE. Sin endpoint, el formulario informa que no está configurado y nunca muestra un éxito simulado.
 
----
+## Rutas y SEO
 
-## Contact form
+- 52 rutas canónicas por idioma; 104 URL en sitemap.
+- `hreflang` para `es`, `en` y `x-default`.
+- Metadata y Open Graph localizados.
+- JSON-LD `Organization`, `WebSite`, `Service` y `Person` sin ratings ni `LocalBusiness`.
+- 404 y límites de error personalizados.
 
-`components/contact/ContactForm.tsx` validates client-side and POSTs JSON
-to `NEXT_PUBLIC_CONTACT_ENDPOINT`. Intended for an architecture of
-**API Gateway → Lambda → SES** on AWS. No Next API routes — that would
-break the static export.
+## Contacto y privacidad
 
----
+El formulario envía únicamente a `ventas@7businesssolutions.com` mediante API Gateway, Lambda y SES. El visitante se utiliza como `Reply-To`; AWS no almacena leads. Los logs técnicos no incluyen el cuerpo y se eliminan a los 30 días.
 
-## TODO_CLIENTE (before going live)
+Los avisos jurídicos son borradores normativos. La publicación queda bloqueada hasta completar representante UE y revisión profesional final.
 
-Centralized in `lib/constants.ts`:
+## AWS
 
-- [ ] Final commercial brand confirmed (currently `7 Business Solutions`).
-- [ ] Domain in `NEXT_PUBLIC_SITE_URL`.
-- [ ] Corporate email in `SITE.contact.email`.
-- [ ] Commercial phone in `SITE.contact.phone`.
-- [ ] Visible address in `SITE.contact.address`.
-- [ ] Real URLs in `SITE.social.linkedin` / `SITE.social.github`.
-- [ ] Real endpoint in `NEXT_PUBLIC_CONTACT_ENDPOINT`.
-- [ ] Legal review of `/privacy` and `/legal` for Mexico (LFPDPPP) and
-      Spain (LOPDGDD / GDPR).
-- [ ] Final OG image (replace `public/og-image.svg`).
-- [ ] Final favicon (replace `public/favicon.svg`).
-- [ ] Replace sector names with real client names in
-      `EXPERIENCE_CLIENTS` only with explicit authorization.
+Consulta [`infra/README.md`](infra/README.md) para validar y desplegar API Gateway, Lambda, SES, WAF, S3 privado y CloudFront. El procedimiento preserva los registros MX, SPF, DKIM y DMARC de Google Workspace.
 
----
+## Reglas de contenido
 
-## Project rules
-
-- Flagship product is **Enterprise Copilot** — do not use "NEXUS",
-  "OMEGA", "console", or "consola" as the commercial product name.
-- Static export must continue to work (no SSR, no API routes).
-- No fabricated metrics or fake testimonials. Indicative scenarios
-  must carry the orientative-impact disclaimer.
+- No publicar métricas, clientes, certificaciones, logos, testimonios o fotografías sin evidencia y autorización.
+- Presentar capacidades como experiencia del equipo; la sociedad inició operaciones en 2026.
+- Conservar como marcas `7 Business Solutions`, `Enterprise Copilot`, SAP y nombres técnicos.

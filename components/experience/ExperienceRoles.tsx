@@ -1,13 +1,20 @@
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { EXPERIENCE_ROLES } from "@/lib/data/experience";
+import { l } from "@/lib/i18n/config";
 
 export function ExperienceRoles() {
   return (
     <Section className="bg-white">
       <SectionHeader
-        eyebrow="Accumulated capabilities"
-        title="Capabilities the team has already delivered on"
-        description="Roles and disciplines we have executed in real programs for corporate clients."
+        eyebrow={l("Capacidades del equipo", "Team capabilities")}
+        title={l(
+          "Disciplinas disponibles según el proyecto",
+          "Disciplines available according to the project",
+        )}
+        description={l(
+          "Especialistas senior seleccionados según el alcance, la tecnología y las necesidades operativas de cada proyecto.",
+          "Senior specialists selected according to each project's scope, technology, and operational needs.",
+        )}
       />
 
       <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">

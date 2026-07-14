@@ -1,12 +1,13 @@
 import { ArrowDown, ArrowRight, Sparkles } from "lucide-react";
 import { AnimatedCopilotDemo } from "@/components/copilot/AnimatedCopilotDemo";
 import { LinkButton } from "@/components/ui/Button";
+import { l } from "@/lib/i18n/config";
 
 const HERO_STATS = [
-  { label: "Reports", value: "Hours → minutes" },
-  { label: "Audit evidence", value: "Days → minutes" },
-  { label: "Reconciliation", value: "Days → guided review" },
-  { label: "Decisions", value: "Delayed → traceable" },
+  { label: l("Informes", "Reports"), value: l("Flujo asistido", "Guided workflow") },
+  { label: l("Evidencia de auditoría", "Audit evidence"), value: l("Fuentes trazables", "Traceable sources") },
+  { label: l("Conciliación", "Reconciliation"), value: l("Revisión guiada", "Guided review") },
+  { label: l("Decisiones", "Decisions"), value: l("Contexto verificable", "Verifiable context") },
 ];
 
 export function CopilotHero() {
@@ -30,21 +31,20 @@ export function CopilotHero() {
             </div>
 
             <h1 className="mt-6 font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl lg:text-[3.25rem]">
-              From manual work to{" "}
+              {l("Del trabajo manual a ", "From manual work to ")}
               <span className="bg-gradient-to-r from-accent-400 via-accent-500 to-brand-400 bg-clip-text text-transparent">
-                traceable answers in minutes.
+                {l("respuestas trazables.", "traceable answers.")}
               </span>
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-200">
-              Enterprise Copilot connects{" "}
+              {l("Enterprise Copilot conecta ", "Enterprise Copilot connects ")}
               <strong className="text-white">SAP</strong>,{" "}
-              <strong className="text-white">databases</strong>,{" "}
+              <strong className="text-white">{l("bases de datos", "databases")}</strong>,{" "}
               <strong className="text-white">APIs</strong>,{" "}
-              <strong className="text-white">reports</strong>, and{" "}
-              <strong className="text-white">business rules</strong> so teams
-              can ask, validate, explain, and act with evidence, permissions,
-              and auditability.
+              <strong className="text-white">{l("informes", "reports")}</strong>{l(" y ", ", and ")}
+              <strong className="text-white">{l("reglas de negocio", "business rules")}</strong>{" "}
+              {l("para que los equipos consulten, validen, expliquen y actúen con evidencia, permisos y trazabilidad.", "so teams can query, validate, explain, and act with evidence, permissions, and traceability.")}
             </p>
 
             <ul className="mt-8 grid grid-cols-2 gap-3">
@@ -65,7 +65,7 @@ export function CopilotHero() {
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <LinkButton href="#metrics" size="lg">
-                View operational impact
+                {l("Ver impacto operativo", "View operational impact")}
                 <ArrowDown className="h-4 w-4" />
               </LinkButton>
               <LinkButton
@@ -74,14 +74,13 @@ export function CopilotHero() {
                 variant="outline"
                 className="border-white/20 bg-white/5 text-white hover:bg-white/10"
               >
-                Request a pilot
+                {l("Solicitar un piloto", "Request a pilot")}
                 <ArrowRight className="h-4 w-4" />
               </LinkButton>
             </div>
 
             <p className="mt-6 max-w-2xl text-xs leading-relaxed text-ink-500">
-              Indicative scenarios. Actual impact depends on connected sources,
-              data quality, permissions, process complexity, and pilot scope.
+              {l("Escenarios ilustrativos. El resultado depende de las fuentes conectadas, la calidad de los datos, los permisos, la complejidad del proceso y el alcance del piloto.", "Illustrative scenarios. Results depend on connected sources, data quality, permissions, process complexity, and pilot scope.")}
             </p>
           </div>
 

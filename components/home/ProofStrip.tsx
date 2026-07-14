@@ -1,5 +1,6 @@
 import { Section } from "@/components/ui/Section";
 import { EXPERIENCE_CLIENTS } from "@/lib/site-data";
+import { l } from "@/lib/i18n/config";
 
 export function ProofStrip() {
   return (
@@ -8,14 +9,19 @@ export function ProofStrip() {
         <div className="grid gap-8 lg:grid-cols-[1fr_2fr] lg:items-center">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-700">
-              Industries served
+              {l("Sectores atendidos", "Industries served")}
             </p>
             <h3 className="mt-3 font-display text-2xl font-semibold text-ink-950 sm:text-3xl">
-              Enterprise experience across sectors.
+              {l(
+                "Capacidades empresariales para distintos sectores.",
+                "Enterprise capabilities across sectors.",
+              )}
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-ink-600">
-              Specific clients are shared under NDA during the initial
-              diagnosis.
+              {l(
+                "La experiencia relevante del equipo se detalla durante el diagnóstico inicial, sujeta a las obligaciones de confidencialidad aplicables.",
+                "Relevant team experience is discussed during the initial diagnosis, subject to applicable confidentiality obligations.",
+              )}
             </p>
           </div>
           <ul className="flex flex-wrap gap-2">

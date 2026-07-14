@@ -13,30 +13,31 @@ import {
 } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
+import { l } from "@/lib/i18n/config";
 
 const QUESTION =
-  "Show me March financial closing items not reconciled between SAP FI and bank statements. Prepare an executive summary for Finance.";
+  l("Muéstrame las partidas del cierre financiero de marzo no conciliadas entre SAP FI y los estados de cuenta bancarios. Prepara un resumen ejecutivo para Finanzas.", "Show me March financial closing items not reconciled between SAP FI and bank statements. Prepare an executive summary for Finance.");
 
 const STATUSES = [
-  "Analyzing request…",
-  "Checking permissions…",
-  "Connecting to sources…",
+  l("Analizando solicitud…", "Analyzing request…"),
+  l("Comprobando permisos…", "Checking permissions…"),
+  l("Conectando con las fuentes…", "Connecting to sources…"),
 ];
 
 const SOURCES = [
   "SAP FI",
-  "Bank Statement",
-  "SQL Database",
-  "Reporting Layer",
-  "Approval Rules",
-  "Audit Log",
+  l("Estado de cuenta bancario", "Bank statement"),
+  l("Base de datos SQL", "SQL database"),
+  l("Capa de informes", "Reporting layer"),
+  l("Reglas de aprobación", "Approval rules"),
+  l("Registro de auditoría", "Audit log"),
 ];
 
 const RESULTS = [
-  "3 unreconciled items found",
-  "2 require review",
-  "1 needs approval before action",
-  "Sources verified",
+  l("3 partidas no conciliadas encontradas", "3 unreconciled items found"),
+  l("2 requieren revisión", "2 require review"),
+  l("1 requiere aprobación antes de actuar", "1 needs approval before action"),
+  l("Fuentes verificadas", "Sources verified"),
 ];
 
 type TableRow = {
@@ -49,35 +50,35 @@ type TableRow = {
 
 const TABLE_ROWS: TableRow[] = [
   {
-    item: "Vendor payment",
-    source: "SAP FI + Bank",
-    status: "Unmatched",
-    action: "Review",
+    item: l("Pago a proveedor", "Vendor payment"),
+    source: l("SAP FI + Banco", "SAP FI + Bank"),
+    status: l("Sin conciliar", "Unmatched"),
+    action: l("Revisar", "Review"),
     tone: "warn",
   },
   {
-    item: "Bank fee",
-    source: "Bank only",
-    status: "Missing in SAP",
-    action: "Draft adjustment",
+    item: l("Comisión bancaria", "Bank fee"),
+    source: l("Solo banco", "Bank only"),
+    status: l("No consta en SAP", "Missing in SAP"),
+    action: l("Preparar ajuste", "Draft adjustment"),
     tone: "info",
   },
   {
-    item: "Manual entry",
+    item: l("Asiento manual", "Manual entry"),
     source: "SAP FI",
-    status: "Needs approval",
-    action: "Request approval",
+    status: l("Requiere aprobación", "Needs approval"),
+    action: l("Solicitar aprobación", "Request approval"),
     tone: "approve",
   },
 ];
 
 const AUDIT: { label: string; value: string }[] = [
-  { label: "User", value: "Authorized · Finance" },
-  { label: "Timestamp", value: "Mar 7, 2026 · 09:42" },
-  { label: "Sources", value: "SAP FI · Bank · DB" },
-  { label: "Permission check", value: "Passed" },
-  { label: "Draft generated", value: "Executive summary v1" },
-  { label: "Approval pending", value: "Routed to CFO Office" },
+  { label: l("Usuario", "User"), value: l("Autorizado · Finanzas", "Authorized · Finance") },
+  { label: l("Fecha y hora", "Timestamp"), value: l("7 mar 2026 · 09:42", "Mar 7, 2026 · 09:42") },
+  { label: l("Fuentes", "Sources"), value: l("SAP FI · Banco · BD", "SAP FI · Bank · DB") },
+  { label: l("Comprobación de permisos", "Permission check"), value: l("Superada", "Passed") },
+  { label: l("Borrador generado", "Draft generated"), value: l("Resumen ejecutivo v1", "Executive summary v1") },
+  { label: l("Aprobación pendiente", "Approval pending"), value: l("Enviado a Dirección Financiera", "Routed to Finance leadership") },
 ];
 
 const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
@@ -208,7 +209,7 @@ export function AnimatedCopilotDemo() {
   return (
     <div
       className="relative w-full overflow-hidden rounded-2xl border border-ink-100 bg-white text-ink-900 shadow-elevate"
-      aria-label="Enterprise Copilot illustrative demo"
+      aria-label={l("Demostración ilustrativa de Enterprise Copilot", "Enterprise Copilot illustrative demo")}
     >
       <div className="flex items-center justify-between gap-3 border-b border-ink-100 bg-ink-50/80 px-4 py-3">
         <div className="flex items-center gap-2">
@@ -217,17 +218,17 @@ export function AnimatedCopilotDemo() {
           <span className="h-2.5 w-2.5 rounded-full bg-ink-200" />
           <span className="ml-3 inline-flex items-center gap-1.5 text-xs font-medium text-ink-500">
             <Sparkles className="h-3 w-3 text-brand-700" />
-            Enterprise Copilot · Illustrative demo
+            Enterprise Copilot · {l("Demostración ilustrativa", "Illustrative demo")}
           </span>
         </div>
         <button
           type="button"
           onClick={replay}
           className="inline-flex items-center gap-1.5 rounded-md border border-ink-200 bg-white px-2.5 py-1 text-[11px] font-medium text-ink-700 hover:border-ink-300 hover:text-ink-900"
-          aria-label="Replay demo"
+          aria-label={l("Repetir demostración", "Replay demo")}
         >
           <RotateCcw className="h-3 w-3" />
-          Replay demo
+          {l("Repetir", "Replay demo")}
         </button>
       </div>
 
@@ -238,10 +239,10 @@ export function AnimatedCopilotDemo() {
         const evidenceReady = tableCount >= TABLE_ROWS.length;
         const approvalPending = auditCount >= AUDIT.length;
         const statusBadges = [
-          { label: "Permission Verified", on: permissionVerified },
-          { label: "Sources Connected", on: sourcesConnected },
-          { label: "Evidence Ready", on: evidenceReady },
-          { label: "Approval Pending", on: approvalPending },
+          { label: l("Permiso verificado", "Permission verified"), on: permissionVerified },
+          { label: l("Fuentes conectadas", "Sources connected"), on: sourcesConnected },
+          { label: l("Evidencia lista", "Evidence ready"), on: evidenceReady },
+          { label: l("Aprobación pendiente", "Approval pending"), on: approvalPending },
         ];
         return (
           <ul className="flex flex-wrap gap-1.5 border-b border-ink-100 bg-white px-4 py-2.5 sm:px-5">
@@ -272,7 +273,7 @@ export function AnimatedCopilotDemo() {
         {/* User question */}
         <div className="rounded-xl border border-ink-100 bg-ink-50 p-4 text-sm text-ink-800">
           <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-500">
-            User · Finance
+            {l("Usuario · Finanzas", "User · Finance")}
           </p>
           <p className="mt-2 leading-relaxed">
             {typed}
@@ -309,7 +310,7 @@ export function AnimatedCopilotDemo() {
         {sourceCount > 0 ? (
           <div>
             <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-brand-700">
-              Sources connected
+              {l("Fuentes conectadas", "Sources connected")}
             </p>
             <ul className="mt-2 flex flex-wrap gap-1.5">
               {SOURCES.map((s, i) => (
@@ -353,10 +354,10 @@ export function AnimatedCopilotDemo() {
         {tableCount > 0 ? (
           <div className="overflow-hidden rounded-xl border border-ink-100">
             <div className="grid grid-cols-[1.2fr_1fr_1fr_1.1fr] gap-2 border-b border-ink-100 bg-ink-50 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-500">
-              <div>Item</div>
-              <div>Source</div>
-              <div>Status</div>
-              <div>Action</div>
+              <div>{l("Partida", "Item")}</div>
+              <div>{l("Fuente", "Source")}</div>
+              <div>{l("Estado", "Status")}</div>
+              <div>{l("Acción", "Action")}</div>
             </div>
             <ul className="divide-y divide-ink-100">
               {TABLE_ROWS.map((row, i) => (
@@ -402,13 +403,13 @@ export function AnimatedCopilotDemo() {
             <div className="flex items-center gap-1.5">
               <FileText className="h-3.5 w-3.5 text-brand-700" />
               <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-brand-700">
-                Draft prepared
+                {l("Borrador preparado", "Draft prepared")}
               </p>
             </div>
             <p className="mt-1.5 leading-relaxed">
-              Executive summary prepared.{" "}
+              {l("Resumen ejecutivo preparado. ", "Executive summary prepared. ")}
               <strong>
-                No financial adjustment will be executed without approval.
+                {l("No se ejecutará ningún ajuste financiero sin aprobación.", "No financial adjustment will be executed without approval.")}
               </strong>
             </p>
           </div>
@@ -420,7 +421,7 @@ export function AnimatedCopilotDemo() {
             <div className="flex items-center gap-1.5">
               <ShieldCheck className="h-3.5 w-3.5 text-brand-700" />
               <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-brand-700">
-                Audit trail
+                {l("Trazabilidad de auditoría", "Audit trail")}
               </p>
             </div>
             <dl className="mt-2 grid grid-cols-1 gap-x-3 gap-y-1.5 sm:grid-cols-2">
@@ -450,18 +451,17 @@ export function AnimatedCopilotDemo() {
         <div className="flex items-center justify-between gap-2 border-t border-ink-100 pt-3 text-[10px] text-ink-500">
           <span className="inline-flex items-center gap-1.5">
             <Cpu className="h-3 w-3 text-brand-700" />
-            Permissions inherited
+            {l("Permisos heredados", "Permissions inherited")}
           </span>
           <span className="inline-flex items-center gap-1.5">
             <Workflow className="h-3 w-3 text-brand-700" />
-            {done ? "Awaiting approval" : "Running…"}
+            {done ? l("Esperando aprobación", "Awaiting approval") : l("En ejecución…", "Running…")}
           </span>
         </div>
       </div>
 
       <p className="border-t border-ink-100 bg-ink-50/40 px-4 py-2 text-[10px] leading-relaxed text-ink-500">
-        Illustrative demo. Actual behavior depends on configuration, connected
-        sources, permissions, and business rules in each implementation.
+        {l("Demostración ilustrativa. El comportamiento real depende de la configuración, las fuentes conectadas, los permisos y las reglas de negocio de cada implementación.", "Illustrative demo. Actual behavior depends on configuration, connected sources, permissions, and business rules in each implementation.")}
       </p>
     </div>
   );

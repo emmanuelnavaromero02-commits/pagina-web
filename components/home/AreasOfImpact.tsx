@@ -1,13 +1,20 @@
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { AREAS_OF_IMPACT } from "@/lib/data/home";
+import { l } from "@/lib/i18n/config";
 
 export function AreasOfImpact() {
   return (
     <Section className="bg-white">
       <SectionHeader
-        eyebrow="7 Areas of Impact"
-        title="Where we deliver measurable business value"
-        description="Seven functional and cross-cutting areas where a focused intervention — software, integration, data, or AI — turns a manual process into measurable execution."
+        eyebrow={l("7 áreas de impacto", "7 Areas of Impact")}
+        title={l(
+          "Dónde generamos valor empresarial medible",
+          "Where we deliver measurable business value",
+        )}
+        description={l(
+          "Siete áreas funcionales y transversales donde una intervención focalizada —software, integración, datos o IA— convierte un proceso manual en una operación medible.",
+          "Seven functional and cross-cutting areas where a focused intervention — software, integration, data, or AI — turns a manual process into measurable execution.",
+        )}
       />
 
       <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

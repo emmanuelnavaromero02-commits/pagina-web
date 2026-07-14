@@ -1,13 +1,14 @@
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { COPILOT_FLOW_STEPS } from "@/lib/data/copilot";
+import { l } from "@/lib/i18n/config";
 
 export function CopilotFlow() {
   return (
     <Section id="flow" className="bg-white">
       <SectionHeader
-        eyebrow="Operational flow"
-        title="Six steps, one conversation"
-        description="From the user's question to the final action, with validations and traceability at every step. No shortcuts that break the operation."
+        eyebrow={l("Flujo operativo", "Operational flow")}
+        title={l("Seis pasos, una conversación", "Six steps, one conversation")}
+        description={l("Desde la pregunta del usuario hasta la acción final, con validaciones y trazabilidad en cada paso.", "From the user's question to the final action, with validations and traceability at every step.")}
       />
       <ol className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {COPILOT_FLOW_STEPS.map((step) => {

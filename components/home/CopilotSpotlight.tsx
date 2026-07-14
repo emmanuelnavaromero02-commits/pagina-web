@@ -3,6 +3,7 @@ import { LinkButton } from "@/components/ui/Button";
 import { Card, CardDescription, CardTitle } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
 import { COPILOT_CAPABILITIES } from "@/lib/site-data";
+import { l } from "@/lib/i18n/config";
 
 export function CopilotSpotlight() {
   return (
@@ -11,23 +12,26 @@ export function CopilotSpotlight() {
         <div>
           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-accent-400">
             <Sparkles className="h-3.5 w-3.5" />
-            Flagship product
+            {l("Producto principal", "Flagship product")}
           </div>
           <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
             Enterprise Copilot
           </h2>
           <p className="mt-4 text-base leading-relaxed text-ink-300 sm:text-lg">
-            The intelligent layer that asks, validates, reports, and acts over
-            the systems you already operate.
+            {l(
+              "La capa inteligente que consulta, valida, reporta y actúa sobre los sistemas que su empresa ya utiliza.",
+              "The intelligent layer that queries, validates, reports, and acts across the systems your company already operates.",
+            )}
           </p>
           <p className="mt-4 text-sm leading-relaxed text-ink-300/90">
-            Not a generic chatbot. An operational copilot wired into data,
-            rules, reports, APIs, and enterprise systems — helping internal
-            teams work faster with more control and traceability.
+            {l(
+              "No es un chatbot genérico. Es un copiloto operativo conectado a datos, reglas, reportes, APIs y sistemas empresariales para ayudar a los equipos a trabajar con mayor velocidad, control y trazabilidad.",
+              "Not a generic chatbot. An operational copilot connected to data, rules, reports, APIs, and enterprise systems — helping internal teams work faster with greater control and traceability.",
+            )}
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <LinkButton href="/copilot" size="lg" variant="primary">
-              Explore Enterprise Copilot
+              {l("Explorar Enterprise Copilot", "Explore Enterprise Copilot")}
               <ArrowRight className="h-4 w-4" />
             </LinkButton>
             <LinkButton
@@ -36,11 +40,14 @@ export function CopilotSpotlight() {
               variant="outline"
               className="border-white/20 bg-white/5 text-white hover:bg-white/10"
             >
-              See how it works
+              {l("Ver cómo funciona", "See how it works")}
             </LinkButton>
           </div>
           <p className="mt-8 text-xs uppercase tracking-[0.18em] text-ink-500">
-            Connected to · SAP · Databases · APIs · BI · Legacy systems
+            {l(
+              "Conectado a · SAP · Bases de datos · APIs · BI · Sistemas heredados",
+              "Connected to · SAP · Databases · APIs · BI · Legacy systems",
+            )}
           </p>
         </div>
 

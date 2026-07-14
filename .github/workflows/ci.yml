@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, claude/check-branch-repo-Vx3Qm, agent/puesta-produccion-bilingue]
   pull_request:
-    branches: [main]
+    branches: [main, claude/check-branch-repo-Vx3Qm]
   workflow_dispatch:
 
 concurrency:
@@ -23,7 +23,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
 
       - name: Install dependencies
@@ -35,13 +35,22 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Install infrastructure dependencies
+        run: npm ci --prefix infra
+
+      - name: Test and build contact API
+        run: |
+          npm run typecheck --prefix infra
+          npm test --prefix infra
+          npm run build --prefix infra
+
       - name: Build (static export)
         env:
-          # Si en el futuro hay un dominio definitivo, se setea aquí
-          # como GitHub Variable o Secret y se inyecta en build.
-          NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL }}
           NEXT_PUBLIC_CONTACT_ENDPOINT: ${{ vars.NEXT_PUBLIC_CONTACT_ENDPOINT }}
         run: npm run build
+
+      - name: Validate bilingual export
+        run: npm run validate:export
 
       - name: Upload static export artifact
         uses: actions/upload-artifact@v4

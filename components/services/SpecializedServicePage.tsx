@@ -4,6 +4,7 @@ import { LinkButton } from "@/components/ui/Button";
 import { ContactCTA } from "@/components/home/ContactCTA";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { ServiceHero } from "@/components/services/ServiceHero";
+import { l } from "@/lib/i18n/config";
 
 export type SpecializedPage = {
   slug: string;
@@ -26,24 +27,24 @@ export type SpecializedPage = {
 
 export function SpecializedServicePage({ data }: { data: SpecializedPage }) {
   const root = data.rootBreadcrumb ?? {
-    label: "Services",
+    label: l("Servicios", "Services"),
     href: "/services",
   };
 
   const heroPrimary =
-    data.primaryCta ?? { label: "Request a diagnosis", href: "/contact" };
+    data.primaryCta ?? { label: l("Solicitar diagnóstico", "Request a diagnosis"), href: "/contact" };
   const heroSecondary =
-    data.secondaryCta ?? { label: `Back to ${data.parent.label}`, href: data.parent.href };
+    data.secondaryCta ?? { label: l(`Volver a ${data.parent.label}`, `Back to ${data.parent.label}`), href: data.parent.href };
 
   return (
     <>
       <div className="bg-white">
         <div className="mx-auto w-full max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
-          <nav aria-label="Breadcrumb" className="text-xs text-ink-500">
+          <nav aria-label={l("Ruta de navegación", "Breadcrumb")} className="text-xs text-ink-500">
             <ol className="flex flex-wrap items-center gap-1.5">
               <li>
                 <Link href="/" className="hover:text-ink-800">
-                  Home
+                  {l("Inicio", "Home")}
                 </Link>
               </li>
               <li aria-hidden>
@@ -91,10 +92,10 @@ export function SpecializedServicePage({ data }: { data: SpecializedPage }) {
         <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:items-start">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-700">
-              The problem
+              {l("El problema", "The problem")}
             </p>
             <h2 className="mt-3 font-display text-2xl font-semibold tracking-tight text-ink-950 sm:text-3xl">
-              Where companies lose time, money, or control
+              {l("Dónde las empresas pierden tiempo, recursos o control", "Where companies lose time, resources, or control")}
             </h2>
           </div>
           <p className="text-base leading-relaxed text-ink-700">
@@ -105,8 +106,8 @@ export function SpecializedServicePage({ data }: { data: SpecializedPage }) {
 
       <Section className="bg-ink-50">
         <SectionHeader
-          eyebrow="What 7 Business Solutions does"
-          title="From business problem to operational software"
+          eyebrow={l("Qué hace 7 Business Solutions", "What 7 Business Solutions does")}
+          title={l("Del problema de negocio al software operativo", "From business problem to operational software")}
         />
         <ul className="mt-10 grid gap-3 sm:grid-cols-2">
           {data.whatWeDo.map((item) => (
@@ -124,9 +125,9 @@ export function SpecializedServicePage({ data }: { data: SpecializedPage }) {
       {data.useCases && data.useCases.length > 0 ? (
         <Section className="bg-white">
           <SectionHeader
-            eyebrow="Use cases"
-            title="Where this shows up in real engagements"
-            description="Concrete scenarios where this capability moves the needle for the operation."
+            eyebrow={l("Casos de uso", "Use cases")}
+            title={l("Escenarios operativos para esta capacidad", "Operational scenarios for this capability")}
+            description={l("Situaciones concretas en las que esta capacidad puede apoyar la operación.", "Concrete situations where this capability can support operations.")}
           />
           <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {data.useCases.map((uc, idx) => (
@@ -148,8 +149,8 @@ export function SpecializedServicePage({ data }: { data: SpecializedPage }) {
 
       <Section className="bg-ink-50">
         <SectionHeader
-          eyebrow="Capabilities & technologies"
-          title={data.capabilitiesHeading ?? "Stack and capabilities we apply"}
+          eyebrow={l("Capacidades y tecnologías", "Capabilities and technologies")}
+          title={data.capabilitiesHeading ?? l("Stack y capacidades que aplicamos", "Stack and capabilities we apply")}
         />
         <ul className="mt-10 flex flex-wrap gap-2">
           {data.capabilities.map((b) => (
@@ -165,8 +166,8 @@ export function SpecializedServicePage({ data }: { data: SpecializedPage }) {
 
       <Section className="bg-white">
         <SectionHeader
-          eyebrow="What we deliver"
-          title="Tangible outputs you can operate and audit"
+          eyebrow={l("Qué entregamos", "What we deliver")}
+          title={l("Entregables que puedes operar y auditar", "Deliverables you can operate and audit")}
         />
         <ul className="mt-10 grid gap-3 lg:grid-cols-2">
           {data.deliverables.map((item) => (
@@ -191,7 +192,7 @@ export function SpecializedServicePage({ data }: { data: SpecializedPage }) {
                   Enterprise Copilot
                 </div>
                 <h3 className="mt-3 font-display text-2xl font-semibold text-ink-950">
-                  How this connects with Enterprise Copilot
+                  {l("Cómo se conecta con Enterprise Copilot", "How this connects with Enterprise Copilot")}
                 </h3>
                 <p className="mt-2 text-base leading-relaxed text-ink-700">
                   {data.copilot}
@@ -199,7 +200,7 @@ export function SpecializedServicePage({ data }: { data: SpecializedPage }) {
               </div>
               <div className="lg:justify-self-end">
                 <LinkButton href="/copilot" size="md">
-                  Explore Enterprise Copilot
+                  {l("Explorar Enterprise Copilot", "Explore Enterprise Copilot")}
                   <ArrowRight className="h-4 w-4" />
                 </LinkButton>
               </div>

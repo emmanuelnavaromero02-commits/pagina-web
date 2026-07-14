@@ -3,14 +3,21 @@ import { ArrowRight } from "lucide-react";
 import { Card, CardDescription, CardTitle } from "@/components/ui/Card";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { SERVICES } from "@/lib/site-data";
+import { l } from "@/lib/i18n/config";
 
 export function ServicesOverview() {
   return (
     <Section className="bg-white">
       <SectionHeader
-        eyebrow="Services"
-        title="Four service lines, one delivery model"
-        description="Software factory, enterprise integration, cloud and governed data, and operational AI — under the same team and the same way of shipping."
+        eyebrow={l("Servicios", "Services")}
+        title={l(
+          "Cuatro líneas de servicio, un modelo de entrega",
+          "Four service lines, one delivery model",
+        )}
+        description={l(
+          "Fábrica de software, integración empresarial, nube y datos gobernados e IA operativa bajo un mismo modelo de trabajo.",
+          "Software factory, enterprise integration, cloud and governed data, and operational AI — under one delivery model.",
+        )}
       />
 
       <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -40,7 +47,7 @@ export function ServicesOverview() {
                 href={service.href}
                 className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 hover:text-brand-800"
               >
-                Explore service
+                {l("Explorar servicio", "Explore service")}
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Card>

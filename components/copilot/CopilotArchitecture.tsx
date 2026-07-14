@@ -2,15 +2,16 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { COPILOT_CONNECTIONS, COPILOT_FLOW_STEPS } from "@/lib/site-data";
+import { l } from "@/lib/i18n/config";
 
 export function CopilotArchitecture() {
   return (
     <>
       <Section id="connects" className="bg-white">
         <SectionHeader
-          eyebrow="How it connects"
-          title="Wired into the systems you already use"
-          description="It integrates with SAP, databases, internal APIs, cloud platforms, and reports — and respects the permissions of the source system."
+          eyebrow={l("Cómo se conecta", "How it connects")}
+          title={l("Conectado con los sistemas que ya utilizas", "Wired into the systems you already use")}
+          description={l("Se integra con SAP, bases de datos, APIs internas, plataformas cloud e informes, respetando los permisos del sistema de origen.", "It integrates with SAP, databases, internal APIs, cloud platforms, and reports — and respects the permissions of the source system.")}
         />
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -35,9 +36,9 @@ export function CopilotArchitecture() {
 
       <Section id="flow" className="bg-ink-50">
         <SectionHeader
-          eyebrow="Operational flow"
-          title="Six steps, one conversation"
-          description="From the user's question to the final action — with validations and traceability at every step. No shortcuts that break the operation."
+          eyebrow={l("Flujo operativo", "Operational flow")}
+          title={l("Seis pasos, una conversación", "Six steps, one conversation")}
+          description={l("Desde la pregunta del usuario hasta la acción final, con validaciones y trazabilidad en cada paso.", "From the user's question to the final action, with validations and traceability at every step.")}
         />
         <ol className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {COPILOT_FLOW_STEPS.map((step) => {
@@ -68,7 +69,7 @@ export function CopilotArchitecture() {
             href="/copilot/how-it-works"
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 hover:text-brand-800"
           >
-            See architecture detail
+            {l("Ver detalle de arquitectura", "See architecture detail")}
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

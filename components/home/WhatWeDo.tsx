@@ -1,13 +1,20 @@
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { WHAT_WE_DO } from "@/lib/site-data";
+import { l } from "@/lib/i18n/config";
 
 export function WhatWeDo() {
   return (
     <Section className="bg-white">
       <SectionHeader
-        eyebrow="What we do"
-        title="We build software, connect systems, and automate operations."
-        description="Three fronts we combine in the same team so the result is operated — not just delivered."
+        eyebrow={l("Qué hacemos", "What we do")}
+        title={l(
+          "Desarrollamos software, conectamos sistemas y automatizamos operaciones.",
+          "We build software, connect systems, and automate operations.",
+        )}
+        description={l(
+          "Combinamos tres frentes en un mismo equipo para que el resultado se opere, no solo se entregue.",
+          "We combine three fronts in one team so the result is operated — not just delivered.",
+        )}
       />
 
       <ul className="mt-12 grid gap-6 lg:grid-cols-3">

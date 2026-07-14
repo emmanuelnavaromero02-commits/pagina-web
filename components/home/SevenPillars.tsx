@@ -1,24 +1,28 @@
 import { Section } from "@/components/ui/Section";
 import { SEVEN_PILLARS } from "@/lib/data/home";
+import { l } from "@/lib/i18n/config";
 
 export function SevenPillars() {
   return (
     <Section className="bg-ink-950 text-white">
       <div className="max-w-3xl">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-400">
-          Architecture
+          {l("Arquitectura", "Architecture")}
         </p>
         <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
-          The 7-Pillar Architecture
+          {l("La arquitectura de 7 pilares", "The 7-Pillar Architecture")}
         </h2>
         <p className="mt-4 text-base leading-relaxed text-ink-300">
-          The &ldquo;7&rdquo; is not decoration. It represents the operating
-          structure we use to activate intelligent companies.
+          {l(
+            "El «7» no es decorativo. Representa la estructura operativa que utilizamos para impulsar empresas inteligentes.",
+            "The “7” is not decoration. It represents the operating structure we use to enable intelligent companies.",
+          )}
         </p>
         <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink-400">
-          An intelligent company is not built with isolated software. It is
-          built with vision, strategy, processes, governed data, automation,
-          operational intelligence, and continuous evolution.
+          {l(
+            "Una empresa inteligente no se construye con software aislado. Se construye con visión, estrategia, procesos, datos gobernados, automatización, inteligencia operativa y evolución continua.",
+            "An intelligent company is not built with isolated software. It is built with vision, strategy, processes, governed data, automation, operational intelligence, and continuous evolution.",
+          )}
         </p>
       </div>
 
@@ -54,11 +58,16 @@ export function SevenPillars() {
 
       <div className="mt-12 border-t border-white/10 pt-10 text-center">
         <p className="font-display text-2xl font-semibold leading-tight tracking-tight sm:text-3xl">
-          <span className="block">Not just software.</span>
+          <span className="block">
+            {l("No solo software.", "Not just software.")}
+          </span>
           <span className="mt-2 block">
-            An{" "}
+            {l("Una ", "An ")}
             <span className="bg-gradient-to-r from-accent-400 to-brand-400 bg-clip-text text-transparent">
-              architecture for intelligent business solutions
+              {l(
+                "arquitectura para soluciones empresariales inteligentes",
+                "architecture for intelligent business solutions",
+              )}
             </span>
             .
           </span>

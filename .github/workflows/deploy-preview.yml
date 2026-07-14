@@ -1,0 +1,225 @@
+name: Deploy preview
+
+on:
+  workflow_dispatch:
+    inputs:
+      send_smoke_email:
+        description: Send one real SES contact email after deployment
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: deploy-preview
+  cancel-in-progress: false
+
+env:
+  AWS_REGION: us-east-1
+  HOSTING_STACK: sevenbs-web-preview
+  CONTACT_STACK: sevenbs-contact-preview
+
+jobs:
+  deploy:
+    name: Build, deploy and smoke test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Setup AWS SAM
+        uses: aws-actions/setup-sam@v2
+        with:
+          use-installer: true
+
+      - name: Configure short-lived AWS credentials
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+          aws-region: ${{ env.AWS_REGION }}
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          role-session-name: 7bs-preview-${{ github.run_id }}
+
+      - name: Verify deployment identity and configuration
+        env:
+          EXECUTION_ROLE_ARN: ${{ vars.AWS_CLOUDFORMATION_EXECUTION_ROLE_ARN }}
+          ARTIFACT_BUCKET: ${{ vars.AWS_ARTIFACT_BUCKET }}
+        run: |
+          test -n "$EXECUTION_ROLE_ARN"
+          test -n "$ARTIFACT_BUCKET"
+          identity="$(aws sts get-caller-identity --query Arn --output text)"
+          case "$identity" in
+            arn:aws:sts::*:assumed-role/7bs-github-deploy-*) ;;
+            *) echo "Unexpected AWS identity: $identity" >&2; exit 1 ;;
+          esac
+
+      - name: Install and validate
+        run: |
+          npm ci
+          npm ci --prefix infra
+          npm run typecheck
+          npm run lint
+          npm run typecheck --prefix infra
+          npm test --prefix infra
+
+      - name: Create preview hosting
+        env:
+          EXECUTION_ROLE_ARN: ${{ vars.AWS_CLOUDFORMATION_EXECUTION_ROLE_ARN }}
+        run: |
+          aws cloudformation deploy \
+            --template-file infra/hosting-template.yaml \
+            --stack-name "$HOSTING_STACK" \
+            --role-arn "$EXECUTION_ROLE_ARN" \
+            --parameter-overrides \
+              Environment=preview \
+              SiteDomainName=preview.7businesssolutions.com \
+              ContactApiOrigin=https://api.7businesssolutions.com \
+            --no-fail-on-empty-changeset
+
+      - name: Read preview origin
+        id: hosting
+        run: |
+          domain="$(aws cloudformation describe-stacks \
+            --stack-name "$HOSTING_STACK" \
+            --query "Stacks[0].Outputs[?OutputKey=='DistributionDomainName'].OutputValue" \
+            --output text)"
+          bucket="$(aws cloudformation describe-stacks \
+            --stack-name "$HOSTING_STACK" \
+            --query "Stacks[0].Outputs[?OutputKey=='SiteBucketName'].OutputValue" \
+            --output text)"
+          distribution="$(aws cloudformation describe-stacks \
+            --stack-name "$HOSTING_STACK" \
+            --query "Stacks[0].Outputs[?OutputKey=='DistributionId'].OutputValue" \
+            --output text)"
+          test -n "$domain"
+          test -n "$bucket"
+          test -n "$distribution"
+          echo "origin=https://$domain" >> "$GITHUB_OUTPUT"
+          echo "bucket=$bucket" >> "$GITHUB_OUTPUT"
+          echo "distribution=$distribution" >> "$GITHUB_OUTPUT"
+
+      - name: Build and package contact API
+        env:
+          ARTIFACT_BUCKET: ${{ vars.AWS_ARTIFACT_BUCKET }}
+        run: |
+          sam build --template-file infra/template.yaml
+          sam package \
+            --template-file .aws-sam/build/template.yaml \
+            --s3-bucket "$ARTIFACT_BUCKET" \
+            --s3-prefix contact-preview/${{ github.sha }} \
+            --output-template-file .aws-sam/packaged.yaml
+
+      - name: Deploy contact API
+        env:
+          EXECUTION_ROLE_ARN: ${{ vars.AWS_CLOUDFORMATION_EXECUTION_ROLE_ARN }}
+          PREVIEW_ORIGIN: ${{ steps.hosting.outputs.origin }}
+        run: |
+          sam deploy \
+            --template-file .aws-sam/packaged.yaml \
+            --stack-name "$CONTACT_STACK" \
+            --role-arn "$EXECUTION_ROLE_ARN" \
+            --capabilities CAPABILITY_NAMED_IAM \
+            --parameter-overrides \
+              Environment=preview \
+              AllowedOrigin="$PREVIEW_ORIGIN" \
+              SesIdentityDomain=7businesssolutions.com \
+              SenderEmail=ventas@7businesssolutions.com \
+              RecipientEmail=ventas@7businesssolutions.com \
+            --no-confirm-changeset \
+            --no-fail-on-empty-changeset
+
+      - name: Read API endpoint and update CSP
+        id: api
+        env:
+          EXECUTION_ROLE_ARN: ${{ vars.AWS_CLOUDFORMATION_EXECUTION_ROLE_ARN }}
+        run: |
+          endpoint="$(aws cloudformation describe-stacks \
+            --stack-name "$CONTACT_STACK" \
+            --query "Stacks[0].Outputs[?OutputKey=='ExecuteApiContactUrl'].OutputValue" \
+            --output text)"
+          test -n "$endpoint"
+          api_origin="${endpoint%/v1/contact}"
+          echo "endpoint=$endpoint" >> "$GITHUB_OUTPUT"
+          aws cloudformation deploy \
+            --template-file infra/hosting-template.yaml \
+            --stack-name "$HOSTING_STACK" \
+            --role-arn "$EXECUTION_ROLE_ARN" \
+            --parameter-overrides \
+              Environment=preview \
+              SiteDomainName=preview.7businesssolutions.com \
+              ContactApiOrigin="$api_origin" \
+            --no-fail-on-empty-changeset
+
+      - name: Build and validate bilingual site
+        env:
+          NEXT_PUBLIC_CONTACT_ENDPOINT: ${{ steps.api.outputs.endpoint }}
+          NEXT_PUBLIC_LAUNCH_READY: "false"
+          NEXT_PUBLIC_LEGAL_REVIEWED: "false"
+        run: |
+          npm run build
+          npm run validate:export
+
+      - name: Publish static export
+        env:
+          SITE_BUCKET: ${{ steps.hosting.outputs.bucket }}
+          DISTRIBUTION_ID: ${{ steps.hosting.outputs.distribution }}
+        run: |
+          invalidation_id="$(./infra/scripts/publish-static.sh out "$SITE_BUCKET" "$DISTRIBUTION_ID")"
+          aws cloudfront wait invalidation-completed \
+            --distribution-id "$DISTRIBUTION_ID" \
+            --id "$invalidation_id"
+
+      - name: Smoke test preview
+        env:
+          PREVIEW_ORIGIN: ${{ steps.hosting.outputs.origin }}
+          CONTACT_ENDPOINT: ${{ steps.api.outputs.endpoint }}
+          SEND_SMOKE_EMAIL: ${{ inputs.send_smoke_email }}
+        run: |
+          curl --fail --silent --show-error "$PREVIEW_ORIGIN/" | grep -q "7 Business Solutions"
+          curl --fail --silent --show-error "$PREVIEW_ORIGIN/en/" | grep -q "7 Business Solutions"
+
+          not_found_status="$(curl --silent --show-error --output /dev/null \
+            --write-out '%{http_code}' "$PREVIEW_ORIGIN/ruta-inexistente-smoke")"
+          test "$not_found_status" = "404"
+
+          invalid_status="$(curl --silent --show-error --output /tmp/invalid-response.json \
+            --write-out '%{http_code}' \
+            --request POST \
+            --header "Origin: $PREVIEW_ORIGIN" \
+            --header "Content-Type: application/json" \
+            --data '{}' \
+            "$CONTACT_ENDPOINT")"
+          test "$invalid_status" = "400"
+
+          if [ "$SEND_SMOKE_EMAIL" = "true" ]; then
+            started_at="$(( $(date +%s) * 1000 - 5000 ))"
+            sent_status="$(curl --silent --show-error --output /tmp/sent-response.json \
+              --write-out '%{http_code}' \
+              --request POST \
+              --header "Origin: $PREVIEW_ORIGIN" \
+              --header "Content-Type: application/json" \
+              --data "{\"name\":\"Prueba de despliegue\",\"company\":\"7 Business Solutions\",\"email\":\"ventas@7businesssolutions.com\",\"service\":\"initial-diagnosis\",\"message\":\"Prueba automatizada del formulario de preview.\",\"locale\":\"es\",\"privacyAccepted\":true,\"website\":\"\",\"formStartedAt\":$started_at}" \
+              "$CONTACT_ENDPOINT")"
+            test "$sent_status" = "200"
+          fi
+
+      - name: Deployment summary
+        env:
+          PREVIEW_ORIGIN: ${{ steps.hosting.outputs.origin }}
+          CONTACT_ENDPOINT: ${{ steps.api.outputs.endpoint }}
+        run: |
+          {
+            echo "### Preview deployed"
+            echo "- Site: $PREVIEW_ORIGIN"
+            echo "- Contact API: $CONTACT_ENDPOINT"
+            echo "- Canonical DNS remains unchanged."
+          } >> "$GITHUB_STEP_SUMMARY"

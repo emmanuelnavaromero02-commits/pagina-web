@@ -1,13 +1,20 @@
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { CONTACT_AFTER_STEPS } from "@/lib/data/home";
+import { l } from "@/lib/i18n/config";
 
 export function AfterSteps() {
   return (
     <Section className="bg-ink-50">
       <SectionHeader
-        eyebrow="What happens next"
-        title="The process once we receive your message"
-        description="No smoke and no marathon meetings. Four short steps to decide whether it makes sense to work together."
+        eyebrow={l("Qué sigue", "What happens next")}
+        title={l(
+          "El proceso después de recibir tu mensaje",
+          "The process after we receive your message",
+        )}
+        description={l(
+          "Cuatro pasos concretos para entender el caso y decidir si tiene sentido trabajar juntos.",
+          "Four concrete steps to understand the case and decide whether it makes sense to work together.",
+        )}
       />
 
       <ol className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
