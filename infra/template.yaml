@@ -535,12 +535,6 @@ Resources:
       PolicyDocument:
         Version: "2012-10-17"
         Statement:
-          - Sid: AllowAccountManagement
-            Effect: Allow
-            Principal:
-              AWS: !Sub arn:${AWS::Partition}:iam::${AWS::AccountId}:root
-            Action: SNS:*
-            Resource: !Ref NotificationTopic
           - Sid: AllowSesPublish
             Effect: Allow
             Principal:
