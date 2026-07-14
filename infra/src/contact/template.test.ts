@@ -129,5 +129,9 @@ describe("contact infrastructure controls", () => {
     assert.match(productionWorkflow, /test "\$ses_production" = "True"/);
     assert.match(productionWorkflow, /NEXT_PUBLIC_EU_MARKET_ENABLED: "false"/);
     assert.match(productionWorkflow, /AllowExternalRecipients="\$ENABLE_EXTERNAL_SES_RECIPIENT"/);
+    assert.match(
+      productionWorkflow,
+      /"website":"robot","formStartedAt":1/,
+    );
   });
 });
