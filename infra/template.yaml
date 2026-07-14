@@ -296,7 +296,6 @@ Resources:
       CodeUri: .
       Handler: handler.handler
       Role: !GetAtt ContactFunctionRole.Arn
-      ReservedConcurrentExecutions: 5
       Environment:
         Variables:
           ALLOWED_ORIGIN: !Ref AllowedOrigin

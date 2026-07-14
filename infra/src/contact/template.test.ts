@@ -45,4 +45,8 @@ describe("contact infrastructure controls", () => {
       assert.match(template, new RegExp(`logs:${action}`));
     }
   });
+
+  it("does not reserve concurrency below this account's unreserved minimum", () => {
+    assert.doesNotMatch(template, /ReservedConcurrentExecutions/);
+  });
 });
