@@ -114,6 +114,7 @@ jobs:
         env:
           ARTIFACT_BUCKET: ${{ vars.AWS_ARTIFACT_BUCKET }}
         run: |
+          export PATH="$GITHUB_WORKSPACE/infra/node_modules/.bin:$PATH"
           sam build --template-file infra/template.yaml
           sam package \
             --template-file .aws-sam/build/template.yaml \
