@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Section } from "@/components/ui/Section";
 import { ServiceHero } from "@/components/services/ServiceHero";
 import {
+  EU_MARKET_ENABLED,
   EU_REPRESENTATIVE,
   LEGAL_ENTITY,
   SITE,
@@ -25,7 +26,8 @@ export const metadata: Metadata = createPageMetadata({
 const address = `${LEGAL_ENTITY.registeredAddress.street}, ${LEGAL_ENTITY.registeredAddress.neighborhood}, C.P. ${LEGAL_ENTITY.registeredAddress.postalCode}, ${LEGAL_ENTITY.registeredAddress.city}, ${LEGAL_ENTITY.registeredAddress.state}, ${LEGAL_ENTITY.registeredAddress.country}`;
 
 const hasEuRepresentative = Boolean(
-  EU_REPRESENTATIVE.name &&
+  EU_MARKET_ENABLED &&
+    EU_REPRESENTATIVE.name &&
     EU_REPRESENTATIVE.address &&
     EU_REPRESENTATIVE.email,
 );
@@ -132,8 +134,12 @@ export default function PrivacyPage() {
           >
             <p>
               {l(
-                "AWS presta infraestructura, protección y envío transaccional; Google Workspace recibe y conserva el correo comercial. Estos proveedores actúan bajo sus contratos y medidas de protección de datos. Los datos pueden tratarse fuera de México o del Espacio Económico Europeo mediante cláusulas contractuales, marcos de transferencia u otras garantías aplicables. No vendemos datos ni los cedemos para publicidad de terceros.",
-                "AWS provides infrastructure, protection, and transactional email; Google Workspace receives and retains commercial email. These providers operate under their data-protection terms and safeguards. Data may be processed outside Mexico or the European Economic Area under contractual clauses, transfer frameworks, or other applicable safeguards. We do not sell data or disclose it for third-party advertising.",
+                EU_MARKET_ENABLED
+                  ? "AWS presta infraestructura, protección y envío transaccional; Google Workspace recibe y conserva el correo comercial. Estos proveedores actúan bajo sus contratos y medidas de protección de datos. Los datos pueden tratarse fuera de México o del Espacio Económico Europeo mediante cláusulas contractuales, marcos de transferencia u otras garantías aplicables. No vendemos datos ni los cedemos para publicidad de terceros."
+                  : "AWS presta infraestructura, protección y envío transaccional; Google Workspace recibe y conserva el correo comercial. Estos proveedores actúan bajo sus contratos y medidas de protección de datos. Los datos pueden tratarse fuera de México con las garantías contractuales y legales aplicables. No vendemos datos ni los cedemos para publicidad de terceros.",
+                EU_MARKET_ENABLED
+                  ? "AWS provides infrastructure, protection, and transactional email; Google Workspace receives and retains commercial email. These providers operate under their data-protection terms and safeguards. Data may be processed outside Mexico or the European Economic Area under contractual clauses, transfer frameworks, or other applicable safeguards. We do not sell data or disclose it for third-party advertising."
+                  : "AWS provides infrastructure, protection, and transactional email; Google Workspace receives and retains commercial email. These providers operate under their data-protection terms and applicable safeguards. Data may be processed outside Mexico under applicable contractual and legal safeguards. We do not sell data or disclose it for third-party advertising.",
               )}
             </p>
           </LegalSection>
@@ -154,20 +160,32 @@ export default function PrivacyPage() {
           >
             <p>
               {l(
-                "En México puede ejercer derechos de acceso, rectificación, cancelación y oposición, limitar el uso o divulgación y revocar el consentimiento cuando sea la base aplicable. En el marco europeo puede solicitar acceso, rectificación, supresión, limitación, oposición y portabilidad, así como retirar el consentimiento cuando corresponda.",
-                "In Mexico, you may exercise rights of access, rectification, cancellation, and objection, limit use or disclosure, and withdraw consent where it is the applicable basis. Under European law, you may request access, rectification, erasure, restriction, objection, and portability, and withdraw consent where applicable.",
+                EU_MARKET_ENABLED
+                  ? "En México puede ejercer derechos de acceso, rectificación, cancelación y oposición, limitar el uso o divulgación y revocar el consentimiento cuando sea la base aplicable. En el marco europeo puede solicitar acceso, rectificación, supresión, limitación, oposición y portabilidad, así como retirar el consentimiento cuando corresponda."
+                  : "En México puede ejercer derechos de acceso, rectificación, cancelación y oposición, limitar el uso o divulgación y revocar el consentimiento cuando sea la base aplicable.",
+                EU_MARKET_ENABLED
+                  ? "In Mexico, you may exercise rights of access, rectification, cancellation, and objection, limit use or disclosure, and withdraw consent where it is the applicable basis. Under European law, you may request access, rectification, erasure, restriction, objection, and portability, and withdraw consent where applicable."
+                  : "In Mexico, you may exercise rights of access, rectification, cancellation, and objection, limit use or disclosure, and withdraw consent where it is the applicable basis.",
               )}
             </p>
             <p>
               {l(
-                `Envíe la solicitud a ${SITE.contact.email}, indicando el derecho que desea ejercer, información para localizar la consulta y un medio para recibir respuesta. México contempla una respuesta inicial máxima de 20 días hábiles y, cuando proceda, 15 días adicionales para hacerla efectiva; el RGPD establece como regla general un mes.`,
-                `Send your request to ${SITE.contact.email}, stating the right you wish to exercise, information needed to locate the enquiry, and a way to receive our response. Mexico provides for an initial response within 20 business days and, where applicable, a further 15 days to give effect to it; the GDPR generally provides one month.`,
+                EU_MARKET_ENABLED
+                  ? `Envíe la solicitud a ${SITE.contact.email}, indicando el derecho que desea ejercer, información para localizar la consulta y un medio para recibir respuesta. México contempla una respuesta inicial máxima de 20 días hábiles y, cuando proceda, 15 días adicionales para hacerla efectiva; el RGPD establece como regla general un mes.`
+                  : `Envíe la solicitud a ${SITE.contact.email}, indicando el derecho que desea ejercer, información para localizar la consulta y un medio para recibir respuesta. México contempla una respuesta inicial máxima de 20 días hábiles y, cuando proceda, 15 días adicionales para hacerla efectiva.`,
+                EU_MARKET_ENABLED
+                  ? `Send your request to ${SITE.contact.email}, stating the right you wish to exercise, information needed to locate the enquiry, and a way to receive our response. Mexico provides for an initial response within 20 business days and, where applicable, a further 15 days to give effect to it; the GDPR generally provides one month.`
+                  : `Send your request to ${SITE.contact.email}, stating the right you wish to exercise, information needed to locate the enquiry, and a way to receive our response. Mexico provides for an initial response within 20 business days and, where applicable, a further 15 days to give effect to it.`,
               )}
             </p>
             <p>
               {l(
-                "También puede presentar una reclamación ante la Secretaría Anticorrupción y Buen Gobierno en México o ante la Agencia Española de Protección de Datos.",
-                "You may also lodge a complaint with Mexico's Ministry of Anti-Corruption and Good Government or the Spanish Data Protection Agency.",
+                EU_MARKET_ENABLED
+                  ? "También puede presentar una reclamación ante la Secretaría Anticorrupción y Buen Gobierno en México o ante la autoridad de protección de datos competente en la Unión Europea."
+                  : "También puede presentar una reclamación ante la Secretaría Anticorrupción y Buen Gobierno en México.",
+                EU_MARKET_ENABLED
+                  ? "You may also lodge a complaint with Mexico's Ministry of Anti-Corruption and Good Government or the competent data-protection authority in the European Union."
+                  : "You may also lodge a complaint with Mexico's Ministry of Anti-Corruption and Good Government.",
               )}
             </p>
           </LegalSection>
@@ -198,13 +216,17 @@ export default function PrivacyPage() {
               >
                 LFPDPPP
               </a>
-              {", "}
-              <a
-                href="https://www.boe.es/buscar/doc.php?id=DOUE-L-2016-80807"
-                className="text-brand-700 hover:text-brand-800"
-              >
-                RGPD
-              </a>
+              {EU_MARKET_ENABLED ? (
+                <>
+                  {", "}
+                  <a
+                    href="https://www.boe.es/buscar/doc.php?id=DOUE-L-2016-80807"
+                    className="text-brand-700 hover:text-brand-800"
+                  >
+                    RGPD
+                  </a>
+                </>
+              ) : null}
               .
             </p>
           </LegalSection>

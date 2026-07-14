@@ -6,6 +6,10 @@ const template = readFileSync(
   new URL("../../template.yaml", import.meta.url),
   "utf8",
 );
+const productionWorkflow = readFileSync(
+  new URL("../../../.github/workflows/deploy-production.yml", import.meta.url),
+  "utf8",
+);
 
 describe("contact infrastructure controls", () => {
   it("enforces the 10 KiB body limit at WAF before Lambda", () => {
@@ -91,5 +95,39 @@ describe("contact infrastructure controls", () => {
       template,
       /configuration-set\/\$\{SesConfigurationSet\}/,
     );
+  });
+
+  it("keeps sandbox delivery on one verified corporate mailbox", () => {
+    assert.match(template, /SesAccessMode:[\s\S]*AllowedValues:[\s\S]*- sandbox[\s\S]*- production/);
+    assert.match(template, /SandboxForbidsExternalRecipients:/);
+    assert.match(
+      template,
+      /SingleMailboxWhenExternalRecipientsAreDisabled:[\s\S]*!Equals \[!Ref SenderEmail, !Ref RecipientEmail\]/,
+    );
+    assert.match(template, /ExternalRecipientsRequireProductionMode:/);
+    assert.match(template, /"ForAllValues:StringEquals":[\s\S]*ses:Recipients:[\s\S]*!Ref RecipientEmail/);
+  });
+
+  it("matches API throttling to the SES sandbox send-rate ceiling", () => {
+    assert.match(template, /ThrottlingBurstLimit: !If \[IsSesSandbox, 1, 25\]/);
+    assert.match(template, /ThrottlingRateLimit: !If \[IsSesSandbox, 1, 10\]/);
+  });
+
+  it("exposes the deployed SES gate state for post-deploy verification", () => {
+    assert.match(template, /SesAccessMode:[\s\S]*Value: !Ref SesAccessMode/);
+    assert.match(
+      template,
+      /SesRecipientPolicy:[\s\S]*single-verified-mailbox[\s\S]*external-recipients-enabled/,
+    );
+  });
+
+  it("gates the Mexico-only production workflow by the real SES account mode", () => {
+    assert.match(productionWorkflow, /ses_access_mode:[\s\S]*- sandbox[\s\S]*- production/);
+    assert.match(productionWorkflow, /enable_external_ses_recipient:/);
+    assert.match(productionWorkflow, /test "\$SES_SENDER_EMAIL" = "\$SES_RECIPIENT_EMAIL"/);
+    assert.match(productionWorkflow, /test "\$ses_production" = "False"/);
+    assert.match(productionWorkflow, /test "\$ses_production" = "True"/);
+    assert.match(productionWorkflow, /NEXT_PUBLIC_EU_MARKET_ENABLED: "false"/);
+    assert.match(productionWorkflow, /AllowExternalRecipients="\$ENABLE_EXTERNAL_SES_RECIPIENT"/);
   });
 });

@@ -173,6 +173,8 @@ jobs:
               Environment=preview \
               AllowedOrigin="$PREVIEW_ORIGIN" \
               SesIdentityDomain=7businesssolutions.com \
+              SesAccessMode=sandbox \
+              AllowExternalRecipients=false \
               SenderEmail=ventas@7businesssolutions.com \
               RecipientEmail=ventas@7businesssolutions.com \
               OperationsEmail=ventas@7businesssolutions.com \
@@ -243,6 +245,9 @@ jobs:
           test "$invalid_status" = "400"
 
           if [ "$SEND_SMOKE_EMAIL" = "true" ]; then
+            # The sandbox stack deliberately throttles the API to the SES
+            # sandbox ceiling, so do not make the delivery check burst.
+            sleep 2
             started_at="$(( $(date +%s) * 1000 - 5000 ))"
             sent_status="$(curl --silent --show-error --output /tmp/sent-response.json \
               --write-out '%{http_code}' \

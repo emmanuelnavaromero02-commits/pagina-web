@@ -12,6 +12,8 @@ import process from "node:process";
 const ROOT = process.cwd();
 const OUT = path.join(ROOT, "out");
 const ORIGIN = "https://www.7businesssolutions.com";
+const EU_MARKET_ENABLED =
+  process.env.NEXT_PUBLIC_EU_MARKET_ENABLED === "true";
 
 const ROUTES = [
   "/",
@@ -357,6 +359,30 @@ function validatePage(locale, route) {
       .replace(/<[^>]+>/g, " "),
   );
   check(!/\bplaceholder\b/i.test(visibleText), scope, "contiene placeholder visible");
+
+  if (!EU_MARKET_ENABLED) {
+    const titleText = decodeEntities(
+      html.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1] ?? "",
+    );
+    const metadataText = tags(html, "meta")
+      .map((attrs) => attrs.content ?? "")
+      .join(" ");
+    const structuredDataText = [
+      ...html.matchAll(
+        /<script\b[^>]*type=(?:"application\/ld\+json"|'application\/ld\+json')[^>]*>([\s\S]*?)<\/script>/gi,
+      ),
+    ]
+      .map((match) => match[1])
+      .join(" ");
+    const publicMarketText = `${visibleText} ${titleText} ${metadataText} ${structuredDataText}`;
+    check(
+      !/(?:\bEspaña\b|\bSpain\b|Unión Europea|European Union|Espacio Económico Europeo|European Economic Area|\bRGPD\b|\bGDPR\b|\bAEPD\b|\bLSSI\b)/i.test(
+        publicMarketText,
+      ),
+      scope,
+      "declara mercado o normativa UE con NEXT_PUBLIC_EU_MARKET_ENABLED=false",
+    );
+  }
 }
 
 function validateRouteInventory() {

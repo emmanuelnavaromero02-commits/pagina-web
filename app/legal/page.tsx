@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/ui/Section";
 import { ServiceHero } from "@/components/services/ServiceHero";
-import { LEGAL_ENTITY, SITE } from "@/lib/constants";
+import { EU_MARKET_ENABLED, LEGAL_ENTITY, SITE } from "@/lib/constants";
 import { l } from "@/lib/i18n/config";
 import { createPageMetadata } from "@/lib/seo";
 
@@ -136,30 +136,35 @@ export default function LegalPage() {
           >
             <p>
               {l(
-                "La entidad operadora está establecida en México. Se aplicará la legislación mexicana y, cuando los servicios se dirijan o presten en España o la Unión Europea, las normas imperativas que correspondan. Los contratos comerciales definirán la jurisdicción y mecanismos de solución de controversias aplicables a cada relación.",
-                "The operating entity is established in Mexico. Mexican law applies, together with any mandatory rules applicable where services are directed to or provided in Spain or the European Union. Commercial agreements will define the jurisdiction and dispute-resolution mechanisms applicable to each relationship.",
+                EU_MARKET_ENABLED
+                  ? "La entidad operadora está establecida en México. Se aplicará la legislación mexicana y, cuando los servicios se dirijan o presten en la Unión Europea, las normas imperativas que correspondan. Los contratos comerciales definirán la jurisdicción y mecanismos de solución de controversias aplicables a cada relación."
+                  : "La entidad operadora está establecida en México y el lanzamiento actual del sitio se dirige al mercado mexicano. Se aplicará la legislación mexicana. Los contratos comerciales definirán la jurisdicción y mecanismos de solución de controversias aplicables a cada relación.",
+                EU_MARKET_ENABLED
+                  ? "The operating entity is established in Mexico. Mexican law applies, together with any mandatory rules applicable where services are directed to or provided in the European Union. Commercial agreements will define the jurisdiction and dispute-resolution mechanisms applicable to each relationship."
+                  : "The operating entity is established in Mexico, and the current website launch is directed to the Mexican market. Mexican law applies. Commercial agreements will define the jurisdiction and dispute-resolution mechanisms applicable to each relationship.",
               )}
             </p>
           </LegalSection>
 
-          <LegalSection title={l("8. Referencia normativa", "8. Legal reference")}>
-            <p>
-              {l(
-                "Para la prestación de servicios dirigida a España se ha considerado la ",
-                "For services directed to Spain, reference has been made to the ",
-              )}
-              <a
-                href="https://www.boe.es/buscar/act.php?id=BOE-A-2002-13758"
-                className="text-brand-700 hover:text-brand-800"
-              >
+          {EU_MARKET_ENABLED ? (
+            <LegalSection title={l("8. Referencia normativa", "8. Legal reference")}>
+              <p>
                 {l(
-                  "Ley 34/2002 de servicios de la sociedad de la información",
-                  "Spanish Information Society Services Act 34/2002",
+                  "Para la prestación de servicios dirigida a la Unión Europea se consideran las normas imperativas aplicables al comercio y los servicios digitales en cada jurisdicción.",
+                  "Services directed to the European Union are subject to the mandatory commerce and digital-services rules applicable in each jurisdiction.",
                 )}
-              </a>
-              .
-            </p>
-          </LegalSection>
+              </p>
+            </LegalSection>
+          ) : (
+            <LegalSection title={l("8. Alcance territorial", "8. Territorial scope")}>
+              <p>
+                {l(
+                  "La información comercial y el formulario de este sitio se ofrecen actualmente para atender solicitudes del mercado mexicano.",
+                  "The commercial information and contact form on this website are currently offered for enquiries from the Mexican market.",
+                )}
+              </p>
+            </LegalSection>
+          )}
 
           <div className="rounded-xl border border-ink-200 bg-ink-50 p-5 text-xs text-ink-600">
             <p>

@@ -12,14 +12,19 @@ import { ServicesOverview } from "@/components/home/ServicesOverview";
 import { SevenBusinessProblems } from "@/components/home/SevenBusinessProblems";
 import { SevenPillars } from "@/components/home/SevenPillars";
 import { StrategicProcessAnalysis } from "@/components/home/StrategicProcessAnalysis";
+import { EU_MARKET_ENABLED } from "@/lib/constants";
 import { l } from "@/lib/i18n/config";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   path: "/",
   title: l(
-    "Soluciones empresariales inteligentes para México y España",
-    "Intelligent business solutions for Mexico and Spain",
+    EU_MARKET_ENABLED
+      ? "Soluciones empresariales inteligentes para México y la Unión Europea"
+      : "Soluciones empresariales inteligentes para México",
+    EU_MARKET_ENABLED
+      ? "Intelligent business solutions for Mexico and the European Union"
+      : "Intelligent business solutions for Mexico",
   ),
   description: l(
     "7 Business Solutions diseña, integra y da soporte a software empresarial, integraciones, datos gobernados e IA operativa. Producto principal: Enterprise Copilot.",
