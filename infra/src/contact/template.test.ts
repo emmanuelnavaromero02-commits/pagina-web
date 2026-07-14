@@ -26,10 +26,10 @@ describe("contact infrastructure controls", () => {
     assert.doesNotMatch(template, /SampledRequestsEnabled: true/);
   });
 
-  it("limits the SNS resource policy to service publishing", () => {
+  it("limits the SNS resource policy to CloudWatch alarm publishing", () => {
     assert.doesNotMatch(template, /Action:\s+SNS:\*/i);
-    assert.match(template, /Sid: AllowSesPublish[\s\S]*Action: sns:Publish/);
     assert.match(template, /Sid: AllowCloudWatchPublish[\s\S]*Action: sns:Publish/);
+    assert.doesNotMatch(template, /AWS::SES::ConfigurationSetEventDestination/);
   });
 
   it("grants API Gateway the complete required CloudWatch Logs action set", () => {

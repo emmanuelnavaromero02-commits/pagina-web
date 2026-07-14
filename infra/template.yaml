@@ -34,7 +34,7 @@ Parameters:
   OperationsEmail:
     Type: String
     Default: ""
-    Description: Optional email subscription for alarms and SES events; confirmation is required.
+    Description: Optional email subscription for operational alarms; confirmation is required.
   MinFormFillMs:
     Type: Number
     Default: 3000
@@ -481,19 +481,6 @@ Resources:
               AWS: !Sub arn:${AWS::Partition}:iam::${AWS::AccountId}:root
             Action: kms:*
             Resource: "*"
-          - Sid: AllowSesEventPublishing
-            Effect: Allow
-            Principal:
-              Service: ses.amazonaws.com
-            Action:
-              - kms:Decrypt
-              - kms:GenerateDataKey*
-            Resource: "*"
-            Condition:
-              StringEquals:
-                aws:SourceAccount: !Ref AWS::AccountId
-              ArnLike:
-                aws:SourceArn: !Sub arn:${AWS::Partition}:ses:${AWS::Region}:${AWS::AccountId}:configuration-set/7bs-contact-${Environment}
           - Sid: AllowCloudWatchAlarmPublishing
             Effect: Allow
             Principal:
@@ -539,17 +526,6 @@ Resources:
       PolicyDocument:
         Version: "2012-10-17"
         Statement:
-          - Sid: AllowSesPublish
-            Effect: Allow
-            Principal:
-              Service: ses.amazonaws.com
-            Action: sns:Publish
-            Resource: !Ref NotificationTopic
-            Condition:
-              StringEquals:
-                aws:SourceAccount: !Ref AWS::AccountId
-              ArnLike:
-                aws:SourceArn: !Sub arn:${AWS::Partition}:ses:${AWS::Region}:${AWS::AccountId}:configuration-set/7bs-contact-${Environment}
           - Sid: AllowCloudWatchPublish
             Effect: Allow
             Principal:
@@ -587,24 +563,6 @@ Resources:
           Value: 7businesssolutions-contact
         - Key: Environment
           Value: !Ref Environment
-
-  SesEventDestination:
-    Type: AWS::SES::ConfigurationSetEventDestination
-    DependsOn:
-      - NotificationTopicPolicy
-    Properties:
-      ConfigurationSetName: !Ref SesConfigurationSet
-      EventDestination:
-        Name: operational-events
-        Enabled: true
-        MatchingEventTypes:
-          - REJECT
-          - BOUNCE
-          - COMPLAINT
-          - DELIVERY_DELAY
-          - RENDERING_FAILURE
-        SnsDestination:
-          TopicARN: !Ref NotificationTopic
 
   LambdaErrorsAlarm:
     Type: AWS::CloudWatch::Alarm
