@@ -174,7 +174,7 @@ jobs:
             --query "Stacks[0].Outputs[?OutputKey=='ExecuteApiContactUrl'].OutputValue" \
             --output text)"
           test -n "$endpoint"
-          api_origin="${endpoint%/v1/contact}"
+          api_origin="$(node -e 'console.log(new URL(process.argv[1]).origin)' "$endpoint")"
           echo "endpoint=$endpoint" >> "$GITHUB_OUTPUT"
           aws cloudformation deploy \
             --template-file infra/hosting-template.yaml \
