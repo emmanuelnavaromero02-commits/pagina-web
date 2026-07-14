@@ -130,6 +130,11 @@ jobs:
             --stack-name "$CONTACT_STACK" \
             --query 'Stacks[0].StackStatus' \
             --output text 2>/dev/null || true)"
+          if [ "$status" = "ROLLBACK_IN_PROGRESS" ]; then
+            aws cloudformation wait stack-rollback-complete \
+              --stack-name "$CONTACT_STACK"
+            status="ROLLBACK_COMPLETE"
+          fi
           case "$status" in
             ROLLBACK_COMPLETE|CREATE_FAILED|REVIEW_IN_PROGRESS)
               aws cloudformation delete-stack \

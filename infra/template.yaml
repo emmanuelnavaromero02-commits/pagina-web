@@ -94,10 +94,14 @@ Resources:
             Statement:
               - Effect: Allow
                 Action:
+                  - logs:CreateLogGroup
                   - logs:CreateLogStream
+                  - logs:DescribeLogGroups
                   - logs:DescribeLogStreams
+                  - logs:FilterLogEvents
+                  - logs:GetLogEvents
                   - logs:PutLogEvents
-                Resource: !Sub arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/apigateway/*
+                Resource: "*"
 
   ApiGatewayAccount:
     Type: AWS::ApiGateway::Account

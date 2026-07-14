@@ -31,4 +31,18 @@ describe("contact infrastructure controls", () => {
     assert.match(template, /Sid: AllowSesPublish[\s\S]*Action: sns:Publish/);
     assert.match(template, /Sid: AllowCloudWatchPublish[\s\S]*Action: sns:Publish/);
   });
+
+  it("grants API Gateway the complete required CloudWatch Logs action set", () => {
+    for (const action of [
+      "CreateLogGroup",
+      "CreateLogStream",
+      "DescribeLogGroups",
+      "DescribeLogStreams",
+      "PutLogEvents",
+      "GetLogEvents",
+      "FilterLogEvents",
+    ]) {
+      assert.match(template, new RegExp(`logs:${action}`));
+    }
+  });
 });
