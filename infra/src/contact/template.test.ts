@@ -49,4 +49,10 @@ describe("contact infrastructure controls", () => {
   it("does not reserve concurrency below this account's unreserved minimum", () => {
     assert.doesNotMatch(template, /ReservedConcurrentExecutions/);
   });
+
+  it("keeps strict request-model validation despite SAM CORS import warnings", () => {
+    assert.match(template, /additionalProperties: false/);
+    assert.match(template, /ValidateBody: true/);
+    assert.doesNotMatch(template, /FailOnWarnings: true/);
+  });
 });

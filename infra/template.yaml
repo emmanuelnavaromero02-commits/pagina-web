@@ -120,7 +120,6 @@ Resources:
         Type: REGIONAL
       OpenApiVersion: 3.0.1
       TracingEnabled: true
-      FailOnWarnings: true
       MinimumCompressionSize: 1024
       AccessLogSetting:
         DestinationArn: !GetAtt ContactApiLogGroup.Arn
