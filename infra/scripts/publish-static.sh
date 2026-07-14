@@ -19,6 +19,7 @@ fi
 aws s3 sync "$OUT_DIR/" "s3://$BUCKET/" \
   --delete \
   --cache-control "public,max-age=3600" \
+  --only-show-errors \
   --no-progress
 
 # Los assets con hash de Next.js son inmutables.
@@ -26,6 +27,7 @@ if [[ -d "$OUT_DIR/_next/static" ]]; then
   aws s3 cp "$OUT_DIR/_next/static/" "s3://$BUCKET/_next/static/" \
     --recursive \
     --cache-control "public,max-age=31536000,immutable" \
+    --only-show-errors \
     --no-progress
 fi
 
@@ -36,6 +38,7 @@ aws s3 cp "$OUT_DIR/" "s3://$BUCKET/" \
   --include "*.html" \
   --cache-control "public,max-age=0,must-revalidate" \
   --content-type "text/html; charset=utf-8" \
+  --only-show-errors \
   --no-progress
 
 aws cloudfront create-invalidation \
@@ -43,4 +46,3 @@ aws cloudfront create-invalidation \
   --paths "/*" \
   --query 'Invalidation.Id' \
   --output text
-
