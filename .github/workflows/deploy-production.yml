@@ -341,11 +341,29 @@ jobs:
           EXECUTE_ENDPOINT: ${{ steps.api.outputs.execute_endpoint }}
           SES_ACCESS_MODE: ${{ steps.api.outputs.ses_mode }}
         run: |
-          curl --fail --silent --show-error "$DISTRIBUTION_ORIGIN/" | grep -q "7 Business Solutions"
-          curl --fail --silent --show-error "$DISTRIBUTION_ORIGIN/en/" | grep -q "7 Business Solutions"
+          for page_path in / /en/; do
+            page_ready=false
+            for attempt in $(seq 1 12); do
+              page_status="$(curl --silent --show-error --output /tmp/page-response.html \
+                --write-out '%{http_code}' "$DISTRIBUTION_ORIGIN$page_path")"
+              if [ "$page_status" = "200" ] && grep -q "7 Business Solutions" /tmp/page-response.html; then
+                page_ready=true
+                break
+              fi
+              echo "Waiting for CloudFront page $page_path (HTTP $page_status, attempt $attempt/12)."
+              sleep 5
+            done
+            test "$page_ready" = "true"
+          done
 
-          not_found_status="$(curl --silent --show-error --output /dev/null \
-            --write-out '%{http_code}' "$DISTRIBUTION_ORIGIN/ruta-inexistente-smoke")"
+          not_found_status=""
+          for attempt in $(seq 1 12); do
+            not_found_status="$(curl --silent --show-error --output /dev/null \
+              --write-out '%{http_code}' "$DISTRIBUTION_ORIGIN/ruta-inexistente-smoke")"
+            if [ "$not_found_status" = "404" ]; then break; fi
+            echo "Waiting for CloudFront 404 (HTTP $not_found_status, attempt $attempt/12)."
+            sleep 5
+          done
           test "$not_found_status" = "404"
 
           invalid_status="$(curl --silent --show-error --output /tmp/invalid-response.json \
