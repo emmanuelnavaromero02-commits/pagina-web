@@ -320,10 +320,10 @@ Resources:
       BuildProperties:
         EntryPoints:
           - src/contact/handler.ts
-        Format: esm
+        Format: cjs
         Minify: true
         OutExtension:
-          - .js=.mjs
+          - .js=.cjs
         Sourcemap: false
         Target: es2022
 

@@ -59,4 +59,9 @@ describe("contact infrastructure controls", () => {
   it("lets Lambda classify a populated honeypot as a 403 antispam response", () => {
     assert.match(template, /website:\s+type: string\s+maxLength: 200/);
   });
+
+  it("builds a CommonJS handler so bundled AWS SDK node imports load in Lambda", () => {
+    assert.match(template, /Format: cjs/);
+    assert.match(template, /\.js=\.cjs/);
+  });
 });
