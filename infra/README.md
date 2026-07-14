@@ -80,9 +80,9 @@ El handler se despliega en `nodejs24.x`; Lambda ya soporta ese runtime. El build
 1. Usar un rol federado con MFA; no desplegar con root ni con claves permanentes.
 2. Verificar `7businesssolutions.com` en SES en la misma región de la API y confirmar DKIM.
 3. Tener un certificado ACM `ISSUED` en `us-east-1` que cubra `7businesssolutions.com` y `*.7businesssolutions.com`; sirve tanto para CloudFront como para el API regional en esa región.
-4. Haber obtenido acceso de producción en SES y mantener en `SUCCESS` la identidad, DKIM y custom MAIL FROM.
+4. Mantener en `SUCCESS` la identidad SES, DKIM y custom MAIL FROM. El lanzamiento limitado a México puede operar en sandbox solo si remitente y destinatario son exactamente `ventas@7businesssolutions.com`; cualquier destinatario distinto exige acceso productivo de SES y el gate explícito del workflow.
 5. Confirmar que `out/404.html` existe antes de publicar.
-6. Contar con datos reales del representante UE y revisión legal final. No usar valores ficticios para superar el build.
+6. Contar con revisión legal final. El workflow actual fija `NEXT_PUBLIC_EU_MARKET_ENABLED=false`; habilitar el mercado UE requiere su revisión y prerrequisitos independientes.
 
 `AWS::ApiGateway::Account` es único por cuenta y región. `sevenbs-contact-preview` es su único propietario en esta arquitectura; ambos recursos tienen retención y el stack de producción los omite automáticamente mediante `OwnsRegionalApiGatewayAccount`. Antes de producción, el workflow comprueba que la asociación regional y el rol retenido sigan existiendo. No se deben añadir copias del recurso a otros stacks.
 
@@ -132,7 +132,11 @@ Configurar custom MAIL FROM cuando sus registros DNS estén preparados:
   mail.7businesssolutions.com
 ```
 
-Para solicitar salida del sandbox, usa SES **Account dashboard → Request production access** con tipo `TRANSACTIONAL`, URL `https://www.7businesssolutions.com`, volumen inicial conservador y explicación: formularios iniciados por el usuario, sin listas compradas, supresión automática de rebotes/quejas y buzón corporativo único. No cambies DNS ni producción hasta que AWS confirme `ProductionAccessEnabled=true`.
+El modo predeterminado de producción es `sandbox`. CloudFormation exige un solo buzón para remitente y destinatario, limita la función Lambda con `ses:Recipients` y reduce el throttle de API Gateway a una solicitud por segundo. El workflow comprueba que la cuenta siga en sandbox, que el dominio esté verificado y que DKIM y custom MAIL FROM estén en `SUCCESS`.
+
+Para solicitar salida del sandbox, usa SES **Account dashboard → Request production access** con tipo `TRANSACTIONAL`, URL `https://www.7businesssolutions.com`, volumen inicial conservador y explicación: formularios iniciados por el usuario, sin listas compradas, supresión automática de rebotes/quejas y buzón corporativo único. No habilites destinatarios externos hasta que AWS confirme `ProductionAccessEnabled=true`.
+
+Después de la aprobación, selecciona `ses_access_mode=production`. Un destinatario diferente también requiere `enable_external_ses_recipient=true`; el workflow falla si falta cualquiera de ambos gates. CloudFormation conserva la restricción a un solo buzón mientras esa autorización explícita permanezca en `false`.
 
 ## Hosting de preview
 
@@ -167,14 +171,14 @@ AWS_CLOUDFORMATION_EXECUTION_ROLE_ARN
 AWS_ARTIFACT_BUCKET
 AWS_PRODUCTION_CERTIFICATE_ARN
 NEXT_PUBLIC_LEGAL_REVIEWED=true
-NEXT_PUBLIC_EU_REP_NAME=<dato real>
-NEXT_PUBLIC_EU_REP_ADDRESS=<dato real>
-NEXT_PUBLIC_EU_REP_EMAIL=<dato real>
+SES_SENDER_EMAIL=ventas@7businesssolutions.com
+SES_RECIPIENT_EMAIL=ventas@7businesssolutions.com
+SES_OPERATIONS_EMAIL=ventas@7businesssolutions.com
 ```
 
 Antes del primer run, una persona con acceso federado y MFA debe actualizar `sevenbs-access-bootstrap` con esta versión de `bootstrap-template.yaml`. Así se autoriza el subject OIDC del Environment `production` y las comprobaciones de solo lectura. Verifica el output `GitHubProductionSubject`; no hagas esta actualización con root.
 
-El workflow exige confirmación escrita, confirmación de acceso humano federado con MFA, SES fuera del sandbox, certificado emitido, representante UE completo y envío real de prueba. Compila con `NEXT_PUBLIC_LAUNCH_READY=true` antes de crear recursos. Despliega `sevenbs-contact-production` y `sevenbs-web-production`, prueba por los dominios temporales de AWS y publica el traspaso DNS en el resumen. No crea, elimina ni cambia registros DNS.
+El workflow exige confirmación escrita, acceso humano federado con MFA, certificado emitido, revisión legal y envío real de prueba. Para el lanzamiento limitado a México acepta SES sandbox únicamente con remitente y destinatario idénticos bajo el dominio verificado. Compila con `NEXT_PUBLIC_LAUNCH_READY=true` y `NEXT_PUBLIC_EU_MARKET_ENABLED=false`, despliega `sevenbs-contact-production` y `sevenbs-web-production`, prueba por los dominios temporales de AWS y publica el traspaso DNS en el resumen. No crea, elimina ni cambia registros DNS.
 
 El equivalente manual de la parte de hosting es:
 

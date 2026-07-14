@@ -28,6 +28,6 @@
     <rect width="248" height="56" rx="28" fill="#3152dc"/>
     <text x="124" y="36" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="650" text-anchor="middle">Enterprise Copilot</text>
     <rect x="268" width="230" height="56" rx="28" fill="none" stroke="#fff" stroke-opacity=".35"/>
-    <text x="383" y="36" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="550" text-anchor="middle">Mexico · Spain</text>
+    <text x="383" y="36" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="550" text-anchor="middle">Mexico</text>
   </g>
 </svg>

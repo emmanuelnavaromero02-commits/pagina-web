@@ -25,12 +25,31 @@ Parameters:
     Type: String
     Default: 7businesssolutions.com
     AllowedPattern: ^[A-Za-z0-9.-]+$
+  SesAccessMode:
+    Type: String
+    Default: sandbox
+    AllowedValues:
+      - sandbox
+      - production
+    Description: >-
+      sandbox restricts SES to the single verified corporate mailbox;
+      production requires the account-level production-access gate.
+  AllowExternalRecipients:
+    Type: String
+    Default: "false"
+    AllowedValues:
+      - "false"
+      - "true"
+    Description: >-
+      Explicit production-only gate. Keep false while SES is in the sandbox.
   SenderEmail:
     Type: String
     Default: ventas@7businesssolutions.com
+    AllowedPattern: ^[^@ ]+@[A-Za-z0-9.-]+$
   RecipientEmail:
     Type: String
     Default: ventas@7businesssolutions.com
+    AllowedPattern: ^[^@ ]+@[A-Za-z0-9.-]+$
   OperationsEmail:
     Type: String
     Default: ""
@@ -51,9 +70,30 @@ Parameters:
     MinValue: 10
     MaxValue: 2000000000
 
+Rules:
+  SandboxForbidsExternalRecipients:
+    RuleCondition: !Equals [!Ref SesAccessMode, sandbox]
+    Assertions:
+      - Assert: !Equals [!Ref AllowExternalRecipients, "false"]
+        AssertDescription: SES sandbox mode cannot enable external recipients.
+  SingleMailboxWhenExternalRecipientsAreDisabled:
+    RuleCondition: !Equals [!Ref AllowExternalRecipients, "false"]
+    Assertions:
+      - Assert: !Equals [!Ref SenderEmail, !Ref RecipientEmail]
+        AssertDescription: >-
+          SenderEmail and RecipientEmail must be the same mailbox unless external
+          recipients are explicitly enabled.
+  ExternalRecipientsRequireProductionMode:
+    RuleCondition: !Equals [!Ref AllowExternalRecipients, "true"]
+    Assertions:
+      - Assert: !Equals [!Ref SesAccessMode, production]
+        AssertDescription: External recipients require SES production mode.
+
 Conditions:
   HasOperationsEmail: !Not [!Equals [!Ref OperationsEmail, ""]]
   HasApiCustomDomain: !Not [!Equals [!Ref ApiCertificateArn, ""]]
+  IsSesSandbox: !Equals [!Ref SesAccessMode, sandbox]
+  RestrictSesRecipients: !Equals [!Ref AllowExternalRecipients, "false"]
   # API Gateway exposes one CloudWatch role setting per account and Region.
   # Preview owns it; production reuses it instead of overwriting it.
   OwnsRegionalApiGatewayAccount: !Equals [!Ref Environment, preview]
@@ -138,8 +178,10 @@ Resources:
           DataTraceEnabled: false
           LoggingLevel: "OFF"
           MetricsEnabled: true
-          ThrottlingBurstLimit: 25
-          ThrottlingRateLimit: 10
+          # Match the conservative SES sandbox send-rate ceiling until the
+          # production-access gate is explicitly enabled.
+          ThrottlingBurstLimit: !If [IsSesSandbox, 1, 25]
+          ThrottlingRateLimit: !If [IsSesSandbox, 1, 10]
       Cors:
         AllowCredentials: true
         AllowMethods: "'POST,OPTIONS'"
@@ -296,9 +338,15 @@ Resources:
                 Resource:
                   - !Sub arn:${AWS::Partition}:ses:${AWS::Region}:${AWS::AccountId}:identity/${SesIdentityDomain}
                   - !Sub arn:${AWS::Partition}:ses:${AWS::Region}:${AWS::AccountId}:configuration-set/${SesConfigurationSet}
-                Condition:
-                  StringEquals:
-                    ses:FromAddress: !Ref SenderEmail
+                Condition: !If
+                  - RestrictSesRecipients
+                  - StringEquals:
+                      ses:FromAddress: !Ref SenderEmail
+                    "ForAllValues:StringEquals":
+                      ses:Recipients:
+                        - !Ref RecipientEmail
+                  - StringEquals:
+                      ses:FromAddress: !Ref SenderEmail
 
   ContactFunction:
     Type: AWS::Serverless::Function
@@ -721,3 +769,12 @@ Outputs:
     Value: !Ref NotificationTopic
   SesConfigurationSetName:
     Value: !Ref SesConfigurationSet
+  SesAccessMode:
+    Description: SES account mode validated by the deployment workflow.
+    Value: !Ref SesAccessMode
+  SesRecipientPolicy:
+    Description: Effective Lambda SES recipient restriction.
+    Value: !If
+      - RestrictSesRecipients
+      - single-verified-mailbox
+      - external-recipients-enabled

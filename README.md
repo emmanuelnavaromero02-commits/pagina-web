@@ -33,9 +33,10 @@ Copia `.env.example` a `.env.local`. Todas son públicas porque se incorporan al
 - `NEXT_PUBLIC_CONTACT_ENDPOINT`: API pública del formulario.
 - `NEXT_PUBLIC_LAUNCH_READY`: activa indexación y validaciones de lanzamiento.
 - `NEXT_PUBLIC_LEGAL_REVIEWED`: confirma la revisión legal final.
-- `NEXT_PUBLIC_EU_REP_*`: representante en la UE requerido antes de publicar para España.
+- `NEXT_PUBLIC_EU_MARKET_ENABLED`: activa declaraciones comerciales y obligaciones configuradas para el mercado de la Unión Europea; por defecto es `false` y el sitio se presenta únicamente para México.
+- `NEXT_PUBLIC_EU_REP_*`: representante requerido cuando el mercado UE está activo.
 
-Cuando `NEXT_PUBLIC_LAUNCH_READY=true`, el build falla si falta el endpoint, la revisión legal o el representante UE. Sin endpoint, el formulario informa que no está configurado y nunca muestra un éxito simulado.
+Cuando `NEXT_PUBLIC_LAUNCH_READY=true`, el build falla si falta el endpoint o la revisión legal. El representante UE solo se exige cuando `NEXT_PUBLIC_EU_MARKET_ENABLED=true`. Sin endpoint, el formulario informa que no está configurado y nunca muestra un éxito simulado.
 
 ## Rutas y SEO
 
@@ -49,7 +50,7 @@ Cuando `NEXT_PUBLIC_LAUNCH_READY=true`, el build falla si falta el endpoint, la 
 
 El formulario envía únicamente a `ventas@7businesssolutions.com` mediante API Gateway, Lambda y SES. El visitante se utiliza como `Reply-To`; AWS no almacena leads. Los logs técnicos no incluyen el cuerpo y se eliminan a los 30 días.
 
-Los avisos jurídicos son borradores normativos. La publicación queda bloqueada hasta completar representante UE y revisión profesional final.
+El lanzamiento actual y sus avisos jurídicos se limitan al mercado mexicano. La activación comercial de la Unión Europea permanece bloqueada hasta completar sus requisitos específicos y el representante correspondiente.
 
 ## AWS
 

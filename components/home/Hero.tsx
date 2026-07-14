@@ -5,6 +5,8 @@ import { SITE } from "@/lib/constants";
 import { l } from "@/lib/i18n/config";
 
 export function Hero() {
+  const markets = SITE.regions.join(l(" y ", " & "));
+
   return (
     <section className="relative overflow-hidden bg-white">
       <div aria-hidden className="absolute inset-0 bg-brand-radial" />
@@ -16,7 +18,7 @@ export function Hero() {
         <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_1fr]">
           <div className="animate-fade-up">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-700">
-              {SITE.name} · {l("México y España", "Mexico & Spain")}
+              {SITE.name} · {markets}
             </p>
 
             <h1 className="mt-4 font-display text-4xl font-semibold leading-[1.05] tracking-tight text-ink-950 sm:text-5xl lg:text-[3.5rem]">
@@ -99,7 +101,7 @@ export function Hero() {
                   {l("Mercados", "Markets")}
                 </dt>
                 <dd className="mt-1 text-sm font-medium text-ink-900">
-                  {l("México y España", "Mexico & Spain")}
+                  {markets}
                 </dd>
               </div>
             </dl>

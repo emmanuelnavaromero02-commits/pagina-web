@@ -4,22 +4,37 @@ import {
   SITE_ORIGIN,
 } from "@/lib/i18n/config";
 
+export const EU_MARKET_ENABLED =
+  process.env.NEXT_PUBLIC_EU_MARKET_ENABLED === "true";
+
+export type MarketScope = "mexico" | "mexico-and-eu";
+
+export const MARKET_SCOPE: MarketScope = EU_MARKET_ENABLED
+  ? "mexico-and-eu"
+  : "mexico";
+
 const localized = {
   es: {
     tagline:
       "Soluciones empresariales inteligentes para convertir operación, datos e IA en ejecución medible.",
-    description:
-      "Ayudamos a empresas de México y España a mejorar procesos, integrar sistemas y convertir sus datos en decisiones mediante software, automatización e IA operacional.",
-    regions: ["México", "España"] as const,
+    description: EU_MARKET_ENABLED
+      ? "Ayudamos a empresas de México y la Unión Europea a mejorar procesos, integrar sistemas y convertir sus datos en decisiones mediante software, automatización e IA operacional."
+      : "Ayudamos a empresas de México a mejorar procesos, integrar sistemas y convertir sus datos en decisiones mediante software, automatización e IA operacional.",
+    regions: EU_MARKET_ENABLED
+      ? (["México", "Unión Europea"] as const)
+      : (["México"] as const),
     productHeadline:
       "Del trabajo manual a decisiones con evidencia y control.",
   },
   en: {
     tagline:
       "Intelligent business solutions that turn operations, data, and AI into measurable execution.",
-    description:
-      "We help companies in Mexico and Spain improve processes, integrate systems, and turn data into decisions through software, automation, and operational AI.",
-    regions: ["Mexico", "Spain"] as const,
+    description: EU_MARKET_ENABLED
+      ? "We help companies in Mexico and the European Union improve processes, integrate systems, and turn data into decisions through software, automation, and operational AI."
+      : "We help companies in Mexico improve processes, integrate systems, and turn data into decisions through software, automation, and operational AI.",
+    regions: EU_MARKET_ENABLED
+      ? (["Mexico", "European Union"] as const)
+      : (["Mexico"] as const),
     productHeadline:
       "From manual work to decisions with evidence and control.",
   },
@@ -103,11 +118,14 @@ export function assertLaunchConfiguration(): void {
     failures.push("NEXT_PUBLIC_LEGAL_REVIEWED must be true");
   }
   if (
-    !EU_REPRESENTATIVE.name ||
-    !EU_REPRESENTATIVE.address ||
-    !EU_REPRESENTATIVE.email
+    EU_MARKET_ENABLED &&
+    (!EU_REPRESENTATIVE.name ||
+      !EU_REPRESENTATIVE.address ||
+      !EU_REPRESENTATIVE.email)
   ) {
-    failures.push("EU representative name, address, and email are required");
+    failures.push(
+      "EU representative name, address, and email are required when NEXT_PUBLIC_EU_MARKET_ENABLED=true",
+    );
   }
 
   if (failures.length > 0) {

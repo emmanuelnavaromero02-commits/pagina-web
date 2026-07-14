@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Github, Linkedin, Mail, Phone } from "lucide-react";
-import { SITE, hasContactInfo } from "@/lib/constants";
+import { EU_MARKET_ENABLED, SITE, hasContactInfo } from "@/lib/constants";
 import { l } from "@/lib/i18n/config";
 import { FOOTER_LINKS } from "@/lib/navigation";
 import { Logo } from "./Logo";
@@ -19,8 +19,12 @@ export function Footer() {
             <Logo variant="dark" />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-ink-300">
               {l(
-                "Soluciones empresariales inteligentes. Diseñamos, integramos y damos soporte a software, integraciones, datos gobernados e IA operacional para empresas de México y España.",
-                "Intelligent business solutions. We design, integrate, and support enterprise software, integrations, governed data, and operational AI for companies in Mexico and Spain.",
+                EU_MARKET_ENABLED
+                  ? "Soluciones empresariales inteligentes. Diseñamos, integramos y damos soporte a software, integraciones, datos gobernados e IA operacional para empresas de México y la Unión Europea."
+                  : "Soluciones empresariales inteligentes. Diseñamos, integramos y damos soporte a software, integraciones, datos gobernados e IA operacional para empresas de México.",
+                EU_MARKET_ENABLED
+                  ? "Intelligent business solutions. We design, integrate, and support enterprise software, integrations, governed data, and operational AI for companies in Mexico and the European Union."
+                  : "Intelligent business solutions. We design, integrate, and support enterprise software, integrations, governed data, and operational AI for companies in Mexico.",
               )}
             </p>
 

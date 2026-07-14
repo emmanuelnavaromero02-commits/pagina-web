@@ -3,7 +3,11 @@ import { Inter } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { StructuredData } from "@/components/seo/StructuredData";
-import { SITE, assertLaunchConfiguration } from "@/lib/constants";
+import {
+  EU_MARKET_ENABLED,
+  SITE,
+  assertLaunchConfiguration,
+} from "@/lib/constants";
 import {
   BUILD_LOCALE,
   IS_LAUNCH_READY,
@@ -49,7 +53,7 @@ export const metadata: Metadata = {
     "SAP integration",
     "Cloud and data",
     "Mexico",
-    "Spain",
+    ...(EU_MARKET_ENABLED ? ["European Union"] : []),
   ],
   alternates: languageAlternates("/"),
   openGraph: {

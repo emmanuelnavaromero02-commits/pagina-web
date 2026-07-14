@@ -1,8 +1,14 @@
-import { LEGAL_ENTITY, SITE } from "@/lib/constants";
+import { EU_MARKET_ENABLED, LEGAL_ENTITY, SITE } from "@/lib/constants";
 import { BUILD_LOCALE, SITE_ORIGIN, l } from "@/lib/i18n/config";
 
 export function StructuredData() {
   const organizationId = `${SITE_ORIGIN}/#organization`;
+  const areaServed = [
+    { "@type": "Country", name: l("México", "Mexico") },
+    ...(EU_MARKET_ENABLED
+      ? [{ "@type": "AdministrativeArea", name: l("Unión Europea", "European Union") }]
+      : []),
+  ];
   const graph = {
     "@context": "https://schema.org",
     "@graph": [
@@ -16,10 +22,7 @@ export function StructuredData() {
         logo: `${SITE_ORIGIN}/logo.svg`,
         email: SITE.contact.email,
         telephone: SITE.contact.phone,
-        areaServed: [
-          { "@type": "Country", name: l("México", "Mexico") },
-          { "@type": "Country", name: l("España", "Spain") },
-        ],
+        areaServed,
         knowsAbout: [
           "Enterprise Copilot",
           l("Fábrica de software", "Software Factory"),
@@ -54,7 +57,7 @@ export function StructuredData() {
           l("IA operacional", "Operational AI"),
         ],
         provider: { "@id": organizationId },
-        areaServed: ["MX", "ES"],
+        areaServed: EU_MARKET_ENABLED ? ["MX", "EU"] : ["MX"],
       },
       {
         "@type": "Person",
