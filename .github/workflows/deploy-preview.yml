@@ -1,6 +1,9 @@
 name: Deploy preview
 
 on:
+  push:
+    branches:
+      - agent/puesta-produccion-bilingue
   workflow_dispatch:
     inputs:
       send_smoke_email:
