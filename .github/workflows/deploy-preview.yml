@@ -175,6 +175,7 @@ jobs:
               SesIdentityDomain=7businesssolutions.com \
               SenderEmail=ventas@7businesssolutions.com \
               RecipientEmail=ventas@7businesssolutions.com \
+              OperationsEmail=ventas@7businesssolutions.com \
             --no-confirm-changeset \
             --no-fail-on-empty-changeset
 
