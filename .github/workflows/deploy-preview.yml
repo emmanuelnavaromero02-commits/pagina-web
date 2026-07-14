@@ -74,9 +74,23 @@ jobs:
           npm run typecheck --prefix infra
           npm test --prefix infra
 
+      - name: Resolve existing contact API origin
+        id: existing-api
+        run: |
+          endpoint="$(aws cloudformation describe-stacks \
+            --stack-name "$CONTACT_STACK" \
+            --query "Stacks[0].Outputs[?OutputKey=='ExecuteApiContactUrl'].OutputValue" \
+            --output text 2>/dev/null || true)"
+          api_origin="https://api.7businesssolutions.com"
+          if [ -n "$endpoint" ]; then
+            api_origin="$(node -e 'console.log(new URL(process.argv[1]).origin)' "$endpoint")"
+          fi
+          echo "origin=$api_origin" >> "$GITHUB_OUTPUT"
+
       - name: Create preview hosting
         env:
           EXECUTION_ROLE_ARN: ${{ vars.AWS_CLOUDFORMATION_EXECUTION_ROLE_ARN }}
+          CONTACT_API_ORIGIN: ${{ steps.existing-api.outputs.origin }}
         run: |
           aws cloudformation deploy \
             --template-file infra/hosting-template.yaml \
@@ -85,7 +99,7 @@ jobs:
             --parameter-overrides \
               Environment=preview \
               SiteDomainName=preview.7businesssolutions.com \
-              ContactApiOrigin=https://api.7businesssolutions.com \
+              ContactApiOrigin="$CONTACT_API_ORIGIN" \
             --no-fail-on-empty-changeset
 
       - name: Read preview origin
