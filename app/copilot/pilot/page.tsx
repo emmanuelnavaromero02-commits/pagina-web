@@ -18,12 +18,12 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   path: "/copilot/pilot",
   title: l(
-    "Solicitar un piloto · Enterprise Copilot",
-    "Request a pilot · Enterprise Copilot",
+    "Evaluar un caso · Agentes de Decisión IA",
+    "Evaluate a use case · AI Decision Agents",
   ),
   description: l(
-    "Alcance de un piloto de Enterprise Copilot: conexiones, caso de uso, criterios de evaluación y siguiente paso hacia una hoja de ruta.",
-    "Scope of an Enterprise Copilot pilot: connections, use case, evaluation criteria, and the next step toward a roadmap.",
+    "Alcance de una evaluación de Agentes de Decisión IA: conexiones, decisión objetivo, criterios de evaluación y siguiente paso hacia una hoja de ruta.",
+    "Scope of an AI Decision Agents assessment: connections, target decision, evaluation criteria, and the next step toward a roadmap.",
   ),
 });
 
@@ -117,8 +117,8 @@ export default function CopilotPilotPage() {
     <>
       <ServiceHero
         eyebrow={l(
-          "Enterprise Copilot · Piloto",
-          "Enterprise Copilot · Pilot",
+          "Agentes de Decisión IA · Evaluación",
+          "AI Decision Agents · Assessment",
         )}
         title={l(
           "Pruebe un alcance definido en sus propios sistemas.",
@@ -192,8 +192,8 @@ export default function CopilotPilotPage() {
           eyebrow={l("Qué se evalúa", "What we evaluate")}
           title={l("Criterios concretos", "Concrete criteria")}
           description={l(
-            "El piloto aporta información medible para decidir si tiene sentido ampliar Enterprise Copilot en la operación.",
-            "The pilot provides measurable information to decide whether expanding Enterprise Copilot in the operation makes sense.",
+            "La evaluación aporta información medible para decidir si tiene sentido ampliar los agentes de IA en la operación.",
+            "The assessment provides measurable information to decide whether expanding AI agents across the operation makes sense.",
           )}
         />
         <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

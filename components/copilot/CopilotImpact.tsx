@@ -6,16 +6,16 @@ export function CopilotImpact() {
   return (
     <Section id="impact" className="bg-white">
       <SectionHeader
-        eyebrow={l("Antes y con Enterprise Copilot", "Before and with Enterprise Copilot")}
+        eyebrow={l("Antes y con Agentes de Decisión IA", "Before and with AI Decision Agents")}
         title={l("De tareas dispersas a un flujo trazable", "From scattered tasks to a traceable workflow")}
-        description={l("El valor está en reducir búsquedas y cruces manuales, mostrar evidencia y dejar claro qué debe revisarse o aprobarse.", "The value is in reducing manual searches and cross-checks, showing evidence, and making clear what needs review or approval.")}
+        description={l("El valor está en reducir búsquedas y cruces manuales, coordinar análisis especializados, mostrar evidencia y dejar claro qué debe revisarse o aprobarse.", "The value is in reducing manual searches and cross-checks, coordinating specialized analysis, showing evidence, and making clear what needs review or approval.")}
       />
 
       <div className="mt-12 overflow-hidden rounded-2xl border border-ink-100 bg-white shadow-soft">
         <div className="hidden grid-cols-[2fr_1fr_1.6fr_1.6fr] gap-4 border-b border-ink-100 bg-ink-50 px-6 py-3 text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-600 lg:grid">
           <div>{l("Tarea de negocio", "Business task")}</div>
           <div>{l("Antes", "Before")}</div>
-          <div>{l("Con Enterprise Copilot", "With Enterprise Copilot")}</div>
+          <div>{l("Con agentes IA", "With AI agents")}</div>
           <div>{l("Impacto", "Impact")}</div>
         </div>
         <ul className="divide-y divide-ink-100">
@@ -37,7 +37,7 @@ export function CopilotImpact() {
               </div>
               <div>
                 <span className="block text-[10px] font-semibold uppercase tracking-[0.16em] text-brand-700 lg:hidden">
-                  {l("Con Enterprise Copilot", "With Enterprise Copilot")}
+                  {l("Con agentes IA", "With AI agents")}
                 </span>
                 <span className="inline-flex items-center rounded-full border border-brand-200 bg-brand-50 px-2.5 py-0.5 text-xs font-medium text-brand-800">
                   {row.withCopilot}

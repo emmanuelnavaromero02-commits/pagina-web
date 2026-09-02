@@ -6,9 +6,9 @@ export function CopilotExactly() {
   return (
     <Section className="bg-white">
       <SectionHeader
-        eyebrow={l("7 capacidades de Enterprise Copilot", "7 Enterprise Copilot capabilities")}
-        title={l("Capacidades operativas, no conversación genérica", "Operational capabilities — not generic chat")}
-        description={l("Siete funciones concretas sobre sistemas reales, con permisos, validaciones y trazabilidad en cada paso.", "Seven concrete functions over real systems, with permissions, validations, and traceability at every step.")}
+        eyebrow={l("7 capacidades verificables", "7 verifiable capabilities")}
+        title={l("Inteligencia aplicada, no conversación genérica", "Applied intelligence, not generic chat")}
+        description={l("Siete funciones concretas sobre sistemas reales, combinando IA generativa, análisis cuantitativo, permisos y trazabilidad.", "Seven concrete functions over real systems, combining generative AI, quantitative analysis, permissions, and traceability.")}
       />
 
       <ol className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">

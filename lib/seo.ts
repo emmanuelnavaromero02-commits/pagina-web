@@ -21,7 +21,10 @@ export function createPageMetadata({
   index = IS_LAUNCH_READY,
 }: PageMetadataInput): Metadata {
   const url = canonicalUrl(BUILD_LOCALE, path);
-  const image = BUILD_LOCALE === "es" ? "/og-es.png" : "/og-en.png";
+  const image = BUILD_LOCALE === "es" ? "/og-portfolio.png" : "/og-en.png";
+  const imageSize = BUILD_LOCALE === "es"
+    ? { width: 1731, height: 909 }
+    : { width: 1200, height: 630 };
 
   return {
     title,
@@ -37,8 +40,7 @@ export function createPageMetadata({
       images: [
         {
           url: image,
-          width: 1200,
-          height: 630,
+          ...imageSize,
           alt: `${SITE.name} · ${title}`,
         },
       ],
@@ -52,4 +54,3 @@ export function createPageMetadata({
     robots: { index, follow: index },
   };
 }
-

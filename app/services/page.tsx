@@ -1,18 +1,19 @@
 import { ContactCTA } from "@/components/home/ContactCTA";
-import { ServiceGrid } from "@/components/services/ServiceGrid";
+import { ServiceDirectory } from "@/components/services/ServiceDirectory";
 import { ServiceHero } from "@/components/services/ServiceHero";
+import { PORTFOLIO_SERVICE_COUNT } from "@/lib/data/portfolio";
 import { l } from "@/lib/i18n/config";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   path: "/services",
   title: l(
-    "Servicios · Software, integración SAP, datos e IA",
-    "Services · Software, SAP integration, data, and AI",
+    "Portafolio completo · SAP, nómina, software, cloud, datos e IA",
+    "Complete portfolio · SAP, payroll, software, cloud, data, and AI",
   ),
   description: l(
-    "Cuatro líneas de servicio coordinadas por un mismo equipo: fábrica de software, integración empresarial, nube y datos gobernados e IA operativa.",
-    "Four service lines coordinated by one team: Software Factory, Enterprise Integration, Cloud & Governed Data, and Operational AI.",
+    "Siete dominios coordinados por un mismo equipo: personas y nómina, S/4HANA, fábrica de software, AMS, nube y datos, privacidad e innovación con IA.",
+    "Seven domains coordinated by one team: people and payroll, S/4HANA, software factory, AMS, cloud and data, privacy, and AI innovation.",
   ),
 });
 
@@ -20,17 +21,31 @@ export default function ServicesPage() {
   return (
     <>
       <ServiceHero
-        eyebrow={l("Servicios", "Services")}
+        eyebrow={l("Servicios empresariales", "Enterprise services")}
         title={l(
-          "Capacidades para operaciones de misión crítica",
-          "Capabilities for mission-critical operations",
+          "Transformación empresarial, de la estrategia a la operación.",
+          "Enterprise transformation, from strategy to operations.",
         )}
         description={l(
-          "Fábrica de software, integración SAP, nube, datos e IA operativa, coordinados con una misma forma de trabajo y entregables verificables.",
-          "Software Factory, SAP integration, cloud, data, and operational AI, coordinated through one delivery approach and verifiable deliverables.",
+          "Integramos personas, nómina, SAP, software, operación, nube, datos, seguridad e inteligencia aplicada para resolver prioridades críticas con una ejecución conectada.",
+          "We integrate people, payroll, SAP, software, operations, cloud, data, security, and applied intelligence to solve critical priorities through connected execution.",
         )}
+        badges={[
+          l("7 dominios empresariales", "7 enterprise domains"),
+          l(`${PORTFOLIO_SERVICE_COUNT} capacidades`, `${PORTFOLIO_SERVICE_COUNT} capabilities`),
+          l("De estrategia a operación", "From strategy to operations"),
+          l("México · cobertura internacional", "Mexico · international coverage"),
+        ]}
+        primaryCta={{
+          label: l("Explorar servicios", "Explore services"),
+          href: "#directorio-panel",
+        }}
+        secondaryCta={{
+          label: l("Hablar con un especialista", "Talk to a specialist"),
+          href: "/contact",
+        }}
       />
-      <ServiceGrid />
+      <ServiceDirectory />
       <ContactCTA />
     </>
   );

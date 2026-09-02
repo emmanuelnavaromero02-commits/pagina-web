@@ -60,4 +60,4 @@ Consulta [`infra/README.md`](infra/README.md) para validar y desplegar API Gatew
 
 - No publicar métricas, clientes, certificaciones, logos, testimonios o fotografías sin evidencia y autorización.
 - Presentar capacidades como experiencia del equipo; la sociedad inició operaciones en 2026.
-- Conservar como marcas `7 Business Solutions`, `Enterprise Copilot`, SAP y nombres técnicos.
+- Conservar como marcas `7 Business Solutions`, `Agentes de Decisión IA`, SAP y nombres técnicos. La ruta histórica `/copilot` se mantiene por compatibilidad, pero no forma parte del nombre visible del producto.

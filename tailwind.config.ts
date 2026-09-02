@@ -61,6 +61,8 @@ const config: Config = {
         soft: "0 1px 2px rgba(11,14,28,0.04), 0 8px 24px rgba(11,14,28,0.06)",
         elevate:
           "0 4px 12px rgba(11,14,28,0.06), 0 24px 48px -12px rgba(11,14,28,0.18)",
+        float:
+          "0 2px 4px rgba(11,14,28,0.04), 0 30px 90px -34px rgba(11,14,28,0.32)",
       },
       backgroundImage: {
         "grid-fade":
@@ -73,9 +75,14 @@ const config: Config = {
           "0%": { opacity: "0", transform: "translateY(8px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        "soft-pulse": {
+          "0%, 100%": { opacity: "0.55", transform: "scale(1)" },
+          "50%": { opacity: "0.9", transform: "scale(1.04)" },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.5s ease-out both",
+        "soft-pulse": "soft-pulse 6s ease-in-out infinite",
       },
     },
   },

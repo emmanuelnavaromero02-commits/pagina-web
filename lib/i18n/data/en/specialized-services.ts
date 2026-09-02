@@ -57,7 +57,7 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
       "Activity log designed to support audit review.",
     ],
     copilot:
-      "In these processes, Enterprise Copilot helps bring context together, identify differences or risks, and prepare reports or next steps for human review.",
+      "In these processes, AI Decision Agents helps bring context together, identify differences or risks, and prepare reports or next steps for human review.",
   },
   "enterprise-portals": {
     slug: "enterprise-portals",
@@ -105,7 +105,7 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
       "Performance and accessibility baseline (Core Web Vitals + WCAG).",
     ],
     copilot:
-      "Within a portal, Enterprise Copilot helps people find relevant information, understand pending work, and prepare requests or responses for review and approval.",
+      "Within a portal, AI Decision Agents helps people find relevant information, understand pending work, and prepare requests or responses for review and approval.",
   },
   "internal-apps": {
     slug: "internal-apps",
@@ -153,7 +153,7 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
       "Audit-export package per cycle.",
     ],
     copilot:
-      "Enterprise Copilot can summarize process status, flag exceptions, and prepare the next step for approval while keeping the decision context visible.",
+      "AI Decision Agents can summarize process status, flag exceptions, and prepare the next step for approval while keeping the decision context visible.",
   },
   "apis-microservices": {
     slug: "apis-microservices",
@@ -202,7 +202,7 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
       "Per-API security review and secure runtime configuration.",
     ],
     copilot:
-      "Enterprise Copilot helps bring information from different systems into a useful view, explain findings, and prepare controlled actions for review.",
+      "AI Decision Agents helps bring information from different systems into a useful view, explain findings, and prepare controlled actions for review.",
   },
   "evolutionary-support": {
     slug: "evolutionary-support",
@@ -249,7 +249,7 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
       "Post-incident reports with root cause and corrective actions.",
     ],
     copilot:
-      "Enterprise Copilot helps organize incidents and changes, surface available context, identify recurring patterns, and prepare follow-up for team review.",
+      "AI Decision Agents helps organize incidents and changes, surface available context, identify recurring patterns, and prepare follow-up for team review.",
   },
 };
 
@@ -313,7 +313,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Transport governance and release calendar.",
     ],
     copilot:
-      "Enterprise Copilot helps review closings, reconciliations, master data, and reports, flags differences, and prepares the next step for review.",
+      "AI Decision Agents helps review closings, reconciliations, master data, and reports, flags differences, and prepares the next step for review.",
   },
   "sap-cloud": {
     slug: "sap-cloud",
@@ -361,7 +361,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Per-interface SLA and reprocessing logic.",
     ],
     copilot:
-      "Enterprise Copilot brings together the context needed for HR, supplier, or planning questions and makes pending work clear.",
+      "AI Decision Agents brings together the context needed for HR, supplier, or planning questions and makes pending work clear.",
   },
   "sap-btp": {
     slug: "sap-btp",
@@ -410,7 +410,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Side-by-side extension catalog with ownership.",
     ],
     copilot:
-      "Enterprise Copilot helps review requests, validate information, and prepare reports or approvals with visible evidence.",
+      "AI Decision Agents helps review requests, validate information, and prepare reports or approvals with visible evidence.",
   },
   "abap-rfc-idocs": {
     slug: "abap-rfc-idocs",
@@ -461,7 +461,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Performance review and remediation report.",
     ],
     copilot:
-      "Enterprise Copilot helps teams understand the status of SAP exchanges, flag errors, and prepare follow-up for the responsible team.",
+      "AI Decision Agents helps teams understand the status of SAP exchanges, flag errors, and prepare follow-up for the responsible team.",
   },
   middleware: {
     slug: "middleware",
@@ -510,7 +510,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Migration backlog for fragile point-to-point integrations.",
     ],
     copilot:
-      "Enterprise Copilot helps identify pending messages, explain incidents, and prepare follow-up actions subject to review.",
+      "AI Decision Agents helps identify pending messages, explain incidents, and prepare follow-up actions subject to review.",
   },
   "third-party": {
     slug: "third-party",
@@ -558,7 +558,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Decommissioning plan for retired integrations.",
     ],
     copilot:
-      "Enterprise Copilot brings together context across SAP and other platforms to compare information, explain differences, and support a decision.",
+      "AI Decision Agents brings together context across SAP and other platforms to compare information, explain differences, and support a decision.",
   },
   successfactors: {
     slug: "successfactors",
@@ -583,7 +583,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Master-data validation between SuccessFactors and SAP HCM.",
       "Organizational structure visibility across multiple business units.",
       "Position / job catalog feed to downstream systems.",
-      "HR analytics consumed by Enterprise Copilot for assisted queries.",
+      "HR analytics consumed by AI Decision Agents for assisted queries.",
       "Employee lifecycle integration across hire-to-retire systems.",
     ],
     capabilities: [
@@ -605,7 +605,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Traceable report of master-data changes for audit review.",
     ],
     copilot:
-      "Enterprise Copilot helps answer HR questions, summarize pending work, and prepare requests for review by the responsible person.",
+      "AI Decision Agents helps answer HR questions, summarize pending work, and prepare requests for review by the responsible person.",
   },
   "sap-hcm": {
     slug: "sap-hcm",
@@ -630,7 +630,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Absence and time-evaluation reporting for operations.",
       "Cost-center / position validation against finance master data.",
       "Manager hierarchy export to identity and access systems.",
-      "HR operational report consumed by Enterprise Copilot.",
+      "HR operational report consumed by AI Decision Agents.",
       "Phased migration roadmap from SAP HCM to SuccessFactors.",
     ],
     capabilities: [
@@ -653,7 +653,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Cost-center alignment report between HCM and finance.",
     ],
     copilot:
-      "Enterprise Copilot helps people understand workforce, absence, and organizational information without requiring technical knowledge of the system.",
+      "AI Decision Agents helps people understand workforce, absence, and organizational information without requiring technical knowledge of the system.",
   },
 };
 
@@ -673,8 +673,8 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
     title: "AWS",
     parent: CLOUD_PARENT,
     intro:
-      "Lightweight, maintainable architectures on AWS — static sites, serverless APIs, transactional email, and storage tuned to the use case.",
-    heroBadges: ["S3 + CloudFront", "API Gateway + Lambda", "SES · RDS · DynamoDB"],
+      "Assessment, landing zone, SAP and enterprise workload migration, modernization, continuity, managed operations, and FinOps on AWS.",
+    heroBadges: ["Assessment + TCO", "SAP and enterprise workloads", "FinOps + operations"],
     problem:
       "AWS costs can grow without clear ownership and limits. The proposed design favors justified services, per-environment ownership, budgets, and explicit security boundaries.",
     whatWeDo: [
@@ -714,7 +714,7 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Security baseline aligned with corporate policies.",
     ],
     copilot:
-      "For operations on AWS, Enterprise Copilot helps bring alerts and context together, explain what needs attention, and prepare follow-up for approval.",
+      "For operations on AWS, AI Decision Agents helps bring alerts and context together, explain what needs attention, and prepare follow-up for approval.",
   },
   azure: {
     slug: "azure",
@@ -762,7 +762,7 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Per-environment policy and security baseline.",
     ],
     copilot:
-      "In Azure environments, Enterprise Copilot helps answer operational questions, summarize evidence, and prepare actions without losing access control.",
+      "In Azure environments, AI Decision Agents helps answer operational questions, summarize evidence, and prepare actions without losing access control.",
   },
   gcp: {
     slug: "gcp",
@@ -809,7 +809,7 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Documented analytical layer with lineage to source.",
     ],
     copilot:
-      "Enterprise Copilot helps leadership review operational and analytical information, understand changes, and decide with evidence.",
+      "AI Decision Agents helps leadership review operational and analytical information, understand changes, and decide with evidence.",
   },
   databases: {
     slug: "databases",
@@ -835,7 +835,7 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Data-quality validation between source database and reporting.",
       "Migration from on-prem database to cloud-managed engine.",
       "Master-data consistency checks across enterprise systems.",
-      "Database-backed knowledge source for Enterprise Copilot.",
+      "Database-backed knowledge source for AI Decision Agents.",
     ],
     capabilities: [
       "MS SQL Server",
@@ -858,7 +858,7 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Performance baseline and indexing recommendations.",
     ],
     copilot:
-      "Enterprise Copilot helps answer questions about corporate information, flag discrepancies, and preserve the reviewed context.",
+      "AI Decision Agents helps answer questions about corporate information, flag discrepancies, and preserve the reviewed context.",
   },
   "data-pipelines": {
     slug: "data-pipelines",
@@ -905,7 +905,7 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Pipeline catalog with ownership per layer.",
     ],
     copilot:
-      "Enterprise Copilot helps explain why a figure changed, shows the available evidence, and points out what needs review.",
+      "AI Decision Agents helps explain why a figure changed, shows the available evidence, and points out what needs review.",
   },
   reporting: {
     slug: "reporting",
@@ -951,7 +951,7 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Refresh and SLA agreements per report.",
     ],
     copilot:
-      "Enterprise Copilot helps interpret indicators using agreed definitions, explain variances, and prepare decision summaries.",
+      "AI Decision Agents helps interpret indicators using agreed definitions, explain variances, and prepare decision summaries.",
   },
 };
 
@@ -1010,7 +1010,7 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
       "Citation pattern and answer format spec.",
     ],
     copilot:
-      "Enterprise Copilot answers questions, summarizes evidence, and prepares documents or next steps for review and approval.",
+      "AI Decision Agents answers questions, summarizes evidence, and prepares documents or next steps for review and approval.",
   },
   "machine-learning": {
     slug: "machine-learning",
@@ -1057,7 +1057,7 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
       "Evaluation report against business KPIs.",
     ],
     copilot:
-      "Enterprise Copilot presents predictions with their context, flags risks, and helps compare options before a decision.",
+      "AI Decision Agents presents predictions with their context, flags risks, and helps compare options before a decision.",
   },
   "intelligent-automation": {
     slug: "intelligent-automation",
@@ -1103,7 +1103,7 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
       "Per-flow KPI dashboard.",
     ],
     copilot:
-      "Enterprise Copilot is the natural surface for assisted automation — it prepares the action, shows the evidence, and waits for human approval.",
+      "AI Decision Agents is the natural surface for assisted automation — it prepares the action, shows the evidence, and waits for human approval.",
   },
   "internal-assistants": {
     slug: "internal-assistants",
@@ -1149,18 +1149,18 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
       "Adoption metrics dashboard.",
     ],
     copilot:
-      "Enterprise Copilot answers internal questions, summarizes information, and prepares follow-up actions when the process requires more than an answer.",
+      "AI Decision Agents answers internal questions, summarizes information, and prepares follow-up actions when the process requires more than an answer.",
   },
   "operational-copilots": {
     slug: "operational-copilots",
     eyebrow: "Operational AI",
-    title: "Operational Copilots",
+    title: "AI Decision Agents",
     parent: AI_PARENT,
     intro:
-      "Copilots that turn fragmented information into evidence, options, and next steps subject to human review.",
-    heroBadges: ["Verifiable evidence", "Approval before action", "Traceable follow-up"],
+      "Generative AI, specialized agents, and quantitative models that turn fragmented information into trusted decisions and actions.",
+    heroBadges: ["Specialized agents", "Quantitative scenarios", "Human control"],
     problem:
-      "An isolated answer is not enough when a team needs to understand what happened, review the evidence, and decide the next step. An operational copilot must provide context, control, and follow-up.",
+      "An isolated answer is not enough when a team needs to understand what happened, compare scenarios, and decide the next step. Agents provide context, analysis, control, and follow-up.",
     whatWeDo: [
       "Bring together the relevant context for a question or decision.",
       "Surface differences, exceptions, and risks that need attention.",
@@ -1170,12 +1170,12 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
       "Preserve context, decisions, and outcomes for follow-up.",
     ],
     useCases: [
-      "Finance copilot for reconciliations and variance analysis.",
-      "HR copilot for headcount, absences, and master-data queries.",
-      "Operations copilot for status, incident research, and alerts.",
-      "Executive copilot for boardroom-ready answers with citations.",
-      "Audit copilot for evidence retrieval and ticket history.",
-      "Procurement copilot for supplier and spend questions.",
+      "Finance agent for reconciliations, scenarios, and variance analysis.",
+      "Talent agent for headcount, risk, absences, and master data.",
+      "Operations agent for status, incident research, and alerts.",
+      "Executive agent for leadership answers, scenarios, and evidence.",
+      "Audit agent for evidence retrieval and decision history.",
+      "Procurement agent for supplier, risk, and spend analysis.",
     ],
     capabilities: [
       "Operational context",
@@ -1188,7 +1188,7 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
       "Controlled access",
     ],
     deliverables: [
-      "Operational copilot scoped to one or more business processes.",
+      "Agent system scoped to one or more business processes.",
       "Agreed access and responsibility matrix.",
       "Validation criteria aligned with the business.",
       "Decision and outcome records according to scope.",
@@ -1196,8 +1196,8 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
       "Adoption and usage dashboard when included in scope.",
     ],
     copilot:
-      "Enterprise Copilot turns fragmented information into evidence, options, and controlled actions so teams can decide with clarity.",
-    primaryCta: { label: "Explore Enterprise Copilot", href: "/copilot" },
-    secondaryCta: { label: "Request a pilot", href: "/copilot/pilot" },
+      "AI Decision Agents turn fragmented information into evidence, scenarios, and controlled actions so teams can decide with clarity.",
+    primaryCta: { label: "Explore the release", href: "/copilot" },
+    secondaryCta: { label: "Evaluate a use case", href: "/copilot/pilot" },
   },
 };

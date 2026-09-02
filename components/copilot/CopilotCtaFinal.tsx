@@ -21,10 +21,10 @@ export function CopilotCtaFinal() {
               {l("Siguiente paso", "Next step")}
             </p>
             <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-              {l("¿Quieres ver qué puede resolver en tus propios sistemas?", "Want to see what it can solve in your own systems?")}
+              {l("¿Qué decisiones pueden acelerar tus propios agentes de IA?", "Which decisions could your own AI agents accelerate?")}
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-200">
-              {l("En un piloto acotado conectamos una fuente, definimos un caso de uso y evaluamos cuánto trabajo manual puede reducirse en informes, validaciones o consultas internas.", "In a scoped pilot we connect one source, define one use case, and evaluate how much manual work can be reduced in reports, validations, or internal queries.")}
+              {l("En una evaluación acotada conectamos una fuente, definimos una decisión concreta y comprobamos qué pueden aportar la IA generativa, los agentes y los modelos cuantitativos.", "In a focused assessment we connect one source, define one concrete decision, and test what generative AI, agents, and quantitative models can contribute.")}
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row lg:flex-col lg:items-end">
@@ -33,16 +33,16 @@ export function CopilotCtaFinal() {
               size="lg"
               className="w-full sm:w-auto"
             >
-              {l("Solicitar un piloto de Enterprise Copilot", "Request an Enterprise Copilot pilot")}
+              {l("Solicitar evaluación de agentes IA", "Request an AI agents assessment")}
               <ArrowRight className="h-4 w-4" />
             </LinkButton>
             <LinkButton
-              href="/contact?topic=copilot"
+              href="/services/software-factory"
               size="lg"
               variant="outline"
               className="w-full border-white/20 bg-white/5 text-white hover:bg-white/10 sm:w-auto"
             >
-              {l("Hablar sobre un caso de uso", "Talk about a use case")}
+              {l("Conocer la Fábrica ABAP + Fiori", "Explore the ABAP + Fiori Factory")}
             </LinkButton>
           </div>
         </div>

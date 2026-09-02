@@ -23,8 +23,8 @@ const scenario = [
       "The evidence is ready for review",
     ),
     description: l(
-      "Enterprise Copilot reúne la información relevante, señala las diferencias que requieren atención y prepara un resumen verificable.",
-      "Enterprise Copilot brings together the relevant information, flags the differences that need attention, and prepares a verifiable summary.",
+      "Los agentes reúnen la información relevante, señalan las diferencias que requieren atención y preparan un resumen verificable.",
+      "The agents bring together the relevant information, flag the differences that need attention, and prepare a verifiable summary.",
     ),
     icon: FileCheck2,
   },

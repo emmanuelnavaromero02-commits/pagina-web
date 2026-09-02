@@ -55,8 +55,8 @@ export function SpecializedServicePage({ data }: { data: SpecializedPage }) {
   return (
     <>
       <ServicePageStructuredData data={data} />
-      <div className="bg-white">
-        <div className="mx-auto w-full max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
+      <div className="bg-ink-50">
+        <div className="site-container pt-7">
           <nav aria-label={l("Ruta de navegación", "Breadcrumb")} className="text-xs text-ink-500">
             <ol className="flex flex-wrap items-center gap-1.5">
               <li>
@@ -106,9 +106,9 @@ export function SpecializedServicePage({ data }: { data: SpecializedPage }) {
       />
 
       <Section className="bg-white">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:items-start">
+        <div className="grid gap-10 rounded-[2rem] border border-ink-100 bg-ink-50/60 p-7 sm:p-9 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:p-12">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-700">
+            <p className="eyebrow">
               {l("El problema", "The problem")}
             </p>
             <h2 className="mt-3 font-display text-2xl font-semibold tracking-tight text-ink-950 sm:text-3xl">
@@ -126,11 +126,11 @@ export function SpecializedServicePage({ data }: { data: SpecializedPage }) {
           eyebrow={l("Qué hace 7 Business Solutions", "What 7 Business Solutions does")}
           title={l("Del problema de negocio al software operativo", "From business problem to operational software")}
         />
-        <ul className="mt-10 grid gap-3 sm:grid-cols-2">
+        <ul className="mt-12 grid gap-4 sm:grid-cols-2">
           {data.whatWeDo.map((item) => (
             <li
               key={item}
-              className="flex items-start gap-3 rounded-xl border border-ink-100 bg-white p-4 text-sm leading-relaxed text-ink-800 shadow-soft"
+              className="flex items-start gap-3 rounded-2xl border border-ink-100 bg-white p-5 text-sm leading-relaxed text-ink-800 shadow-soft"
             >
               <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" />
               <span>{item}</span>
@@ -201,26 +201,27 @@ export function SpecializedServicePage({ data }: { data: SpecializedPage }) {
 
       {data.copilot ? (
         <Section className="bg-ink-50">
-          <article className="relative overflow-hidden rounded-3xl border border-brand-200 bg-gradient-to-br from-white via-brand-50/30 to-white p-8 sm:p-10">
+          <article className="dark-panel relative overflow-hidden rounded-[2rem] border border-white/10 p-8 text-white shadow-float sm:p-10 lg:p-12">
+            <div aria-hidden className="surface-noise pointer-events-none absolute inset-0 opacity-[0.1]" />
             <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr] lg:items-center">
-              <div>
-                <div className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-brand-700">
+              <div className="relative">
+                <div className="inline-flex items-center gap-2 rounded-full border border-accent-400/20 bg-accent-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-accent-400">
                   <Sparkles className="h-3 w-3" />
-                  Enterprise Copilot
+                  {l("Agentes de Decisión IA", "AI Decision Agents")}
                 </div>
-                <h3 className="mt-3 font-display text-2xl font-semibold text-ink-950">
+                <h3 className="mt-4 font-display text-2xl font-semibold text-white sm:text-3xl">
                   {l(
-                    "Qué puede resolver Enterprise Copilot",
-                    "What Enterprise Copilot can help solve",
+                    "Una capa de inteligencia para esta capacidad",
+                    "An intelligence layer for this capability",
                   )}
                 </h3>
-                <p className="mt-2 text-base leading-relaxed text-ink-700">
+                <p className="mt-3 text-base leading-relaxed text-ink-300">
                   {data.copilot}
                 </p>
               </div>
-              <div className="lg:justify-self-end">
+              <div className="relative lg:justify-self-end">
                 <LinkButton href="/copilot" size="md">
-                  {l("Explorar Enterprise Copilot", "Explore Enterprise Copilot")}
+                  {l("Explorar los agentes", "Explore the agents")}
                   <ArrowRight className="h-4 w-4" />
                 </LinkButton>
               </div>

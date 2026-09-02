@@ -25,201 +25,137 @@ export type NavItem = {
 
 export const NAVIGATION: NavItem[] = [
   {
-    label: "Home",
-    href: "/",
-  },
-  {
     label: "Services",
     href: "/services",
     featured: {
-      eyebrow: "Core capabilities",
-      title: "Software factory + operational AI",
+      eyebrow: "Complete portfolio",
+      title: "Seven domains. One transformation system.",
       description:
-        "Four service lines with dedicated specialized pages — engineering, SAP integration, cloud and data, and applied AI.",
+        "People, payroll, SAP, software, managed operations, cloud, data, security, and applied intelligence under one delivery model.",
       href: "/services",
-      cta: "View all services",
+      cta: "Explore all capabilities",
     },
     columns: [
       {
-        title: "Software Factory",
-        href: "/services/software-factory",
+        title: "People + SAP Core",
+        href: "/services#personas-nomina",
         links: [
           {
-            label: "Custom development",
-            href: "/services/software-factory/custom-development",
-            description: "Internal platforms and tailored applications.",
+            label: "People, talent & payroll",
+            href: "/services#personas-nomina",
+            description: "SuccessFactors, HCM, payroll, time, and talent.",
           },
           {
-            label: "Enterprise portals",
-            href: "/services/software-factory/enterprise-portals",
-            description: "Corporate front-ends and internal portals.",
+            label: "SAP ERP & S/4HANA",
+            href: "/services/sap",
+            description: "Strategy, implementation, migration, and stabilization.",
           },
           {
-            label: "Internal applications",
-            href: "/services/software-factory/internal-apps",
-            description: "Apps for finance, HR, and operations.",
-          },
-          {
-            label: "APIs & microservices",
-            href: "/services/software-factory/apis-microservices",
-            description: "Reusable services with clear contracts.",
-          },
-          {
-            label: "Support and evolution",
-            href: "/services/software-factory/evolutionary-support",
-            description: "L2/L3 support and an agreed evolution roadmap.",
+            label: "AMS & workforce",
+            href: "/services#operacion-ams",
+            description: "24/7 support, Basis, UKG, and workforce operations.",
           },
         ],
       },
       {
-        title: "Enterprise Integration",
-        href: "/services/sap-integrations",
+        title: "Engineering",
+        href: "/services#fabrica-integracion",
         links: [
           {
-            label: "SAP On-Premise",
-            href: "/services/sap-integrations/on-premise",
-            description: "ECC, S/4HANA, and the core modules.",
+            label: "ABAP + Fiori Factory",
+            href: "/services/software-factory#abap-factory-lab",
+            description: "Industrialized delivery with up to 60% potential savings.",
           },
           {
-            label: "SAP Cloud",
-            href: "/services/sap-integrations/sap-cloud",
-            description: "Hybrid cloud-to-on-prem integration.",
+            label: "Custom software",
+            href: "/services#fabrica-integracion",
+            description: "Products, portals, applications, APIs, and microservices.",
           },
           {
-            label: "SAP BTP",
-            href: "/services/sap-integrations/sap-btp",
-            description: "Extensions, CAP, workflow, build.",
-          },
-          {
-            label: "ABAP / RFC / IDocs",
-            href: "/services/sap-integrations/abap-rfc-idocs",
-            description: "SAP development and technical integration.",
-          },
-          {
-            label: "Enterprise middleware",
-            href: "/services/sap-integrations/middleware",
-            description: "Boomi, HCI/CPI, PI/PO, IBM WebSphere.",
-          },
-          {
-            label: "Third-party systems",
-            href: "/services/sap-integrations/third-party",
-            description: "CRMs, banks, e-commerce, legacy.",
-          },
-          {
-            label: "SAP SuccessFactors",
-            href: "/services/sap-integrations/successfactors",
-            description: "Employee Central and HR data.",
-          },
-          {
-            label: "SAP HCM",
-            href: "/services/sap-integrations/sap-hcm",
-            description: "HCM On-Premise and HR processes.",
+            label: "Enterprise integration",
+            href: "/services/sap-integrations",
+            description: "SAP, BTP, middleware, APIs, and third parties.",
           },
         ],
       },
       {
-        title: "Cloud & Governed Data",
-        href: "/services/cloud-data",
+        title: "Cloud + Governance",
+        href: "/services#nube-datos",
         links: [
           {
-            label: "AWS",
+            label: "AWS migrations",
             href: "/services/cloud-data/aws",
-            description: "S3, CloudFront, Lambda, API Gateway, SES.",
+            description: "Assessment, migration, SAP workloads, FinOps, and operations.",
           },
           {
-            label: "Azure",
-            href: "/services/cloud-data/azure",
-            description: "App Service, Functions, SQL, Synapse.",
+            label: "Cloud, data & SAP environments",
+            href: "/services#nube-datos",
+            description: "AWS, Azure, GCP, data platforms, and test environments.",
           },
           {
-            label: "Google Cloud (GCP)",
-            href: "/services/cloud-data/gcp",
-            description: "BigQuery, Cloud Run, Pub/Sub.",
+            label: "Privacy & security",
+            href: "/services#privacidad-transformacion",
+            description: "PII, masking, access risk, retention, and compliance.",
           },
           {
-            label: "Enterprise databases",
-            href: "/services/cloud-data/databases",
-            description: "Oracle, SQL Server, PostgreSQL, HANA.",
-          },
-          {
-            label: "Data pipelines",
-            href: "/services/cloud-data/data-pipelines",
-            description: "Ingestion, transformation, quality.",
-          },
-          {
-            label: "Trusted reporting",
-            href: "/services/cloud-data/reporting",
-            description: "Semantic layer and auditable BI.",
+            label: "Landscape transformation",
+            href: "/services#privacidad-transformacion",
+            description: "Carve-outs, mergers, consolidation, and selective data.",
           },
         ],
       },
       {
-        title: "Operational AI",
-        href: "/services/enterprise-ai",
+        title: "Applied Intelligence",
+        href: "/services#innovacion-inteligencia",
         links: [
           {
-            label: "Generative AI",
-            href: "/services/enterprise-ai/generative-ai",
-            description: "LLMs with corporate RAG and citations.",
+            label: "AI & enterprise innovation",
+            href: "/services#innovacion-inteligencia",
+            description: "Generative AI, ML, automation, and custom innovation.",
           },
           {
-            label: "Machine learning",
-            href: "/services/enterprise-ai/machine-learning",
-            description: "Productive ML with MLOps.",
+            label: "Decision intelligence",
+            href: "/copilot",
+            description: "A calibrated quantitative core, agents, and generative AI.",
           },
           {
-            label: "Intelligent automation",
-            href: "/services/enterprise-ai/intelligent-automation",
-            description: "Assisted flows with human approval.",
-          },
-          {
-            label: "Internal assistants",
-            href: "/services/enterprise-ai/internal-assistants",
-            description: "Search and support over private data.",
-          },
-          {
-            label: "Operational copilots",
-            href: "/services/enterprise-ai/operational-copilots",
-            description: "Where Enterprise Copilot lives.",
+            label: "Interactive demonstration",
+            href: "/copilot#demo-interactiva",
+            description: "See signals become explainable, supervised action.",
           },
         ],
       },
     ],
   },
   {
-    label: "Enterprise Copilot",
+    label: "Innovation",
     href: "/copilot",
     featured: {
-      eyebrow: "Flagship product",
-      title: "Enterprise Copilot",
+      eyebrow: "New capability",
+      title: "Decision Intelligence",
       description:
-        "Operational AI capability that connects SAP, data, APIs, and reports — with permissions, validations, and traceability.",
+        "A calibrated quantitative core, specialist agents, and generative AI over governed enterprise data.",
       href: "/copilot",
-      cta: "Explore the Copilot",
+      cta: "Explore the innovation",
     },
     columns: [
       {
-        title: "Product",
+        title: "System",
         links: [
           {
             label: "Overview",
             href: "/copilot",
-            description: "From manual work to traceable, governed answers.",
-          },
-          {
-            label: "Operational impact",
-            href: "/copilot/impact",
-            description: "Before vs with Enterprise Copilot.",
+            description: "From governed data to trusted action.",
           },
           {
             label: "What it solves",
             href: "/copilot/how-it-works",
-            description: "Problems, outcomes, and controlled action.",
+            description: "Agents, scenarios, and controlled action.",
           },
         ],
       },
       {
-        title: "Application",
+        title: "Capabilities",
         links: [
           {
             label: "Operational scenario",
@@ -246,17 +182,12 @@ export const NAVIGATION: NavItem[] = [
             href: "/copilot/pilot",
             description: "What we connect, what we measure.",
           },
-          {
-            label: "Talk to the team",
-            href: "/contact?topic=copilot",
-            description: "Scoped conversation with your team.",
-          },
         ],
       },
     ],
   },
   {
-    label: "Industries",
+    label: "Business areas",
     href: "/industries",
     featured: {
       eyebrow: "Use cases",
@@ -296,19 +227,9 @@ export const NAVIGATION: NavItem[] = [
         title: "Cross-cutting capabilities",
         links: [
           {
-            label: "SAP integrations",
-            href: "/industries/sap-integrations",
-            description: "ABAP, RFC, IDocs, BTP, middleware.",
-          },
-          {
             label: "Process automation",
             href: "/industries/process-automation",
             description: "Assisted flows, less manual work.",
-          },
-          {
-            label: "Internal support",
-            href: "/industries/internal-support",
-            description: "Helpdesk and ITSM continuity.",
           },
           {
             label: "Data governance",
@@ -320,8 +241,8 @@ export const NAVIGATION: NavItem[] = [
     ],
   },
   {
-    label: "Experience",
-    href: "/experience",
+    label: "Company",
+    href: "/about",
   },
   {
     label: "Contact",
@@ -333,16 +254,20 @@ export const FOOTER_LINKS: { title: string; links: NavLink[] }[] = [
   {
     title: "Services",
     links: [
-      { label: "Software Factory", href: "/services/software-factory" },
-      { label: "Enterprise Integration", href: "/services/sap-integrations" },
-      { label: "Cloud & Governed Data", href: "/services/cloud-data" },
-      { label: "Operational AI", href: "/services/enterprise-ai" },
+      { label: "People, talent & payroll", href: "/services#personas-nomina" },
+      { label: "SAP ERP & S/4HANA", href: "/services#sap-erp" },
+      { label: "Software factory & integration", href: "/services#fabrica-integracion" },
+      { label: "AMS & workforce", href: "/services#operacion-ams" },
+      { label: "Cloud & data", href: "/services#nube-datos" },
+      { label: "Privacy & transformation", href: "/services#privacidad-transformacion" },
+      { label: "AI & enterprise innovation", href: "/services#innovacion-inteligencia" },
     ],
   },
   {
-    title: "Enterprise Copilot",
+    title: "Innovation",
     links: [
       { label: "Overview", href: "/copilot" },
+      { label: "Interactive demonstration", href: "/copilot#demo-interactiva" },
       { label: "Operational impact", href: "/copilot/impact" },
       { label: "What it solves", href: "/copilot/how-it-works" },
       { label: "Use cases", href: "/copilot/use-cases" },
@@ -354,7 +279,7 @@ export const FOOTER_LINKS: { title: string; links: NavLink[] }[] = [
     title: "Company",
     links: [
       { label: "Experience", href: "/experience" },
-      { label: "Industries", href: "/industries" },
+      { label: "Business areas", href: "/industries" },
       { label: "Contact", href: "/contact" },
     ],
   },

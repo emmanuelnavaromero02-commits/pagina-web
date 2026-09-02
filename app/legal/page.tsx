@@ -17,7 +17,7 @@ export const metadata: Metadata = createPageMetadata({
   description,
 });
 
-const address = `${LEGAL_ENTITY.registeredAddress.street}, ${LEGAL_ENTITY.registeredAddress.neighborhood}, C.P. ${LEGAL_ENTITY.registeredAddress.postalCode}, ${LEGAL_ENTITY.registeredAddress.city}, ${LEGAL_ENTITY.registeredAddress.state}, ${LEGAL_ENTITY.registeredAddress.country}`;
+const address = `${LEGAL_ENTITY.registeredAddress.state}, ${LEGAL_ENTITY.registeredAddress.country}`;
 
 export default function LegalPage() {
   return (
@@ -33,15 +33,12 @@ export default function LegalPage() {
           <LegalSection title={l("1. Titular del sitio", "1. Website owner")}>
             <p>
               {l("Este sitio es operado por ", "This website is operated by ")}
-              <strong className="text-ink-900">{LEGAL_ENTITY.legalName}</strong>,{` `}
-              {LEGAL_ENTITY.entityType}, RFC {LEGAL_ENTITY.taxId}, {address}.
+              <strong className="text-ink-900">{LEGAL_ENTITY.legalName}</strong>.{` `}
+              {l(LEGAL_ENTITY.activity, "Computer consulting services")}. RFC:{` `}
+              {LEGAL_ENTITY.taxId}. {address}.
             </p>
             <p>
-              {l("Actividad: ", "Business activity: ")}
-              {l(LEGAL_ENTITY.activity, "Computer consulting services")}. {l(
-                "Correo de contacto: ",
-                "Contact email: ",
-              )}
+              {l("Correo de contacto: ", "Contact email: ")}
               <a
                 href={`mailto:${SITE.contact.email}`}
                 className="font-medium text-brand-700 hover:text-brand-800"

@@ -5,7 +5,6 @@ import {
   BarChart3,
   Briefcase,
   Building2,
-  Cable,
   Compass,
   Database,
   FileBarChart,
@@ -17,7 +16,6 @@ import {
   Network,
   ServerCog,
   ShieldCheck,
-  Wand2,
   Workflow,
   type LucideIcon,
 } from "lucide-react";
@@ -28,40 +26,40 @@ export const COPILOT_CAPABILITIES: {
   icon: LucideIcon;
 }[] = [
   {
-    title: "Reunir contexto operativo",
+    title: "Conectar datos gobernados",
     description:
-      "Organiza información autorizada que hoy está repartida entre sistemas, archivos y equipos.",
+      "Integra información autorizada de SAP, CRM, bases de datos, APIs, archivos y fuentes públicas.",
     icon: Database,
   },
   {
-    title: "Explicar con evidencia",
+    title: "Comprender con IA generativa",
     description:
-      "Presenta respuestas y hallazgos con el contexto necesario para revisarlos y verificarlos.",
+      "Consulta conocimiento corporativo y explica hallazgos con citas, contexto y advertencias visibles.",
     icon: FileBarChart,
   },
   {
-    title: "Señalar diferencias y riesgos",
+    title: "Detectar señales y anomalías",
     description:
-      "Destaca cambios, inconsistencias y pendientes que requieren atención de una persona responsable.",
+      "Identifica cambios, inconsistencias, relaciones y pendientes que requieren atención.",
     icon: AlertTriangle,
   },
   {
-    title: "Preparar reportes para revisión",
+    title: "Coordinar agentes especializados",
     description:
-      "Deja listos resúmenes e informes verificables para que el equipo los revise y complete.",
-    icon: BarChart3,
+      "Asigna tareas a agentes de datos, finanzas, talento, riesgo y operaciones bajo un mismo contexto.",
+    icon: Network,
   },
   {
-    title: "Organizar opciones",
+    title: "Comparar escenarios",
     description:
-      "Ordena alternativas y criterios para comparar el siguiente paso antes de decidir.",
-    icon: Cable,
+      "Evalúa alternativas con simulación, sensibilidad y confianza calibrada cuando el caso lo requiere.",
+    icon: BarChart3,
   },
   {
     title: "Preparar acciones controladas",
     description:
-      "Prepara acciones y seguimientos sujetos a permisos, revisión humana y trazabilidad.",
-    icon: Wand2,
+      "Prepara acciones sujetas a permisos, evidencia congelada, aprobación humana y auditoría.",
+    icon: ShieldCheck,
   },
 ];
 
@@ -147,16 +145,16 @@ export const COPILOT_SECURITY: {
   icon: LucideIcon;
 }[] = [
   {
-    title: "Permisos por función",
+    title: "Permisos por rol",
     description:
       "Cada usuario accede únicamente a la información autorizada para su función y el alcance acordado.",
     icon: Lock,
   },
   {
-    title: "Trazabilidad",
+    title: "Aislamiento organizacional",
     description:
-      "Las consultas y acciones pertinentes pueden registrarse con usuario, contexto y resultado para revisión de auditoría.",
-    icon: GitBranch,
+      "Datos, credenciales, agentes y ejecuciones permanecen limitados al espacio de trabajo autorizado.",
+    icon: ServerCog,
   },
   {
     title: "Validar antes de ejecutar",
@@ -165,22 +163,22 @@ export const COPILOT_SECURITY: {
     icon: ShieldCheck,
   },
   {
-    title: "Registro de auditoría",
+    title: "Evidencia y trazabilidad",
     description:
-      "Registros configurables de cambios, accesos y resultados, exportables para revisión de cumplimiento.",
-    icon: FileBarChart,
+      "Cada hallazgo conserva fuentes, vigencia, alcance y contexto para revisión y auditoría.",
+    icon: GitBranch,
   },
   {
-    title: "Sin escrituras sin aprobación",
+    title: "Separación de responsabilidades",
     description:
-      "El copiloto no escribe en sistemas críticos sin la aprobación explícita de una persona o un flujo.",
+      "Quien propone una acción no puede aprobarla cuando el proceso exige una segunda revisión.",
     icon: AlertTriangle,
   },
   {
-    title: "Alcance controlado",
+    title: "Resultado auditable",
     description:
-      "Cada piloto delimita la información autorizada, las personas responsables y las acciones sujetas a aprobación.",
-    icon: ServerCog,
+      "Las decisiones, aprobaciones, intentos y resultados quedan registrados para seguimiento y recuperación.",
+    icon: FileBarChart,
   },
 ];
 
@@ -189,7 +187,7 @@ export const COPILOT_SECURITY: {
 export const COPILOT_IMPACT_STATS: { label: string; value: string }[] = [
   { label: "Flujo", value: "Consultas asistidas" },
   { label: "Hojas de cálculo", value: "Entradas controladas" },
-  { label: "Auditoría", value: "Referencias a fuentes" },
+  { label: "Auditoría", value: "Evidencia conectada" },
   { label: "Acciones", value: "Aprobación antes de ejecutar" },
 ];
 
@@ -202,7 +200,7 @@ export const COPILOT_IMPACT_ROWS: {
   {
     task: "Reporte mensual entre sistemas",
     before: "Exportaciones y cruces manuales",
-    withCopilot: "Consolidación asistida con referencias a fuentes",
+    withCopilot: "Consolidación asistida con evidencia conectada",
     impact: "Diseñado para reducir la consolidación manual",
   },
   {
@@ -214,7 +212,7 @@ export const COPILOT_IMPACT_ROWS: {
   {
     task: "Respuesta a un auditor externo",
     before: "Evidencia reunida desde archivos y mensajes",
-    withCopilot: "Evidencia referenciada preparada para revisión",
+    withCopilot: "Evidencia organizada y preparada para revisión",
     impact: "Diseñado para apoyar la trazabilidad",
   },
   {
@@ -232,7 +230,7 @@ export const COPILOT_IMPACT_ROWS: {
   {
     task: "Investigación de incidentes operativos",
     before: "Búsquedas manuales entre registros y sistemas",
-    withCopilot: "Referencias entre fuentes preparadas para el análisis",
+    withCopilot: "Señales conectadas y preparadas para el análisis",
     impact: "Diseñado para apoyar el diagnóstico de incidentes",
   },
 ];
@@ -279,7 +277,7 @@ export const COPILOT_ROLES: {
   {
     label: "CFO",
     description:
-      "Cierres, conciliaciones y variaciones con referencias a fuentes y controles de validación.",
+      "Cierres, conciliaciones y variaciones con evidencia conectada y controles de validación.",
     icon: BarChart3,
   },
   {
@@ -308,12 +306,12 @@ export const COPILOT_ROLES: {
   },
 ];
 
-/* Hero cards "Before → With Enterprise Copilot" — short story-style. */
+/* Hero cards "Before → With Agentes de Decisión IA" — short story-style. */
 
 export const COPILOT_HERO_CARDS: { before: string; after: string }[] = [
   {
     before: "Reportes entre sistemas elaborados a mano",
-    after: "Consolidación asistida con referencias a fuentes",
+    after: "Consolidación asistida con evidencia conectada",
   },
   {
     before: "Conciliaciones entre fuentes desconectadas",
@@ -325,35 +323,35 @@ export const COPILOT_HERO_CARDS: { before: string; after: string }[] = [
   },
 ];
 
-/* 7 Enterprise Copilot Capabilities. */
+/* 7 Agentes de Decisión IA Capabilities. */
 
 export const COPILOT_EXACTLY: { text: string; icon: LucideIcon }[] = [
   {
-    text: "Reunir el contexto autorizado que hoy está repartido entre sistemas, archivos y equipos.",
+    text: "Conectar fuentes empresariales, públicas y archivos bajo un contexto autorizado.",
     icon: Database,
   },
   {
-    text: "Señalar diferencias, cambios, riesgos y pendientes que requieren revisión.",
-    icon: AlertTriangle,
-  },
-  {
-    text: "Presentar respuestas, reportes y hallazgos con evidencia verificable.",
-    icon: FileBarChart,
-  },
-  {
-    text: "Preparar resúmenes, informes y seguimientos para revisión del equipo.",
+    text: "Publicar datos confiables con origen, calidad, vigencia y trazabilidad visibles.",
     icon: Layers,
   },
   {
-    text: "Organizar opciones y criterios para que la persona responsable pueda compararlos.",
+    text: "Coordinar agentes especializados con herramientas, memoria y tareas programadas.",
     icon: Network,
   },
   {
-    text: "Dejar listo el siguiente paso y solicitar aprobación antes de cualquier acción sensible.",
-    icon: ShieldCheck,
+    text: "Generar respuestas y análisis sobre conocimiento corporativo con evidencia verificable.",
+    icon: FileBarChart,
   },
   {
-    text: "Mantener vinculados la consulta, la decisión, la autorización y el resultado.",
-    icon: GitBranch,
+    text: "Detectar anomalías, relaciones, riesgos y pendientes sin fabricar certeza.",
+    icon: AlertTriangle,
+  },
+  {
+    text: "Explorar escenarios dinámicos y observar cómo cambia la decisión al modificar sus condiciones.",
+    icon: BarChart3,
+  },
+  {
+    text: "Preparar acciones con vista previa, aprobación, ejecución controlada y registro del resultado.",
+    icon: ShieldCheck,
   },
 ];

@@ -21,9 +21,9 @@ export function Card({
     <Tag
       id={id}
       className={cn(
-        "rounded-2xl border border-ink-100 bg-white p-6 shadow-soft",
+        "rounded-3xl border border-ink-100/90 bg-white p-6 shadow-[0_20px_60px_-40px_rgba(11,14,28,0.4)]",
         interactive &&
-          "transition-all duration-200 hover:-translate-y-0.5 hover:border-ink-200 hover:shadow-elevate",
+          "transition-all duration-300 hover:-translate-y-1 hover:border-brand-200 hover:shadow-float",
         className,
       )}
     >

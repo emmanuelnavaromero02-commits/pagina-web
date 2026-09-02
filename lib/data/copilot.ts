@@ -190,7 +190,7 @@ export const COPILOT_SECURITY: {
 export const COPILOT_IMPACT_STATS: { label: string; value: string }[] = [
   { label: "Workflow", value: "Assisted queries" },
   { label: "Spreadsheets", value: "Controlled inputs" },
-  { label: "Audit", value: "Source references" },
+  { label: "Audit", value: "Connected evidence" },
   { label: "Actions", value: "Approval before executing" },
 ];
 
@@ -203,7 +203,7 @@ export const COPILOT_IMPACT_ROWS: {
   {
     task: "Monthly report across systems",
     before: "Manual exports and cross-checks",
-    withCopilot: "Assisted consolidation with source references",
+    withCopilot: "Assisted consolidation with connected evidence",
     impact: "Designed to reduce manual consolidation",
   },
   {
@@ -215,7 +215,7 @@ export const COPILOT_IMPACT_ROWS: {
   {
     task: "Answer to an external auditor",
     before: "Evidence gathered across files and messages",
-    withCopilot: "Referenced evidence prepared for review",
+    withCopilot: "Organized evidence prepared for review",
     impact: "Designed to support traceability",
   },
   {
@@ -233,7 +233,7 @@ export const COPILOT_IMPACT_ROWS: {
   {
     task: "Operational incident research",
     before: "Manual searches across logs and systems",
-    withCopilot: "Cross-source references prepared for analysis",
+    withCopilot: "Connected signals prepared for analysis",
     impact: "Designed to support incident diagnosis",
   },
 ];
@@ -309,12 +309,12 @@ export const COPILOT_ROLES: {
   },
 ];
 
-/* Hero cards "Before → With Enterprise Copilot" — short story-style. */
+/* Hero cards "Before → With AI Decision Agents" — short story-style. */
 
 export const COPILOT_HERO_CARDS: { before: string; after: string }[] = [
   {
     before: "Cross-system reports built by hand",
-    after: "Assisted consolidation with source references",
+    after: "Assisted consolidation with connected evidence",
   },
   {
     before: "Reconciliations across disconnected sources",
@@ -326,7 +326,7 @@ export const COPILOT_HERO_CARDS: { before: string; after: string }[] = [
   },
 ];
 
-/* 7 Enterprise Copilot Capabilities. */
+/* 7 AI Decision Agents Capabilities. */
 
 export const COPILOT_EXACTLY: { text: string; icon: LucideIcon }[] = [
   {

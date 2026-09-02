@@ -336,13 +336,13 @@ export const SERVICE_DETAILS: Record<
       },
       {
         id: "copilots",
-        title: "Copilotos operativos",
+        title: "Agentes de Decisión IA",
         description:
-          "Enterprise Copilot ayuda a convertir información dispersa en evidencia, opciones y acciones controladas.",
+          "Combina IA generativa, agentes especializados y modelos cuantitativos para preparar decisiones y acciones controladas.",
         bullets: [
-          "Producto Enterprise Copilot",
-          "Decisiones con evidencia",
-          "Acciones bajo aprobación",
+          "Agentes especializados",
+          "Simulación y evidencia",
+          "Acciones con aprobación",
         ],
       },
     ],
@@ -951,7 +951,7 @@ export const ENTERPRISE_AI_BLOCKS: DeepDiveBlock[] = [
     eyebrow: "Copilotos operativos",
     title: "Evidencia, decisiones y acciones bajo control",
     description:
-      "Enterprise Copilot reúne contexto operativo, explica hallazgos y prepara el siguiente paso para revisión y aprobación.",
+      "Agentes de Decisión IA reúne contexto operativo, explica hallazgos y prepara el siguiente paso para revisión y aprobación.",
     bullets: [
       "Respuestas y hallazgos con evidencia.",
       "Diferencias y riesgos destacados para revisión.",

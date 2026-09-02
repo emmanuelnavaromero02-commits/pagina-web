@@ -33,7 +33,7 @@ export function LocaleSwitcher({ className }: LocaleSwitcherProps) {
   return (
     <div
       className={cn(
-        "inline-flex items-center rounded-lg border border-ink-200 bg-white p-0.5 text-xs font-semibold",
+        "inline-flex items-center rounded-xl border border-ink-200 bg-white p-1 text-[0.68rem] font-semibold shadow-sm",
         className,
       )}
       aria-label={label}
@@ -41,7 +41,7 @@ export function LocaleSwitcher({ className }: LocaleSwitcherProps) {
       {(["es", "en"] as const).map((locale) => {
         const active = BUILD_LOCALE === locale;
         const itemClassName = cn(
-          "inline-flex h-7 min-w-8 items-center justify-center rounded-md px-2 transition-colors",
+          "inline-flex h-7 min-w-8 items-center justify-center rounded-lg px-2 transition-colors",
           active
             ? "bg-ink-900 text-white"
             : "text-ink-600 hover:bg-ink-50 hover:text-ink-950",

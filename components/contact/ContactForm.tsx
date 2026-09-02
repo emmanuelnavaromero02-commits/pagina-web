@@ -27,7 +27,10 @@ const SERVICES = [
     value: "operational-ai",
     label: l("IA operacional", "Operational AI"),
   },
-  { value: "enterprise-copilot", label: "Enterprise Copilot" },
+  {
+    value: "enterprise-copilot",
+    label: l("Agentes de Decisión IA", "AI Decision Agents"),
+  },
   {
     value: "initial-diagnosis",
     label: l("Diagnóstico inicial", "Initial diagnosis"),
@@ -377,7 +380,10 @@ export function ContactForm() {
           />
           <span>
             {l("He leído el ", "I have read the ")}
-            <Link href="/privacy" className="font-medium text-brand-800 underline underline-offset-2">
+            <Link
+                href="/privacy"
+              className="font-medium text-brand-800 underline underline-offset-2"
+            >
               {l("aviso de privacidad", "privacy notice")}
             </Link>
             {l(

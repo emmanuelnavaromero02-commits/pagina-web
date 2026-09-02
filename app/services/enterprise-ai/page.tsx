@@ -29,7 +29,7 @@ export default function EnterpriseAIPage() {
       <Deliverables
         slug="enterprise-ai"
         related={{
-          label: l("Conocer Enterprise Copilot", "Explore Enterprise Copilot"),
+          label: l("Conocer los Agentes de Decisión IA", "Explore AI Decision Agents"),
           href: "/copilot",
         }}
       />

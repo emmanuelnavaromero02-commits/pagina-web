@@ -26,9 +26,12 @@ const inter = Inter({
 assertLaunchConfiguration();
 
 const titleDefault = `${SITE.name} · ${l(
-  "Soluciones empresariales inteligentes",
-  "Intelligent business solutions",
+  "Soluciones empresariales integradas",
+  "Integrated enterprise solutions",
 )}`;
+const socialImage = BUILD_LOCALE === "es"
+  ? { url: "/og-portfolio.png", width: 1731, height: 909 }
+  : { url: "/og-en.png", width: 1200, height: 630 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_ORIGIN),
@@ -44,10 +47,16 @@ export const metadata: Metadata = {
   keywords: [
     "7 Business Solutions",
     "Intelligent business solutions",
-    "Enterprise Copilot",
+    "Decision Intelligence",
+    "Inteligencia de Decisión",
+    "SAP SuccessFactors",
+    "SAP Payroll",
+    "SAP S/4HANA",
+    "SAP managed services",
     "Enterprise integration",
     "Operational AI",
     "Software factory",
+    "ABAP Fiori factory",
     "Governed data",
     "Business automation",
     "SAP integration",
@@ -65,10 +74,8 @@ export const metadata: Metadata = {
     description: SITE.description,
     images: [
       {
-        url: BUILD_LOCALE === "es" ? "/og-es.png" : "/og-en.png",
-        width: 1200,
-        height: 630,
-        alt: `${SITE.name} · Enterprise Copilot`,
+        ...socialImage,
+        alt: `${SITE.name} · ${l("Soluciones empresariales integradas", "Integrated enterprise solutions")}`,
       },
     ],
   },
@@ -76,7 +83,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: titleDefault,
     description: SITE.description,
-    images: [BUILD_LOCALE === "es" ? "/og-es.png" : "/og-en.png"],
+    images: [socialImage.url],
   },
   robots: {
     index: IS_LAUNCH_READY,
@@ -89,8 +96,13 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
-    apple: [{ url: "/apple-touch-icon.png" }],
+    icon: [
+      { url: "/favicon-16.png", type: "image/png", sizes: "16x16" },
+      { url: "/favicon-32.png", type: "image/png", sizes: "32x32" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", type: "image/png", sizes: "180x180" },
+    ],
   },
   category: "technology",
 };
@@ -99,7 +111,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: light)", color: "#f5f7fb" },
     { media: "(prefers-color-scheme: dark)", color: "#0b0e1c" },
   ],
 };
@@ -114,7 +126,7 @@ export default function RootLayout({
       <head>
         <StructuredData />
       </head>
-      <body className="min-h-screen bg-white font-sans text-ink-900 antialiased">
+      <body className="min-h-screen bg-ink-50 font-sans text-ink-900 antialiased">
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-brand-700 focus:px-3 focus:py-2 focus:text-sm focus:font-medium focus:text-white"

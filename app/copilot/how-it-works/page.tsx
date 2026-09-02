@@ -16,12 +16,12 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   path: "/copilot/how-it-works",
   title: l(
-    "Qué resuelve · Enterprise Copilot",
-    "What it solves · Enterprise Copilot",
+    "Qué resuelven · Agentes de Decisión IA",
+    "What they solve · AI Decision Agents",
   ),
   description: l(
-    "Enterprise Copilot convierte información dispersa en evidencia verificable, señales relevantes, opciones comparables y acciones controladas.",
-    "Enterprise Copilot turns fragmented information into verifiable evidence, relevant signals, comparable options, and controlled actions.",
+    "Los Agentes de Decisión IA convierten información dispersa en evidencia verificable, escenarios comparables y acciones controladas.",
+    "AI Decision Agents turn fragmented information into verifiable evidence, comparable scenarios, and controlled actions.",
   ),
 });
 
@@ -86,8 +86,8 @@ export default function HowItWorksPage() {
           "Turns fragmented information into a useful decision",
         )}
         description={l(
-          "Enterprise Copilot ayuda a pasar de buscar datos en varios lugares a revisar evidencia, entender qué requiere atención y decidir el siguiente paso con control.",
-          "Enterprise Copilot helps teams move from searching across multiple places to reviewing evidence, understanding what needs attention, and deciding the next step with control.",
+          "Los agentes coordinan datos, conocimiento y análisis para revisar evidencia, entender qué requiere atención y decidir el siguiente paso con control.",
+          "Agents coordinate data, knowledge, and analysis to review evidence, understand what needs attention, and decide the next step with control.",
         )}
       />
 
