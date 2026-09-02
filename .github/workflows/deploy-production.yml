@@ -141,12 +141,18 @@ jobs:
             --certificate-arn "$CERTIFICATE_ARN" \
             --query 'Certificate.Status' \
             --output text)"
-          test "$certificate_status" = "ISSUED"
+          if [ "$certificate_status" != "ISSUED" ]; then
+            echo "Production certificate is not issued (status: $certificate_status)." >&2
+            exit 1
+          fi
           certificate_coverage="$(aws acm describe-certificate \
             --certificate-arn "$CERTIFICATE_ARN" \
             --query "contains(Certificate.SubjectAlternativeNames, '$APEX_DOMAIN') && contains(Certificate.SubjectAlternativeNames, '*.$APEX_DOMAIN')" \
             --output text)"
-          test "$certificate_coverage" = "True"
+          if [ "$certificate_coverage" != "True" ]; then
+            echo "Production certificate does not cover both the apex and wildcard domains." >&2
+            exit 1
+          fi
 
           ses_production="$(aws sesv2 get-account \
             --query ProductionAccessEnabled \
@@ -154,17 +160,27 @@ jobs:
           ses_sending_enabled="$(aws sesv2 get-account \
             --query SendingEnabled \
             --output text)"
-          test "$ses_sending_enabled" = "True"
+          if [ "$ses_sending_enabled" != "True" ]; then
+            echo "SES sending is disabled." >&2
+            exit 1
+          fi
           if [ "$SES_ACCESS_MODE" = "sandbox" ]; then
-            test "$ses_production" = "False"
-          else
-            test "$ses_production" = "True"
+            if ! test "$ses_production" = "False"; then
+              echo "SES is in production mode; run with ses_access_mode=production." >&2
+              exit 1
+            fi
+          elif ! test "$ses_production" = "True"; then
+            echo "SES is in sandbox mode; run with ses_access_mode=sandbox." >&2
+            exit 1
           fi
           ses_ready="$(aws sesv2 get-email-identity \
             --email-identity "$SES_IDENTITY_DOMAIN" \
             --query "VerifiedForSendingStatus && DkimAttributes.Status == 'SUCCESS' && MailFromAttributes.MailFromDomainStatus == 'SUCCESS'" \
             --output text)"
-          test "$ses_ready" = "True"
+          if [ "$ses_ready" != "True" ]; then
+            echo "SES domain identity, DKIM, or custom MAIL FROM is not ready." >&2
+            exit 1
+          fi
 
           max_daily_send="$(aws sesv2 get-account \
             --query SendQuota.Max24HourSend \
@@ -172,14 +188,22 @@ jobs:
           max_send_rate="$(aws sesv2 get-account \
             --query SendQuota.MaxSendRate \
             --output text)"
-          awk -v value="$max_daily_send" 'BEGIN { exit !(value > 0) }'
-          awk -v value="$max_send_rate" 'BEGIN { exit !(value > 0) }'
+          awk -v value="$max_daily_send" 'BEGIN { exit !(value > 0) }' || {
+            echo "SES daily sending quota is unavailable." >&2
+            exit 1
+          }
+          awk -v value="$max_send_rate" 'BEGIN { exit !(value > 0) }' || {
+            echo "SES sending rate is unavailable." >&2
+            exit 1
+          }
 
           log_role_arn="$(aws apigateway get-account \
             --query cloudwatchRoleArn \
             --output text)"
-          test -n "$log_role_arn"
-          test "$log_role_arn" != "None"
+          if [ -z "$log_role_arn" ] || [ "$log_role_arn" = "None" ]; then
+            echo "API Gateway has no CloudWatch logging role configured." >&2
+            exit 1
+          fi
           log_role_name="${log_role_arn##*/}"
           aws iam get-role --role-name "$log_role_name" >/dev/null
 
