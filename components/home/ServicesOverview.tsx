@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/ui/SafeLink";
 import { ArrowRight, Layers3 } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { PORTFOLIO_DOMAINS, PORTFOLIO_SERVICE_COUNT } from "@/lib/data/portfolio";

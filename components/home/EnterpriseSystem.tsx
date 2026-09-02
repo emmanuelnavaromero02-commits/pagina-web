@@ -1,5 +1,5 @@
 import { ArrowRight, Blocks, BrainCircuit, Braces, Database, Network, ShieldCheck } from "lucide-react";
-import Link from "next/link";
+import Link from "@/components/ui/SafeLink";
 import { Section } from "@/components/ui/Section";
 import { l } from "@/lib/i18n/config";
 

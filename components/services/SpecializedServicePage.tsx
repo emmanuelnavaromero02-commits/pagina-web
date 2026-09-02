@@ -1,5 +1,5 @@
 import { ArrowRight, CheckCircle2, ChevronRight, Sparkles } from "lucide-react";
-import Link from "next/link";
+import Link from "@/components/ui/SafeLink";
 import { LinkButton } from "@/components/ui/Button";
 import { ContactCTA } from "@/components/home/ContactCTA";
 import { ServicePageStructuredData } from "@/components/seo/ServicePageStructuredData";

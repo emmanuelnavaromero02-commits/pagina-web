@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/ui/SafeLink";
 import { useEffect, useRef, useState, type RefObject } from "react";
 import { ChevronDown, ChevronRight, X } from "lucide-react";
 import { LinkButton } from "@/components/ui/Button";

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/ui/SafeLink";
 import { Section } from "@/components/ui/Section";
 import { ServiceHero } from "@/components/services/ServiceHero";
 import {

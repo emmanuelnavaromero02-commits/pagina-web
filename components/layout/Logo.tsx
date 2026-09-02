@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/ui/SafeLink";
 import { SITE } from "@/lib/constants";
 import { l } from "@/lib/i18n/config";
 import { cn } from "@/lib/utils";
