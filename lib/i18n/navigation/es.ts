@@ -9,8 +9,64 @@ import {
 export type { NavColumn, NavItem, NavLink } from "./en";
 
 const TEXT: Record<string, string> = {
-  Home: "Inicio",
   Services: "Servicios",
+  "Complete portfolio": "Portafolio completo",
+  "Seven domains. One transformation system.":
+    "Siete dominios. Un sistema de transformación.",
+  "People, payroll, SAP, software, managed operations, cloud, data, security, and applied intelligence under one delivery model.":
+    "Personas, nómina, SAP, software, operación gestionada, nube, datos, seguridad e inteligencia aplicada bajo un mismo modelo de entrega.",
+  "Explore all capabilities": "Explorar todas las capacidades",
+  "People + SAP Core": "Personas + Núcleo SAP",
+  "People, talent & payroll": "Personas, talento y nómina",
+  "SuccessFactors, HCM, payroll, time, and talent.":
+    "SuccessFactors, HCM, nómina, tiempo y talento.",
+  "SAP ERP & S/4HANA": "SAP ERP y S/4HANA",
+  "Strategy, implementation, migration, and stabilization.":
+    "Estrategia, implementación, migración y estabilización.",
+  "AMS & workforce": "AMS y fuerza laboral",
+  "24/7 support, Basis, UKG, and workforce operations.":
+    "Soporte 24/7, Basis, UKG y operación de fuerza laboral.",
+  Engineering: "Ingeniería",
+  "ABAP + Fiori Factory": "Fábrica ABAP + Fiori",
+  "Industrialized delivery with up to 60% potential savings.":
+    "Entrega industrializada con hasta 60% de ahorro potencial.",
+  "Custom software": "Software a la medida",
+  "Products, portals, applications, APIs, and microservices.":
+    "Productos, portales, aplicaciones, APIs y microservicios.",
+  "SAP, BTP, middleware, APIs, and third parties.":
+    "SAP, BTP, middleware, APIs y terceros.",
+  "Cloud + Governance": "Nube + Gobierno",
+  "Cloud, data & SAP environments": "Nube, datos y entornos SAP",
+  "AWS, Azure, GCP, data platforms, and test environments.":
+    "AWS, Azure, GCP, plataformas de datos y entornos de prueba.",
+  "AWS migrations": "Migraciones AWS",
+  "Assessment, migration, SAP workloads, FinOps, and operations.":
+    "Assessment, migración, cargas SAP, FinOps y operación.",
+  "Privacy & security": "Privacidad y seguridad",
+  "PII, masking, access risk, retention, and compliance.":
+    "PII, enmascaramiento, riesgo de acceso, retención y cumplimiento.",
+  "Landscape transformation": "Transformación de landscapes",
+  "Carve-outs, mergers, consolidation, and selective data.":
+    "Carve-outs, fusiones, consolidación y datos selectivos.",
+  "Applied Intelligence": "Inteligencia aplicada",
+  "AI & enterprise innovation": "IA e innovación empresarial",
+  "Generative AI, ML, automation, and custom innovation.":
+    "IA generativa, ML, automatización e innovación a la medida.",
+  "Decision intelligence": "Inteligencia de decisión",
+  "A calibrated quantitative core, agents, and generative AI.":
+    "Un núcleo cuantitativo calibrado, agentes e IA generativa.",
+  "Interactive demonstration": "Demostración interactiva",
+  "See signals become explainable, supervised action.":
+    "Mira cómo las señales se convierten en acción explicable y supervisada.",
+  "Software factory & integration": "Fábrica de software e integración",
+  "Cloud & data": "Nube y datos",
+  "Privacy & transformation": "Privacidad y transformación",
+  Innovation: "Innovación",
+  "New capability": "Nueva capacidad",
+  "Decision Intelligence": "Inteligencia de decisión",
+  "A calibrated quantitative core, specialist agents, and generative AI over governed enterprise data.":
+    "Un núcleo cuantitativo calibrado, agentes especializados e IA generativa sobre datos empresariales gobernados.",
+  "Explore the innovation": "Explorar la innovación",
   "Core capabilities": "Capacidades principales",
   "Software factory + operational AI":
     "Fábrica de software + IA operacional",
@@ -21,12 +77,6 @@ const TEXT: Record<string, string> = {
   "Custom development": "Desarrollo a medida",
   "Internal platforms and tailored applications.":
     "Plataformas internas y aplicaciones a medida.",
-  "Enterprise portals": "Portales empresariales",
-  "Corporate front-ends and internal portals.":
-    "Interfaces corporativas y portales internos.",
-  "Internal applications": "Aplicaciones internas",
-  "Apps for finance, HR, and operations.":
-    "Aplicaciones para finanzas, RR. HH. y operaciones.",
   "APIs & microservices": "APIs y microservicios",
   "Reusable services with clear contracts.":
     "Servicios reutilizables con contratos claros.",
@@ -43,33 +93,13 @@ const TEXT: Record<string, string> = {
   "SAP BTP": "SAP BTP",
   "Extensions, CAP, workflow, build.":
     "Extensiones, CAP, flujos de trabajo y desarrollo.",
-  "ABAP / RFC / IDocs": "ABAP / RFC / IDocs",
-  "SAP development and technical integration.":
-    "Desarrollo SAP e integración técnica.",
-  "Enterprise middleware": "Middleware empresarial",
-  "Boomi, HCI/CPI, PI/PO, IBM WebSphere.":
-    "Boomi, HCI/CPI, PI/PO e IBM WebSphere.",
   "Third-party systems": "Sistemas de terceros",
   "CRMs, banks, e-commerce, legacy.":
     "CRM, banca, comercio electrónico y sistemas legados.",
-  "SAP SuccessFactors": "SAP SuccessFactors",
-  "Employee Central and HR data.":
-    "Employee Central y datos de RR. HH.",
-  "SAP HCM": "SAP HCM",
-  "HCM On-Premise and HR processes.":
-    "HCM On-Premise y procesos de RR. HH.",
   "Cloud & Governed Data": "Nube y Datos Gobernados",
   AWS: "AWS",
   "S3, CloudFront, Lambda, API Gateway, SES.":
     "S3, CloudFront, Lambda, API Gateway y SES.",
-  Azure: "Azure",
-  "App Service, Functions, SQL, Synapse.":
-    "App Service, Functions, SQL y Synapse.",
-  "Google Cloud (GCP)": "Google Cloud (GCP)",
-  "BigQuery, Cloud Run, Pub/Sub.": "BigQuery, Cloud Run y Pub/Sub.",
-  "Enterprise databases": "Bases de datos empresariales",
-  "Oracle, SQL Server, PostgreSQL, HANA.":
-    "Oracle, SQL Server, PostgreSQL y HANA.",
   "Data pipelines": "Flujos de datos",
   "Ingestion, transformation, quality.":
     "Ingesta, transformación y calidad.",
@@ -80,33 +110,28 @@ const TEXT: Record<string, string> = {
   "Generative AI": "IA generativa",
   "LLMs with corporate RAG and citations.":
     "Modelos LLM con RAG corporativo y citas.",
-  "Machine learning": "Aprendizaje automático",
-  "Productive ML with MLOps.": "ML productivo con MLOps.",
   "Intelligent automation": "Automatización inteligente",
   "Assisted flows with human approval.":
     "Flujos asistidos con aprobación humana.",
-  "Internal assistants": "Asistentes internos",
-  "Search and support over private data.":
-    "Búsqueda y soporte sobre datos privados.",
-  "Operational copilots": "Copilotos operacionales",
-  "Where Enterprise Copilot lives.":
-    "El ámbito de Enterprise Copilot.",
-  "Enterprise Copilot": "Enterprise Copilot",
-  "Flagship product": "Producto principal",
-  "Operational AI capability that connects SAP, data, APIs, and reports — with permissions, validations, and traceability.":
-    "Capacidad de IA operacional que conecta SAP, datos, APIs e informes, con permisos, validaciones y trazabilidad.",
-  "Explore the Copilot": "Conocer Enterprise Copilot",
-  Product: "Producto",
+  "AI decision agents": "Agentes de decisión IA",
+  "Generative, agentic, and quantitative intelligence.":
+    "Inteligencia generativa, agéntica y cuantitativa.",
+  "AI Decision Agents": "Agentes de Decisión IA",
+  "New release": "Novedad",
+  "Generative AI, specialized agents, and quantitative models over governed enterprise data.":
+    "IA generativa, agentes especializados y modelos cuantitativos sobre datos empresariales gobernados.",
+  "Explore the release": "Explorar la novedad",
+  System: "Sistema",
   Overview: "Descripción general",
-  "From manual work to traceable, governed answers.":
-    "Del trabajo manual a respuestas trazables y gobernadas.",
+  "From governed data to trusted action.":
+    "De datos gobernados a acciones confiables.",
   "Operational impact": "Impacto operacional",
-  "Before vs with Enterprise Copilot.":
-    "Comparativa antes y después de Enterprise Copilot.",
+  "Before vs with Agentes de Decisión IA.":
+    "Comparativa antes y después de Agentes de Decisión IA.",
   "What it solves": "Qué resuelve",
-  "Problems, outcomes, and controlled action.":
-    "Problemas, resultados y acción controlada.",
-  Application: "Aplicación",
+  "Agents, scenarios, and controlled action.":
+    "Agentes, escenarios y acción controlada.",
+  Capabilities: "Capacidades",
   "Operational scenario": "Caso operativo",
   "From fragmented evidence to a traceable decision.":
     "De evidencia fragmentada a una decisión trazable.",
@@ -120,15 +145,12 @@ const TEXT: Record<string, string> = {
   "Request a pilot": "Solicitar un piloto",
   "What we connect, what we measure.":
     "Qué conectamos y qué medimos.",
-  "Talk to the team": "Hablar con el equipo",
-  "Scoped conversation with your team.":
-    "Conversación enfocada con tu equipo.",
   Industries: "Sectores",
+  "Business areas": "Áreas de negocio",
   "Eight specialized areas": "Ocho áreas especializadas",
   "Each functional and cross-cutting area has its own dedicated page with problem, capabilities, deliverables, and Copilot connection.":
-    "Cada área funcional y transversal tiene una página con su problemática, capacidades, entregables y conexión con Enterprise Copilot.",
+    "Cada área funcional y transversal tiene una página con su problemática, capacidades, entregables y conexión con los agentes de decisión IA.",
   "View use cases": "Ver casos de uso",
-  "Business areas": "Áreas de negocio",
   Finance: "Finanzas",
   "Closings, reconciliations, variance analysis.":
     "Cierres, conciliaciones y análisis de variaciones.",
@@ -142,15 +164,9 @@ const TEXT: Record<string, string> = {
   "Dashboards, KPIs, traceability.":
     "Paneles, KPI y trazabilidad.",
   "Cross-cutting capabilities": "Capacidades transversales",
-  "SAP integrations": "Integraciones SAP",
-  "ABAP, RFC, IDocs, BTP, middleware.":
-    "ABAP, RFC, IDocs, BTP y middleware.",
   "Process automation": "Automatización de procesos",
   "Assisted flows, less manual work.":
     "Flujos asistidos y menos trabajo manual.",
-  "Internal support": "Soporte interno",
-  "Helpdesk and ITSM continuity.":
-    "Mesa de ayuda y continuidad ITSM.",
   "Data governance": "Gobierno de datos",
   "Catalog, rules, traceability.":
     "Catálogo, reglas y trazabilidad.",

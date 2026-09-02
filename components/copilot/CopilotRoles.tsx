@@ -7,8 +7,8 @@ export function CopilotRoles() {
     <Section className="bg-white">
       <SectionHeader
         eyebrow={l("Qué ve cada rol", "What each role sees")}
-        title={l("El mismo copilot, adaptado a cada rol", "The same copilot, adapted to each role")}
-        description={l("Cada usuario accede a lo que requiere su responsabilidad: decisiones, cierres, evidencia o capacidad de entrega.", "Each user accesses what their responsibility requires: decisions, closings, evidence, or delivery capacity.")}
+        title={l("Agentes especializados para cada responsabilidad", "Specialized agents for every responsibility")}
+        description={l("Cada usuario accede a la inteligencia y las herramientas que requiere su función: decisiones, cierres, evidencia u operación.", "Each user accesses the intelligence and tools required by their role: decisions, closings, evidence, or operations.")}
       />
 
       <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

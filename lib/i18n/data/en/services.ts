@@ -336,12 +336,12 @@ export const SERVICE_DETAILS: Record<
       },
       {
         id: "copilots",
-        title: "Operational copilots",
+        title: "AI Decision Agents",
         description:
-          "Enterprise Copilot helps turn fragmented information into evidence, options, and controlled actions.",
+          "Combines generative AI, specialized agents, and quantitative models to prepare decisions and controlled actions.",
         bullets: [
-          "Enterprise Copilot product",
-          "Evidence-based decisions",
+          "Specialized agents",
+          "Simulation and evidence",
           "Actions under approval",
         ],
       },
@@ -951,7 +951,7 @@ export const ENTERPRISE_AI_BLOCKS: DeepDiveBlock[] = [
     eyebrow: "Operational copilots",
     title: "Evidence, decisions, and actions under control",
     description:
-      "Enterprise Copilot brings operational context together, explains findings, and prepares the next step for review and approval.",
+      "AI Decision Agents brings operational context together, explains findings, and prepares the next step for review and approval.",
     bullets: [
       "Answers and findings with evidence.",
       "Differences and risks surfaced for review.",

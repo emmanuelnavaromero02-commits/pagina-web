@@ -9,12 +9,12 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   path: "/copilot/use-cases",
   title: l(
-    "Casos de uso · Enterprise Copilot",
-    "Use cases · Enterprise Copilot",
+    "Casos de uso · Agentes de Decisión IA",
+    "Use cases · AI Decision Agents",
   ),
   description: l(
-    "Casos de uso posibles para Enterprise Copilot en recursos humanos, finanzas, operaciones, reporte ejecutivo, auditoría y soporte interno.",
-    "Potential Enterprise Copilot use cases across HR, finance, operations, executive reporting, audit, and internal support.",
+    "Casos de uso para agentes especializados en recursos humanos, finanzas, operaciones, reporte ejecutivo, auditoría y soporte interno.",
+    "Use cases for specialized agents across HR, finance, operations, executive reporting, audit, and internal support.",
   ),
 });
 
@@ -57,8 +57,8 @@ const scenarios = [
   {
     title: l("Automatización asistida", "Assisted automation"),
     description: l(
-      "Conciliaciones recurrentes que el copilot prepara y una persona revisa antes de su ejecución.",
-      "Recurring reconciliations prepared by the copilot and reviewed by a person before execution.",
+      "Conciliaciones recurrentes que un agente prepara y una persona revisa antes de su ejecución.",
+      "Recurring reconciliations prepared by an agent and reviewed by a person before execution.",
     ),
   },
 ];
@@ -69,8 +69,8 @@ export default function CopilotUseCasesPage() {
       <ServiceHero
         eyebrow={l("Casos de uso", "Use cases")}
         title={l(
-          "Dónde puede aportar valor Enterprise Copilot",
-          "Where Enterprise Copilot can add value",
+          "Dónde pueden aportar valor los Agentes de Decisión IA",
+          "Where AI Decision Agents can add value",
         )}
         description={l(
           "Escenarios posibles en distintas áreas que combinan consulta, validación, reporte y, cuando corresponde, acciones autorizadas.",

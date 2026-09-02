@@ -9,6 +9,7 @@ import { INDUSTRY_PAGES } from "@/lib/data/industry-pages";
 export const STATIC_ROUTES = [
   "/",
   "/services",
+  "/services/sap",
   "/services/software-factory",
   "/services/sap-integrations",
   "/services/cloud-data",
@@ -47,6 +48,6 @@ export const DYNAMIC_ROUTES = [
 
 export const ALL_ROUTES = [...STATIC_ROUTES, ...DYNAMIC_ROUTES] as const;
 
-if (ALL_ROUTES.length !== 52) {
-  throw new Error(`Expected 52 canonical routes, found ${ALL_ROUTES.length}.`);
+if (ALL_ROUTES.length !== 53) {
+  throw new Error(`Expected 53 canonical routes, found ${ALL_ROUTES.length}.`);
 }

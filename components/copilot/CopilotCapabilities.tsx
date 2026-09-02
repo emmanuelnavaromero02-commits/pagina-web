@@ -9,7 +9,7 @@ export function CopilotProblems() {
       <SectionHeader
         eyebrow={l("El problema que resolvemos", "The problem we solve")}
         title={l("Operaciones detenidas por trabajo manual", "Operations stuck in manual work")}
-        description={l("Enterprise Copilot ayuda a reducir el tiempo dedicado a buscar, validar y consolidar información dispersa.", "Enterprise Copilot helps reduce the time spent searching, validating, and consolidating scattered information.")}
+        description={l("Los agentes de decisión reducen el tiempo dedicado a buscar, validar y consolidar información dispersa antes de decidir.", "Decision agents reduce the time spent searching, validating, and consolidating scattered information before a decision.")}
       />
       <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {COPILOT_PROBLEMS.map((p) => (

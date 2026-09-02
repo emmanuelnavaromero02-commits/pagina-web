@@ -23,7 +23,7 @@ export const metadata: Metadata = createPageMetadata({
   description,
 });
 
-const address = `${LEGAL_ENTITY.registeredAddress.street}, ${LEGAL_ENTITY.registeredAddress.neighborhood}, C.P. ${LEGAL_ENTITY.registeredAddress.postalCode}, ${LEGAL_ENTITY.registeredAddress.city}, ${LEGAL_ENTITY.registeredAddress.state}, ${LEGAL_ENTITY.registeredAddress.country}`;
+const address = `${LEGAL_ENTITY.registeredAddress.state}, ${LEGAL_ENTITY.registeredAddress.country}`;
 
 const hasEuRepresentative = Boolean(
   EU_MARKET_ENABLED &&

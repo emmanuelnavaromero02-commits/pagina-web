@@ -7,9 +7,9 @@ export function CopilotSecurity() {
   return (
     <Section id="security" className="bg-white">
       <SectionHeader
-        eyebrow={l("Seguridad y permisos", "Security and permissions")}
-        title={l("Capacidad operativa con control", "Operational capability with control")}
-        description={l("Permisos definidos, evidencia para revisión y aprobación humana antes de acciones sensibles.", "Defined permissions, evidence for review, and human approval before sensitive actions.")}
+        eyebrow={l("Autonomía con límites verificables", "Autonomy with verifiable boundaries")}
+        title={l("Capacidad operativa sin perder el control", "Operational capability without losing control")}
+        description={l("Aislamiento por organización, permisos definidos, evidencia congelada y aprobación humana antes de acciones sensibles.", "Organization-level isolation, defined permissions, frozen evidence, and human approval before sensitive actions.")}
       />
       <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {COPILOT_SECURITY.map((s) => {

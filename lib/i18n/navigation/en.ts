@@ -6,14 +6,7 @@ import {
 
 export type { NavColumn, NavItem, NavLink } from "../../navigation";
 
-const company: NavItem = {
-  label: "Company",
-  href: "/about",
-};
-
-export const NAVIGATION: NavItem[] = BASE_NAVIGATION.map((item) =>
-  item.href === "/experience" ? company : item,
-);
+export const NAVIGATION: NavItem[] = BASE_NAVIGATION;
 
 export const FOOTER_LINKS = [
   ...BASE_FOOTER_LINKS.map((group) =>

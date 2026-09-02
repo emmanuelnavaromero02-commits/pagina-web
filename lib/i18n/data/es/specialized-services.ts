@@ -57,7 +57,7 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
       "Registro de actividad diseñado para apoyar la revisión de auditoría.",
     ],
     copilot:
-      "En estos procesos, Enterprise Copilot ayuda a reunir contexto, identificar diferencias o riesgos y preparar informes o siguientes pasos para revisión humana.",
+      "En estos procesos, Agentes de Decisión IA ayuda a reunir contexto, identificar diferencias o riesgos y preparar informes o siguientes pasos para revisión humana.",
   },
   "enterprise-portals": {
     slug: "enterprise-portals",
@@ -105,7 +105,7 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
       "Línea base de rendimiento y accesibilidad (Core Web Vitals + WCAG).",
     ],
     copilot:
-      "Dentro de un portal, Enterprise Copilot ayuda a encontrar información relevante, entender pendientes y preparar solicitudes o respuestas para revisión y aprobación.",
+      "Dentro de un portal, Agentes de Decisión IA ayuda a encontrar información relevante, entender pendientes y preparar solicitudes o respuestas para revisión y aprobación.",
   },
   "internal-apps": {
     slug: "internal-apps",
@@ -153,7 +153,7 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
       "Paquete de exportación para auditoría por ciclo.",
     ],
     copilot:
-      "Enterprise Copilot puede resumir el estado de un proceso, señalar excepciones y preparar el siguiente paso para aprobación, manteniendo visible el contexto de la decisión.",
+      "Agentes de Decisión IA puede resumir el estado de un proceso, señalar excepciones y preparar el siguiente paso para aprobación, manteniendo visible el contexto de la decisión.",
   },
   "apis-microservices": {
     slug: "apis-microservices",
@@ -202,7 +202,7 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
       "Revisión de seguridad por API y configuración segura del entorno de ejecución.",
     ],
     copilot:
-      "Enterprise Copilot ayuda a reunir información de distintos sistemas en una vista útil, explicar hallazgos y preparar acciones controladas para revisión.",
+      "Agentes de Decisión IA ayuda a reunir información de distintos sistemas en una vista útil, explicar hallazgos y preparar acciones controladas para revisión.",
   },
   "evolutionary-support": {
     slug: "evolutionary-support",
@@ -249,7 +249,7 @@ export const SOFTWARE_FACTORY_PAGES: Record<string, SpecializedPage> = {
       "Informes post-incidente con causa raíz y acciones correctivas.",
     ],
     copilot:
-      "Enterprise Copilot ayuda a ordenar incidentes y cambios, mostrar el contexto disponible, identificar patrones recurrentes y preparar el seguimiento para revisión del equipo.",
+      "Agentes de Decisión IA ayuda a ordenar incidentes y cambios, mostrar el contexto disponible, identificar patrones recurrentes y preparar el seguimiento para revisión del equipo.",
   },
 };
 
@@ -313,7 +313,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Gobernanza de transportes y calendario de versiones.",
     ],
     copilot:
-      "Enterprise Copilot ayuda a revisar cierres, conciliaciones, datos maestros e informes, señala diferencias y prepara el siguiente paso para revisión.",
+      "Agentes de Decisión IA ayuda a revisar cierres, conciliaciones, datos maestros e informes, señala diferencias y prepara el siguiente paso para revisión.",
   },
   "sap-cloud": {
     slug: "sap-cloud",
@@ -361,7 +361,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "SLA por interfaz y lógica de reprocesamiento.",
     ],
     copilot:
-      "Enterprise Copilot reúne el contexto necesario para responder consultas de recursos humanos, proveedores o planificación y mostrar pendientes con claridad.",
+      "Agentes de Decisión IA reúne el contexto necesario para responder consultas de recursos humanos, proveedores o planificación y mostrar pendientes con claridad.",
   },
   "sap-btp": {
     slug: "sap-btp",
@@ -410,7 +410,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Catálogo de extensiones side-by-side con responsables definidos.",
     ],
     copilot:
-      "Enterprise Copilot ayuda a revisar solicitudes, validar información y preparar informes o aprobaciones con evidencia visible.",
+      "Agentes de Decisión IA ayuda a revisar solicitudes, validar información y preparar informes o aprobaciones con evidencia visible.",
   },
   "abap-rfc-idocs": {
     slug: "abap-rfc-idocs",
@@ -461,7 +461,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Informe de revisión y corrección del rendimiento.",
     ],
     copilot:
-      "Enterprise Copilot ayuda a entender el estado de los intercambios con SAP, señalar errores y preparar el seguimiento para el equipo responsable.",
+      "Agentes de Decisión IA ayuda a entender el estado de los intercambios con SAP, señalar errores y preparar el seguimiento para el equipo responsable.",
   },
   middleware: {
     slug: "middleware",
@@ -510,7 +510,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Backlog de migración para integraciones frágiles punto a punto.",
     ],
     copilot:
-      "Enterprise Copilot ayuda a identificar mensajes pendientes, explicar incidencias y preparar acciones de seguimiento sujetas a revisión.",
+      "Agentes de Decisión IA ayuda a identificar mensajes pendientes, explicar incidencias y preparar acciones de seguimiento sujetas a revisión.",
   },
   "third-party": {
     slug: "third-party",
@@ -558,7 +558,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Plan de desmantelamiento de integraciones retiradas.",
     ],
     copilot:
-      "Enterprise Copilot reúne contexto entre SAP y otras plataformas para comparar información, explicar diferencias y apoyar una decisión.",
+      "Agentes de Decisión IA reúne contexto entre SAP y otras plataformas para comparar información, explicar diferencias y apoyar una decisión.",
   },
   successfactors: {
     slug: "successfactors",
@@ -583,7 +583,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Validación de datos maestros entre SuccessFactors y SAP HCM.",
       "Visibilidad de la estructura organizacional en múltiples unidades de negocios.",
       "Distribución del catálogo de puestos y funciones a sistemas dependientes.",
-      "Analítica de recursos humanos consumida por Enterprise Copilot para consultas asistidas.",
+      "Analítica de recursos humanos consumida por Agentes de Decisión IA para consultas asistidas.",
       "Integración del ciclo de vida del empleado entre los sistemas de contratación y retiro.",
     ],
     capabilities: [
@@ -605,7 +605,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Informe trazable de cambios en los datos maestros para revisión de auditoría.",
     ],
     copilot:
-      "Enterprise Copilot ayuda a responder consultas de RR. HH., resumir pendientes y preparar solicitudes para revisión por la persona responsable.",
+      "Agentes de Decisión IA ayuda a responder consultas de RR. HH., resumir pendientes y preparar solicitudes para revisión por la persona responsable.",
   },
   "sap-hcm": {
     slug: "sap-hcm",
@@ -630,7 +630,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Reportes de ausencias y evaluación de tiempos para operaciones.",
       "Validación de centro de costos/posición contra datos maestros de finanzas.",
       "Exportación de la jerarquía de responsables a sistemas de identidad y acceso.",
-      "Informe operativo de recursos humanos consumido por Enterprise Copilot.",
+      "Informe operativo de recursos humanos consumido por Agentes de Decisión IA.",
       "Hoja de ruta de migración por fases de SAP HCM a SuccessFactors.",
     ],
     capabilities: [
@@ -653,7 +653,7 @@ export const SAP_INTEGRATIONS_PAGES: Record<string, SpecializedPage> = {
       "Informe de alineación de centros de costos entre HCM y finanzas.",
     ],
     copilot:
-      "Enterprise Copilot ayuda a entender información de plantilla, ausencias y organización sin exigir al usuario conocer la estructura técnica del sistema.",
+      "Agentes de Decisión IA ayuda a entender información de plantilla, ausencias y organización sin exigir al usuario conocer la estructura técnica del sistema.",
   },
 };
 
@@ -673,8 +673,8 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
     title: "AWS",
     parent: CLOUD_PARENT,
     intro:
-      "Arquitecturas ligeras y fáciles de mantener en AWS: sitios estáticos, API sin servidor, correo electrónico transaccional y almacenamiento adaptado al caso de uso.",
-    heroBadges: ["S3 + CloudFront", "API Gateway + Lambda", "SES · RDS · DynamoDB"],
+      "Assessment, landing zone, migración de SAP y cargas empresariales, modernización, continuidad, operación administrada y FinOps en AWS.",
+    heroBadges: ["Assessment + TCO", "SAP y cargas empresariales", "FinOps + operación"],
     problem:
       "Los costos de AWS pueden crecer sin responsables y límites claros. El diseño propuesto favorece servicios justificados, responsables por entorno, presupuestos y límites de seguridad explícitos.",
     whatWeDo: [
@@ -714,7 +714,7 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Línea base de seguridad alineada con las políticas corporativas.",
     ],
     copilot:
-      "En operaciones sobre AWS, Enterprise Copilot ayuda a reunir alertas y contexto, explicar qué requiere atención y preparar el seguimiento para aprobación.",
+      "En operaciones sobre AWS, Agentes de Decisión IA ayuda a reunir alertas y contexto, explicar qué requiere atención y preparar el seguimiento para aprobación.",
   },
   azure: {
     slug: "azure",
@@ -762,7 +762,7 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Política por entorno y línea base de seguridad.",
     ],
     copilot:
-      "En entornos Azure, Enterprise Copilot ayuda a responder preguntas operativas, resumir evidencia y preparar acciones sin perder el control de acceso.",
+      "En entornos Azure, Agentes de Decisión IA ayuda a responder preguntas operativas, resumir evidencia y preparar acciones sin perder el control de acceso.",
   },
   gcp: {
     slug: "gcp",
@@ -809,7 +809,7 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Capa analítica documentada con linaje hasta la fuente.",
     ],
     copilot:
-      "Enterprise Copilot ayuda al equipo directivo a revisar información operativa y analítica, entender cambios y decidir con evidencia.",
+      "Agentes de Decisión IA ayuda al equipo directivo a revisar información operativa y analítica, entender cambios y decidir con evidencia.",
   },
   databases: {
     slug: "databases",
@@ -835,7 +835,7 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Validación de la calidad de los datos entre la base de datos de origen y los informes.",
       "Migración de una base de datos local a un motor administrado en la nube.",
       "Verificaciones de coherencia de los datos maestros en todos los sistemas empresariales.",
-      "Fuente de conocimiento respaldada por base de datos para Enterprise Copilot.",
+      "Fuente de conocimiento respaldada por base de datos para Agentes de Decisión IA.",
     ],
     capabilities: [
       "MS SQL Server",
@@ -858,7 +858,7 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Línea base de rendimiento y recomendaciones de indexación.",
     ],
     copilot:
-      "Enterprise Copilot ayuda a responder preguntas sobre información corporativa, señalar discrepancias y conservar el contexto revisado.",
+      "Agentes de Decisión IA ayuda a responder preguntas sobre información corporativa, señalar discrepancias y conservar el contexto revisado.",
   },
   "data-pipelines": {
     slug: "data-pipelines",
@@ -905,7 +905,7 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Catálogo de pipelines con responsables por capa.",
     ],
     copilot:
-      "Enterprise Copilot ayuda a explicar por qué cambió una cifra, muestra la evidencia disponible y señala qué debe revisarse.",
+      "Agentes de Decisión IA ayuda a explicar por qué cambió una cifra, muestra la evidencia disponible y señala qué debe revisarse.",
   },
   reporting: {
     slug: "reporting",
@@ -951,7 +951,7 @@ export const CLOUD_DATA_PAGES: Record<string, SpecializedPage> = {
       "Acuerdos de actualización y SLA por informe.",
     ],
     copilot:
-      "Enterprise Copilot ayuda a interpretar indicadores con las definiciones acordadas, explicar variaciones y preparar resúmenes para decisión.",
+      "Agentes de Decisión IA ayuda a interpretar indicadores con las definiciones acordadas, explicar variaciones y preparar resúmenes para decisión.",
   },
 };
 
@@ -1010,7 +1010,7 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
       "Patrón de cita y especificación de formato de respuesta.",
     ],
     copilot:
-      "Enterprise Copilot responde preguntas, resume evidencia y prepara documentos o siguientes pasos para revisión y aprobación.",
+      "Agentes de Decisión IA responde preguntas, resume evidencia y prepara documentos o siguientes pasos para revisión y aprobación.",
   },
   "machine-learning": {
     slug: "machine-learning",
@@ -1057,7 +1057,7 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
       "Informe de evaluación frente a KPI de negocio.",
     ],
     copilot:
-      "Enterprise Copilot presenta predicciones junto con su contexto, señala riesgos y ayuda a comparar opciones antes de decidir.",
+      "Agentes de Decisión IA presenta predicciones junto con su contexto, señala riesgos y ayuda a comparar opciones antes de decidir.",
   },
   "intelligent-automation": {
     slug: "intelligent-automation",
@@ -1103,7 +1103,7 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
       "Panel de KPI por flujo.",
     ],
     copilot:
-      "Enterprise Copilot es la superficie natural para la automatización asistida: prepara la acción, muestra la evidencia y espera la aprobación humana.",
+      "Agentes de Decisión IA es la superficie natural para la automatización asistida: prepara la acción, muestra la evidencia y espera la aprobación humana.",
   },
   "internal-assistants": {
     slug: "internal-assistants",
@@ -1149,18 +1149,18 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
       "Panel de métricas de adopción.",
     ],
     copilot:
-      "Enterprise Copilot responde consultas internas, resume información y prepara acciones de seguimiento cuando el proceso requiere algo más que una respuesta.",
+      "Agentes de Decisión IA responde consultas internas, resume información y prepara acciones de seguimiento cuando el proceso requiere algo más que una respuesta.",
   },
   "operational-copilots": {
     slug: "operational-copilots",
     eyebrow: "IA operativa",
-    title: "Copilotos operativos",
+    title: "Agentes de Decisión IA",
     parent: AI_PARENT,
     intro:
-      "Copilotos que convierten información dispersa en evidencia, opciones y siguientes pasos sujetos a revisión humana.",
-    heroBadges: ["Evidencia verificable", "Aprobación antes de la acción", "Seguimiento trazable"],
+      "IA generativa, agentes especializados y modelos cuantitativos que convierten información dispersa en decisiones y acciones confiables.",
+    heroBadges: ["Agentes especializados", "Escenarios cuantitativos", "Control humano"],
     problem:
-      "Una respuesta aislada no basta cuando el equipo necesita entender qué ocurrió, revisar la evidencia y decidir el siguiente paso. Un copiloto operativo debe aportar contexto, control y seguimiento.",
+      "Una respuesta aislada no basta cuando el equipo necesita entender qué ocurrió, comparar escenarios y decidir el siguiente paso. Los agentes aportan contexto, análisis, control y seguimiento.",
     whatWeDo: [
       "Reunir el contexto relevante para una consulta o decisión.",
       "Señalar diferencias, excepciones y riesgos que requieren atención.",
@@ -1170,12 +1170,12 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
       "Conservar el contexto, la decisión y el resultado para seguimiento.",
     ],
     useCases: [
-      "Copiloto de finanzas para conciliaciones y análisis de variaciones.",
-      "Copiloto de RRHH para plantilla, ausencias y consulta de datos maestros.",
-      "Copiloto de operaciones para estado, investigación de incidentes y alertas.",
-      "Copiloto ejecutivo para respuestas listas para la sala de juntas con citas.",
-      "Copiloto de auditoría para recuperación de evidencia e historial de tickets.",
-      "Copiloto de adquisiciones para preguntas de proveedores y gastos.",
+      "Agente de finanzas para conciliaciones, escenarios y análisis de variaciones.",
+      "Agente de talento para plantilla, riesgo, ausencias y datos maestros.",
+      "Agente de operaciones para estado, investigación de incidentes y alertas.",
+      "Agente ejecutivo para respuestas, escenarios y evidencia para dirección.",
+      "Agente de auditoría para recuperar evidencia e historial de decisiones.",
+      "Agente de compras para analizar proveedores, riesgo y gasto.",
     ],
     capabilities: [
       "Contexto operativo",
@@ -1188,7 +1188,7 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
       "Acceso controlado",
     ],
     deliverables: [
-      "Copiloto operativo con alcance a uno o más procesos de negocio.",
+      "Sistema de agentes con alcance a uno o más procesos de negocio.",
       "Matriz de acceso y responsabilidades acordada.",
       "Criterios de validación alineados con el negocio.",
       "Registro de decisiones y resultados según el alcance.",
@@ -1196,8 +1196,8 @@ export const ENTERPRISE_AI_PAGES: Record<string, SpecializedPage> = {
       "Panel de adopción y uso cuando forme parte del alcance.",
     ],
     copilot:
-      "Enterprise Copilot convierte información dispersa en evidencia, opciones y acciones controladas para que el equipo decida con claridad.",
-    primaryCta: { label: "Explorar Enterprise Copilot", href: "/copilot" },
-    secondaryCta: { label: "Solicitar un piloto", href: "/copilot/pilot" },
+      "Los Agentes de Decisión IA convierten información dispersa en evidencia, escenarios y acciones controladas para que el equipo decida con claridad.",
+    primaryCta: { label: "Explorar la novedad", href: "/copilot" },
+    secondaryCta: { label: "Evaluar un caso", href: "/copilot/pilot" },
   },
 };

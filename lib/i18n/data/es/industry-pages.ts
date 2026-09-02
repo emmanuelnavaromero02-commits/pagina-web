@@ -48,9 +48,9 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Cuadros de mando de flujo de caja y margen.",
     ],
     copilot:
-      "Enterprise Copilot puede apoyar consultas financieras, identificar partidas sin conciliar y preparar borradores de variaciones con trazabilidad y aprobación previa a cualquier acción.",
+      "Agentes de Decisión IA puede apoyar consultas financieras, identificar partidas sin conciliar y preparar borradores de variaciones con trazabilidad y aprobación previa a cualquier acción.",
     primaryCta: { label: "Hablar de este caso", href: "/contact?topic=finance" },
-    secondaryCta: { label: "Explorar Enterprise Copilot", href: "/copilot" },
+    secondaryCta: { label: "Explorar Agentes de Decisión IA", href: "/copilot" },
   },
   operations: {
     slug: "operations",
@@ -98,9 +98,9 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Análisis de cuellos de botella y tiempos de ciclo.",
     ],
     copilot:
-      "Enterprise Copilot puede presentar el estado operativo actual, la última ejecución correcta y el contexto de error, y preparar acciones para aprobación del operador.",
+      "Agentes de Decisión IA puede presentar el estado operativo actual, la última ejecución correcta y el contexto de error, y preparar acciones para aprobación del operador.",
     primaryCta: { label: "Hablar de este caso", href: "/contact?topic=operations" },
-    secondaryCta: { label: "Explorar Enterprise Copilot", href: "/copilot" },
+    secondaryCta: { label: "Explorar Agentes de Decisión IA", href: "/copilot" },
   },
   "hr-payroll": {
     slug: "hr-payroll",
@@ -127,7 +127,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Visibilidad de la estructura organizacional para el liderazgo.",
       "Validación de datos maestros en HCM y SuccessFactors.",
       "Integración relacionada con la nómina con finanzas e informes.",
-      "Consultas de RRHH asistidas vía Enterprise Copilot.",
+      "Consultas de RRHH asistidas vía Agentes de Decisión IA.",
     ],
     capabilities: [
       "SAP HCM",
@@ -148,9 +148,9 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Informe de alineación de posición/centros de costos.",
     ],
     copilot:
-      "Enterprise Copilot ayuda a responder consultas de recursos humanos, resumir pendientes y preparar solicitudes para revisión responsable.",
+      "Agentes de Decisión IA ayuda a responder consultas de recursos humanos, resumir pendientes y preparar solicitudes para revisión responsable.",
     primaryCta: { label: "Hablar de este caso", href: "/contact?topic=hr" },
-    secondaryCta: { label: "Explorar Enterprise Copilot", href: "/copilot" },
+    secondaryCta: { label: "Explorar Agentes de Decisión IA", href: "/copilot" },
   },
   "executive-reporting": {
     slug: "executive-reporting",
@@ -176,7 +176,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Monitoreo del estado actual de KPI estratégicos.",
       "Previsión y gestión del desempeño.",
       "Generación del paquete para el consejo con trazabilidad por cifra.",
-      "Preguntas y respuestas ejecutivas sobre datos gobernados a través de Enterprise Copilot.",
+      "Preguntas y respuestas ejecutivas sobre datos gobernados a través de Agentes de Decisión IA.",
       "Visibilidad estratégica en todas las áreas de negocio.",
     ],
     capabilities: [
@@ -198,9 +198,9 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Plantilla del paquete para el consejo por ciclo.",
     ],
     copilot:
-      "Enterprise Copilot ayuda a responder preguntas ejecutivas, explicar variaciones y presentar evidencia con las mismas definiciones de negocio acordadas.",
+      "Agentes de Decisión IA ayuda a responder preguntas ejecutivas, explicar variaciones y presentar evidencia con las mismas definiciones de negocio acordadas.",
     primaryCta: { label: "Hablar de este caso", href: "/contact?topic=reporting" },
-    secondaryCta: { label: "Explorar Enterprise Copilot", href: "/copilot" },
+    secondaryCta: { label: "Explorar Agentes de Decisión IA", href: "/copilot" },
   },
   "sap-integrations": {
     slug: "sap-integrations",
@@ -249,9 +249,9 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Hoja de ruta para retirar sistemas heredados.",
     ],
     copilot:
-      "Enterprise Copilot ayuda a consultar el estado de procesos entre SAP y otras plataformas, explicar diferencias y preparar seguimientos controlados.",
+      "Agentes de Decisión IA ayuda a consultar el estado de procesos entre SAP y otras plataformas, explicar diferencias y preparar seguimientos controlados.",
     primaryCta: { label: "Revise sus integraciones SAP", href: "/contact?topic=sap" },
-    secondaryCta: { label: "Explorar Enterprise Copilot", href: "/copilot" },
+    secondaryCta: { label: "Explorar Agentes de Decisión IA", href: "/copilot" },
   },
   "process-automation": {
     slug: "process-automation",
@@ -298,9 +298,9 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Panel de adopción y uso.",
     ],
     copilot:
-      "Enterprise Copilot es la superficie natural para la automatización asistida: propone la acción, muestra la evidencia y espera la aprobación humana antes de que suceda algo.",
+      "Agentes de Decisión IA es la superficie natural para la automatización asistida: propone la acción, muestra la evidencia y espera la aprobación humana antes de que suceda algo.",
     primaryCta: { label: "Hablar de este caso", href: "/contact?topic=automation" },
-    secondaryCta: { label: "Explorar Enterprise Copilot", href: "/copilot" },
+    secondaryCta: { label: "Explorar Agentes de Decisión IA", href: "/copilot" },
   },
   "internal-support": {
     slug: "internal-support",
@@ -348,9 +348,9 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Asistente de respuesta de primera línea conectado a la base de conocimientos.",
     ],
     copilot:
-      "Enterprise Copilot puede actuar como soporte de primera línea: respondiendo preguntas sobre documentación y procesos con citas y remitiendo el resto a un ser humano con contexto completo.",
+      "Agentes de Decisión IA puede actuar como soporte de primera línea: respondiendo preguntas sobre documentación y procesos con citas y remitiendo el resto a un ser humano con contexto completo.",
     primaryCta: { label: "Hablar de este caso", href: "/contact?topic=support" },
-    secondaryCta: { label: "Explorar Enterprise Copilot", href: "/copilot" },
+    secondaryCta: { label: "Explorar Agentes de Decisión IA", href: "/copilot" },
   },
   "data-governance": {
     slug: "data-governance",
@@ -377,7 +377,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Base de datos en capas Bronze / Silver / Gold.",
       "Linaje de un extremo a otro desde KPI hasta el evento de origen.",
       "Evidencia trazable para revisiones de cumplimiento y gobernanza.",
-      "Contexto gobernado para respuestas y decisiones verificables con Enterprise Copilot.",
+      "Contexto gobernado para respuestas y decisiones verificables con Agentes de Decisión IA.",
     ],
     capabilities: [
       "Diccionario común",
@@ -398,8 +398,8 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Paquete de evidencia listo para auditoría por revisión de gobernanza.",
     ],
     copilot:
-      "Enterprise Copilot ayuda a responder con definiciones acordadas, mostrar la evidencia disponible y conservar el contexto necesario para revisión.",
+      "Agentes de Decisión IA ayuda a responder con definiciones acordadas, mostrar la evidencia disponible y conservar el contexto necesario para revisión.",
     primaryCta: { label: "Hablar de este caso", href: "/contact?topic=governance" },
-    secondaryCta: { label: "Explorar Enterprise Copilot", href: "/copilot" },
+    secondaryCta: { label: "Explorar Agentes de Decisión IA", href: "/copilot" },
   },
 };

@@ -8,12 +8,12 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   path: "/copilot/impact",
   title: l(
-    "Impacto operativo · Enterprise Copilot",
-    "Operational impact · Enterprise Copilot",
+    "Impacto operativo · Agentes de Decisión IA",
+    "Operational impact · AI Decision Agents",
   ),
   description: l(
-    "Escenarios orientativos con Enterprise Copilot en informes multisistema, conciliación financiera, evidencia de auditoría, reporte ejecutivo e investigación de incidentes.",
-    "Indicative Enterprise Copilot scenarios across cross-system reports, financial reconciliation, audit evidence, executive reporting, and incident research.",
+    "Escenarios orientativos con agentes de IA en informes multisistema, conciliación financiera, auditoría, reporte ejecutivo e investigación de incidentes.",
+    "Indicative AI agent scenarios across cross-system reports, financial reconciliation, audit, executive reporting, and incident research.",
   ),
 });
 
@@ -22,16 +22,16 @@ export default function CopilotImpactPage() {
     <>
       <ServiceHero
         eyebrow={l(
-          "Enterprise Copilot · Impacto",
-          "Enterprise Copilot · Impact",
+          "Agentes de Decisión IA · Impacto",
+          "AI Decision Agents · Impact",
         )}
         title={l(
           "Menos trabajo manual en procesos operativos.",
           "Less manual work in operational processes.",
         )}
         description={l(
-          "Una comparación de escenarios operativos habituales con y sin Enterprise Copilot. Es material orientativo para definir un piloto, no una garantía de resultados.",
-          "A comparison of common operational scenarios with and without Enterprise Copilot. This is indicative material for scoping a pilot, not a guarantee of results.",
+          "Una comparación de escenarios operativos habituales con y sin agentes especializados. Es material orientativo para definir una evaluación, no una garantía de resultados.",
+          "A comparison of common operational scenarios with and without specialized agents. This is indicative material for scoping an assessment, not a guarantee of results.",
         )}
       />
 

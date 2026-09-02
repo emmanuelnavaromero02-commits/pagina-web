@@ -18,6 +18,7 @@ const EU_MARKET_ENABLED =
 const ROUTES = [
   "/",
   "/services",
+  "/services/sap",
   "/services/software-factory",
   "/services/sap-integrations",
   "/services/cloud-data",
@@ -329,7 +330,9 @@ function validatePage(locale, route) {
   const ogImage = tags(html, "meta").find(
     (attrs) => (attrs.property ?? "").toLowerCase() === "og:image",
   )?.content;
-  const expectedOg = `${ORIGIN}/og-${locale}.png`;
+  const expectedOg = locale === "es"
+    ? `${ORIGIN}/og-portfolio.png`
+    : `${ORIGIN}/og-en.png`;
   check(Boolean(ogImage), scope, "falta og:image");
   if (ogImage) {
     check(
@@ -386,13 +389,13 @@ function validatePage(locale, route) {
 }
 
 function validateRouteInventory() {
-  check(ROUTES.length === 52, "rutas", `lista base con ${ROUTES.length}; se esperaban 52`);
-  check(new Set(ROUTES).size === 52, "rutas", "la lista base contiene duplicados");
+  check(ROUTES.length === 53, "rutas", `lista base con ${ROUTES.length}; se esperaban 53`);
+  check(new Set(ROUTES).size === 53, "rutas", "la lista base contiene duplicados");
 
   const expected = new Set(expectedLocalizedRoutes());
   const actualRoutes = exportedIndexRoutes();
   const actual = new Set(actualRoutes);
-  check(actualRoutes.length === 104, "rutas", `hay ${actualRoutes.length} index.html canónicos; se esperaban 104`);
+  check(actualRoutes.length === 106, "rutas", `hay ${actualRoutes.length} index.html canónicos; se esperaban 106`);
   check(actual.size === actualRoutes.length, "rutas", "hay rutas exportadas duplicadas");
   for (const route of expected) check(actual.has(route), "rutas", `falta ${route}`);
   for (const route of actual) check(expected.has(route), "rutas", `ruta inesperada ${route}`);
@@ -416,8 +419,8 @@ function validateSitemap() {
   const locations = [...xml.matchAll(/<loc>([\s\S]*?)<\/loc>/gi)].map((match) =>
     xmlDecode(match[1]),
   );
-  check(locations.length === 104, "sitemap", `contiene ${locations.length} <loc>; se esperaban 104`);
-  check(new Set(locations).size === 104, "sitemap", "contiene URL duplicadas");
+  check(locations.length === 106, "sitemap", `contiene ${locations.length} <loc>; se esperaban 106`);
+  check(new Set(locations).size === 106, "sitemap", "contiene URL duplicadas");
 
   const expected = new Set(
     LOCALES.flatMap((locale) => ROUTES.map((route) => normalizedUrl(canonicalUrl(locale, route)))),
@@ -491,7 +494,7 @@ function main() {
     return;
   }
 
-  console.log(`✓ Export válido: 104 URL canónicas, ${checks} comprobaciones.`);
+  console.log(`✓ Export válido: ${ROUTES.length * LOCALES.length} URL canónicas, ${checks} comprobaciones.`);
 }
 
 main();

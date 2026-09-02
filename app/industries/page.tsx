@@ -38,8 +38,8 @@ export default function IndustriesPage() {
         eyebrow={l("Áreas y casos de uso", "Business areas and use cases")}
         title={l("Dónde podemos aportar valor", "Where we can add value")}
         description={l(
-          "Cada área dispone de una página con el problema habitual, el enfoque propuesto, los sistemas y capacidades implicados, los entregables y la posible conexión con Enterprise Copilot.",
-          "Each area has a page covering the common problem, proposed approach, involved systems and capabilities, deliverables, and potential connection with Enterprise Copilot.",
+          "Cada área dispone de una página con el problema habitual, el enfoque propuesto, los sistemas y capacidades implicados, los entregables y la posible conexión con Agentes de Decisión IA.",
+          "Each area has a page covering the common problem, proposed approach, involved systems and capabilities, deliverables, and potential connection with AI Decision Agents.",
         )}
       />
 

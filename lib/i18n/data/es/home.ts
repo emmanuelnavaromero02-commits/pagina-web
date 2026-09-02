@@ -73,7 +73,7 @@ export const QUICK_WINS: {
   {
     title: "IA operativa",
     description:
-      "IA generativa, ML y Enterprise Copilot conectados a sistemas, reglas y permisos reales.",
+      "IA generativa, ML y Agentes de Decisión IA conectados a sistemas, reglas y permisos reales.",
     icon: Brain,
   },
 ];
@@ -343,7 +343,7 @@ export const OPERATIONAL_OUTCOMES: {
   {
     title: "Definiciones compartidas de KPI",
     description:
-      "Los paneles y Enterprise Copilot pueden presentar indicadores con las mismas definiciones de negocio acordadas.",
+      "Los paneles y Agentes de Decisión IA pueden presentar indicadores con las mismas definiciones de negocio acordadas.",
   },
   {
     title: "Flujos gobernados",
@@ -439,7 +439,7 @@ export const SEVEN_BUSINESS_PROBLEMS: {
     impact:
       "La dirección espera los datos en lugar de actuar con ellos.",
     whatWeDo:
-      "Organizamos flujos de reportes, analítica y Enterprise Copilot alrededor de fuentes autorizadas.",
+      "Organizamos flujos de reportes, analítica y Agentes de Decisión IA alrededor de fuentes autorizadas.",
   },
   {
     title: "Trazabilidad insuficiente",
@@ -616,7 +616,7 @@ export const WHAT_WE_DO: {
       "Copilotos, asistentes y patrones de ML gobernado basados en datos autorizados y reglas de negocio explícitas.",
     icon: Sparkles,
     bullets: [
-      "Enterprise Copilot",
+      "Agentes de Decisión IA",
       "Asistentes internos sobre datos privados",
       "ML en producción con MLOps",
     ],

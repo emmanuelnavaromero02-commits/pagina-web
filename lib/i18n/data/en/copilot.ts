@@ -5,7 +5,6 @@ import {
   BarChart3,
   Briefcase,
   Building2,
-  Cable,
   Compass,
   Database,
   FileBarChart,
@@ -17,7 +16,6 @@ import {
   Network,
   ServerCog,
   ShieldCheck,
-  Wand2,
   Workflow,
   type LucideIcon,
 } from "lucide-react";
@@ -28,40 +26,40 @@ export const COPILOT_CAPABILITIES: {
   icon: LucideIcon;
 }[] = [
   {
-    title: "Bring operational context together",
+    title: "Connect governed data",
     description:
-      "Organizes authorized information currently scattered across systems, files, and teams.",
+      "Integrates authorized information from SAP, CRM, databases, APIs, files, and public sources.",
     icon: Database,
   },
   {
-    title: "Explain with evidence",
+    title: "Understand with generative AI",
     description:
-      "Presents answers and findings with the context needed to review and verify them.",
+      "Queries corporate knowledge and explains findings with citations, context, and visible warnings.",
     icon: FileBarChart,
   },
   {
-    title: "Surface differences and risks",
+    title: "Detect signals and anomalies",
     description:
-      "Highlights changes, inconsistencies, and pending work that require accountable review.",
+      "Identifies changes, inconsistencies, relationships, and pending work that require attention.",
     icon: AlertTriangle,
   },
   {
-    title: "Prepare reports for review",
+    title: "Coordinate specialized agents",
     description:
-      "Gets verifiable summaries and reports ready for the team to review and complete.",
-    icon: BarChart3,
+      "Assigns tasks to data, finance, talent, risk, and operations agents under one shared context.",
+    icon: Network,
   },
   {
-    title: "Frame the options",
+    title: "Compare scenarios",
     description:
-      "Organizes alternatives and criteria so teams can compare the next step before deciding.",
-    icon: Cable,
+      "Evaluates alternatives through simulation, sensitivity, and calibrated confidence when needed.",
+    icon: BarChart3,
   },
   {
     title: "Prepare controlled actions",
     description:
-      "Prepares actions and follow-up under permissions, human review, and traceability.",
-    icon: Wand2,
+      "Prepares actions under permissions, frozen evidence, human approval, and auditability.",
+    icon: ShieldCheck,
   },
 ];
 
@@ -153,10 +151,10 @@ export const COPILOT_SECURITY: {
     icon: Lock,
   },
   {
-    title: "Traceability",
+    title: "Organizational isolation",
     description:
-      "Relevant queries and actions can be logged with user, context, and result for audit review.",
-    icon: GitBranch,
+      "Data, credentials, agents, and executions remain limited to the authorized workspace.",
+    icon: ServerCog,
   },
   {
     title: "Validate before executing",
@@ -165,22 +163,22 @@ export const COPILOT_SECURITY: {
     icon: ShieldCheck,
   },
   {
-    title: "Audit log",
+    title: "Evidence and traceability",
     description:
-      "Configurable logs of changes, access, and results, exportable for compliance review.",
-    icon: FileBarChart,
+      "Every finding preserves sources, freshness, scope, and context for review and audit.",
+    icon: GitBranch,
   },
   {
-    title: "No writes without approval",
+    title: "Separation of responsibilities",
     description:
-      "The copilot does not write to critical systems without explicit human or workflow approval.",
+      "The person proposing an action cannot approve it when the process requires a second review.",
     icon: AlertTriangle,
   },
   {
-    title: "Controlled scope",
+    title: "Auditable outcome",
     description:
-      "Each pilot defines the authorized information, accountable people, and actions subject to approval.",
-    icon: ServerCog,
+      "Decisions, approvals, attempts, and outcomes are recorded for follow-up and recovery.",
+    icon: FileBarChart,
   },
 ];
 
@@ -189,7 +187,7 @@ export const COPILOT_SECURITY: {
 export const COPILOT_IMPACT_STATS: { label: string; value: string }[] = [
   { label: "Workflow", value: "Assisted queries" },
   { label: "Spreadsheets", value: "Controlled inputs" },
-  { label: "Audit", value: "Source references" },
+  { label: "Audit", value: "Connected evidence" },
   { label: "Actions", value: "Approval before executing" },
 ];
 
@@ -202,7 +200,7 @@ export const COPILOT_IMPACT_ROWS: {
   {
     task: "Monthly report across systems",
     before: "Manual exports and cross-checks",
-    withCopilot: "Assisted consolidation with source references",
+    withCopilot: "Assisted consolidation with connected evidence",
     impact: "Designed to reduce manual consolidation",
   },
   {
@@ -214,7 +212,7 @@ export const COPILOT_IMPACT_ROWS: {
   {
     task: "Answer to an external auditor",
     before: "Evidence gathered across files and messages",
-    withCopilot: "Referenced evidence prepared for review",
+    withCopilot: "Organized evidence prepared for review",
     impact: "Designed to support traceability",
   },
   {
@@ -232,7 +230,7 @@ export const COPILOT_IMPACT_ROWS: {
   {
     task: "Operational incident research",
     before: "Manual searches across logs and systems",
-    withCopilot: "Cross-source references prepared for analysis",
+    withCopilot: "Connected signals prepared for analysis",
     impact: "Designed to support incident diagnosis",
   },
 ];
@@ -279,7 +277,7 @@ export const COPILOT_ROLES: {
   {
     label: "CFO",
     description:
-      "Closings, reconciliations, and variances with source references and validation controls.",
+      "Closings, reconciliations, and variances with connected evidence and validation controls.",
     icon: BarChart3,
   },
   {
@@ -308,12 +306,12 @@ export const COPILOT_ROLES: {
   },
 ];
 
-/* Hero cards "Before → With Enterprise Copilot" — short story-style. */
+/* Hero cards "Before → With AI Decision Agents" — short story-style. */
 
 export const COPILOT_HERO_CARDS: { before: string; after: string }[] = [
   {
     before: "Cross-system reports built by hand",
-    after: "Assisted consolidation with source references",
+    after: "Assisted consolidation with connected evidence",
   },
   {
     before: "Reconciliations across disconnected sources",
@@ -325,35 +323,35 @@ export const COPILOT_HERO_CARDS: { before: string; after: string }[] = [
   },
 ];
 
-/* 7 Enterprise Copilot Capabilities. */
+/* 7 AI Decision Agents Capabilities. */
 
 export const COPILOT_EXACTLY: { text: string; icon: LucideIcon }[] = [
   {
-    text: "Bring together authorized context currently scattered across systems, files, and teams.",
+    text: "Connect enterprise sources, public sources, and files under an authorized context.",
     icon: Database,
   },
   {
-    text: "Surface differences, changes, risks, and pending work that require review.",
-    icon: AlertTriangle,
-  },
-  {
-    text: "Present answers, reports, and findings with verifiable evidence.",
-    icon: FileBarChart,
-  },
-  {
-    text: "Prepare summaries, reports, and follow-up for team review.",
+    text: "Publish trusted data with visible origin, quality, freshness, and traceability.",
     icon: Layers,
   },
   {
-    text: "Frame options and criteria so the accountable person can compare them.",
+    text: "Coordinate specialized agents with tools, memory, and scheduled tasks.",
     icon: Network,
   },
   {
-    text: "Get the next step ready and request approval before any sensitive action.",
-    icon: ShieldCheck,
+    text: "Generate answers and analysis over corporate knowledge with verifiable evidence.",
+    icon: FileBarChart,
   },
   {
-    text: "Keep the request, decision, authorization, and outcome connected.",
-    icon: GitBranch,
+    text: "Detect anomalies, relationships, risks, and pending work without fabricating certainty.",
+    icon: AlertTriangle,
+  },
+  {
+    text: "Explore dynamic scenarios and observe how the decision changes as its conditions are adjusted.",
+    icon: BarChart3,
+  },
+  {
+    text: "Prepare actions with preview, approval, controlled execution, and outcome recording.",
+    icon: ShieldCheck,
   },
 ];

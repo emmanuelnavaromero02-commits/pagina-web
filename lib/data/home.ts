@@ -73,7 +73,7 @@ export const QUICK_WINS: {
   {
     title: "Operational AI",
     description:
-      "Generative AI, ML, and Enterprise Copilot wired into real systems, rules, and permissions.",
+      "Generative AI, ML, and AI Decision Agents wired into real systems, rules, and permissions.",
     icon: Brain,
   },
 ];
@@ -343,7 +343,7 @@ export const OPERATIONAL_OUTCOMES: {
   {
     title: "Consistent KPIs",
     description:
-      "Dashboards and Enterprise Copilot can present indicators using the same agreed business definitions.",
+      "Dashboards and AI Decision Agents can present indicators using the same agreed business definitions.",
   },
   {
     title: "Less Excel dependency",
@@ -439,7 +439,7 @@ export const SEVEN_BUSINESS_PROBLEMS: {
     impact:
       "Leaders wait for data instead of acting with it.",
     whatWeDo:
-      "We build reporting, analytics, and Enterprise Copilot flows that compress response time.",
+      "We build reporting, analytics, and AI Decision Agents flows that compress response time.",
   },
   {
     title: "Poor Traceability",
@@ -616,7 +616,7 @@ export const WHAT_WE_DO: {
       "Copilots, assistants, and productive ML models grounded on your own data and business rules. AI that connects, not demos.",
     icon: Sparkles,
     bullets: [
-      "Enterprise Copilot",
+      "AI Decision Agents",
       "Internal assistants over private data",
       "Productive ML with MLOps",
     ],

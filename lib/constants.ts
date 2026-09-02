@@ -16,10 +16,10 @@ export const MARKET_SCOPE: MarketScope = EU_MARKET_ENABLED
 const localized = {
   es: {
     tagline:
-      "Soluciones empresariales inteligentes para convertir operación, datos e IA en ejecución medible.",
+      "Siete dominios empresariales para transformar, operar y decidir con ventaja.",
     description: EU_MARKET_ENABLED
-      ? "Ayudamos a empresas de México y la Unión Europea a mejorar procesos, integrar sistemas y convertir sus datos en decisiones mediante software, automatización e IA operacional."
-      : "Ayudamos a empresas de México a mejorar procesos, integrar sistemas y convertir sus datos en decisiones mediante software, automatización e IA operacional.",
+      ? "Integramos personas, nómina, SAP S/4HANA, software, servicios gestionados, nube, seguridad e inteligencia aplicada para empresas de México y la Unión Europea."
+      : "Integramos personas, nómina, SAP S/4HANA, software, servicios gestionados, nube, seguridad e inteligencia aplicada para empresas de México.",
     regions: EU_MARKET_ENABLED
       ? (["México", "Unión Europea"] as const)
       : (["México"] as const),
@@ -28,10 +28,10 @@ const localized = {
   },
   en: {
     tagline:
-      "Intelligent business solutions that turn operations, data, and AI into measurable execution.",
+      "Seven enterprise domains to transform, operate, and decide with an edge.",
     description: EU_MARKET_ENABLED
-      ? "We help companies in Mexico and the European Union improve processes, integrate systems, and turn data into decisions through software, automation, and operational AI."
-      : "We help companies in Mexico improve processes, integrate systems, and turn data into decisions through software, automation, and operational AI.",
+      ? "We integrate people, payroll, SAP S/4HANA, software, managed services, cloud, security, and applied intelligence for companies in Mexico and the European Union."
+      : "We integrate people, payroll, SAP S/4HANA, software, managed services, cloud, security, and applied intelligence for companies in Mexico.",
     regions: EU_MARKET_ENABLED
       ? (["Mexico", "European Union"] as const)
       : (["Mexico"] as const),
@@ -43,17 +43,10 @@ const localized = {
 const content = localized[BUILD_LOCALE];
 
 export const LEGAL_ENTITY = {
-  legalName: "7VS BUSINESS SOLUTIONS, S.A.S. DE C.V.",
-  entityType:
-    "Sociedad por Acciones Simplificada de Capital Variable",
+  legalName: "7VS BUSINESS SOLUTIONS",
   taxId: "VBS2607061G9",
   country: "México",
   registeredAddress: {
-    street: "Calle Iztacalco 276, Interior 3",
-    neighborhood:
-      "Ampliación General José Vicente Villada Súper 43",
-    postalCode: "57760",
-    city: "Nezahualcóyotl",
     state: "Estado de México",
     country: "México",
   },
@@ -77,8 +70,8 @@ export const SITE = {
   language: BUILD_LOCALE,
   regions: content.regions,
   product: {
-    name: "Enterprise Copilot",
-    shortName: "Copilot",
+    name: BUILD_LOCALE === "es" ? "Inteligencia de Decisión" : "Decision Intelligence",
+    shortName: BUILD_LOCALE === "es" ? "Decisión 7" : "Decision 7",
     headline: content.productHeadline,
   },
   contact: {

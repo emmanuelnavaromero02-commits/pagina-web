@@ -17,10 +17,10 @@ export function Section({
   bleed = false,
 }: SectionProps) {
   return (
-    <section id={id} className={cn("py-20 sm:py-24", className)}>
+    <section id={id} className={cn("scroll-mt-24 py-20 sm:py-24 lg:py-28", className)}>
       <div
         className={cn(
-          !bleed && "mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8",
+          !bleed && "site-container",
           containerClassName,
         )}
       >
@@ -54,15 +54,15 @@ export function SectionHeader({
       )}
     >
       {eyebrow ? (
-        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-700">
+        <p className="eyebrow">
           {eyebrow}
         </p>
       ) : null}
-      <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-ink-950 sm:text-4xl">
+      <h2 className="mt-4 text-balance font-display text-3xl font-semibold leading-[1.08] tracking-[-0.035em] text-ink-950 sm:text-4xl lg:text-[2.8rem]">
         {title}
       </h2>
       {description ? (
-        <p className="mt-4 text-base leading-relaxed text-ink-600 sm:text-lg">
+        <p className="mt-5 text-base leading-relaxed text-ink-600 sm:text-lg">
           {description}
         </p>
       ) : null}

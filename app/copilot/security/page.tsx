@@ -9,12 +9,12 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   path: "/copilot/security",
   title: l(
-    "Seguridad y permisos · Enterprise Copilot",
-    "Security and permissions · Enterprise Copilot",
+    "Seguridad y permisos · Agentes de Decisión IA",
+    "Security and permissions · AI Decision Agents",
   ),
   description: l(
-    "Principios de seguridad para Enterprise Copilot: acceso controlado, trazabilidad, validaciones previas y supervisión humana.",
-    "Security principles for Enterprise Copilot: controlled access, traceability, pre-execution validation, and human oversight.",
+    "Principios de seguridad para agentes de IA: aislamiento, acceso controlado, evidencia, validaciones previas y supervisión humana.",
+    "Security principles for AI agents: isolation, controlled access, evidence, pre-execution validation, and human oversight.",
   ),
 });
 

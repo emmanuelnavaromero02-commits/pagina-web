@@ -48,9 +48,9 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Cash-flow and margin dashboards.",
     ],
     copilot:
-      "Enterprise Copilot can support finance queries, surface unreconciled entries, and prepare variance summaries for review before any action.",
+      "AI Decision Agents can support finance queries, surface unreconciled entries, and prepare variance summaries for review before any action.",
     primaryCta: { label: "Talk about this case", href: "/contact?topic=finance" },
-    secondaryCta: { label: "Explore Enterprise Copilot", href: "/copilot" },
+    secondaryCta: { label: "Explore AI Decision Agents", href: "/copilot" },
   },
   operations: {
     slug: "operations",
@@ -98,9 +98,9 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Bottleneck and cycle-time analytics.",
     ],
     copilot:
-      "Enterprise Copilot can present current operational status and available error context, then prepare actions for operator approval.",
+      "AI Decision Agents can present current operational status and available error context, then prepare actions for operator approval.",
     primaryCta: { label: "Talk about this case", href: "/contact?topic=operations" },
-    secondaryCta: { label: "Explore Enterprise Copilot", href: "/copilot" },
+    secondaryCta: { label: "Explore AI Decision Agents", href: "/copilot" },
   },
   "hr-payroll": {
     slug: "hr-payroll",
@@ -127,7 +127,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Organizational-structure visibility for leadership.",
       "Master-data validation across HCM and SuccessFactors.",
       "Payroll-related integration with finance and reporting.",
-      "Assisted HR queries via Enterprise Copilot.",
+      "Assisted HR queries via AI Decision Agents.",
     ],
     capabilities: [
       "SAP HCM",
@@ -148,9 +148,9 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Position / cost-center alignment report.",
     ],
     copilot:
-      "Enterprise Copilot helps answer HR questions, summarize pending work, and prepare requests for accountable review.",
+      "AI Decision Agents helps answer HR questions, summarize pending work, and prepare requests for accountable review.",
     primaryCta: { label: "Talk about this case", href: "/contact?topic=hr" },
-    secondaryCta: { label: "Explore Enterprise Copilot", href: "/copilot" },
+    secondaryCta: { label: "Explore AI Decision Agents", href: "/copilot" },
   },
   "executive-reporting": {
     slug: "executive-reporting",
@@ -176,7 +176,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Real-time monitoring of strategic KPIs.",
       "Forecasting and performance management.",
       "Board-pack generation with traceability per number.",
-      "Executive Q&A over governed data via Enterprise Copilot.",
+      "Executive Q&A over governed data via AI Decision Agents.",
       "Strategic visibility across business areas.",
     ],
     capabilities: [
@@ -198,9 +198,9 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Board-pack template per cycle.",
     ],
     copilot:
-      "Enterprise Copilot helps answer executive questions, explain variances, and present evidence using the same agreed business definitions.",
+      "AI Decision Agents helps answer executive questions, explain variances, and present evidence using the same agreed business definitions.",
     primaryCta: { label: "Talk about this case", href: "/contact?topic=reporting" },
-    secondaryCta: { label: "Explore Enterprise Copilot", href: "/copilot" },
+    secondaryCta: { label: "Explore AI Decision Agents", href: "/copilot" },
   },
   "sap-integrations": {
     slug: "sap-integrations",
@@ -249,9 +249,9 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Legacy decommissioning roadmap.",
     ],
     copilot:
-      "Enterprise Copilot helps review process status across SAP and other platforms, explain differences, and prepare controlled follow-up.",
+      "AI Decision Agents helps review process status across SAP and other platforms, explain differences, and prepare controlled follow-up.",
     primaryCta: { label: "Review your SAP integrations", href: "/contact?topic=sap" },
-    secondaryCta: { label: "Explore Enterprise Copilot", href: "/copilot" },
+    secondaryCta: { label: "Explore AI Decision Agents", href: "/copilot" },
   },
   "process-automation": {
     slug: "process-automation",
@@ -298,9 +298,9 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Adoption and impact dashboard.",
     ],
     copilot:
-      "Enterprise Copilot is the natural surface for assisted automation: it proposes the action, shows the evidence, and waits for human approval before anything happens.",
+      "AI Decision Agents is the natural surface for assisted automation: it proposes the action, shows the evidence, and waits for human approval before anything happens.",
     primaryCta: { label: "Talk about this case", href: "/contact?topic=automation" },
-    secondaryCta: { label: "Explore Enterprise Copilot", href: "/copilot" },
+    secondaryCta: { label: "Explore AI Decision Agents", href: "/copilot" },
   },
   "internal-support": {
     slug: "internal-support",
@@ -348,9 +348,9 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "First-line response assistant connected to the knowledge base.",
     ],
     copilot:
-      "Enterprise Copilot can act as first-line support — answering documentation and process questions with citations, and routing the rest to a human with full context.",
+      "AI Decision Agents can act as first-line support — answering documentation and process questions with citations, and routing the rest to a human with full context.",
     primaryCta: { label: "Talk about this case", href: "/contact?topic=support" },
-    secondaryCta: { label: "Explore Enterprise Copilot", href: "/copilot" },
+    secondaryCta: { label: "Explore AI Decision Agents", href: "/copilot" },
   },
   "data-governance": {
     slug: "data-governance",
@@ -377,7 +377,7 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Bronze / Silver / Gold layered data foundation.",
       "End-to-end lineage from KPI to source event.",
       "Compliance-grade audit evidence for governance reviews.",
-      "Governed context for verifiable answers and decisions with Enterprise Copilot.",
+      "Governed context for verifiable answers and decisions with AI Decision Agents.",
     ],
     capabilities: [
       "Common dictionary",
@@ -398,8 +398,8 @@ export const INDUSTRY_PAGES: Record<string, SpecializedPage> = {
       "Audit-ready evidence pack per governance review.",
     ],
     copilot:
-      "Enterprise Copilot helps answer with agreed definitions, show the available evidence, and preserve the context needed for review.",
+      "AI Decision Agents helps answer with agreed definitions, show the available evidence, and preserve the context needed for review.",
     primaryCta: { label: "Talk about this case", href: "/contact?topic=governance" },
-    secondaryCta: { label: "Explore Enterprise Copilot", href: "/copilot" },
+    secondaryCta: { label: "Explore AI Decision Agents", href: "/copilot" },
   },
 };
