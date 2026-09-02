@@ -165,11 +165,11 @@ jobs:
             exit 1
           fi
           if [ "$SES_ACCESS_MODE" = "sandbox" ]; then
-            if [ "$ses_production" != "False" ]; then
+            if ! test "$ses_production" = "False"; then
               echo "SES is in production mode; run with ses_access_mode=production." >&2
               exit 1
             fi
-          elif [ "$ses_production" != "True" ]; then
+          elif ! test "$ses_production" = "True"; then
             echo "SES is in sandbox mode; run with ses_access_mode=sandbox." >&2
             exit 1
           fi
