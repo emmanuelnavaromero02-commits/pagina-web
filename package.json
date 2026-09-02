@@ -4,10 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "build": "node scripts/build-localized.mjs",
+    "build:single": "next build",
+    "start": "serve out",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "validate:export": "node scripts/validate-export.mjs",
+    "test:infra": "npm --prefix infra test"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -18,14 +21,17 @@
     "tailwind-merge": "^2.5.4"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.5",
     "@types/node": "^22.9.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "autoprefixer": "^10.4.20",
     "eslint": "^9",
     "eslint-config-next": "^15.5.18",
-    "postcss": "^8.4.49",
+    "postcss": "^8.5.10",
+    "serve": "^14.2.6",
     "tailwindcss": "^3.4.15",
     "typescript": "^5.6.3"
-  }
+  },
+  "overrides": { "postcss": "$postcss" }
 }

@@ -1,46 +1,65 @@
-import type { Metadata } from "next";
 import { ContactCTA } from "@/components/home/ContactCTA";
 import { CopilotUseCases } from "@/components/copilot/CopilotUseCases";
 import { ServiceHero } from "@/components/services/ServiceHero";
 import { Card, CardDescription, CardTitle } from "@/components/ui/Card";
 import { Section, SectionHeader } from "@/components/ui/Section";
+import { l } from "@/lib/i18n/config";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Casos de uso · Copiloto Empresarial",
-  description:
-    "Casos de uso reales del Copiloto Empresarial en RRHH, finanzas, operaciones, reporting, auditoría y soporte interno.",
-};
+export const metadata = createPageMetadata({
+  path: "/copilot/use-cases",
+  title: l(
+    "Casos de uso · Agentes de Decisión IA",
+    "Use cases · AI Decision Agents",
+  ),
+  description: l(
+    "Casos de uso para agentes especializados en recursos humanos, finanzas, operaciones, reporte ejecutivo, auditoría y soporte interno.",
+    "Use cases for specialized agents across HR, finance, operations, executive reporting, audit, and internal support.",
+  ),
+});
 
 const scenarios = [
   {
-    title: "Cierre financiero mensual",
-    description:
-      "El equipo de finanzas pregunta el estado del cierre, ve partidas sin conciliar y valida ajustes antes de aplicarlos contra SAP FI.",
+    title: l("Cierre financiero mensual", "Monthly financial closing"),
+    description: l(
+      "El equipo financiero consulta el estado del cierre, revisa partidas sin conciliar y valida ajustes antes de registrarlos en SAP FI.",
+      "The finance team checks closing status, reviews unreconciled entries, and validates adjustments before they reach SAP FI.",
+    ),
   },
   {
-    title: "Consultas de RRHH",
-    description:
-      "Headcount por unidad, vacaciones disponibles, organigrama y validación de datos maestros con permisos por rol.",
+    title: l("Consultas de recursos humanos", "HR queries"),
+    description: l(
+      "Plantilla por unidad, saldos de vacaciones, estructura organizativa y validaciones de datos maestros con permisos por rol.",
+      "Headcount by business unit, vacation balances, organizational structure, and master-data validations with role-based permissions.",
+    ),
   },
   {
-    title: "Reporte ejecutivo en vivo",
-    description:
-      "La dirección pregunta y obtiene una respuesta confiable con trazabilidad al dato original.",
+    title: l("Reporte ejecutivo bajo demanda", "On-demand executive reporting"),
+    description: l(
+      "La dirección formula una consulta y recibe una respuesta vinculada a los datos de origen disponibles.",
+      "Leadership asks a question and receives an answer linked to the available source data.",
+    ),
   },
   {
-    title: "Soporte funcional asistido",
-    description:
-      "Primera línea para help-desk técnico y funcional sobre plataformas internas y SAP.",
+    title: l("Soporte funcional asistido", "Assisted functional support"),
+    description: l(
+      "Primera respuesta para soporte técnico y funcional sobre plataformas internas y SAP.",
+      "First-line response for technical and functional support across internal platforms and SAP.",
+    ),
   },
   {
-    title: "Auditoría operativa",
-    description:
-      "Trazabilidad completa de consultas, acciones y reglas aplicadas, exportable para cumplimiento.",
+    title: l("Auditoría operativa", "Operational audit"),
+    description: l(
+      "Registro de consultas, acciones y reglas aplicadas, configurable para los requisitos de cumplimiento del proyecto.",
+      "A record of queries, actions, and applied rules, configurable for the project's compliance requirements.",
+    ),
   },
   {
-    title: "Automatización asistida",
-    description:
-      "Conciliaciones recurrentes que el copiloto prepara y el humano valida antes de ejecutar.",
+    title: l("Automatización asistida", "Assisted automation"),
+    description: l(
+      "Conciliaciones recurrentes que un agente prepara y una persona revisa antes de su ejecución.",
+      "Recurring reconciliations prepared by an agent and reviewed by a person before execution.",
+    ),
   },
 ];
 
@@ -48,16 +67,25 @@ export default function CopilotUseCasesPage() {
   return (
     <>
       <ServiceHero
-        eyebrow="Casos de uso"
-        title="Donde el Copiloto Empresarial aporta valor real"
-        description="Escenarios reales en áreas funcionales que combinan consulta, validación, reporte y, cuando aplica, acción autorizada."
+        eyebrow={l("Casos de uso", "Use cases")}
+        title={l(
+          "Dónde pueden aportar valor los Agentes de Decisión IA",
+          "Where AI Decision Agents can add value",
+        )}
+        description={l(
+          "Escenarios posibles en distintas áreas que combinan consulta, validación, reporte y, cuando corresponde, acciones autorizadas.",
+          "Potential scenarios across business areas that combine queries, validation, reporting, and, where applicable, authorized actions.",
+        )}
       />
 
       <Section className="bg-white">
         <SectionHeader
-          eyebrow="Escenarios"
-          title="Seis escenarios concretos"
-          description="Cada escenario se puede arrancar como piloto guiado en pocas semanas."
+          eyebrow={l("Escenarios", "Scenarios")}
+          title={l("Seis escenarios concretos", "Six concrete scenarios")}
+          description={l(
+            "Cada escenario puede delimitarse como piloto según los sistemas, accesos y reglas disponibles.",
+            "Each scenario can be scoped as a pilot according to the available systems, access, and rules.",
+          )}
         />
         <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {scenarios.map((s) => (

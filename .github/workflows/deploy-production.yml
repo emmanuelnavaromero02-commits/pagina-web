@@ -1,0 +1,458 @@
+name: Deploy production
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirmation:
+        description: Type DEPLOY-PRODUCTION to provision production without changing DNS
+        required: true
+        type: string
+      security_ready:
+        description: Human federated AWS access with MFA has been verified; this run does not use root
+        required: true
+        default: false
+        type: boolean
+      send_smoke_email:
+        description: Send one real contact email to verify SES acceptance
+        required: true
+        default: false
+        type: boolean
+      ses_access_mode:
+        description: SES account mode; use sandbox for the Mexico-only launch
+        required: true
+        default: sandbox
+        type: choice
+        options:
+          - sandbox
+          - production
+      enable_external_ses_recipient:
+        description: Allow a recipient different from the verified sender (requires SES production access)
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+env:
+  AWS_REGION: us-east-1
+  HOSTING_STACK: sevenbs-web-production
+  CONTACT_STACK: sevenbs-contact-production
+  SITE_DOMAIN: www.7businesssolutions.com
+  APEX_DOMAIN: 7businesssolutions.com
+  API_DOMAIN: api.7businesssolutions.com
+  SITE_ORIGIN: https://www.7businesssolutions.com
+  CONTACT_ENDPOINT: https://api.7businesssolutions.com/v1/contact
+  SES_IDENTITY_DOMAIN: 7businesssolutions.com
+  SES_SENDER_EMAIL: ${{ vars.SES_SENDER_EMAIL || 'ventas@7businesssolutions.com' }}
+  SES_RECIPIENT_EMAIL: ${{ vars.SES_RECIPIENT_EMAIL || 'ventas@7businesssolutions.com' }}
+  SES_OPERATIONS_EMAIL: ${{ vars.SES_OPERATIONS_EMAIL || 'ventas@7businesssolutions.com' }}
+
+jobs:
+  deploy:
+    name: Validate, provision and smoke test
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Enforce launch approvals before AWS access
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          CONFIRMATION: ${{ inputs.confirmation }}
+          SECURITY_READY: ${{ inputs.security_ready }}
+          SEND_SMOKE_EMAIL: ${{ inputs.send_smoke_email }}
+          SES_ACCESS_MODE: ${{ inputs.ses_access_mode }}
+          ENABLE_EXTERNAL_SES_RECIPIENT: ${{ inputs.enable_external_ses_recipient }}
+          LEGAL_REVIEWED: ${{ vars.NEXT_PUBLIC_LEGAL_REVIEWED }}
+          CERTIFICATE_ARN: ${{ vars.AWS_PRODUCTION_CERTIFICATE_ARN }}
+          EXECUTION_ROLE_ARN: ${{ vars.AWS_CLOUDFORMATION_EXECUTION_ROLE_ARN }}
+          ARTIFACT_BUCKET: ${{ vars.AWS_ARTIFACT_BUCKET }}
+          DEPLOY_ROLE_ARN: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+        run: |
+          test "$GITHUB_REF_NAME" = "$DEFAULT_BRANCH"
+          test "$CONFIRMATION" = "DEPLOY-PRODUCTION"
+          test "$SECURITY_READY" = "true"
+          test "$SEND_SMOKE_EMAIL" = "true"
+          test "$LEGAL_REVIEWED" = "true"
+          test -n "$CERTIFICATE_ARN"
+          test -n "$EXECUTION_ROLE_ARN"
+          test -n "$ARTIFACT_BUCKET"
+          test -n "$DEPLOY_ROLE_ARN"
+
+          case "$SES_ACCESS_MODE" in
+            sandbox|production) ;;
+            *) echo "Invalid SES access mode: $SES_ACCESS_MODE" >&2; exit 1 ;;
+          esac
+          case "$SES_SENDER_EMAIL" in *@*.*) ;; *) echo "Invalid SES sender" >&2; exit 1 ;; esac
+          case "$SES_RECIPIENT_EMAIL" in *@*.*) ;; *) echo "Invalid SES recipient" >&2; exit 1 ;; esac
+          sender_domain="${SES_SENDER_EMAIL##*@}"
+          recipient_domain="${SES_RECIPIENT_EMAIL##*@}"
+          test "$sender_domain" = "$SES_IDENTITY_DOMAIN"
+
+          if [ "$SES_ACCESS_MODE" = "sandbox" ]; then
+            test "$ENABLE_EXTERNAL_SES_RECIPIENT" = "false"
+            test "$SES_SENDER_EMAIL" = "$SES_RECIPIENT_EMAIL"
+            test "$recipient_domain" = "$SES_IDENTITY_DOMAIN"
+          elif [ "$SES_SENDER_EMAIL" != "$SES_RECIPIENT_EMAIL" ]; then
+            test "$ENABLE_EXTERNAL_SES_RECIPIENT" = "true"
+          elif [ "$ENABLE_EXTERNAL_SES_RECIPIENT" = "true" ]; then
+            echo "External-recipient access was requested but sender and recipient are identical." >&2
+            exit 1
+          fi
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Setup AWS SAM
+        uses: aws-actions/setup-sam@v2
+        with:
+          use-installer: true
+
+      - name: Configure short-lived AWS credentials
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+          aws-region: ${{ env.AWS_REGION }}
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          role-session-name: 7bs-production-${{ github.run_id }}
+
+      - name: Verify AWS production prerequisites
+        env:
+          CERTIFICATE_ARN: ${{ vars.AWS_PRODUCTION_CERTIFICATE_ARN }}
+          SES_ACCESS_MODE: ${{ inputs.ses_access_mode }}
+        run: |
+          identity="$(aws sts get-caller-identity --query Arn --output text)"
+          case "$identity" in
+            arn:aws:sts::*:assumed-role/7bs-github-deploy-*) ;;
+            *) echo "Unexpected AWS identity: $identity" >&2; exit 1 ;;
+          esac
+
+          certificate_status="$(aws acm describe-certificate \
+            --certificate-arn "$CERTIFICATE_ARN" \
+            --query 'Certificate.Status' \
+            --output text)"
+          if [ "$certificate_status" != "ISSUED" ]; then
+            echo "Production certificate is not issued (status: $certificate_status)." >&2
+            exit 1
+          fi
+          certificate_coverage="$(aws acm describe-certificate \
+            --certificate-arn "$CERTIFICATE_ARN" \
+            --query "contains(Certificate.SubjectAlternativeNames, '$APEX_DOMAIN') && contains(Certificate.SubjectAlternativeNames, '*.$APEX_DOMAIN')" \
+            --output text)"
+          if [ "$certificate_coverage" != "True" ]; then
+            echo "Production certificate does not cover both the apex and wildcard domains." >&2
+            exit 1
+          fi
+
+          ses_production="$(aws sesv2 get-account \
+            --query ProductionAccessEnabled \
+            --output text)"
+          ses_sending_enabled="$(aws sesv2 get-account \
+            --query SendingEnabled \
+            --output text)"
+          if [ "$ses_sending_enabled" != "True" ]; then
+            echo "SES sending is disabled." >&2
+            exit 1
+          fi
+          if [ "$SES_ACCESS_MODE" = "sandbox" ]; then
+            if ! test "$ses_production" = "False"; then
+              echo "SES is in production mode; run with ses_access_mode=production." >&2
+              exit 1
+            fi
+          elif ! test "$ses_production" = "True"; then
+            echo "SES is in sandbox mode; run with ses_access_mode=sandbox." >&2
+            exit 1
+          fi
+          ses_ready="$(aws sesv2 get-email-identity \
+            --email-identity "$SES_IDENTITY_DOMAIN" \
+            --query "VerifiedForSendingStatus && DkimAttributes.Status == 'SUCCESS' && MailFromAttributes.MailFromDomainStatus == 'SUCCESS'" \
+            --output text)"
+          if [ "$ses_ready" != "True" ]; then
+            echo "SES domain identity, DKIM, or custom MAIL FROM is not ready." >&2
+            exit 1
+          fi
+
+          max_daily_send="$(aws sesv2 get-account \
+            --query SendQuota.Max24HourSend \
+            --output text)"
+          max_send_rate="$(aws sesv2 get-account \
+            --query SendQuota.MaxSendRate \
+            --output text)"
+          awk -v value="$max_daily_send" 'BEGIN { exit !(value > 0) }' || {
+            echo "SES daily sending quota is unavailable." >&2
+            exit 1
+          }
+          awk -v value="$max_send_rate" 'BEGIN { exit !(value > 0) }' || {
+            echo "SES sending rate is unavailable." >&2
+            exit 1
+          }
+
+          log_role_arn="$(aws apigateway get-account \
+            --query cloudwatchRoleArn \
+            --output text)"
+          if [ -z "$log_role_arn" ] || [ "$log_role_arn" = "None" ]; then
+            echo "API Gateway has no CloudWatch logging role configured." >&2
+            exit 1
+          fi
+          log_role_name="${log_role_arn##*/}"
+          aws iam get-role --role-name "$log_role_name" >/dev/null
+
+      - name: Install and validate
+        run: |
+          npm ci
+          npm ci --prefix infra
+          npm run typecheck
+          npm run lint
+          npm run typecheck --prefix infra
+          npm test --prefix infra
+          sam validate --lint --template-file infra/template.yaml
+          aws cloudformation validate-template \
+            --template-body file://infra/hosting-template.yaml >/dev/null
+
+      - name: Build launch-ready bilingual export
+        env:
+          NEXT_PUBLIC_SITE_URL: ${{ env.SITE_ORIGIN }}
+          NEXT_PUBLIC_CONTACT_ENDPOINT: ${{ env.CONTACT_ENDPOINT }}
+          NEXT_PUBLIC_LAUNCH_READY: "true"
+          NEXT_PUBLIC_LEGAL_REVIEWED: ${{ vars.NEXT_PUBLIC_LEGAL_REVIEWED }}
+          NEXT_PUBLIC_EU_MARKET_ENABLED: "false"
+        run: |
+          npm run build
+          npm run validate:export
+
+      - name: Build and package contact API
+        env:
+          ARTIFACT_BUCKET: ${{ vars.AWS_ARTIFACT_BUCKET }}
+        run: |
+          export PATH="$GITHUB_WORKSPACE/infra/node_modules/.bin:$PATH"
+          sam build --template-file infra/template.yaml
+          sam package \
+            --template-file .aws-sam/build/template.yaml \
+            --s3-bucket "$ARTIFACT_BUCKET" \
+            --s3-prefix contact-production/${{ github.sha }} \
+            --output-template-file .aws-sam/packaged-production.yaml
+
+      - name: Deploy production contact API
+        env:
+          CERTIFICATE_ARN: ${{ vars.AWS_PRODUCTION_CERTIFICATE_ARN }}
+          EXECUTION_ROLE_ARN: ${{ vars.AWS_CLOUDFORMATION_EXECUTION_ROLE_ARN }}
+          SES_ACCESS_MODE: ${{ inputs.ses_access_mode }}
+          ENABLE_EXTERNAL_SES_RECIPIENT: ${{ inputs.enable_external_ses_recipient }}
+        run: |
+          sam deploy \
+            --template-file .aws-sam/packaged-production.yaml \
+            --stack-name "$CONTACT_STACK" \
+            --role-arn "$EXECUTION_ROLE_ARN" \
+            --capabilities CAPABILITY_NAMED_IAM \
+            --parameter-overrides \
+              Environment=production \
+              AllowedOrigin="$SITE_ORIGIN" \
+              ApiDomainName="$API_DOMAIN" \
+              ApiCertificateArn="$CERTIFICATE_ARN" \
+              SesIdentityDomain="$SES_IDENTITY_DOMAIN" \
+              SesAccessMode="$SES_ACCESS_MODE" \
+              AllowExternalRecipients="$ENABLE_EXTERNAL_SES_RECIPIENT" \
+              SenderEmail="$SES_SENDER_EMAIL" \
+              RecipientEmail="$SES_RECIPIENT_EMAIL" \
+              OperationsEmail="$SES_OPERATIONS_EMAIL" \
+              WafChallengeRequestsPerFiveMinutes=20 \
+              WafRequestsPerFiveMinutes=100 \
+            --no-confirm-changeset \
+            --no-fail-on-empty-changeset
+
+      - name: Read production API outputs
+        id: api
+        env:
+          SES_ACCESS_MODE: ${{ inputs.ses_access_mode }}
+          ENABLE_EXTERNAL_SES_RECIPIENT: ${{ inputs.enable_external_ses_recipient }}
+        run: |
+          execute_endpoint="$(aws cloudformation describe-stacks \
+            --stack-name "$CONTACT_STACK" \
+            --query "Stacks[0].Outputs[?OutputKey=='ExecuteApiContactUrl'].OutputValue" \
+            --output text)"
+          canonical_endpoint="$(aws cloudformation describe-stacks \
+            --stack-name "$CONTACT_STACK" \
+            --query "Stacks[0].Outputs[?OutputKey=='ApiContactUrl'].OutputValue" \
+            --output text)"
+          api_dns_target="$(aws cloudformation describe-stacks \
+            --stack-name "$CONTACT_STACK" \
+            --query "Stacks[0].Outputs[?OutputKey=='ApiDnsTarget'].OutputValue" \
+            --output text)"
+          deployed_ses_mode="$(aws cloudformation describe-stacks \
+            --stack-name "$CONTACT_STACK" \
+            --query "Stacks[0].Outputs[?OutputKey=='SesAccessMode'].OutputValue" \
+            --output text)"
+          deployed_recipient_policy="$(aws cloudformation describe-stacks \
+            --stack-name "$CONTACT_STACK" \
+            --query "Stacks[0].Outputs[?OutputKey=='SesRecipientPolicy'].OutputValue" \
+            --output text)"
+          test "$canonical_endpoint" = "$CONTACT_ENDPOINT"
+          test -n "$execute_endpoint"
+          test -n "$api_dns_target"
+          test "$deployed_ses_mode" = "$SES_ACCESS_MODE"
+          if [ "$ENABLE_EXTERNAL_SES_RECIPIENT" = "true" ]; then
+            test "$deployed_recipient_policy" = "external-recipients-enabled"
+          else
+            test "$deployed_recipient_policy" = "single-verified-mailbox"
+          fi
+          echo "execute_endpoint=$execute_endpoint" >> "$GITHUB_OUTPUT"
+          echo "dns_target=$api_dns_target" >> "$GITHUB_OUTPUT"
+          echo "ses_mode=$deployed_ses_mode" >> "$GITHUB_OUTPUT"
+          echo "recipient_policy=$deployed_recipient_policy" >> "$GITHUB_OUTPUT"
+
+      - name: Deploy production static hosting
+        env:
+          CERTIFICATE_ARN: ${{ vars.AWS_PRODUCTION_CERTIFICATE_ARN }}
+          EXECUTION_ROLE_ARN: ${{ vars.AWS_CLOUDFORMATION_EXECUTION_ROLE_ARN }}
+        run: |
+          aws cloudformation deploy \
+            --template-file infra/hosting-template.yaml \
+            --stack-name "$HOSTING_STACK" \
+            --role-arn "$EXECUTION_ROLE_ARN" \
+            --parameter-overrides \
+              Environment=production \
+              SiteDomainName="$SITE_DOMAIN" \
+              CloudFrontCertificateArn="$CERTIFICATE_ARN" \
+              ContactApiOrigin="https://$API_DOMAIN" \
+            --no-fail-on-empty-changeset
+
+      - name: Read production hosting outputs
+        id: hosting
+        run: |
+          domain="$(aws cloudformation describe-stacks \
+            --stack-name "$HOSTING_STACK" \
+            --query "Stacks[0].Outputs[?OutputKey=='DistributionDomainName'].OutputValue" \
+            --output text)"
+          bucket="$(aws cloudformation describe-stacks \
+            --stack-name "$HOSTING_STACK" \
+            --query "Stacks[0].Outputs[?OutputKey=='SiteBucketName'].OutputValue" \
+            --output text)"
+          distribution="$(aws cloudformation describe-stacks \
+            --stack-name "$HOSTING_STACK" \
+            --query "Stacks[0].Outputs[?OutputKey=='DistributionId'].OutputValue" \
+            --output text)"
+          test -n "$domain"
+          test -n "$bucket"
+          test -n "$distribution"
+          echo "origin=https://$domain" >> "$GITHUB_OUTPUT"
+          echo "dns_target=$domain" >> "$GITHUB_OUTPUT"
+          echo "bucket=$bucket" >> "$GITHUB_OUTPUT"
+          echo "distribution=$distribution" >> "$GITHUB_OUTPUT"
+
+      - name: Publish static export
+        env:
+          SITE_BUCKET: ${{ steps.hosting.outputs.bucket }}
+          DISTRIBUTION_ID: ${{ steps.hosting.outputs.distribution }}
+        run: |
+          invalidation_id="$(./infra/scripts/publish-static.sh out "$SITE_BUCKET" "$DISTRIBUTION_ID")"
+          aws cloudfront wait invalidation-completed \
+            --distribution-id "$DISTRIBUTION_ID" \
+            --id "$invalidation_id"
+
+      - name: Smoke test production resources before DNS cutover
+        env:
+          DISTRIBUTION_ORIGIN: ${{ steps.hosting.outputs.origin }}
+          EXECUTE_ENDPOINT: ${{ steps.api.outputs.execute_endpoint }}
+          SES_ACCESS_MODE: ${{ steps.api.outputs.ses_mode }}
+        run: |
+          for page_path in / /en/; do
+            page_ready=false
+            for attempt in $(seq 1 12); do
+              page_status="$(curl --silent --show-error --output /tmp/page-response.html \
+                --write-out '%{http_code}' "$DISTRIBUTION_ORIGIN$page_path")"
+              if [ "$page_status" = "200" ] && grep -q "7 Business Solutions" /tmp/page-response.html; then
+                page_ready=true
+                break
+              fi
+              echo "Waiting for CloudFront page $page_path (HTTP $page_status, attempt $attempt/12)."
+              sleep 5
+            done
+            test "$page_ready" = "true"
+          done
+
+          not_found_status=""
+          for attempt in $(seq 1 12); do
+            not_found_status="$(curl --silent --show-error --output /dev/null \
+              --write-out '%{http_code}' "$DISTRIBUTION_ORIGIN/ruta-inexistente-smoke")"
+            if [ "$not_found_status" = "404" ]; then break; fi
+            echo "Waiting for CloudFront 404 (HTTP $not_found_status, attempt $attempt/12)."
+            sleep 5
+          done
+          test "$not_found_status" = "404"
+
+          invalid_status="$(curl --silent --show-error --output /tmp/invalid-response.json \
+            --write-out '%{http_code}' \
+            --request POST \
+            --header "Origin: $SITE_ORIGIN" \
+            --header "Content-Type: application/json" \
+            --data '{}' \
+            "$EXECUTE_ENDPOINT")"
+          echo "Invalid request smoke returned HTTP $invalid_status."
+          test "$invalid_status" = "400"
+
+          if [ "$SES_ACCESS_MODE" = "sandbox" ]; then sleep 2; fi
+
+          honeypot_status="$(curl --silent --show-error --output /tmp/honeypot-response.json \
+            --write-out '%{http_code}' \
+            --request POST \
+            --header "Origin: $SITE_ORIGIN" \
+            --header "Content-Type: application/json" \
+            --data '{"name":"Prueba de producción","company":"7 Business Solutions","email":"ventas@7businesssolutions.com","service":"initial-diagnosis","message":"Prueba controlada del filtro antispam.","topic":"operations","locale":"es","privacyAccepted":true,"website":"robot","formStartedAt":1}' \
+            "$EXECUTE_ENDPOINT")"
+          echo "Honeypot smoke returned HTTP $honeypot_status."
+          test "$honeypot_status" = "403"
+
+          if [ "$SES_ACCESS_MODE" = "sandbox" ]; then sleep 2; fi
+
+          started_at="$(( $(date +%s) * 1000 - 5000 ))"
+          sent_status="$(curl --silent --show-error --output /tmp/sent-response.json \
+            --write-out '%{http_code}' \
+            --request POST \
+            --header "Origin: $SITE_ORIGIN" \
+            --header "Content-Type: application/json" \
+            --data "{\"name\":\"Prueba de producción\",\"company\":\"7 Business Solutions\",\"email\":\"ventas@7businesssolutions.com\",\"service\":\"software-factory\",\"message\":\"Prueba automatizada del formulario antes del corte DNS.\",\"topic\":\"software\",\"locale\":\"es\",\"privacyAccepted\":true,\"website\":\"\",\"formStartedAt\":$started_at}" \
+            "$EXECUTE_ENDPOINT")"
+          echo "Delivery smoke returned HTTP $sent_status."
+          test "$sent_status" = "200"
+
+      - name: Publish DNS handoff
+        env:
+          CERTIFICATE_ARN: ${{ vars.AWS_PRODUCTION_CERTIFICATE_ARN }}
+          SITE_DNS_TARGET: ${{ steps.hosting.outputs.dns_target }}
+          API_DNS_TARGET: ${{ steps.api.outputs.dns_target }}
+          SES_ACCESS_MODE: ${{ steps.api.outputs.ses_mode }}
+          SES_RECIPIENT_POLICY: ${{ steps.api.outputs.recipient_policy }}
+        run: |
+          {
+            echo "### Production resources ready; DNS was not changed"
+            echo "- Site: \`$SITE_DOMAIN CNAME $SITE_DNS_TARGET\`"
+            echo "- API: \`$API_DOMAIN CNAME $API_DNS_TARGET\`"
+            echo "- Apex: Squarespace forwarding \`@\` → \`$SITE_DOMAIN\`, 301, maintain paths"
+            echo "- Preserve Google Workspace MX, SPF, DKIM and DMARC, plus SES DKIM and MAIL FROM."
+            echo "- Market scope: Mexico only (EU market disabled for this build)."
+            echo "- SES mode: \`$SES_ACCESS_MODE\`; recipient policy: \`$SES_RECIPIENT_POLICY\`."
+            if [ "$SES_ACCESS_MODE" = "sandbox" ]; then
+              echo "- SES remains sandboxed: sender and recipient are the same verified corporate mailbox."
+              echo "- External recipients stay blocked by both the workflow gate and Lambda IAM policy."
+            else
+              echo "- SES production access was verified before deployment."
+            fi
+            echo "- ACM validation records to preserve:"
+            aws acm describe-certificate \
+              --certificate-arn "$CERTIFICATE_ARN" \
+              --query 'Certificate.DomainValidationOptions[].ResourceRecord.[Name,Type,Value]' \
+              --output text | sort -u | while read -r name type value; do
+                echo "  - \`$name $type $value\`"
+              done
+            echo "- Confirm the real email arrived before changing Squarespace."
+          } >> "$GITHUB_STEP_SUMMARY"

@@ -1,30 +1,50 @@
-import type { Metadata } from "next";
+import { ExperienceEducation } from "@/components/experience/ExperienceEducation";
+import { ExperienceRoles } from "@/components/experience/ExperienceRoles";
+import { ExperienceTracks } from "@/components/experience/ExperienceTracks";
 import { ContactCTA } from "@/components/home/ContactCTA";
 import { ExperienceProof } from "@/components/home/ExperienceProof";
+import { ProofStrip } from "@/components/home/ProofStrip";
 import { Card, CardDescription, CardTitle } from "@/components/ui/Card";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { ServiceHero } from "@/components/services/ServiceHero";
-import { EXPERIENCE_CLIENTS, EXPERIENCE_HIGHLIGHTS } from "@/lib/site-data";
+import { EXPERIENCE_HIGHLIGHTS } from "@/lib/site-data";
+import { l } from "@/lib/i18n/config";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Experiencia",
-  description:
-    "Experiencia entregando proyectos para corporativos grandes en SAP, cloud, datos e IA empresarial.",
-};
+export const metadata = createPageMetadata({
+  path: "/experience",
+  title: l(
+    "Experiencia del equipo · SAP · Nube · Datos · IA",
+    "Team experience · SAP · Cloud · Data · AI",
+  ),
+  description: l(
+    "Experiencia profesional del equipo en SAP, nube, datos, IA, fábricas de software e integración. No representa la antigüedad de la sociedad constituida en 2026.",
+    "The team's professional experience across SAP, cloud, data, AI, software factories, and integration. It does not represent the age of the company incorporated in 2026.",
+  ),
+});
 
 export default function ExperiencePage() {
   return (
     <>
       <ServiceHero
-        eyebrow="Experiencia"
-        title="Trabajo real en clientes empresariales grandes"
-        description="Hemos entregado proyectos sobre SAP, cloud, datos e IA empresarial para corporativos en retail, energía, telecomunicaciones, manufactura, banca y sector público."
+        eyebrow={l("Experiencia del equipo", "Team experience")}
+        title={l(
+          "Experiencia profesional aplicada a entornos empresariales",
+          "Professional experience applied to enterprise environments",
+        )}
+        description={l(
+          "Trayectoria de los especialistas en SAP, nube, datos e IA operativa. Esta experiencia corresponde a sus carreras profesionales y no a la antigüedad de 7VS Business Solutions, constituida en 2026.",
+          "Specialist experience across SAP, cloud, data, and operational AI. This experience belongs to their professional careers, not to the age of 7VS Business Solutions, incorporated in 2026.",
+        )}
       />
 
       <Section className="bg-white">
         <SectionHeader
-          eyebrow="Lo que respalda al equipo"
-          title="Cuatro frentes donde tenemos historia entregada"
+          eyebrow={l("Capacidades del equipo", "Team capabilities")}
+          title={l(
+            "Cuatro ámbitos de experiencia profesional",
+            "Four areas of professional experience",
+          )}
         />
         <ul className="mt-12 grid gap-6 sm:grid-cols-2">
           {EXPERIENCE_HIGHLIGHTS.map((h) => {
@@ -42,28 +62,10 @@ export default function ExperiencePage() {
         </ul>
       </Section>
 
-      <Section className="bg-ink-50">
-        <SectionHeader
-          eyebrow="Sectores"
-          title="Donde hemos entregado"
-          description="Trabajo con corporativos de distintos sectores, con foco en operación crítica e integraciones complejas."
-        />
-        <ul className="mt-10 flex flex-wrap gap-2">
-          {EXPERIENCE_CLIENTS.map((c) => (
-            <li
-              key={c}
-              className="rounded-full border border-ink-200 bg-white px-4 py-1.5 text-sm font-medium text-ink-800 shadow-soft"
-            >
-              {c}
-            </li>
-          ))}
-        </ul>
-        <p className="mt-6 max-w-2xl text-sm text-ink-500">
-          El detalle por cliente se comparte bajo NDA durante el diagnóstico
-          inicial.
-        </p>
-      </Section>
-
+      <ExperienceTracks />
+      <ExperienceRoles />
+      <ExperienceEducation />
+      <ProofStrip />
       <ExperienceProof />
       <ContactCTA />
     </>

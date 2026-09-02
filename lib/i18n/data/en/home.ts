@@ -1,0 +1,627 @@
+import {
+  Activity,
+  ArrowRight,
+  BarChart3,
+  Brain,
+  Building2,
+  CheckCircle2,
+  Cloud,
+  Code2,
+  Compass,
+  Database,
+  DollarSign,
+  FileBarChart,
+  GitBranch,
+  Layers,
+  LineChart,
+  Network,
+  Plug,
+  ShoppingCart,
+  Sparkles,
+  Target,
+  Timer,
+  TrendingUp,
+  Users,
+  Wand2,
+  Workflow,
+  Zap,
+  type LucideIcon,
+} from "lucide-react";
+
+/* HOME — 7 Business Solution Areas */
+export const QUICK_WINS: {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}[] = [
+  {
+    title: "Automation",
+    description:
+      "Replace repetitive manual tasks with focused workflows that scale.",
+    icon: Wand2,
+  },
+  {
+    title: "Reporting & Control",
+    description:
+      "Trusted reports with traceability from KPI to source system.",
+    icon: BarChart3,
+  },
+  {
+    title: "Finance & Payroll",
+    description:
+      "Closings, reconciliations, and payroll flows with explicit validation controls.",
+    icon: LineChart,
+  },
+  {
+    title: "Excel-based Processes",
+    description:
+      "Move critical operations out of spreadsheets and into living software.",
+    icon: FileBarChart,
+  },
+  {
+    title: "Decision Support",
+    description:
+      "Current operational views for leadership with references to the source data.",
+    icon: Activity,
+  },
+  {
+    title: "SAP & System Integration",
+    description:
+      "ECC, S/4HANA, BTP, APIs, and middleware connected without breaking what already works.",
+    icon: Plug,
+  },
+  {
+    title: "Operational AI",
+    description:
+      "Generative AI, ML, and AI Decision Agents wired into real systems, rules, and permissions.",
+    icon: Brain,
+  },
+];
+
+/* HOME — The real business challenge */
+export const BUSINESS_CHALLENGES: {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}[] = [
+  {
+    title: "Response Speed",
+    description:
+      "Reduce delays created by manual searches, handoffs, and validations.",
+    icon: Zap,
+  },
+  {
+    title: "Efficiency",
+    description:
+      "Less manual rework, less idle time, less operational friction.",
+    icon: Activity,
+  },
+  {
+    title: "Integration",
+    description:
+      "ERP, CRM, cloud, APIs, and legacy systems working as one ecosystem.",
+    icon: Network,
+  },
+  {
+    title: "Automation",
+    description:
+      "Repeating tasks delegated to intelligent flows with human oversight.",
+    icon: Wand2,
+  },
+  {
+    title: "Operational Intelligence",
+    description:
+      "Data turned into predictions, alerts, and decisions — not dashboards alone.",
+    icon: Brain,
+  },
+  {
+    title: "Execution Capacity",
+    description:
+      "Capacity to deliver change continuously, not as one-off projects.",
+    icon: Target,
+  },
+];
+
+/* HOME — Strategic Process Analysis dimensions */
+export const ANALYSIS_DIMENSIONS: {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}[] = [
+  {
+    title: "Operations",
+    description: "How work actually moves through the business.",
+    icon: Workflow,
+  },
+  {
+    title: "Business Flows",
+    description: "End-to-end flows between teams, systems, and partners.",
+    icon: GitBranch,
+  },
+  {
+    title: "Productivity",
+    description: "Output per hour, per cycle, per role.",
+    icon: Activity,
+  },
+  {
+    title: "Costs",
+    description: "Where money is lost or absorbed silently.",
+    icon: DollarSign,
+  },
+  {
+    title: "Cycle Times",
+    description: "How long key processes really take.",
+    icon: Timer,
+  },
+  {
+    title: "Organizational Structure",
+    description: "Roles, responsibilities, and operating handoffs.",
+    icon: Users,
+  },
+  {
+    title: "Efficiency",
+    description: "Friction points and bottlenecks across the operation.",
+    icon: Layers,
+  },
+  {
+    title: "Decision-Making",
+    description: "How information becomes decisions and actions.",
+    icon: Compass,
+  },
+];
+
+/* HOME — The 7-Pillar Architecture */
+export const SEVEN_PILLARS: {
+  number: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}[] = [
+  {
+    number: "01",
+    title: "Strategic Vision",
+    description:
+      "We analyze business structure, processes, operations, costs, cycle times, productivity, and decision-making to identify where the company is losing speed, efficiency, and money.",
+    icon: Compass,
+  },
+  {
+    number: "02",
+    title: "Enterprise Integration",
+    description:
+      "We connect ERP, CRM, operations, APIs, cloud, databases, automations, legacy systems, teams, and workflows so the business works as one operating ecosystem.",
+    icon: Network,
+  },
+  {
+    number: "03",
+    title: "Governed Data",
+    description:
+      "We build governed data foundations with Bronze, Silver, and Gold layers, security, traceability, auditability, compliance, and operational control. Without trusted data, there is no real intelligence.",
+    icon: Database,
+  },
+  {
+    number: "04",
+    title: "Intelligent Automation",
+    description:
+      "We design assisted flows intended to reduce manual tasks, idle time, rework, operational dependency, and friction.",
+    icon: Wand2,
+  },
+  {
+    number: "05",
+    title: "Operational Intelligence",
+    description:
+      "We design ways to turn information into decisions, predictions, alerts, automations, and actions under explicit controls.",
+    icon: Brain,
+  },
+  {
+    number: "06",
+    title: "Continuous Evolution",
+    description:
+      "We plan software evolution through a governed backlog of agents, knowledge modules, models, flows, and business capabilities.",
+    icon: Activity,
+  },
+  {
+    number: "07",
+    title: "Business Transformation",
+    description:
+      "The goal is not technology alone, but an operating model with clearer information, controls, automation, and measurable objectives agreed for each project.",
+    icon: Sparkles,
+  },
+];
+
+/* HOME — Implementation model (kept for backward compat) */
+export const IMPLEMENTATION_STEPS: {
+  step: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}[] = [
+  {
+    step: "01",
+    title: "Diagnose the bottleneck",
+    description:
+      "A short walkthrough to identify the operational pain that is costing time, money, or control.",
+    icon: Compass,
+  },
+  {
+    step: "02",
+    title: "Connect sources",
+    description:
+      "We hook into the data and process sources required for the focused use case.",
+    icon: Network,
+  },
+  {
+    step: "03",
+    title: "Automate or build",
+    description:
+      "We deliver a focused solution — automation, integration, report, or copilot — without stopping the operation.",
+    icon: Wand2,
+  },
+  {
+    step: "04",
+    title: "Measure & decide next",
+    description:
+      "We evaluate the agreed indicators, document findings, and define the next improvement or scale plan.",
+    icon: CheckCircle2,
+  },
+];
+
+/* HOME — 7 Areas of Impact (business functions) */
+export const AREAS_OF_IMPACT: {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}[] = [
+  {
+    title: "Finance",
+    description:
+      "EBITDA visibility, cash flow, margins, intelligent financial control, reconciliations, and variance analysis.",
+    icon: BarChart3,
+  },
+  {
+    title: "Sales",
+    description:
+      "Revenue intelligence, forecasting, commercial automation, customer analysis, and pipeline visibility.",
+    icon: TrendingUp,
+  },
+  {
+    title: "Operations",
+    description:
+      "Operational efficiency, logistics optimization, inventory control, process monitoring, and cycle-time reduction.",
+    icon: Workflow,
+  },
+  {
+    title: "Procurement",
+    description:
+      "Spend management, supplier visibility, sourcing control, purchasing workflows, and operational savings.",
+    icon: ShoppingCart,
+  },
+  {
+    title: "Executive Management",
+    description:
+      "Executive intelligence, current-state monitoring, strategic visibility, KPI definitions, and decision support.",
+    icon: LineChart,
+  },
+  {
+    title: "HR / Payroll",
+    description:
+      "Headcount, payroll processes, absences, organizational structure, master data, and cross-system validation.",
+    icon: Users,
+  },
+  {
+    title: "Data Governance",
+    description:
+      "Dictionary, quality rules, lineage, Bronze · Silver · Gold layers, and audit-ready evidence per domain.",
+    icon: Database,
+  },
+];
+
+/* HOME — 7 Operational Outcomes */
+export const OPERATIONAL_OUTCOMES: {
+  title: string;
+  description: string;
+}[] = [
+  {
+    title: "Assisted recurring work",
+    description:
+      "Recurring reports, validations, and reconciliations can move into controlled assisted flows.",
+  },
+  {
+    title: "Decision context",
+    description:
+      "Leadership can review an answer together with its authorized source.",
+  },
+  {
+    title: "Validation before reporting",
+    description:
+      "Business rules can flag inconsistencies for review before publication.",
+  },
+  {
+    title: "Traceable evidence",
+    description:
+      "Relevant queries, sources, validations, and actions can be logged under the agreed design.",
+  },
+  {
+    title: "Shared KPI definitions",
+    description:
+      "Dashboards and AI Decision Agents can present indicators using the same agreed business definitions.",
+  },
+  {
+    title: "Governed workflows",
+    description:
+      "Selected spreadsheet-based processes can be moved into controlled software workflows.",
+  },
+  {
+    title: "Evolution backlog",
+    description:
+      "New flows, sources, and capabilities are prioritized through an agreed backlog.",
+  },
+];
+
+/* HOME — 7 Enterprise Methods for Operational Execution */
+export const METHODOLOGIES: {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}[] = [
+  {
+    title: "Lean Operations",
+    description:
+      "Remove waste, idle time, and rework so the operation moves with less drag.",
+    icon: Activity,
+  },
+  {
+    title: "Continuous Improvement",
+    description:
+      "Measure, learn, and adjust on a steady cadence — not as a one-off project.",
+    icon: Workflow,
+  },
+  {
+    title: "Process Optimization",
+    description:
+      "Redesign critical processes around evidence, validation, and traceability.",
+    icon: Wand2,
+  },
+  {
+    title: "Business Intelligence",
+    description:
+      "Trusted dashboards, KPI intelligence, and executive analytics on governed data.",
+    icon: BarChart3,
+  },
+  {
+    title: "SAP Integrated Operations",
+    description:
+      "SAP core, BTP, ABAP, RFC, IDocs, and middleware running as one ecosystem.",
+    icon: Plug,
+  },
+  {
+    title: "Operational Flow Automation",
+    description:
+      "Assisted workflows with human-in-the-loop, approvals, and audit log.",
+    icon: Network,
+  },
+  {
+    title: "Current-State Monitoring and Control",
+    description:
+      "Current operational views, alerts, and AI-assisted control over agreed processes.",
+    icon: Compass,
+  },
+];
+
+/* HOME — 7 Business Problems We Solve */
+export const SEVEN_BUSINESS_PROBLEMS: {
+  title: string;
+  impact: string;
+  whatWeDo: string;
+}[] = [
+  {
+    title: "Slow Manual Reporting",
+    impact:
+      "Teams prepare recurring reports manually instead of analyzing their content.",
+    whatWeDo:
+      "We connect sources, automate reporting flows, and make data traceable.",
+  },
+  {
+    title: "Disconnected Systems",
+    impact:
+      "ERP, CRM, cloud, Excel, and legacy systems operate separately.",
+    whatWeDo:
+      "We integrate them into one operational ecosystem with versioned contracts.",
+  },
+  {
+    title: "Excel-Based Operations",
+    impact:
+      "Critical workflows depend on spreadsheets and manual copy-paste.",
+    whatWeDo:
+      "We turn them into governed workflows, apps, APIs, and reports with audit.",
+  },
+  {
+    title: "Delayed Decisions",
+    impact:
+      "Leaders wait for data instead of acting with it.",
+    whatWeDo:
+      "We organize reporting, analytics, and AI Decision Agents flows around authorized sources.",
+  },
+  {
+    title: "Poor Traceability",
+    impact:
+      "Audits depend on emails, screenshots, and manually collected evidence.",
+    whatWeDo:
+      "We design audit-ready flows with sources, logs, approvals, and per-role permissions.",
+  },
+  {
+    title: "Operational Rework",
+    impact:
+      "Teams repeat the same validation and reconciliation work every cycle.",
+    whatWeDo:
+      "We automate checks, validations, and recurring processes with human control.",
+  },
+  {
+    title: "Insufficient Current-State Control",
+    impact:
+      "Managers see issues after the fact, when reaction is more expensive.",
+    whatWeDo:
+      "We create monitoring, alerts, dashboards, and AI-assisted operational visibility.",
+  },
+];
+
+/* HOME — Ecosystem orchestration pills */
+export const ECOSYSTEM_PILLS: string[] = [
+  "ERP",
+  "CRM",
+  "Cloud",
+  "APIs",
+  "Data Lakes",
+  "Excel",
+  "Legacy Systems",
+  "Automations",
+  "Artificial Intelligence",
+  "Advanced Analytics",
+];
+
+/* HOME — Capability bridge from integration to product (kept for
+   compatibility with the existing section). */
+export const EXPERIENCE_BRIDGE: {
+  step: string;
+  title: string;
+  description: string;
+  badges: string[];
+  icon: LucideIcon;
+}[] = [
+  {
+    step: "01",
+    title: "Enterprise integration",
+    description:
+      "Integration scope across SAP core, ABAP, RFC, IDocs, and governed middleware.",
+    badges: ["SAP", "ABAP", "Boomi", "HCI/CPI", "PI/PO"],
+    icon: Plug,
+  },
+  {
+    step: "02",
+    title: "Software factory",
+    description:
+      "A delivery model for portals, applications, and APIs with selected senior specialists.",
+    badges: ["Java", ".NET", "TypeScript", "Microservices"],
+    icon: Code2,
+  },
+  {
+    step: "03",
+    title: "Cloud & data",
+    description:
+      "Architecture options across AWS, Azure, GCP, and enterprise databases with source traceability.",
+    badges: ["AWS", "Azure", "GCP", "SAP HANA"],
+    icon: Cloud,
+  },
+  {
+    step: "04",
+    title: "Applied AI",
+    description:
+      "Corporate RAG, governed ML, and assistants connected to authorized processes and data.",
+    badges: ["GenAI", "ML", "MLOps", "RAG"],
+    icon: Brain,
+  },
+];
+
+/* HOME — preview of use cases (kept lightweight) */
+export const HOME_USE_CASES: {
+  title: string;
+  icon: LucideIcon;
+  href: string;
+}[] = [
+  { title: "HR", icon: Building2, href: "/industries/hr-payroll" },
+  { title: "Finance", icon: BarChart3, href: "/industries/finance" },
+  { title: "Operations", icon: Workflow, href: "/industries/operations" },
+  {
+    title: "Executive reporting",
+    icon: LineChart,
+    href: "/industries/executive-reporting",
+  },
+  { title: "Integrations", icon: Plug, href: "/industries/sap-integrations" },
+  { title: "Automation", icon: Wand2, href: "/industries/process-automation" },
+];
+
+/* CONTACT — what happens next (4 tight steps per spec) */
+export const CONTACT_AFTER_STEPS: {
+  step: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}[] = [
+  {
+    step: "01",
+    title: "We review your context",
+    description:
+      "We read your message and set up a short conversation to understand the real case.",
+    icon: Compass,
+  },
+  {
+    step: "02",
+    title: "We identify the bottleneck",
+    description:
+      "We pinpoint where the operation is losing time, money, or control.",
+    icon: Target,
+  },
+  {
+    step: "03",
+    title: "We define a quick-win scope",
+    description:
+      "We agree on one measurable problem, the sources we need, and the working window.",
+    icon: CheckCircle2,
+  },
+  {
+    step: "04",
+    title: "We propose a pilot or roadmap",
+    description:
+      "We send back a focused pilot proposal or a phased roadmap with deliverables.",
+    icon: ArrowRight,
+  },
+];
+
+/* Re-export used as legacy helper for components that imported the
+   old WHAT_WE_DO constant. */
+export const WHAT_WE_DO: {
+  verb: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  bullets: string[];
+}[] = [
+  {
+    verb: "We build",
+    title: "Enterprise software",
+    description:
+      "Internal platforms, portals, and tailored applications proposed with senior specialists selected for the project.",
+    icon: Code2,
+    bullets: [
+      "Mission-critical applications",
+      "Internal and supplier portals",
+      "APIs and versioned microservices",
+    ],
+  },
+  {
+    verb: "We connect",
+    title: "Systems that do not talk",
+    description:
+      "Governed integrations across SAP, cloud, APIs, and databases with explicit contracts and traceability.",
+    icon: Plug,
+    bullets: [
+      "SAP On-Premise, Cloud, and BTP",
+      "Boomi / HCI / PI middleware",
+      "Internal and third-party APIs",
+    ],
+  },
+  {
+    verb: "We automate",
+    title: "Operations with applied AI",
+    description:
+      "Copilots, assistants, and governed ML patterns grounded on authorized data and explicit business rules.",
+    icon: Sparkles,
+    bullets: [
+      "AI Decision Agents",
+      "Internal assistants over private data",
+      "Productive ML with MLOps",
+    ],
+  },
+];
+
+/* Legacy export name preserved for backward compatibility. */
+export const OPERATING_MODEL = IMPLEMENTATION_STEPS;

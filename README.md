@@ -1,151 +1,63 @@
-# Vexar Consulting · Sitio corporativo
+# 7 Business Solutions
 
-Sitio corporativo de la consultora tecnológica construido como aplicación
-estática con **Next.js (App Router) + TypeScript + Tailwind CSS**. Diseñado
-para desplegarse en **AWS S3 + CloudFront**.
+Sitio corporativo estático bilingüe de 7 Business Solutions. Las URL actuales publican español neutro y sus equivalentes en inglés viven bajo `/en`.
 
-Producto estrella destacado en el sitio: **Copiloto Empresarial**.
+## Tecnología
 
-## Stack
+- Next.js 15, React 19, TypeScript estricto y Tailwind CSS 3.
+- Export estático: dos builds localizados se combinan en un único `out/`.
+- API de contacto e infraestructura AWS declaradas en `infra/`.
+- Canonical de producción: `https://www.7businesssolutions.com`.
 
-- Next.js 15 (App Router)
-- TypeScript estricto
-- Tailwind CSS
-- `lucide-react` para iconografía
-- `clsx` + `tailwind-merge` para composición de clases
-- Export estático (`output: "export"`) sin SSR dinámico ni API routes
-
-## Estructura
-
-```
-app/
-├── layout.tsx              # Layout raíz (Navbar + Footer)
-├── page.tsx                # Home
-├── globals.css             # Tailwind + estilos base
-├── services/               # Servicios (overview + 4 detalles)
-├── copilot/                # Copiloto Empresarial (3 subpáginas)
-├── industries/             # Industrias / casos de uso
-├── experience/             # Experiencia
-└── contact/                # Contacto
-
-components/
-├── layout/                 # Navbar, MegaMenu, MobileNav, Footer
-├── home/                   # Secciones de la home
-├── copilot/                # Secciones del Copiloto Empresarial
-├── services/               # Hero, grid y detalle de servicios
-├── contact/                # ContactForm
-└── ui/                     # Button, Card, Section, Badge
-
-lib/
-├── navigation.ts           # NAVIGATION y FOOTER_LINKS
-├── site-data.ts            # Datos de servicios, copiloto, industrias
-├── constants.ts            # SITE, contacto, endpoint
-└── utils.ts                # cn()
-
-public/
-├── favicon.svg
-└── logo.svg
-```
-
-## Desarrollo local
-
-Requisitos: Node.js 18.18+ (recomendado 20+) y npm.
+## Uso local
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
-Abre `http://localhost:3000`.
-
-### Scripts disponibles
-
-| Script              | Descripción                                       |
-| ------------------- | ------------------------------------------------- |
-| `npm run dev`       | Servidor de desarrollo                            |
-| `npm run build`     | Build estático (`out/` listo para S3)             |
-| `npm run start`     | Sirve el build (`out/`) — útil para validar local |
-| `npm run lint`      | Lint con ESLint (next/core-web-vitals)            |
-| `npm run typecheck` | Verifica tipos sin emitir (`tsc --noEmit`)        |
-
-## Build estático para S3 + CloudFront
-
-`next.config.ts` ya incluye:
-
-```ts
-const nextConfig = {
-  output: "export",
-  images: { unoptimized: true },
-  trailingSlash: true,
-};
-```
-
-Para generar el sitio:
+El servidor de desarrollo usa español. El build completo genera ambos idiomas:
 
 ```bash
+npm run typecheck
+npm run lint
 npm run build
+npm run validate:export
+npm run start
 ```
 
-Se genera la carpeta `out/` con HTML/CSS/JS estático.
+## Variables de build
 
-### Despliegue en AWS
+Copia `.env.example` a `.env.local`. Todas son públicas porque se incorporan al sitio estático; nunca deben contener secretos.
 
-1. Crear bucket S3 (sin acceso público directo si vas a usar CloudFront con
-   OAC, o configurarlo como sitio estático si no).
-2. Subir el contenido de `out/` al bucket:
+- `NEXT_PUBLIC_CONTACT_ENDPOINT`: API pública del formulario.
+- `NEXT_PUBLIC_LAUNCH_READY`: activa indexación y validaciones de lanzamiento.
+- `NEXT_PUBLIC_LEGAL_REVIEWED`: confirma la revisión legal final.
+- `NEXT_PUBLIC_EU_MARKET_ENABLED`: activa declaraciones comerciales y obligaciones configuradas para el mercado de la Unión Europea; por defecto es `false` y el sitio se presenta únicamente para México.
+- `NEXT_PUBLIC_EU_REP_*`: representante requerido cuando el mercado UE está activo.
 
-   ```bash
-   aws s3 sync out/ s3://<tu-bucket> --delete
-   ```
+Cuando `NEXT_PUBLIC_LAUNCH_READY=true`, el build falla si falta el endpoint o la revisión legal. El representante UE solo se exige cuando `NEXT_PUBLIC_EU_MARKET_ENABLED=true`. Sin endpoint, el formulario informa que no está configurado y nunca muestra un éxito simulado.
 
-3. Crear distribución de CloudFront apuntando al bucket.
-4. Configurar `index.html` como default root object.
-5. Para rutas internas tipo `/copilot/`, `trailingSlash: true` ya genera
-   las páginas como carpetas con `index.html` dentro, por lo que CloudFront
-   las sirve correctamente sin reglas adicionales.
-6. Habilitar HTTPS con un certificado en ACM (us-east-1).
+## Rutas y SEO
 
-### Invalidaciones
+- 52 rutas canónicas por idioma; 104 URL en sitemap.
+- `hreflang` para `es`, `en` y `x-default`.
+- Metadata y Open Graph localizados.
+- JSON-LD `Organization`, `WebSite`, `Service` y `Person` sin ratings ni `LocalBusiness`.
+- 404 y límites de error personalizados.
 
-Tras cada despliegue:
+## Contacto y privacidad
 
-```bash
-aws cloudfront create-invalidation \
-  --distribution-id <ID> \
-  --paths "/*"
-```
+El formulario envía únicamente a `ventas@7businesssolutions.com` mediante API Gateway, Lambda y SES. El visitante se utiliza como `Reply-To`; AWS no almacena leads. Los logs técnicos no incluyen el cuerpo y se eliminan a los 30 días.
 
-## Formulario de contacto
+El lanzamiento actual y sus avisos jurídicos se limitan al mercado mexicano. La activación comercial de la Unión Europea permanece bloqueada hasta completar sus requisitos específicos y el representante correspondiente.
 
-El formulario (`components/contact/ContactForm.tsx`) valida del lado cliente
-y envía un `POST` JSON a la variable pública:
+## AWS
 
-```
-NEXT_PUBLIC_CONTACT_ENDPOINT
-```
+Consulta [`infra/README.md`](infra/README.md) para validar y desplegar API Gateway, Lambda, SES, WAF, S3 privado y CloudFront. El procedimiento preserva los registros MX, SPF, DKIM y DMARC de Google Workspace.
 
-Está pensada para apuntar a **API Gateway → Lambda → SES**.
+## Reglas de contenido
 
-- Si la variable está vacía en build time, el formulario muestra un estado
-  controlado indicando que falta conectar el endpoint corporativo.
-- No se usa una API route de Next.js (rompería el export estático).
-
-Configura la variable en `.env.local` (copia de `.env.example`) antes de
-ejecutar `npm run build`.
-
-## Convenciones
-
-- **Naming:** componentes en PascalCase, archivos `.tsx` por componente.
-- **Imports:** ruta absoluta vía alias `@/*` (configurado en `tsconfig.json`).
-- **Estilos:** Tailwind utility-first con tokens en `tailwind.config.ts`
-  (`brand`, `ink`, `accent`). Sin CSS modules.
-- **Datos:** todo el contenido editorial vive en `lib/site-data.ts` y
-  `lib/navigation.ts` para facilitar mantenimiento.
-
-## Reglas del proyecto
-
-- El producto estrella se llama **Copiloto Empresarial**. No usar otros nombres
-  hasta que el cliente defina el nombre comercial final.
-- El sitio no es una landing larga: tiene rutas internas reales y navegación
-  jerárquica.
-- No incorporar dependencias o features que rompan la exportación estática.
+- No publicar métricas, clientes, certificaciones, logos, testimonios o fotografías sin evidencia y autorización.
+- Presentar capacidades como experiencia del equipo; la sociedad inició operaciones en 2026.
+- Conservar como marcas `7 Business Solutions`, `Agentes de Decisión IA`, SAP y nombres técnicos. La ruta histórica `/copilot` se mantiene por compatibilidad, pero no forma parte del nombre visible del producto.

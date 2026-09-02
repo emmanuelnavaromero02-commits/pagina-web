@@ -1,15 +1,19 @@
-import type { Metadata } from "next";
 import { ContactCTA } from "@/components/home/ContactCTA";
-import { ServiceDetail } from "@/components/services/ServiceDetail";
+import { Deliverables } from "@/components/services/Deliverables";
+import { EnterpriseAIBlocks } from "@/components/services/EnterpriseAIBlocks";
 import { ServiceHero } from "@/components/services/ServiceHero";
+import { WhenToUse } from "@/components/services/WhenToUse";
 import { SERVICE_DETAILS } from "@/lib/site-data";
+import { l } from "@/lib/i18n/config";
+import { createPageMetadata } from "@/lib/seo";
 
 const detail = SERVICE_DETAILS["enterprise-ai"];
 
-export const metadata: Metadata = {
-  title: detail.title,
+export const metadata = createPageMetadata({
+  path: "/services/enterprise-ai",
+  title: `${detail.title} · GenAI · ML · Corporate RAG`,
   description: detail.intro,
-};
+});
 
 export default function EnterpriseAIPage() {
   return (
@@ -20,7 +24,15 @@ export default function EnterpriseAIPage() {
         description={detail.intro}
         icon={detail.icon}
       />
-      <ServiceDetail slug="enterprise-ai" />
+      <EnterpriseAIBlocks />
+      <WhenToUse slug="enterprise-ai" variant="dark" />
+      <Deliverables
+        slug="enterprise-ai"
+        related={{
+          label: l("Conocer los Agentes de Decisión IA", "Explore AI Decision Agents"),
+          href: "/copilot",
+        }}
+      />
       <ContactCTA />
     </>
   );

@@ -1,14 +1,15 @@
 import { Card, CardDescription, CardTitle } from "@/components/ui/Card";
 import { Section, SectionHeader } from "@/components/ui/Section";
-import { COPILOT_SECURITY } from "@/lib/site-data";
+import { COPILOT_SECURITY } from "@/lib/data/copilot";
+import { l } from "@/lib/i18n/config";
 
 export function CopilotSecurity() {
   return (
     <Section id="security" className="bg-white">
       <SectionHeader
-        eyebrow="Seguridad y permisos"
-        title="Control real sobre lo que el copiloto puede ver y hacer"
-        description="Diseñado para entornos corporativos: permisos por rol, trazabilidad de acciones y validación antes de ejecutar."
+        eyebrow={l("Autonomía con límites verificables", "Autonomy with verifiable boundaries")}
+        title={l("Capacidad operativa sin perder el control", "Operational capability without losing control")}
+        description={l("Aislamiento por organización, permisos definidos, evidencia congelada y aprobación humana antes de acciones sensibles.", "Organization-level isolation, defined permissions, frozen evidence, and human approval before sensitive actions.")}
       />
       <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {COPILOT_SECURITY.map((s) => {
