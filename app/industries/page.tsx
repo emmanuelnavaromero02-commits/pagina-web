@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/ui/SafeLink";
 import { ArrowRight } from "lucide-react";
 import { ContactCTA } from "@/components/home/ContactCTA";
 import { Section, SectionHeader } from "@/components/ui/Section";

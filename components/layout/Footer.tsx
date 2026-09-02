@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/ui/SafeLink";
 import { ArrowUpRight, BrainCircuit, CodeXml, Github, Linkedin, Mail, Phone } from "lucide-react";
 import {
   EU_MARKET_ENABLED,

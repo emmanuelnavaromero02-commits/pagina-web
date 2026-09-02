@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/ui/SafeLink";
 import { ArrowRight, Brain, Code2, Network, Workflow } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { l } from "@/lib/i18n/config";

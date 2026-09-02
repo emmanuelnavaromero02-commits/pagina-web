@@ -1,5 +1,5 @@
 import { ArrowRight, CheckCircle2 } from "lucide-react";
-import Link from "next/link";
+import Link from "@/components/ui/SafeLink";
 import { Card, CardDescription, CardTitle } from "@/components/ui/Card";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { SOFTWARE_FACTORY_PAGES } from "@/lib/data/specialized-services";

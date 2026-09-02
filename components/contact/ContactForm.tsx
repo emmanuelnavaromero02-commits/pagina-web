@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/ui/SafeLink";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { CheckCircle2, Loader2, Mail } from "lucide-react";
 import { Button } from "@/components/ui/Button";
